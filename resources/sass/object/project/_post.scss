@@ -1,0 +1,93 @@
+.p-postsWrapper{
+  width: 100%;
+  margin: 0 auto;
+  max-width: 600px;
+  @include _mq-up(){
+    max-width: unset;
+  }
+  + .p-postsWrapper{
+    margin-top: 50px;
+  }
+}
+.p-posts{
+  display: block;
+  @include _mq-up(lg){
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  &-title{
+    font-size: 24px;
+    margin-bottom: 25px;
+  }
+  &-btnWrapper{
+    margin-top: 30px;
+    @include _flex-center();
+  }
+  &-btn{
+    width: 218px;
+    height: 51px;
+    border-radius: 25px;
+    border: 1px solid $_color-link;
+    &-wrapper{
+      display: flex;
+      justify-content: center;
+    }
+  }
+  &--mypage{
+    display: block;
+    @include _mq-up(lg){
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+  }
+}
+.p-post{
+  width: 100%;
+  margin-bottom: 20px;
+  @include _mq-up(lg){
+    width: calc((100% - 40px) / 3);
+  }
+  &--mypage{
+    width: 100%;
+    margin-bottom: 20px;
+    @include _mq-up(lg){
+      width: calc((100% - 40px) / 3);
+    }
+    a{
+      text-decoration: none;
+      color: $_color-text;
+      &:hover{
+        .p-post-image{
+          border-radius: 50px;
+          overflow: hidden;
+        }
+      }
+    }
+  }
+  &-title{
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  &-txt{
+    line-height: 1.88;
+  }
+  &-image{
+    transition: all 0.2s;
+    margin-bottom: 15px;
+    @include _mq-up(lg){
+      margin-bottom: 18px;
+    }
+  }
+  a{
+    text-decoration: none;
+    color: $_color-text;
+    &:hover{
+      .p-post-image{
+        border-radius: 50px;
+        overflow: hidden;
+      }
+    }
+  }
+}

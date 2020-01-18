@@ -1,0 +1,9 @@
+.p-footer{
+  background-color: #333;
+  @include _flex-center();
+  &__copyright{
+    font-size: 10px;
+    color: #fff;
+    letter-spacing: 0.1em;
+  }
+}

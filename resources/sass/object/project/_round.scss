@@ -1,0 +1,9 @@
+.p-round{
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 30px 16px;
+  @include _mq-up(){
+    border-radius: 30px;
+    padding: 50px 35px;
+  }
+}

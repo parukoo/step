@@ -1,0 +1,122 @@
+.p-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @include _mq-up(){
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  &-titleWrapper{
+    margin-bottom: 0;
+    @include _mq-up(){
+      width: 160px;
+      margin: 0 auto 50px;
+    }
+    a{
+      text-decoration: none;
+      color: $_color-text;
+      display: flex;
+      align-items: center;
+      @include _mq-up(){
+        display: block;
+      }
+    }
+  }
+  &-title{
+    width: 120px;
+    margin-right: 10px;
+    @include _mq-up(){
+      width: 160px;
+      margin-right: 0;
+    }
+  }
+  &-subtitle{
+    font-size: 13px;
+  }
+  &-pcMenu{
+    @include _mq-up(){
+      ul > li a{
+        display: inline-block;
+        color: $_color-text;
+        font-size: 18px;
+        font-weight: $_font-weight-bold;
+        text-decoration: none;
+        margin-bottom: 30px;
+      }
+    }
+  }
+  &-btns{
+    @include _mq-up(){
+      position: absolute;
+      bottom: 0;
+      ul > li{
+        margin-bottom: 15px;
+        &:first-child a{
+          display: flex;
+          align-items: center;
+          text-decoration: none;
+          color: #000;
+        }
+      }
+    }
+  }
+  &-btn{
+    width: 160px;
+    height: 40px;
+    border-radius: 20px;
+    &.--login{
+      background-color: #fff;
+      border: 1px solid $_color-line;
+      a{
+        color: $_color-text;
+      }
+    }
+    &.--signup{
+      background-color: $_color-link;
+      border: 1px solid $_color-link;
+      a{
+        color: #fff;
+      }
+    }
+    @include _mq-up(){
+    }
+  }
+  &-humberger{
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    height: 30px;
+    width: 35px;
+    span{
+      display: block;
+      cursor: pointer;
+      margin-right: 20px;
+      -webkit-transition: all .4s ease;
+      transition: all .4s ease;
+      &:nth-of-type(1){
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 35px;
+        background-color: #333;
+        height: 2px;
+        margin-bottom: 10px;
+      }
+      &:nth-of-type(2){
+        position: absolute;
+        left: 0;
+        top: 10px;
+        width: 30px;
+        background-color: #333;
+        height: 2px;
+        margin-bottom: 10px;
+      }
+      &:nth-of-type(3){
+        font-size: 12px;
+        position: absolute;
+        bottom: 0;
+      }
+    }
+  }
+}

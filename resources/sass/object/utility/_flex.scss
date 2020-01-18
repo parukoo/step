@@ -1,0 +1,19 @@
+.u-flex{
+  &-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.u-display-sp{
+  display: block;
+  @include _mq-up(){
+    display: none;
+  }
+}
+.u-display-pc{
+  display: none;
+  @include _mq-up(){
+    display: block;
+  }
+}

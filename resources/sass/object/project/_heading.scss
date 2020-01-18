@@ -1,0 +1,39 @@
+.p-headingWrapper{
+  margin-bottom: 25px;
+  line-height: 1.5;
+  @include _mq-up(){
+    display: flex;
+    align-items: center;
+    margin-bottom: 35px;
+  }
+  &--register{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 30px;
+  }
+}
+.p-heading{
+  font-size: 30px;
+  color: $_color-text;
+  @include _mq-up(){
+    font-size: 40px;
+  }
+  span{
+    color: $_color-link;
+  }
+  &-sub{
+    font-size: 14px;
+    padding-left: 0;
+    @include _mq-up(){
+      padding-left: 30px;
+    }
+    &--register{
+      font-size: 16px;
+      letter-spacing: 0.02em;
+      display: inline-block;
+      margin-top: 20px;
+    }
+  }
+}

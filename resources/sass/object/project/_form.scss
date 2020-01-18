@@ -1,0 +1,309 @@
+.p-formWrapper{
+  padding: 80px 16px 100px;
+  background-color: #fff;
+  &.--register{
+    background-color: $_color-bg;
+  }
+  @include _mq-up(){
+    padding: 80px 36px 100px;
+  }
+}
+.p-form{
+  max-width: 740px;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 30px;
+  background-color: $_color-bg;
+  box-shadow: 0 3px 16px 0 rgba(0, 0, 0, 0.16);
+  padding: 55px 16px;
+  @include _mq-up(){
+    padding: 100px 70px;
+  }
+  text-align: center;
+  &.--register{
+    background-color: #fff;
+  }
+  &-title{
+    @include _flex-center();
+    margin-bottom: 50px;
+    img{
+      width: 150px;
+      @include _mq-up(){
+        width: 241.3px;
+        height: 93px;
+      }
+    }
+  }
+  &-links{
+    display: flex;
+    margin-bottom: 30px;
+    @include _mq-up(){
+      margin-bottom: 76.5px;
+    }
+  }
+  &-link{
+    width: 50%;
+    font-size: 16px;
+    color: $_color-line;
+    border-bottom: 2px solid $_color-line;
+    padding-bottom: 13.5px;
+    cursor: pointer;
+    &.is-active{
+      color: $_color-link;
+      border-color: $_color-link;
+    }
+  }
+  &-flow{
+    display: flex;
+    margin-bottom: 35px;
+    &__item{
+      text-align: left;
+      padding: 10px 5px 10px 7px;
+      background-color: $_color-line;
+      position: relative;
+      font-size: 10px;
+      line-height: 1;
+      margin-right: 13px;
+      height: 46px;
+      @include _mq-up(sm){
+        padding: 10px 13px;
+        margin-right: 26px;
+        font-size: 14px;
+        height: 64px;
+        margin-right: 17px;
+      }
+      @include _mq-up(){
+        padding: 13px 16px;
+      }
+      a{
+        color: $_color-text;
+        text-decoration: none;
+      }
+      span{
+        display: block;
+        font-size: 10px;
+        line-height: 1;
+        font-weight: bold;
+        margin-bottom: 3px;
+        letter-spacing: 0.04em;
+        @include _mq-up(sm){
+          font-size: 14px;
+          margin-bottom: 6px;
+        }
+      }
+      &::before{
+        position: absolute;
+        content: '';
+        top: 0;
+        left: -12px;
+        border-left: 12px solid transparent;
+        border-top: 23px solid $_color-line;
+        border-bottom: 23px solid $_color-line;
+        @include _mq-up(sm){
+          left: -15px;
+          border-left: 15px solid transparent;
+          border-top: 32px solid $_color-line;
+          border-bottom: 32px solid $_color-line;
+        }
+        // @include _mq-up(){
+        //   left: -24px;
+        //   border-left: 24px solid transparent;
+        //   border-top: 30px solid $_color-line;
+        //   border-bottom: 30px solid $_color-line;
+        // }
+      }
+      &::after{
+        position: absolute;
+        content: '';
+        top: 0;
+        right: -12px;
+        display: inline-block;
+        border-left: 12px solid $_color-line;
+        border-top: 23px solid transparent;
+        border-bottom: 23px solid transparent;
+        @include _mq-up(sm){
+          right: -15px;
+          border-left: 15px solid $_color-line;
+          border-top: 32px solid transparent;
+          border-bottom: 32px solid transparent;
+        }
+        // @include _mq-up(){
+        //   right: -24px;
+        //   border-left: 24px solid $_color-line;
+        //   border-top: 30px solid transparent;
+        //   border-bottom: 30px solid transparent;
+        // }
+      }
+      &:first-child{
+        flex-grow: 1.2;
+        &::before{
+          display: none;
+        }
+      }
+      &:last-child{
+        flex-grow: 1.2;
+        margin-right: 0;
+        &::after{
+          display: none;
+        }
+      }
+      &.is-active{
+        background-color: $_color-link;
+        &::before{
+          border-top: 30px solid $_color-link;
+          border-bottom: 30px solid $_color-link;
+          @include _mq-up(){
+            border-top: 32px solid $_color-link;
+            border-bottom: 32px solid $_color-link;
+          }
+        }
+        &::after{
+          border-left: 12px solid $_color-link;
+          @include _mq-up(sm){
+            border-left: 15px solid $_color-link;
+          }
+        }
+      }
+    }
+  }
+  &-inputs{
+    padding: 0;
+    margin-bottom: 25px;
+    @include _mq-up(){
+      padding: 0 20px;
+      margin-bottom: 50px;
+    }
+    dl{
+      display: block;
+      margin-bottom: 30px;
+      @include _mq-up(){
+        display: flex;
+        align-items: center;
+      }
+      > dt{
+        text-align: left;
+        line-height: 1.67;
+        font-size: 10px;
+        margin-bottom: 5px;
+        @include _mq-up(){
+          margin-right: 20px;
+          font-size: 14px;
+          margin-bottom: 0;
+        }
+        span{
+          background-color: $_color-link;
+          color: #fff;
+          font-size: 10px;
+          border-radius: 15px;
+          padding: 3px 8px;
+          margin-left: 10px;
+          line-height: 1.5;
+          @include _mq-up(){
+            font-size: 14px;
+            margin-left: 20px;
+          }
+        }
+      }
+      > dd{
+        flex: 1;
+        input[type="text"]{
+          height: 53px;
+          width: 100%;
+          padding: 10px 20px;
+          font-size: 16px;
+          border: none;
+          border-radius: 10px;
+          outline: none;
+          background-color: $_color-line;
+          @include _mq-up(){
+            height: 60px;
+          }
+          &::placeholder {
+            color: $_color-line;
+            @include _mq-up(){
+              color: #fff;
+            }
+          }
+        }
+        select{
+          height: 53px;
+          width: 50%;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          border: none;
+          outline: none;
+          padding: 10px 20px;
+          font-size: 16px;
+          background-color: $_color-line;
+          border-radius: 10px;
+          color: #fff;
+          @include _mq-up(){
+            background-color: $_color-line;
+            height: 60px;
+          }
+          &::placeholder {
+            color: $_color-line;
+            @include _mq-up(){
+              color: #fff;
+            }
+          }
+        }
+        textarea{
+          width: 100%;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          resize: none;
+          border: 0;
+          outline: none;
+          padding: 10px 20px;
+          font-size: 16px;
+          border-radius: 10px;
+          background-color: $_color-line;
+          @include _mq-up(){
+            background-color: $_color-line;
+          }
+        }
+      }
+    }
+    &.--register{
+      padding: 0;
+      text-align: left;
+      dl{
+        display: block;
+        > dt{
+          margin-bottom: 5px;
+        }
+        > dd{
+          .p-form-input__time{
+            width: 30%;
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  &-submit{
+    text-align: center;
+    input[type="submit"]{
+      width: 100%;
+      height: 60px;
+      background-color: $_color-link;
+      display: inline-block;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      padding: 0;
+      border: none;
+      outline: none;
+      font-size: 20px;
+      border-radius: 30px;
+      color: #fff;
+      @include _mq-up(){
+        width: 208px;
+      }
+    }
+  }
+}

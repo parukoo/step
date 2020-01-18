@@ -1,0 +1,9 @@
+.l-main{
+    width: 100%;
+    padding-top: 70px;
+    @include _mq-up(){
+      padding-left: 218px;
+      flex: 1;
+      padding-top: 0;
+    }
+  }

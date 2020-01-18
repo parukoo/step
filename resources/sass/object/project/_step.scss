@@ -1,0 +1,170 @@
+.p-stepHeader-wrapper{
+  padding: 8px;
+  @include _mq-up(lg){
+    padding: 0;
+  }
+}
+.p-stepHeader{
+  width: 100%;
+  padding: 30px 0 0;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  z-index: -2;
+  border-radius: 10px;
+  @include _mq-up(lg){
+    height: 460px;
+    padding: 45px 0;
+  }
+  &::before{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    @include _mq-up(lg){
+      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) -1%, rgba(0, 0, 0, 0.6));
+    }
+  }
+  &-container{
+    display: block;
+    width: 100%;
+    @include _mq-up(lg){
+      justify-content: space-between;
+      display: flex;
+      padding: 0 45px 0 60px;
+      position: absolute;
+      top: 110px;
+      align-items: flex-end;
+    }
+  }
+  &-title{
+    color: $_color-text;
+    display: inline-block;
+    padding: 0 16px;
+    width: 100%;
+    @include _mq-up(lg){
+      flex: 1;
+      color: #fff;
+      padding: 20px 16px;
+      padding-bottom: 100px;
+    }
+    &-category{
+      display: inline-block;
+      margin-bottom: 0.5em;
+      &::before{
+        content: '';
+        vertical-align: 5px;
+        display: inline-block;
+        background-color: $_color-text;
+        width: 15px;
+        height: 1px;
+        margin-right: 5px;
+        @include _mq-up(lg){
+          background-color: #fff;
+        }
+      }
+    }
+    &-name{
+      font-size: 24px;
+      margin-bottom: 0.5em;
+      line-height: 1.5;
+      @include _mq-up(lg){
+        font-size: 30px;
+      }
+      @include _mq-up(xl){
+        font-size: 36px;
+      }
+    }
+    &-icons{
+      display: none;
+      @include _mq-up(lg){
+        display: block;
+      }
+      @include _mq-up(xl){
+        display: flex;
+      }
+      li {
+        > span{
+          margin-right: 10px;
+        }
+        + li{
+          @include _mq-up(lg){
+            margin-top: 10px;
+          }
+          @include _mq-up(xl){
+            margin-top: 0;
+            margin-left: 30px;
+          }
+        }
+      }
+    }
+  }
+  &-info{
+    @include _mq-up(lg){
+      width: 400px;
+    }
+    @include _mq-up(xl){
+      width: 460px;
+    }
+    &-txtWrapper{
+      padding: 0 16px 30px;
+      @include _mq-up(lg){
+        background-color: #ffdd6c;
+        padding: 35px 25px;
+      }
+      p{
+        line-height: 1.88;
+        margin-bottom: 1em;
+        font-size: 16px;
+        @include _mq-up(lg){
+          margin-bottom: 35px;
+        }
+      }
+      input[type="submit"]{
+        background-color: #49a05d;
+        color: #fff;
+        width: 190px;
+        height: 50px;
+        border-radius: 4px;
+        border: none;
+        box-shadow: 0 3px 0 0 #2f673c;
+        font-size: 14px;
+      }
+      > ul {
+        margin-bottom: 30px;
+        @include _mq-up(lg){
+          display: none;
+        }
+        li {
+          font-size: 14px;
+          margin-bottom: 10px;
+          > span{
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+    &-score{
+      display: flex;
+      padding: 25px 16px;
+      background-color: #fff;
+      border-radius: 0 0 10px 10px;
+      @include _mq-up(lg){
+        padding: 30px 25px;
+        border-radius: 0;
+      }
+      > ul{
+        width: 50%;
+        li{
+          + li{
+            margin-top: 12px;
+          }
+        } 
+      }
+    }
+  }
+}
