@@ -3,25 +3,21 @@
     <h4 class="p-stepSingle-menu-title">STEP学習一覧</h4>
     <ul>
       <li 
-      v-for="kostep in kosteps"
-      :class="{ done : kostep.completed}"
-      :key="kostep.id">
-      <a :href="`/steps/${stepId}/${kostep.flow_id}`">{{ kostep.title }}</a></li>
+      v-for="flowitem in flowmenu"
+      :class="{ done : flowitem.completed }"
+      :key="flowitem.flow_id">
+        <a :href="'/steps/' + flowitem.step_id + '/' + flowitem.flow_id">{{ flowitem.title }}</a>
+      </li>
     </ul>
   </div>
 </template>
 
 <script>
+  const axios = require('axios'); 
   export default {
     name: 'StepDetailmenu',
     props:{
-      kosteps: Array,
-      stepId: Number
-    },
-    data(){
-      return{
-
-      }
+      flowmenu: { type:Array, required: true }
     }
   }
 </script>

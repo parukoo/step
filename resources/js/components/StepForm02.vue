@@ -7,18 +7,26 @@
           :key="kostep.index">
           <kostep-item
             :kostep="kostep"
-            @update="updateForm"></kostep-item>
+            :nextBtn="nextBtn"
+            @next="next"
+            @updateForm="updateForm"></kostep-item>
         </div>
       </div>
-      <div>
-        <button @click="add">ステップを追加する</button>
-      </div>
     </div>
+    <button
+      type="button" 
+      @click="add">STEPを追加する</button>
+      
     <div class="p-form-submit">
-      <input 
+      <button
         class="c-btn" 
         type="button" 
-        value="Next">
+        @click="backStep">Back</button>
+      <button
+        class="c-btn" 
+        type="button" 
+        :disabled="!nextBtn"
+        @click="nextStep">Next</button>
     </div>
   </form>
 </template>
@@ -58,7 +66,20 @@ export default {
         title: null,
         info: null
       })
-      // console.log('aaa');
+      this.nextBtn = false
+    },
+    next(val){
+      this.nextBtn = val
+    },
+    backStep(){
+      this.$emit('backStep');
+    },    
+    nextStep(){
+      if(this.nextBtn == false){
+        console.log('バリデーションエラー');
+      }else{
+        this.$emit('nextStep');
+      }
     }
 	}
 }

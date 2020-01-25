@@ -1,5 +1,5 @@
 <template>
-  <a :href="`/steps/${stepId}/${kostep.flow_id}`">
+  <a :href="'/steps/' + kostep.step_id + '/' + kostep.flow_id">
     <div class="p-flow-item-txtWrapper">
       <h4>{{ kostep.title }}</h4>
       <p>{{ kostep.info }}</p>
@@ -14,12 +14,10 @@
   export default {
     name: 'StepFlowitem',
     props:{
-      kostep: Object,
-      step: Object
+      kostep: { type:Object, required: true }
     },
     data(){
       return{
-        stepId: 1,
       }
     }
   }

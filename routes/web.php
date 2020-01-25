@@ -2,25 +2,34 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
-Route::get('/', function () {
-    return view('index');
-});
+//TOPページ
+Route::get('/', 'StepsController@index')->name('steps.index');
+
+//TOPページ（Ajax　データ取得）
+Route::get('/ajax/index', 'Ajax\StepController@index');
+
 //STEP新規登録ページ
 Route::get('/steps/new', 'StepsController@new')->name('steps.new');
-Route::post('/steps', 'StepsController@store')->name('steps.store');
+Route::post('/steps', 'StepsController@store');
 
 //STEP一覧ページ
-Route::get('/steps', 'StepsController@index')->name('steps');
-Route::get('/ajax/steps', 'Ajax\StepController@index')->name('ajaxsteps');
+Route::get('/steps', 'StepsController@arichive')->name('steps');
+Route::get('/ajax/steps', 'Ajax\StepController@arichive')->name('ajaxsteps');
+
+//STEP流れページ
+Route::get('/steps/{step_id}', 'StepsController@flow')->name('steps.flow');
+
+//STEP流れページ（Ajax　データ取得）
+Route::get('/ajax/stepFlow', 'Ajax\StepController@flow');
 
 //STEP詳細ページ
-Route::get('/steps/{step_id}', 'StepsController@show')->name('steps.show');
-Route::get('/ajax/stepsingle/{step_id}', 'Ajax\StepController@show');
-
-//子STEP詳細ページ
 Route::get('/steps/{step_id}/{flow_id}', 'StepsController@detail')->name('steps.detail');
-Route::get('/ajax/kosteps/{step_id}', 'Ajax\StepController@detail');
-Route::post('/ajax/complete', 'Ajax\StepController@ajaxcomplete');
+
+//STEP詳細ページ（Ajax　データ取得）
+Route::get('/ajax/kostepDetail', 'Ajax\StepController@detail');
+
+//子STEP完了
+Route::post('/ajax/completed', 'Ajax\StepController@completed');
 
 //マイページ
 Route::get('/mypage', 'StepsController@mypage')->name('mypage');

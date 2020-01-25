@@ -16,31 +16,17 @@
       <step-form02 
         v-if="stepNumber === 2"
         @update="updateForm"
+        @backStep="backStep" 
         @nextStep="nextStep" 
         ></step-form02>
 
       <step-form03
         :form ="form"
+        @backStep="backStep" 
+        @nextStep="nextStep" 
         v-if="stepNumber === 3"></step-form03>
       <step-form04 v-if="stepNumber === 4"></step-form04>
     </keep-alive>
-
-    <pre><code>{{ form }}</code></pre>
-
-    <!-- <div class="p-form-submit">
-      <input 
-        class="c-btn" 
-        type="button" 
-        @click="backStep" 
-        v-show="stepNumber != 1" 
-        value="Back">
-      <input 
-        class="c-btn" 
-        type="button" 
-        @click="nextStep" 
-        v-show="stepNumber != 4" 
-        value="Next">
-    </div> -->
 
   </div>
 </template>
@@ -76,9 +62,9 @@ export default {
 		updateForm(formData){
 			Object.assign(this.form, formData);
     },
-    // backStep(){
-    //   this.stepNumber--;
-    // },			
+    backStep(){
+      this.stepNumber--;
+    },			
     nextStep(){
       this.stepNumber++;
     }

@@ -4,13 +4,15 @@ import Vue from 'vue'
 
 import Vuelidate from 'vuelidate'
 Vue.use(Vuelidate);
-
+Vue.component('step-index', require('./components/StepIndex.vue').default);
+Vue.component('step-indexlist', require('./components/StepIndexlist.vue').default);
+Vue.component('step-indexitem', require('./components/StepIndexitem.vue').default);
 Vue.component('step-list', require('./components/StepList.vue').default);
 Vue.component('step-item', require('./components/StepItem.vue').default);
+Vue.component('step-flow', require('./components/StepFlow.vue').default);
+Vue.component('step-flowheader', require('./components/StepFlowheader.vue').default);
 Vue.component('step-flowlist', require('./components/StepFlowlist.vue').default);
 Vue.component('step-flowitem', require('./components/StepFlowitem.vue').default);
-Vue.component('step-header', require('./components/StepHeader.vue').default);
-Vue.component('step-single', require('./components/StepSingle.vue').default);
 Vue.component('step-detail', require('./components/StepDetail.vue').default);
 Vue.component('step-detailmenu', require('./components/StepDetailmenu.vue').default);
 Vue.component('step-detailcontent', require('./components/StepDetailcontent.vue').default);

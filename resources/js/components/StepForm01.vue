@@ -96,11 +96,12 @@ export default {
       title: null,
       info: null,
       time: null,
-      category_id: 'A',
+      category_id: '1',
       options: [
-        { text: '動画編集', value: 'A' },
-        { text: 'プログラミング', value: 'B' },
-        { text: 'ダイエット', value: 'C' }
+        { text: '動画編集', value: '1' },
+        { text: 'プログラミング', value: '2' },
+        { text: 'ダイエット', value: '3' },
+        { text: 'フランス語', value: '4' }
       ]
     }
   },

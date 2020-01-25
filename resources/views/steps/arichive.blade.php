@@ -9,9 +9,9 @@
           <h2 class="p-heading"><span>R</span>anking Step</h2>
           <span class="p-heading-sub">人気のSTEPです。</span>
         </div>
-        <div id="app">
-          <step-index></step-index>
-        </div>
+      </div>
+      <div class="p-postsWrapper" id="app">
+        <step-list></step-list>
       </div>
     </section>
     @include('components/footer')

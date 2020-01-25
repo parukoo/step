@@ -7,7 +7,7 @@
           id="title" 
           type="text" 
           v-model="kostep.title"
-          @input="update" 
+          @input="submit(); next()" 
           placeholder="50文字以内で入力してください">
         <span v-if="!$v.kostep.title.required" class="p-form__errorMsg" role="alert">
           <strong>タイトルが入力されていません</strong>
@@ -23,7 +23,7 @@
         <textarea 
           id="info" 
           v-model="kostep.info"
-          @input="update" 
+          @input="submit(); next()" 
           cols="30" rows="10"></textarea>
         <span v-if="!$v.kostep.info.required" class="p-form__errorMsg" role="alert">
           <strong>紹介文が入力されていません</strong>
@@ -40,10 +40,11 @@ import { required, maxLength } from 'vuelidate/lib/validators'
 export default {
   name: 'KostepItem',
   props: {
-    kostep: Object
+    kostep: { type:Object, required: true },
+    nextBtn: { type:Boolean, required: true }
   },
   validations:{
-    kostep: {
+    kostep:{
       title:{
         required,
         maxLength: maxLength(50)
@@ -54,13 +55,25 @@ export default {
       }
     }
   },
+  watch:{
+
+  },
   methods:{
-		update(){
-			this.$emit('updateForm',{
+		submit(){
+      this.$emit('updateForm',{
         id: this.id,
-				title: this.title,
-        info: this.info
-			});
+        title: this.title,
+        info: this.info,
+      });
+    },
+    next(){
+      if(this.$v.$invalid){
+        this.$emit('next', false);
+        console.log('false')
+      }else{
+        this.$emit('next', true);
+        console.log('true')
+      }
     }
   }
 }

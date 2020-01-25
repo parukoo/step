@@ -3,8 +3,8 @@
 <div class="l-wrapper">
   @include('components/header')
   <main class="l-main" id="app">
-    <step-single
-      :step="{{$step}}"></step-single>
+    <step-flow
+      :stepid="{{ $stepid }}"></step-flow>
     @include('components/footer')
   </main>
 </div>

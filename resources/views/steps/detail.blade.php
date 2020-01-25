@@ -11,7 +11,7 @@
         </div>
         <div id="app">
           <step-detail 
-            :stepid="{{$stepid}}" 
+            :stepid="{{$stepid}}"
             :flowid="{{$flowid}}"></step-detail>
         </div>
       </div>

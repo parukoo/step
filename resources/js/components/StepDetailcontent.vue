@@ -6,8 +6,8 @@
     <div class="p-stepSingle-btns">
       <span
         class="c-btn p-stepSingle-btn" 
-        :class="{ done : kostep.completed}"
-        @click="done()">完了<span>済</span></span>
+        :class="{ done : kostep.completed }"
+        @click="done">完了<span>済</span></span>
     </div>
   </div>
 </template>
@@ -15,26 +15,16 @@
   export default {
     name: 'StepDetailcontent',
     props:{
-      kostep: Object,
-      stepId: Object
-    },
-    data(){
-      return{
-        nextId: ''
-      }
-    },
-    computed:{
-      nextId(){
-        return this.kostep.flow_id;
-      }
+      kostep: { type:Object, required: true }
     },
     methods:{
       done(){
-        this.$emit('done', this.kostep, !this.kostep.completed);
+        this.$emit('completed', this.kostep)
       }
     }
   }
 </script>
+
 <style scoped>
 .c-btn span{
   display: none;

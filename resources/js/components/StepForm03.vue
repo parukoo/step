@@ -1,7 +1,6 @@
 <template>
   <div class="p-form-inputs-wrapper">
     <div class="p-form-inputs --register">
-
         <dl>
           <dt>STEPのタイトル</dt>
           <dd>{{ form.title }}</dd>
@@ -26,26 +25,55 @@
           :key="kostep.id">
           <dl>
             <dt>子STEP</dt>
-            <dd>{{ form.id }}</dd>
+            <dd>{{ kostep.id }}</dd>
           </dl>
           <dl>
             <dt>タイトル</dt>
-            <dd>{{ form.title }}</dd>
+            <dd>{{ kostep.title }}</dd>
           </dl>
           <dl>
             <dt>説明</dt>
-            <dd>{{ form.info }}</dd>
+            <dd>{{ kostep.info }}</dd>
           </dl>
         </div>
     </div>
+
+    <div class="p-form-submit">
+      <button
+        class="c-btn" 
+        type="button" 
+        @click="backStep">Back</button>
+      <button
+        class="c-btn" 
+        type="button" 
+        @click="submit">登録する</button>
+    </div>
+
   </div>
 </template>
 
 <script>
+const axios = require('axios'); 
 export default {
   name: 'StepForm03',
   props:{
     form: Object
+  },
+  methods:{
+    backStep(){
+      this.$emit('backStep');
+    },    
+    submit(){
+      console.log(this.form);
+      axios.post('/steps', this.form)
+      .then( (response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+      this.$emit('nextStep')
+    }
   }
 }
 </script>

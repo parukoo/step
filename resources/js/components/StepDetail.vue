@@ -2,66 +2,68 @@
 <div class="p-stepSingle">
   <step-detailcontent
     :kostep="kostep"
-    :stepId="stepId"
-    @done="done"></step-detailcontent>
+    @completed="done"></step-detailcontent>
   <step-detailmenu
-    :kosteps="kosteps"
-    :stepId="stepId"></step-detailmenu>
+    :flowmenu="flowmenu"></step-detailmenu>
 </div>
 </template>
 <script>
+  import StepDetailcontent from './StepDetailcontent';
   import StepDetailmenu from './StepDetailmenu';
   const axios = require('axios'); 
   export default {
     name: 'StepDetail',
     props:{
-      stepid: Number,
-      flowid: Number
+      stepid: { type:Number, required: true },
+      flowid: { type:Number, required: true }
     },
     data(){
       return{
-        stepId: this.stepid,
-        flowId: this.flowid,
-        keyId: this.flowid - 1,
-        kosteps:[],
-        kostep:''
+        kostep:{},
+        flowmenu: []
       }
     },
     methods:{
-      done(kostep, completed){
-        axios.post('/ajax/complete',{
+      done(kostep){
+        axios.post('/ajax/completed',{
           id: kostep.id,
-          completed: completed
+          flow_id: kostep.flow_id,
+          completed: !kostep.completed
         }).then((response) => {
-          this.kostep = response.data;
-          console.log(this.flowId);
-          this.flowId++;
-          console.log(this.flowId);
-          stepid = this.stepId;
-          flowid = this.flowId;
-          setTimeout(function(){
-            var url = 'http://localhost:8000/steps/1/'+ this.flowId++;
-            console.log(url)
-            window.location.href = url;
-          }, 1000);
-        })
-        .catch(error => {
-            console.log('データの取得に失敗しました。: ' + response.data);
+          console.log(response);
+          this.$set(this.kostep, "completed", response.data.completed);
+          console.log(this.kostep.completed);
+          if(this.kostep.completed){
+            if(this.kostep.flow_id === this.flowmenu.length){
+              console.log('最後のページです');
+            }else{
+              setTimeout( () => {
+                var url = '/steps/' + this.stepid + '/' + (this.flowid + 1);
+                console.log(url);
+                window.location.href = url;
+              }, 1000)
+            }
+          }
+        }).catch(error => {
+          console.log('データの取得に失敗しました。: ' + res.data);
         });
-      },
+      }
     },
     mounted() {
-      var keyId = this.keyId;
-      axios.get('/ajax/kosteps/' + this.stepId)
-      .then(response => {
-        this.kosteps = response.data;
-        this.kostep = response.data[keyId];
+      axios.get('/ajax/kostepDetail', {
+        params:{
+          stepid: this.stepid,
+          flowid: this.flowid
+        }
+      }).then(response => {
+        this.kostep = response.data[0];
         console.log(this.kostep);
+        this.flowmenu = response.data[1];
+        console.log(this.flowmenu);
       })
       .catch(error => {
           console.log('データの取得に失敗しました。');
       });
-      
     }
   }
 </script>

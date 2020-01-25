@@ -12,13 +12,12 @@
   export default {
     name: 'StepFlowlist',
     props:{
-      kosteps: Array,
-      step: Object
+      kosteps: { type:Array, required: true }
     },
     data(){
       return{
+        kostep:{}
       }
-    },
-
+    }
   }
 </script>
