@@ -22,7 +22,7 @@ export default {
   },
   data(){
     return{
-      url: 'steps?c_id=' + this.steps[0].category_id
+      url: '/category/' + this.steps[0].category_id
     }
   },
 	methods:{

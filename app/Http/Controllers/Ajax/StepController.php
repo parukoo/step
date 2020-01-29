@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Step;
 use App\Kostep;
 use App\Category;
+use App\Complete;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 
@@ -45,7 +46,14 @@ class StepController extends Controller
   // STEP 一覧ページ
   // =======================================
   public function arichive() {
-    return Step::with('user')->orderBy(Step::CREATED_AT, 'desc')->get()->toJson();
+    return Step::with('user')->with('category')->orderBy(Step::CREATED_AT, 'desc')->get();
+  }
+
+  // STEP 一覧ページ（カテゴリー別）
+  // =======================================
+  public function category(Request $request) {
+    $category_id = $request->input('category_id');
+    return Step::where('category_id', $category_id)->with('user')->with('category')->orderBy(Step::CREATED_AT, 'desc')->get();
   }
 
 
@@ -53,6 +61,13 @@ class StepController extends Controller
     return Kostep::where('step_id', $id)->get()->toJson();
   }
 
+  // STEP編集ページ データ取得
+  // =======================================
+  public function edit(Request $request){
+    $stepid = $request->input('stepid');
+    $step = Step::where('id', $stepid)->with('kosteps')->get();
+    return $step;
+  }
 
   // STEP流れページ データ取得
   // =======================================
@@ -64,24 +79,43 @@ class StepController extends Controller
   }
 
 
-  // STEP詳細ページ データ取得
+  // STEP詳細ページ データ取得（ログイン済み）
   // =======================================
   public function detail(Request $request){
     $stepid = $request->input('stepid');
     $flowid = $request->input('flowid');
+
+    // 詳細ページの子STEPを1つ取得
     $kostep = Kostep::where('step_id', $stepid)->where('flow_id', $flowid)->first();
+
+    // 指定のSTEPの完了している子STEPIDを取得
+    $kostepid = $kostep->id;
+    $complete = Complete::where('user_id', Auth::user()->id)->where('kostep_id', $kostepid)->count();
+  
+    // 指定STEPの情報を全て取得
     $flowmenu = Kostep::where('step_id', $stepid)->orderBy('flow_id','asc')->get();
-    return [$kostep, $flowmenu];
+    
+    return [$kostep, $complete, $flowmenu];
   }
 
 
-  // 子STEP完了
+  // 子STEP完了（ログイン済み）
   // =======================================
   public function completed(Request $request) {
     $kostep_id = $request->id;
-    $kostep = Kostep::find($kostep_id);
-    $kostep->completed = $request->completed;
-    $kostep->save();
-    return $kostep;
+    $complete_id = Complete::where('kostep_id', $kostep_id)->where('user_id', Auth::user()->id)->count();
+
+    //既に完了済みだったら
+    if($complete_id > 0){
+        $complete = Complete::where('kostep_id', $kostep_id)->where('user_id', Auth::user()->id)->delete();
+        return response()->json($complete);
+    }else{
+        $complete = new Complete;
+        $complete->kostep_id = $kostep_id;
+        $complete->user_id = Auth::user()->id;
+        $complete->step_id = $request->step_id;
+        $complete->save();
+        return response()->json($complete);
+    }
   }
 }

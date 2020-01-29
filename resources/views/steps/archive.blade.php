@@ -11,6 +11,7 @@
         </div>
       </div>
       <div class="p-postsWrapper" id="app">
+        {{-- <step-list :steps="{{$steps}}"></step-list> --}}
         <step-list></step-list>
       </div>
     </section>

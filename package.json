@@ -45,6 +45,7 @@
 		"@websanova/vue-auth": "^2.21.15-beta",
 		"es6-promise": "^4.2.8",
 		"vue-axios": "^2.1.5",
+		"vuejs-paginate": "^2.1.0",
 		"vuelidate": "^0.7.5"
 	}
 }

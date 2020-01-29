@@ -9,14 +9,20 @@
     <nav class="p-header-pcMenu u-display-pc">
       <ul>
         <li><a href="{{ route('steps')}}">STEP一覧</a></li>
-        <li><a href="">カテゴリー検索</a></li>
+        <li class="js-category-menu">カテゴリー検索
+          <ul class="p-header-category-menu">
+            @foreach($categories as $category)
+              <li><a href="/category/{{ $category->id }}">{{ $category->name }}</a></li>
+            @endforeach
+          </ul>
+        </li>
       </ul>
     </nav>
     <div class="p-header-btns u-display-pc">
       <ul>
         @auth
           <li>
-            <a href="http://153.126.167.249/dev-step.com/public/mypage.php">
+            <a href="{{ route('mypage') }}">
               <figure class="p-avator --small"><img src="{{ asset('img/update/post/post01.jpg') }}" alt=""></figure>
               <span class="p-avator__name">{{  Auth::user()->name }}</span>
             </a>

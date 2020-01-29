@@ -2,7 +2,10 @@
 <div class="p-stepSingle">
   <step-detailcontent
     :kostep="kostep"
+    :isCompleted="isCompleted"
     @completed="done"></step-detailcontent>
+  
+
   <step-detailmenu
     :flowmenu="flowmenu"></step-detailmenu>
 </div>
@@ -20,20 +23,32 @@
     data(){
       return{
         kostep:{},
-        flowmenu: []
+        flowmenu: [],
+        completes: {}
+      }
+    },
+    computed: {
+      isCompleted(){
+        if(this.completes === 0){
+          return false 
+        }
+        return true
       }
     },
     methods:{
+      //子STEPの完了ボタン発火
       done(kostep){
         axios.post('/ajax/completed',{
           id: kostep.id,
-          flow_id: kostep.flow_id,
-          completed: !kostep.completed
+          step_id: this.stepid
         }).then((response) => {
           console.log(response);
-          this.$set(this.kostep, "completed", response.data.completed);
-          console.log(this.kostep.completed);
-          if(this.kostep.completed){
+          this.completes = 1;
+          if(response.data === 1){
+            this.completes = 0;
+            console.log(this.completes)
+          }
+          if(this.completes){
             if(this.kostep.flow_id === this.flowmenu.length){
               console.log('最後のページです');
             }else{
@@ -45,7 +60,7 @@
             }
           }
         }).catch(error => {
-          console.log('データの取得に失敗しました。: ' + res.data);
+          console.log('データの取得に失敗しました。: ' + response.data);
         });
       }
     },
@@ -58,7 +73,9 @@
       }).then(response => {
         this.kostep = response.data[0];
         console.log(this.kostep);
-        this.flowmenu = response.data[1];
+        this.completes = response.data[1];
+        console.log(this.completes);
+        this.flowmenu = response.data[2];
         console.log(this.flowmenu);
       })
       .catch(error => {

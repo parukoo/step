@@ -9,7 +9,7 @@
             <input 
               type="text" 
               id="title" 
-              v-model="title" 
+              @input="editTitle" 
               placeholder="STEPのタイトルを入力してください"
               @blur="$v.title.$touch()">
               <span v-if="!$v.title.required" class="p-form__errorMsg" role="alert">
@@ -44,7 +44,7 @@
           <dd>
             <textarea 
               id="info" 
-              v-model="info" 
+              v-model="form.info" 
               cols="30" rows="10"
               @blur="$v.info.$touch()"></textarea>
               <span v-if="!$v.info.required" class="p-form__errorMsg" role="alert">
@@ -62,7 +62,7 @@
             <input 
               id="time" 
               class="p-form-input__time" 
-              v-model="time" 
+              v-model="form.time" 
               type="number" 
               placeholder="選択してください"
               @blur="$v.time.$touch()">時間
@@ -78,8 +78,7 @@
           class="c-btn" 
           type="button" 
           @click="nextStep" 
-          value="Next"
-          :disabled="$v.$invalid">
+          value="Next">
       </div>
     </div>
   </form>
@@ -90,12 +89,12 @@ import { required, maxLength } from 'vuelidate/lib/validators'
 
 export default {
   name: 'StepForm01',
+  props:{
+    form: { type:Object, required: true }
+  },
   data(){
     return{
       stepNumber: 2,
-      title: null,
-      info: null,
-      time: null,
       category_id: '1',
       options: [
         { text: '動画編集', value: '1' },
@@ -116,6 +115,16 @@ export default {
     },
     time: {
       required
+    }
+  },
+  computed:{
+    editTitle: {
+      get() {
+        return this.form.title; 
+      },
+      set(value) {
+        this.$emit('update:form.title', value); 
+      }
     }
   },
 	methods: {

@@ -4,6 +4,7 @@
   @include('components/header')
   <main class="l-main" id="app">
     <step-flow
+      :complete="{{ $complete }}"
       :stepid="{{ $stepid }}"></step-flow>
     @include('components/footer')
   </main>

@@ -22,4 +22,8 @@ class Step extends Model
   {
     return $this->hasMany('App\Kostep');
   }
+  public function completes()
+  {
+    return $this->hasMany('App\Complete');
+  }
 }

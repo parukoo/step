@@ -1,6 +1,7 @@
 <template>
   <div class="p-step-single">
     <step-flowheader
+      :complete="complete"
       :step="step"></step-flowheader>
     <div class="p-wrapper--step">
       <div class="p-container">
@@ -22,7 +23,8 @@
   export default {
     name: 'StepFlow',
     props:{
-      stepid: { type:Number, required: true }
+      stepid: { type:Number, required: true },
+      complete: { type:Number, required: true }
     },
     data(){
       return{

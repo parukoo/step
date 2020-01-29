@@ -28,9 +28,7 @@
           <div class="p-stepHeader-info-score">
             <div class="p-stepHeader-info-score-graph"></div>
             <ul>
-              <li>完了率　100%</li>
-              <li>完了率　100%</li>
-              <li>完了率　100%</li>
+              <li>完了率　{{ complete }}%</li>
             </ul>
           </div>
         </div>
@@ -42,7 +40,8 @@
   export default {
     name: 'StepFlowheader',
     props:{
-      step: { type:Object, required: true }
+      step: { type:Object, required: true },
+      complete: { type:Number, required: true }
     },
     data(){
       return{

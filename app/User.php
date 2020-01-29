@@ -41,4 +41,12 @@ class User extends Authenticatable
     {
       return $this->hasMany('App\Step');
     }
+    public function joins()
+    {
+      return $this->hasMany('App\Join');
+    }
+    public function completes()
+    {
+      return $this->hasMany('App\Complete');
+    }
 }

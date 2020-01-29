@@ -6,8 +6,9 @@
     <div class="p-stepSingle-btns">
       <span
         class="c-btn p-stepSingle-btn" 
-        :class="{ done : kostep.completed }"
-        @click="done">完了<span>済</span></span>
+        :class="{ done : isCompleted }"
+        @click="done"
+        >完了<span>済</span></span>
     </div>
   </div>
 </template>
@@ -15,7 +16,8 @@
   export default {
     name: 'StepDetailcontent',
     props:{
-      kostep: { type:Object, required: true }
+      kostep: { type:Object, required: true },
+      isCompleted: { tyep:Boolean, required: true }
     },
     methods:{
       done(){

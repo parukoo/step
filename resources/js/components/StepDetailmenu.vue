@@ -4,7 +4,7 @@
     <ul>
       <li 
       v-for="flowitem in flowmenu"
-      :class="{ done : flowitem.completed }"
+      :class="{ done : flowitem.user }"
       :key="flowitem.flow_id">
         <a :href="'/steps/' + flowitem.step_id + '/' + flowitem.flow_id">{{ flowitem.title }}</a>
       </li>

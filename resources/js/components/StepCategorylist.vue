@@ -26,6 +26,9 @@
   import paginate from './paginate.vue';
   export default {
     name: 'StepList',
+    props:{
+      categoryid:{ type: Number, required: true }
+    },
     data(){
       return{
         steps: [],
@@ -49,7 +52,11 @@
       }
     },
     mounted() {
-      axios.get('/ajax/steps')
+      axios.get('/ajax/category', {
+        params:{
+          category_id: this.categoryid
+        }
+      })
       .then(response => {
         this.steps = response.data;
         console.log(this.steps);
