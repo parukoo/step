@@ -10,7 +10,9 @@
           <span class="p-heading-sub--register">stepの編集画面</span>
         </div>
         <div id="app">
-          <step-editform :stepid="{{$stepid}}"></step-editform>
+          <step-editform 
+            :stepid="{{$stepid}}"
+            :categories="{{$categories}}"></step-editform>
         </div>
       </div>
     </div>

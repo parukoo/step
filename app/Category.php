@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace STEP;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,6 +13,6 @@ class Category extends Model
     ];
     public function steps()
     {
-      return $this->hasMany('App\Step');
+      return $this->hasMany('STEP\Step');
     }
 }

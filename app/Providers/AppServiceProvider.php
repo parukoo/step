@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace STEP\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

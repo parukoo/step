@@ -1,16 +1,14 @@
 <template>
-  <form @input="submit">
+  <form>
     <div class="p-form-inputs-wrapper">
       <div class="p-form-inputs --register">
-        <div 
-          v-for="kostep in kosteps"
-          :key="kostep.index">
-          <kostep-item
-            :kostep="kostep"
-            :nextBtn="nextBtn"
-            @next="next"
-            @updateForm="updateForm"></kostep-item>
-        </div>
+        <kostep-item
+          v-for="(item, index) in value"
+          :key="index"
+          :value="value[index]"
+          @input="value => updateItem(value, index)"
+          :nextBtn="nextBtn"
+          @next="next"></kostep-item>
       </div>
     </div>
     <button
@@ -38,31 +36,28 @@ export default {
     'kostep-item' : KostepItem
   },
   name: 'StepForm02',
+  props:{
+    value: { type:Array, required: true }
+  },
   data(){
     return{
-      nextBtn: false,
-      kosteps:[
-        {
-        id: 1,
-        title: null,
-        info: null
-        }
-      ]
+      nextBtn: false
     }
   },
 
 	methods: {
-		submit(){
-			this.$emit('update',{
-			  kosteps: this.kosteps
-			});
-    },
-		updateForm(formData){
-			Object.assign(this.kosteps, formData);
+    updateItem(item, index) {
+      const newValue = [
+        ...this.value.slice(0, index),
+        item,
+        ...this.value.slice(index + 1)
+      ]
+      this.$emit('input', newValue)
+      console.log('親')
     },
     add(){
-      this.kosteps.push({
-        id: this.kosteps.length + 1,
+      this.value.push({
+        flow_id: this.value.length + 1,
         title: null,
         info: null
       })

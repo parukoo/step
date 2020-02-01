@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace STEP;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -8,10 +8,10 @@ class Join extends Model
 {
   public function user()
   {
-      return $this->belongsTo('App\User');
+      return $this->belongsTo('STEP\User');
   }
   public function step()
   {
-      return $this->belongsTo('App\Step');
+      return $this->belongsTo('STEP\Step');
   }
 }

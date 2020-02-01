@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace STEP;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -9,14 +9,14 @@ class Complete extends Model
   protected $table = 'completes';
   public function user()
   {
-      return $this->belongsTo('App\User');
+      return $this->belongsTo('STEP\User');
   }
   public function step()
   {
-      return $this->belongsTo('App\Step');
+      return $this->belongsTo('STEP\Step');
   }
   public function kostep()
   {
-      return $this->belongsTo('App\Kostep');
+      return $this->belongsTo('STEP\Kostep');
   }
 }

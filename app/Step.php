@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace STEP;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,18 +12,18 @@ class Step extends Model
 
   public function user()
   {
-    return $this->belongsTo('App\User');
+    return $this->belongsTo('STEP\User');
   }
   public function category()
   {
-    return $this->belongsTo('App\Category');
+    return $this->belongsTo('STEP\Category');
   }
   public function kosteps()
   {
-    return $this->hasMany('App\Kostep');
+    return $this->hasMany('STEP\Kostep');
   }
   public function completes()
   {
-    return $this->hasMany('App\Complete');
+    return $this->hasMany('STEP\Complete');
   }
 }

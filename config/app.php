@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'step'),
+    'name' => env('APP_NAME', 'STEP'),
 
     /*
     |--------------------------------------------------------------------------
@@ -168,11 +168,11 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        STEP\Providers\AppServiceProvider::class,
+        STEP\Providers\AuthServiceProvider::class,
+        // STEP\Providers\BroadcastServiceProvider::class,
+        STEP\Providers\EventServiceProvider::class,
+        STEP\Providers\RouteServiceProvider::class,
 
     ],
 

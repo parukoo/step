@@ -1,20 +1,18 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace STEP\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Category;
-use App\Step;
-use App\Kostep;
-use App\User;
-use App\Join;
-use App\Complete;
+use STEP\Category;
+use STEP\Step;
+use STEP\Kostep;
+use STEP\User;
+use STEP\Join;
+use STEP\Complete;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 class StepsController extends Controller
 {
-
-
   // TOPページ
   // =======================================
   public function index() {
@@ -52,7 +50,12 @@ class StepsController extends Controller
     }else{
       $finishcount = 0;
     }
-    $complete = ($finishcount / $kostepcount) * 100;
+    
+    if($finishcount === 0){
+      $complete = 0;
+    }else{
+      $complete = ($finishcount / $kostepcount) * 100;
+    }
     return view('steps.flow', ['stepid' => $stepid, 'categories' => $categories, 'complete' => $complete]);
   }
 
@@ -76,8 +79,11 @@ class StepsController extends Controller
   // STEP編集ページ
   // =======================================
   public function edit($stepid){
+    $step = Step::find($stepid);
+    $this->authorize('edit', $step);
     $categories = Category::all();
     return view('steps.edit',  ['stepid' => $stepid, 'categories' => $categories]);
+  
   }
 
   // STEP新規登録ページ
@@ -97,7 +103,7 @@ class StepsController extends Controller
     //   'info' => 'required|string|max:300',
     //   'time' => 'required|integer|max:255',
     // ]);
-
+    
     //親STEPに登録
     $step = new Step;
     $step->title = $request->title;
@@ -105,7 +111,6 @@ class StepsController extends Controller
     $step->info = $request->info;
     $step->user_id = Auth::user()->id;
     $step->time = $request->time;
-    debug($step->title);
     $step->save();
 
     //STEPのidを取得

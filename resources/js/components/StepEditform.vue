@@ -10,15 +10,13 @@
     <keep-alive>
       <step-form01 
         v-if="stepNumber === 1"
-        :form="form"
-        :form.title.sync="text"
-        @editTitle="editTitle"
-        @nextStep="nextStep" 
-        @update="updateForm"></step-form01>
+        v-model="form"
+        :categories="categories"
+        @nextStep="nextStep"></step-form01>
 
       <step-form02 
         v-if="stepNumber === 2"
-        @update="updateForm"
+        v-model="form.kosteps"
         @backStep="backStep" 
         @nextStep="nextStep" 
         ></step-form02>
@@ -51,6 +49,7 @@ export default {
   },
   props:{
     stepid: { type:Number, required: true },
+    categories: { type:Array, required: true }
   },
   data(){
     return{
@@ -65,9 +64,9 @@ export default {
     }
   },
 	methods:{
-		updateForm(formData){
-			Object.assign(this.form, formData);
-    },
+		// updateForm(formData){
+		// 	Object.assign(this.form, formData);
+    // },
     backStep(){
       this.stepNumber--;
     },			

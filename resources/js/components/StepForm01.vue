@@ -1,5 +1,5 @@
 <template>
-  <form @input="submit">
+  <form>
     <div class="p-form-inputs-wrapper">
       <div class="p-form-inputs --register">
 
@@ -9,7 +9,7 @@
             <input 
               type="text" 
               id="title" 
-              @input="editTitle" 
+              v-model="title" 
               placeholder="STEPのタイトルを入力してください"
               @blur="$v.title.$touch()">
               <span v-if="!$v.title.required" class="p-form__errorMsg" role="alert">
@@ -22,14 +22,14 @@
         </dl>
 
         <dl>
-          <dt><label for="category">カテゴリー<span>必須</span></label></dt>
+          <dt><label for="category-form">カテゴリー<span>必須</span></label></dt>
           <dd>
-            <select id="category" v-model="category_id">
+            <select id="category-form" v-model="category_id">
               <option 
-                v-for="option in options"
-                :key="option.index" 
-                :value="option.value">
-                {{ option.text }}
+                v-for="category in categories"
+                :key="category.id" 
+                :value="category.id">
+                {{ category.name }}
               </option>
             </select>
 
@@ -44,7 +44,7 @@
           <dd>
             <textarea 
               id="info" 
-              v-model="form.info" 
+              v-model="info" 
               cols="30" rows="10"
               @blur="$v.info.$touch()"></textarea>
               <span v-if="!$v.info.required" class="p-form__errorMsg" role="alert">
@@ -62,7 +62,7 @@
             <input 
               id="time" 
               class="p-form-input__time" 
-              v-model="form.time" 
+              v-model="time" 
               type="number" 
               placeholder="選択してください"
               @blur="$v.time.$touch()">時間
@@ -90,18 +90,12 @@ import { required, maxLength } from 'vuelidate/lib/validators'
 export default {
   name: 'StepForm01',
   props:{
-    form: { type:Object, required: true }
+    value: { type:Object, required: true},
+    categories: { type:Array, equired: true}
   },
   data(){
     return{
-      stepNumber: 2,
-      category_id: '1',
-      options: [
-        { text: '動画編集', value: '1' },
-        { text: 'プログラミング', value: '2' },
-        { text: 'ダイエット', value: '3' },
-        { text: 'フランス語', value: '4' }
-      ]
+      stepNumber: 2
     }
   },
   validations:{
@@ -118,30 +112,49 @@ export default {
     }
   },
   computed:{
-    editTitle: {
+    title: {
       get() {
-        return this.form.title; 
+        return this.value.title
       },
-      set(value) {
-        this.$emit('update:form.title', value); 
+      set(title) {
+        this.updateValue({ title })
       }
-    }
+    },
+    category_id: {
+      get() {
+        return this.value.category_id
+      },
+      set(category_id) {
+        this.updateValue({ category_id })
+      }
+    },
+    info: {
+      get() {
+        return this.value.info
+      },
+      set(info) {
+        this.updateValue({ info })
+      }
+    },
+    time: {
+      get() {
+        return this.value.time
+      },
+      set(time) {
+        this.updateValue({ time })
+      }
+    },
   },
 	methods: {
-		submit(){
-			this.$emit('update',{
-				title: this.title,
-        category_id: this.category_id,
-        info: this.info,
-        time: this.time
-			});
-    },
     nextStep(){
       if(this.$v.$invalid){
         console.log('バリデーションエラー');
       }else{
         this.$emit('nextStep');
       }
+    },
+    updateValue(diff) {
+      this.$emit('input', { ...this.value, ...diff })
     }
 	}
 }

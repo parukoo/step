@@ -40,6 +40,17 @@
               </dd>
             </dl>
             <dl>
+                <dt><label for="email">E-mail<span>必須</span></label></dt>
+                <dd>
+                  <input type="text" name="email" id="email" class="@error('email') is-error @enderror" value="{{ old('email', $user->email) }}" placeholder="50文字以内で入力してください">
+                  @error('email')
+                    <span class="p-form__errorMsg" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                  @enderror
+                </dd>
+              </dl>
+            <dl>
               <dt><label for="profile">自己紹介</label></dt>
               <dd>
                 <textarea name="profile" id="profile" cols="30" rows="10" class="@error('profile') is-error @enderror" placeholder="150文字以内で入力してください">{{ old('profile', $user->profile) }}</textarea>

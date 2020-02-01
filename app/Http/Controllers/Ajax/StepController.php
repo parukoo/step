@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Ajax;
+namespace STEP\Http\Controllers\Ajax;
 
 use Illuminate\Http\Request;
-use App\Step;
-use App\Kostep;
-use App\Category;
-use App\Complete;
+use STEP\Step;
+use STEP\Kostep;
+use STEP\Category;
+use STEP\Complete;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\Controller;
+use STEP\Http\Controllers\Controller;
 
 class StepController extends Controller
 {
@@ -56,7 +56,6 @@ class StepController extends Controller
     return Step::where('category_id', $category_id)->with('user')->with('category')->orderBy(Step::CREATED_AT, 'desc')->get();
   }
 
-
   public function show($id) {
     return Kostep::where('step_id', $id)->get()->toJson();
   }
@@ -66,6 +65,7 @@ class StepController extends Controller
   public function edit(Request $request){
     $stepid = $request->input('stepid');
     $step = Step::where('id', $stepid)->with('kosteps')->get();
+    // $step = Auth::user()->steps()->find($stepid)->with('kosteps')->get();
     return $step;
   }
 
@@ -96,6 +96,39 @@ class StepController extends Controller
     $flowmenu = Kostep::where('step_id', $stepid)->orderBy('flow_id','asc')->get();
     
     return [$kostep, $complete, $flowmenu];
+  }
+
+  // STEP編集ページ データ更新（ログイン済み）
+  // =======================================
+  public function update(Request $request){
+    $stepid = $request->id;
+    $step = Step::find($stepid);
+    $step->title = $request->title;
+    $step->category_id = $request->category_id;
+    $step->info = $request->info;
+    $step->time = $request->time;
+    $step->save();
+
+    //子STEPを更新
+    $kosteps = $request->input('kosteps');
+    foreach ($kosteps as $kostep){
+      $kostep_id = Kostep::where('step_id', $stepid)->where('flow_id', $kostep['flow_id'])->count();
+      if($kostep_id > 0){
+        $kostepdata = Kostep::find($kostep['id']);
+        $kostepdata->title = $kostep['title'];
+        $kostepdata->info = $kostep['info'];
+        $kostepdata->flow_id = $kostep['flow_id'];
+        $kostepdata->save();
+      }else{
+        $kostepnewdata = new Kostep;
+        $kostepnewdata->title = $kostep['title'];
+        $kostepnewdata->info = $kostep['info'];
+        $kostepnewdata->flow_id = $kostep['flow_id'];
+        $kostepnewdata->step_id = $stepid;
+        $kostepnewdata->save();
+      }
+    }
+    return response()->json($kostepdata);
   }
 
 

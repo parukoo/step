@@ -1,18 +1,18 @@
 <template>
   <div>
     <dl>
-      <dt><label for="title">{{ kostep.id }}:子STEPのタイトル<span>必須</span></label></dt>
+      <dt><label for="title">{{ value.flow_id }}:子STEPのタイトル<span>必須</span></label></dt>
       <dd>
         <input 
           id="title" 
           type="text" 
-          v-model="kostep.title"
-          @input="submit(); next()" 
+          v-model="title"
+          @input="next()" 
           placeholder="50文字以内で入力してください">
-        <span v-if="!$v.kostep.title.required" class="p-form__errorMsg" role="alert">
+        <span v-if="!$v.value.title.required" class="p-form__errorMsg" role="alert">
           <strong>タイトルが入力されていません</strong>
         </span>
-        <span v-if="!$v.kostep.title.maxLength" class="p-form__errorMsg" role="alert">
+        <span v-if="!$v.value.title.maxLength" class="p-form__errorMsg" role="alert">
           <strong>50文字以内で入力をしてください</strong>
         </span>
       </dd>
@@ -22,13 +22,13 @@
       <dd>
         <textarea 
           id="info" 
-          v-model="kostep.info"
-          @input="submit(); next()" 
+          v-model="info" 
+          @input="next()" 
           cols="30" rows="10"></textarea>
-        <span v-if="!$v.kostep.info.required" class="p-form__errorMsg" role="alert">
+        <span v-if="!$v.value.info.required" class="p-form__errorMsg" role="alert">
           <strong>紹介文が入力されていません</strong>
         </span>
-        <span v-if="!$v.kostep.info.maxLength" class="p-form__errorMsg" role="alert">
+        <span v-if="!$v.value.info.maxLength" class="p-form__errorMsg" role="alert">
           <strong>500文字以内で入力をしてください</strong>
         </span>
       </dd>
@@ -40,11 +40,11 @@ import { required, maxLength } from 'vuelidate/lib/validators'
 export default {
   name: 'KostepItem',
   props: {
-    kostep: { type:Object, required: true },
+    value: { type:Object, required: true },
     nextBtn: { type:Boolean, required: true }
   },
   validations:{
-    kostep:{
+    value:{
       title:{
         required,
         maxLength: maxLength(50)
@@ -55,16 +55,27 @@ export default {
       }
     }
   },
-  watch:{
-
+  computed:{
+    title: {
+      get() {
+        return this.value.title
+      },
+      set(title) {
+        this.updateValue({ title })
+      }
+    },
+    info: {
+      get() {
+        return this.value.info
+      },
+      set(info) {
+        this.updateValue({ info })
+      }
+    },
   },
   methods:{
-		submit(){
-      this.$emit('updateForm',{
-        id: this.id,
-        title: this.title,
-        info: this.info,
-      });
+    updateValue(diff) {
+      this.$emit('input', { ...this.value, ...diff })
     },
     next(){
       if(this.$v.$invalid){

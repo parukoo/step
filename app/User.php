@@ -1,11 +1,11 @@
 <?php
 
-namespace App;
+namespace STEP;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use STEP\Notifications\ResetPasswordNotification;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -37,16 +37,22 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    // パスワードリセット
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPasswordNotification($token));
+    }
+
     public function steps()
     {
-      return $this->hasMany('App\Step');
+      return $this->hasMany('STEP\Step');
     }
     public function joins()
     {
-      return $this->hasMany('App\Join');
+      return $this->hasMany('STEP\Join');
     }
     public function completes()
     {
-      return $this->hasMany('App\Complete');
+      return $this->hasMany('STEP\Complete');
     }
 }

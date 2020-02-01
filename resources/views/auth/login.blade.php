@@ -6,8 +6,8 @@
       <form class="p-form" action="" method="post">
         @csrf
         <ul class="p-form-links">
-          <li class="p-form-link is-active"><a href="/register">新規登録</a></li>
-          <li class="p-form-link"><a href="/login">ログイン</a></li>
+          <li class="p-form-link"><a href="/register">新規登録</a></li>
+          <li class="p-form-link is-active"><a href="/login">ログイン</a></li>
         </ul>
         <div class="p-form-inputs">
           <dl>
@@ -33,6 +33,10 @@
             </dd>
           </dl>
         </div>
+        
+        @if (Route::has('password.request'))
+          <p>パスワードを忘れてしまった方は<a href="{{ route('password.request') }}">コチラ</a></p>
+        @endif
         <div class="p-form-submit">
           <input class="c-btn" type="submit" value="送信">
         </div>

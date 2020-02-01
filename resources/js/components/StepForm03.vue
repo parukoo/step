@@ -25,7 +25,7 @@
           :key="kostep.id">
           <dl>
             <dt>子STEP</dt>
-            <dd>{{ kostep.id }}</dd>
+            <dd>{{ kostep.flow_id }}</dd>
           </dl>
           <dl>
             <dt>タイトル</dt>
@@ -65,7 +65,8 @@ export default {
     },    
     submit(){
       console.log(this.form);
-      axios.post('/steps', this.form)
+      axios.post('/ajax/stepUpdate', this.form)
+      // axios.post('/steps', this.form)
       .then( (response) => {
         console.log(response);
       })

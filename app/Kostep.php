@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace STEP;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,14 +12,14 @@ class Kostep extends Model
 
   public function step()
   {
-    return $this->belongsTo('App\Step');
+    return $this->belongsTo('STEP\Step');
   }
   public function joins()
   {
-    return $this->hasMany('App\Join');
+    return $this->hasMany('STEP\Join');
   }
   public function completes()
   {
-      return $this->hasMany('App\Complete');
+      return $this->hasMany('STEP\Complete');
   }
 }
