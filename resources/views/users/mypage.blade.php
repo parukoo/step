@@ -31,7 +31,7 @@
               @foreach ($joinsteps as $joinstep)
                 <div class="p-post--mypage">
                   <a href="/steps/{{ $joinstep->id }}">
-                    <figure class="p-post-image"><img src="img/update/post/post01.jpg" alt=""></figure>
+                    <figure class="p-post-image"><img src="img/category/eyecatch0{{ $joinstep->id }}.jpg" alt=""></figure>
                     <h4 class="p-post-title">{{ $joinstep->title }}</h4>
                     <p class="p-post-txt">{{ $joinstep->info }}</p>
                   </a>

@@ -1,7 +1,7 @@
 <template>
   <div class="p-post">
     <a :href="'steps/' + step.id">
-      <figure class="p-post-image"><img src="img/update/post/post01.jpg" alt=""></figure>
+      <figure class="p-post-image"><img :src="'img/category/eyecatch0' + step.category.id + '.jpg'"/></figure>
       <h4 class="p-post-title">{{ step.title }}</h4>
       <p class="p-post-txt">{{ step.info }}</p>
     </a>
@@ -14,12 +14,6 @@ export default {
   name: 'StepIndexlist',
   props:{
     step:{ type:Object, required: true }
-  },
-  data(){
-    return{
-    }
-  },
-	methods:{
-	}
+  }
 }
 </script>

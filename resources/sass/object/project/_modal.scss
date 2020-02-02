@@ -1,0 +1,95 @@
+.p-modal{
+  &-wrapper{
+    display: block;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0 16px;
+    z-index: 5;
+  }
+  &-container{    
+    position: relative;
+    margin-top: 80px;
+    max-width: 960px;
+    width: 100%;
+    height: 40vh;
+    padding: 10% 0;
+    margin: 25vh auto;
+    box-sizing: border-box;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    text-align: center;
+    @include _mq-up(){
+      padding: 64px 80px;
+    }
+  }
+  &-nextLink{
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    font-size: 14px;
+    cursor: pointer;
+    a{
+      text-decoration: none;
+      color: #a6aab6;
+    }
+  }
+  &-title{
+    color: $_color-link;
+    font-size: 24px;
+    margin-bottom: 20px;
+    letter-spacing: 0.1em;
+    @include _mq-up(){
+      font-size: 30px;
+    }
+  }
+  &-text{
+    margin-bottom: 40px;
+  }
+  &-share{
+    &-text{
+      font-weight: bold;
+    }
+    &-btn{
+      width: 200px;
+      height: 50px;
+      border-radius: 10px;
+      background-color: #1DA1F2;
+      border-bottom: 5px #0b76b8 solid;
+      display: inline-block;
+      line-height: 50px;
+      cursor: pointer;
+      &:hover{
+        margin-top: 2px;
+        border-bottom: 0;
+      }
+      &__icon{
+        color: #fff;
+        font-size: 24px;
+      }
+    }
+  }
+  &-bgRight{
+    width: 20vw;
+    position: absolute;
+    right: 7%;
+    bottom: 15%;
+    @include _mq-up(){
+      width: 150px;
+    }
+  }
+  &-bgLeft{
+    width: 20vw;
+    position: absolute;
+    left: 7%;
+    bottom: 15%;
+    @include _mq-up(){
+      width: 150px;
+    }
+  }
+}

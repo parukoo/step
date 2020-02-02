@@ -70,7 +70,6 @@
               </span>
           </dd>
         </dl>
-
       </div>
 
       <div class="p-form-submit">
@@ -91,8 +90,8 @@ import { required, maxLength } from 'vuelidate/lib/validators'
 export default {
   name: 'StepForm01',
   props:{
-    value: { type:Object, required: true},
-    categories: { type:Array, equired: true}
+    value: { type: Object, required: true},
+    categories: { type: Array, equired: true}
   },
   data(){
     return{
@@ -113,7 +112,7 @@ export default {
     },
     time: {
       required
-    }
+    }  
   },
   computed:{
     title: {
@@ -147,7 +146,7 @@ export default {
       set(time) {
         this.updateValue({ time })
       }
-    },
+    }
   },
 	methods: {
     nextStep(){

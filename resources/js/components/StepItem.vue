@@ -1,6 +1,6 @@
 <template>
   <a :href="`/steps/${step.id}`">
-    <figure class="p-rowpost-image"><img src="img/update/post/post01.jpg" alt=""></figure>
+    <figure class="p-rowpost-image"><img :src="'../../img/category/eyecatch0' + step.category.id + '.jpg'"></figure>
     <div class="p-rowpost-txtWrapper">
       <span class="p-rowpost-category">{{ step.category.name }}</span>
       <h4 class="p-rowpost-title">{{ step.title }}時間</h4>

@@ -8,7 +8,7 @@
         :key="step.index"></step-indexitem>
     </div>
     <p class="p-posts-btnWrapper">
-      <span class="c-btn p-posts-btn"><a :href="url">もっと見る</a></span>
+      <span class="c-btn p-posts-btn"><a :href="url">{{ steps[0].category.name }}一覧</a></span>
     </p>
   </div>
 </template>

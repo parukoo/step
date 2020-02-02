@@ -14,7 +14,7 @@
       :click-handler="clickCallback"
       :prev-text="'＜'"
       :next-text="'＞'"
-      :container-class="'pagination'"
+      :container-class="'p-pagination'"
       :page-class="'page-item'">
   </paginate>
   </div>
@@ -60,25 +60,3 @@
     }
   }
 </script>
-
-<style>
-  .pagination{
-    display: flex;
-    justify-content: center;
-  }
-  .pagination >li{
-    border-radius: 50%;
-    background-color: #333;
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
-    text-align: center;
-    cursor: pointer;
-  }
-  .pagination >li + li{
-    margin-left: 20px;
-  }
-  .pagination >li.active{
-    background-color: blue;
-  }
-</style>

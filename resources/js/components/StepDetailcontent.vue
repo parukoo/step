@@ -8,7 +8,7 @@
         class="c-btn p-stepSingle-btn" 
         :class="{ done : isCompleted }"
         @click="done"
-        >完了<span>済</span></span>
+        ><span v-if="!isCompleted">未</span>完了<span v-if="isCompleted">済</span></span>
     </div>
   </div>
 </template>
@@ -16,8 +16,8 @@
   export default {
     name: 'StepDetailcontent',
     props:{
-      kostep: { type:Object, required: true },
-      isCompleted: { tyep:Boolean, required: true }
+      kostep: { type: Object, required: true },
+      isCompleted: { tyep: Boolean, required: true }
     },
     methods:{
       done(){
@@ -26,15 +26,3 @@
     }
   }
 </script>
-
-<style scoped>
-.c-btn span{
-  display: none;
-}
-.c-btn.done{
-  background-color: #fabe00
-}
-.c-btn.done span{
-  display: inline;
-}
-</style>

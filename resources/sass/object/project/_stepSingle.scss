@@ -1,16 +1,42 @@
 .p-stepSingle{
-  display: flex;
+  &-title{
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    span a{
+      text-decoration: none;
+      color: $_color-text;
+    }
+    span::before{
+      content: '>';
+      display: inline-block;
+      margin-right: 10px;
+    }
+  }
+  &-inner{
+    display: block;
+    @include _mq-up(){
+      display: flex;
+    }
+  }
   &-content{
     flex: 1;
-    padding: 35px;
+    padding: 35px 20px;
     background-color: #fff;
+    @include _mq-up(){
+      padding: 35px;
+    }
     &-count{
       letter-spacing: 0.05em;
     }
     &-title{
-      font-size: 30px;
-      margin-bottom: 40px;
+      font-size: 24px;
+      margin-bottom: 20px;
       line-height: 1.5;
+      @include _mq-up(){
+        font-size: 30px;
+        margin-bottom: 40px;
+      }
     }
     > p{
       margin-bottom: 3em;
@@ -18,31 +44,55 @@
     }
   }
   &-menu{
-    width: 300px;
-    margin-left: 25px;
-    padding: 25px 15px;
+    width: 100%;
+    margin-top: 20px;
+    padding: 20px 10px;
     background-color: $_color-line;
+    @include _mq-up(){
+      width: 300px;
+      margin-top: 0;
+      padding: 25px 15px;
+      margin-left: 25px;
+    }
     &-title{
-      font-size: 26px;
+      font-size: 20px;
       margin-bottom: 15px;
       letter-spacing: 0.05em;
+      @include _mq-up(){
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
     }
-    > ul li{
-      padding: 20px 15px;
-      background-color: #fff;
+    > ul li {
+      a{
+        display: block;
+        padding: 20px 15px;
+        background-color: #fff;
+        color: $_color-text;
+        text-decoration: none;
+      }
       + li{
-        margin-top: 5px;
+        border-top: 1px solid $_color-line;
       }
     }
   }
   &-btns{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
   }
   &-btn{
-    border: 1px solid $_color-link;
-    width: 220px;
-    height: 50px;
-    border-radius: 25px;
+    width: 160px;
+    height: 40px;
+    border-radius: 20px;
+    font-size: 14px;
+    @include _mq-up(){
+      width: 220px;
+      height: 50px;
+      border-radius: 25px;
+    }
+    &.done{
+      background-color: $_color-link;
+      color: #fff;
+    }
   }
 }

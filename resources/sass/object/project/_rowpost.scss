@@ -1,21 +1,42 @@
 .p-rowpost{
-  padding: 0;
-  @include _mq-up(lg){
-    padding: 45px 0;
-  }
   a{
     display: block;
     text-decoration: none;
     color: $_color-text;
-    @include _mq-up(lg){
+    padding: 0;
+    transition: all 0.3s;
+    @include _mq-up(){
       display: flex;
+      padding: 45px 30px;
+    }
+    @include _mq-up(lg){
+      padding: 45px 60px;
+    }
+    &:hover{
+      @include _mq-up(){
+        background-color: $_color-bg;
+      }
+      .p-rowpost-image {
+        transition: border-radius 0.3s;
+        border-radius: 50px;
+        img{
+          transform: scale(1.2);
+          transition: transform 0.3s;
+        }
+      }
     }
   }
   &-txtWrapper{
     padding-top: 15px;
-    @include _mq-up(lg){
+    @include _mq-up(){
       margin-left: 24px;
       flex: 1;
+    }
+  }
+  &-image{
+    overflow: hidden;
+    @include _mq-up(){
+      max-width: 310px;
     }
   }
   &-category{
@@ -61,6 +82,9 @@
     line-height: 1.5;
   }
   + .p-rowpost{
-    margin-top: 30px;
+    margin-top: 60px;
+    @include _mq-up(){
+      margin-top: 0;
+    }
   }
 }

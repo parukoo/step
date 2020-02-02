@@ -3,8 +3,12 @@
   @include _mq-up(lg){
     padding: 80px 60px;
   }
-  &-l{
-    padding: 80px 0;
+  &--list{
+    background-color: #fff;
+    padding: 30px 16px;
+    @include _mq-up(){
+      padding: 80px 0;
+    }
   }
   &--step{
     padding: 50px 16px;

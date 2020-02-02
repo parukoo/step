@@ -14,7 +14,7 @@
       :click-handler="clickCallback"
       :prev-text="'＜'"
       :next-text="'＞'"
-      :container-class="'pagination'"
+      :container-class="'p-pagination'"
       :page-class="'page-item'">
   </paginate>
   </div>

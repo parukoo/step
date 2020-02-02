@@ -65,6 +65,9 @@ a {
   &:visited {
     color: $_color-link--visited;
   }
+  &:focus{
+    outline: none;
+  }
   @include _on-event {
     text-decoration: underline;
     color: $_color-link--hover;

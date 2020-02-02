@@ -5,7 +5,7 @@
       <p>{{ kostep.info }}</p>
     </div>
     <span class="p-flow-item-btn">
-      <img style="width: 24px" :src="'/img/common/ico_check.svg'" alt="">
+      <img :src="'/img/common/ico_check.svg'" alt="">
     </span>
   </a>
 </template>

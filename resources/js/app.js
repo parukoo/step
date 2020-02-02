@@ -36,14 +36,6 @@ $fileInput.on('change', function(e){
 
 $('.js-category-menu').on('click', function(){
   $('.p-header-category-menu').slideToggle();
-  // var $this = $(this);
-  // if($this.hasClass('is-open')){
-  //   $this.removeClass('is-open');
-  //   $('.p-header-category-menu').removeClass('is-open');
-  // }else{
-  //   $this.addClass('is-open');
-  //   $('.p-header-category-menu').addClass('is-open');
-  // }
 });
 
 // mypage tab change
@@ -55,8 +47,6 @@ $('.js-tabLink').on('click', function () {
   $(this).addClass('is-active');
   $('.js-tabPanel').eq($th).addClass('is-active');
 });
-
-
 
 Vue.use(Vuelidate);
 Vue.component('paginate', Paginate)

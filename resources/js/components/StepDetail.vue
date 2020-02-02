@@ -1,13 +1,32 @@
 <template>
 <div class="p-stepSingle">
-  <div><a :href="url"><p>{{ title.title }}</p></a></div>
-  <step-detailcontent
-    :kostep="kostep"
-    :isCompleted="isCompleted"
-    @completed="done"></step-detailcontent>
-  
-  <step-detailmenu
-    :flowmenu="flowmenu"></step-detailmenu>
+  <div class="p-stepSingle-title">
+    <p><a :href="url">{{ title.title }}</a></p>
+  </div>
+  <div class="p-stepSingle-inner">
+    <step-detailcontent
+      :kostep="kostep"
+      :isCompleted="isCompleted"
+      @completed="done"></step-detailcontent>
+    
+    <step-detailmenu
+      :flowmenu="flowmenu"></step-detailmenu>
+  </div>
+  <transition name="modal">
+    <div v-if="showModal" class="js-modal-wrapper p-modal-wrapper">
+      <div class="p-modal-container fn_jidoukansModal-container">
+      <span class="js-close-modal p-modal-nextLink"><a href="/all">一覧へ戻る <i class="fas fa-arrow-right"></i></a></span>
+        <h2 class="p-modal-title">CONGRATULATIONS</h2>
+        <img class="p-modal-bgRight" src="/img/common/ico_twitter-bg01.png">
+        <img class="p-modal-bgLeft" src="/img/common/ico_twitter-bg01.png">
+        <p class="p-modal-text">おめでとうございます！<br>◯◯◯が完了しました！</p>
+        <div class="p-modal-share">
+          <p class="p-modal-share-text">twitterでシェアする</p>
+          <div class="p-modal-share-btn"><i class="p-modal-share-btn__icon fab fa-twitter"></i></div>
+        </div>
+      </div>
+    </div>
+  </transition>
 </div>
 </template>
 <script>
@@ -26,7 +45,8 @@
         kostep:{},
         flowmenu: [],
         completes: {},
-        url: '/steps/' + this.stepid
+        url: '/steps/' + this.stepid,
+        showModal: false
       }
     },
     computed: {
@@ -52,7 +72,7 @@
           }
           if(this.completes){
             if(this.kostep.flow_id === this.flowmenu.length){
-              console.log('最後のページです');
+              this.showModal = true
             }else{
               setTimeout( () => {
                 var url = '/steps/' + this.stepid + '/' + (this.flowid + 1);

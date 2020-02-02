@@ -8,6 +8,7 @@
       @include _flex-center();
       height: 58px;
       background-color: $_color-bg;
+      cursor: pointer;
       @include _mq-up(){
         height: 150px;
       }

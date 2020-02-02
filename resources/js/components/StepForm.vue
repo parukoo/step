@@ -58,7 +58,6 @@ export default {
         category_id: null,
         info: null,
         time: null,
-        image: null,
         kosteps: [
           {
             flow_id: 1,

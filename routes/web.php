@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
   Route::get('/', 'StepsController@index');
 
   //ALLページ
-  Route::get('/all', 'StepsController@all');
+  Route::get('/all', 'StepsController@all')->name('all');
   //ALLページ（Ajax　データ取得）
   Route::get('/ajax/all', 'Ajax\StepController@all');
 
