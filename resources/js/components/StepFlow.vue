@@ -10,7 +10,8 @@
           <span class="p-heading-sub">stepの流れ</span>
         </div>
         <step-flowlist
-          :kosteps="kosteps"></step-flowlist>
+          :kosteps="kosteps"
+          :completes="completes"></step-flowlist>
       </div>
     </div>
   </div>
@@ -39,7 +40,8 @@
           },
           time: null
         },
-        kosteps: []
+        kosteps: [],
+        completes: []
       }
     },
     mounted() {
@@ -48,11 +50,15 @@
           stepid: this.stepid,
         }
       }).then(response => {
-        console.log(response);
+        //STEP詳細データを取得
         this.step = response.data[0];
         console.log(this.step);
+        //子STEP詳細データを取得
         this.kosteps = response.data[1];
         console.log(this.kosteps);
+        //ユーザーの子STEP完了有無データを取得
+        this.completes = response.data[2];
+        console.log(response);
       })
       .catch(error => {
           console.log('データの取得に失敗しました。');

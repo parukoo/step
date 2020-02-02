@@ -76,7 +76,8 @@ class StepController extends Controller
     $stepid = $request->input('stepid');
     $step = Step::where('id', $stepid)->with('user')->with('category')->first();
     $kosteps = Kostep::where('step_id', $stepid)->get();
-    return [$step, $kosteps];
+    $completes = Complete::where('user_id', Auth::user()->id)->where('step_id', $stepid)->pluck('kostep_id');
+    return [$step, $kosteps, $completes];
   }
 
 
@@ -89,14 +90,17 @@ class StepController extends Controller
     // 詳細ページの子STEPを1つ取得
     $kostep = Kostep::where('step_id', $stepid)->where('flow_id', $flowid)->first();
 
-    // 指定のSTEPの完了している子STEPIDを取得
+    // 指定の子STEPの完了有無を取得
     $kostepid = $kostep->id;
     $complete = Complete::where('user_id', Auth::user()->id)->where('kostep_id', $kostepid)->count();
-  
+
+    // 指定のSTEPの完了有無を全て取得
+    $completeAll = Complete::where('user_id', Auth::user()->id)->where('step_id', $stepid)->count();
+
     // 指定STEPの情報を全て取得
     $flowmenu = Kostep::where('step_id', $stepid)->orderBy('flow_id','asc')->get();
     
-    return [$kostep, $complete, $flowmenu];
+    return [$kostep, $complete, $completeAll, $flowmenu];
   }
 
 

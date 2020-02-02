@@ -62,11 +62,14 @@ class StepsController extends Controller
     }else{
       $finishcount = 0;
     }
-    
     if($finishcount === 0){
       $complete = 0;
     }else{
       $complete = ($finishcount / $kostepcount) * 100;
+    }
+    //STEPが存在しなければ404ページに遷移させる
+    if($kostepcount === 0) {
+      abort(404);
     }
     return view('steps.flow', ['stepid' => $stepid, 'categories' => $categories, 'complete' => $complete]);
   }
@@ -75,6 +78,10 @@ class StepsController extends Controller
   // STEP詳細ページ
   // =======================================
   public function detail($stepid, $flowid) {
+    $kostep = Kostep::where('step_id', $stepid)->where('flow_id', $flowid)->count();
+    if($kostep === 0) {
+      abort(404);
+    }
     $joined = Join::where('step_id', $stepid)->where('user_id', Auth::user()->id)->count();
     
     //初めて該当のSTEPに参加する場合のみjoin登録する
@@ -84,9 +91,9 @@ class StepsController extends Controller
       $join->user_id = Auth::user()->id;
       $join->save();
     }
-    $title = Step::find($stepid);
+    $step = Step::find($stepid);
     $categories = Category::all();
-    return view('steps.detail', ['stepid' => $stepid, 'flowid' => $flowid, 'title' => $title, 'categories' => $categories]);
+    return view('steps.detail', ['stepid' => $stepid, 'flowid' => $flowid, 'step' => $step, 'categories' => $categories]);
   }
 
   // STEP編集ページ

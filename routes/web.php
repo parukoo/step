@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Auth;
   Route::get('/ajax/category', 'Ajax\StepController@category');
 
   //STEP流れページ
-  Route::get('/steps/{step_id}', 'StepsController@flow')->where('step_id', '[0-9]+');;
+  Route::get('/steps/{step_id}', 'StepsController@flow')->where('step_id', '[0-9]+');
   //STEP流れページ（Ajax　データ取得）
   Route::get('/ajax/stepFlow', 'Ajax\StepController@flow');
 

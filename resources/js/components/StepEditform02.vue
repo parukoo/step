@@ -51,7 +51,7 @@ export default {
         }else{
           this.editFlag = true
         }
-      },
+      }
     }
   },
 	methods: {

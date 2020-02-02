@@ -1,7 +1,7 @@
 <template>
 <div class="p-stepSingle">
   <div class="p-stepSingle-title">
-    <p><a :href="url">{{ title.title }}</a></p>
+    <span><a :href="url">{{ title }}</a></span>
   </div>
   <div class="p-stepSingle-inner">
     <step-detailcontent
@@ -19,10 +19,12 @@
         <h2 class="p-modal-title">CONGRATULATIONS</h2>
         <img class="p-modal-bgRight" src="/img/common/ico_twitter-bg01.png">
         <img class="p-modal-bgLeft" src="/img/common/ico_twitter-bg01.png">
-        <p class="p-modal-text">おめでとうございます！<br>◯◯◯が完了しました！</p>
+        <p class="p-modal-text">おめでとうございます！<br>{{ title.title }}が完了しました！</p>
         <div class="p-modal-share">
           <p class="p-modal-share-text">twitterでシェアする</p>
-          <div class="p-modal-share-btn"><i class="p-modal-share-btn__icon fab fa-twitter"></i></div>
+          <div 
+            class="p-modal-share-btn"
+            @click="twitterShare"><i class="p-modal-share-btn__icon fab fa-twitter"></i></div>
         </div>
       </div>
     </div>
@@ -36,15 +38,17 @@
   export default {
     name: 'StepDetail',
     props:{
-      title: { type: Object, required: true },
+      step: { type: Object, required: true },
       stepid: { type: Number, required: true },
       flowid: { type: Number, required: true }
     },
     data(){
       return{
+        title: this.step.title,
         kostep:{},
         flowmenu: [],
         completes: {},
+        completesAll: null,
         url: '/steps/' + this.stepid,
         showModal: false
       }
@@ -72,7 +76,13 @@
           }
           if(this.completes){
             if(this.kostep.flow_id === this.flowmenu.length){
-              this.showModal = true
+              if(this.completesAll === this.flowmenu.length ){
+                this.showModal = true
+              }else{
+                setTimeout( () => {
+                  
+                }, 1000)
+              }
             }else{
               setTimeout( () => {
                 var url = '/steps/' + this.stepid + '/' + (this.flowid + 1);
@@ -84,6 +94,13 @@
         }).catch(error => {
           console.log('データの取得に失敗しました。: ' + response.data);
         });
+      },
+      // twitterシェアボタン
+      twitterShare(){
+        //シェアする画面を設定
+        var shareURL = 'https://twitter.com/intent/tweet?text=' + this.title + "を完了しました！" + "%20%23STEPで学び方を共有しよう" + '&url=' + "https://code.ameneko.com/twitter-share";  
+        //シェア用の画面へ移行
+        location.href = shareURL
       }
     },
     mounted() {
@@ -93,15 +110,18 @@
           flowid: this.flowid
         }
       }).then(response => {
+        // 表示するSTEPデータを取得
         this.kostep = response.data[0];
-        console.log(this.kostep);
+        // 表示する完了有無データを取得
         this.completes = response.data[1];
-        console.log(this.completes);
-        this.flowmenu = response.data[2];
-        console.log(this.flowmenu);
+        // STEPの子STEPの完了数を取得
+        this.completesAll = response.data[2];
+        // サイドメニューデータを取得
+        this.flowmenu = response.data[3];
       })
       .catch(error => {
-          console.log('データの取得に失敗しました。');
+          var url = '/steps/' + this.stepid;
+          window.location.href = url;
       });
     }
   }

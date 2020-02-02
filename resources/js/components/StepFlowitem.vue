@@ -5,7 +5,8 @@
       <p>{{ kostep.info }}</p>
     </div>
     <span class="p-flow-item-btn">
-      <img :src="'/img/common/ico_check.svg'" alt="">
+      <img v-if="kostep.isDone" :src="'/img/common/ico_check.svg'" alt="">
+      <img v-else :src="'/img/common/ico_check.svg'" alt="">
     </span>
   </a>
 </template>
@@ -14,7 +15,7 @@
   export default {
     name: 'StepFlowitem',
     props:{
-      kostep: { type:Object, required: true }
+      kostep: { type: Object, required: true }
     },
     data(){
       return{
