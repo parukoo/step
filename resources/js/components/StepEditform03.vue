@@ -46,7 +46,7 @@
       <button
         class="c-btn" 
         type="button" 
-        @click="submit">登録する</button>
+        @click="submit">編集する</button>
     </div>
 
   </div>
@@ -55,7 +55,7 @@
 <script>
 const axios = require('axios'); 
 export default {
-  name: 'StepForm03',
+  name: 'StepEditform03',
   props:{
     form: Object
   },
@@ -65,14 +65,14 @@ export default {
     },    
     submit(){
       console.log(this.form);
-      axios.post('/ajax/stepNew', this.form)
+      axios.post('/ajax/stepUpdate', this.form)
       .then( (response) => {
         console.log(response);
-        this.$emit('nextStep');
       })
-      .catch(e => {
-        console.log(e.response.data.errors)
-      })
+      .catch((error) => {
+        console.log(error);
+      });
+      this.$emit('nextStep')
     }
   }
 }

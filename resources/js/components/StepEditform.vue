@@ -14,18 +14,18 @@
         :categories="categories"
         @nextStep="nextStep"></step-form01>
 
-      <step-form02 
+      <step-editform02 
         v-if="stepNumber === 2"
         v-model="form.kosteps"
         @backStep="backStep" 
         @nextStep="nextStep" 
-        ></step-form02>
+        ></step-editform02>
 
-      <step-form03
+      <step-editform03
         :form ="form"
         @backStep="backStep" 
         @nextStep="nextStep" 
-        v-if="stepNumber === 3"></step-form03>
+        v-if="stepNumber === 3"></step-editform03>
       <step-form04 v-if="stepNumber === 4"></step-form04>
     </keep-alive>
 
@@ -35,21 +35,21 @@
 <script>
 
 import StepForm01 from './StepForm01.vue'
-import StepForm02 from './StepForm02.vue'
-import StepForm03 from './StepForm03.vue'
+import StepEditform02 from './StepEditform02.vue'
+import StepEditform03 from './StepEditform03.vue'
 import StepForm04 from './StepForm04.vue'
 const axios = require('axios'); 
 export default {
   name: 'StepEditform',
   components:{
     'step-form01' : StepForm01,
-    'step-form02' : StepForm02,
-    'step-form03' : StepForm03,
+    'step-editform02' : StepEditform02,
+    'step-editform03' : StepEditform03,
     'step-form04' : StepForm04,
   },
   props:{
-    stepid: { type:Number, required: true },
-    categories: { type:Array, required: true }
+    stepid: { type: Number, required: true },
+    categories: { type: Array, required: true }
   },
   data(){
     return{
@@ -59,14 +59,18 @@ export default {
         category_id: null,
         info: null,
         time: null,
-        kosteps: null
+        kosteps: [
+          {
+            flow_id: null,
+            title: null,
+            info: null,
+            edit: false
+          }
+        ]
       }
     }
   },
 	methods:{
-		// updateForm(formData){
-		// 	Object.assign(this.form, formData);
-    // },
     backStep(){
       this.stepNumber--;
     },			
@@ -80,7 +84,12 @@ export default {
         stepid: this.stepid,
       }
     }).then(response => {
+      console.log(response);
       this.form = response.data[0];
+      this.form.kosteps = response.data[0].kosteps;
+      for(let i = 0; i < this.form.kosteps.length; i++) {
+        this.$set(this.form.kosteps[i], "edit", false);
+      }  
       console.log(this.form);
     })
     .catch(error => {

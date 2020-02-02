@@ -23,12 +23,22 @@
   export default {
     name: 'StepFlow',
     props:{
-      stepid: { type:Number, required: true },
-      complete: { type:Number, required: true }
+      stepid: { type: Number, required: true },
+      complete: { type: Number, required: true }
     },
     data(){
       return{
-        step: {},
+        step: {
+          id: null,
+          title: null,
+          category:{
+            name: null
+          },
+          user:{
+            name: null
+          },
+          time: null
+        },
         kosteps: []
       }
     },
@@ -38,6 +48,7 @@
           stepid: this.stepid,
         }
       }).then(response => {
+        console.log(response);
         this.step = response.data[0];
         console.log(this.step);
         this.kosteps = response.data[1];

@@ -21,7 +21,7 @@ export default {
   methods:{
   },
   mounted() {
-    axios.get('/ajax/index')
+    axios.get('/ajax/all')
     .then(response => {
       console.log(response.data);
       this.stepslist = response.data;

@@ -33,13 +33,13 @@ export default {
   components:{
     'kostep-item' : KostepItem
   },
-  name: 'StepForm02',
+  name: 'StepEditform02',
   props:{
     value: { type: Array, required: true }
   },
   data(){
     return{
-      editFlag: true
+      editFlag: false
     }
   },
   watch:{

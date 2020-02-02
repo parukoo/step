@@ -1,11 +1,11 @@
 <template>
 <div class="p-stepSingle">
+  <div><a :href="url"><p>{{ title.title }}</p></a></div>
   <step-detailcontent
     :kostep="kostep"
     :isCompleted="isCompleted"
     @completed="done"></step-detailcontent>
   
-
   <step-detailmenu
     :flowmenu="flowmenu"></step-detailmenu>
 </div>
@@ -17,14 +17,16 @@
   export default {
     name: 'StepDetail',
     props:{
-      stepid: { type:Number, required: true },
-      flowid: { type:Number, required: true }
+      title: { type: Object, required: true },
+      stepid: { type: Number, required: true },
+      flowid: { type: Number, required: true }
     },
     data(){
       return{
         kostep:{},
         flowmenu: [],
-        completes: {}
+        completes: {},
+        url: '/steps/' + this.stepid
       }
     },
     computed: {

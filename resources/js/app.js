@@ -77,7 +77,9 @@ Vue.component('step-editform', require('./components/StepEditform.vue').default)
 Vue.component('step-form', require('./components/StepForm.vue').default);
 Vue.component('step-form01', require('./components/StepForm01.vue').default);
 Vue.component('step-form02', require('./components/StepForm02.vue').default);
+Vue.component('step-editform02', require('./components/StepEditform02.vue').default);
 Vue.component('step-form03', require('./components/StepForm03.vue').default);
+Vue.component('step-editform03', require('./components/StepEditform03.vue').default);
 Vue.component('step-form04', require('./components/StepForm04.vue').default);
 Vue.component('kostep-item', require('./components/KostepItem.vue').default);
 

@@ -7,7 +7,6 @@
           id="title" 
           type="text" 
           v-model="title"
-          @input="next()" 
           placeholder="50文字以内で入力してください">
         <span v-if="!$v.value.title.required" class="p-form__errorMsg" role="alert">
           <strong>タイトルが入力されていません</strong>
@@ -23,13 +22,12 @@
         <textarea 
           id="info" 
           v-model="info" 
-          @input="next()" 
           cols="30" rows="10"></textarea>
         <span v-if="!$v.value.info.required" class="p-form__errorMsg" role="alert">
           <strong>紹介文が入力されていません</strong>
         </span>
         <span v-if="!$v.value.info.maxLength" class="p-form__errorMsg" role="alert">
-          <strong>500文字以内で入力をしてください</strong>
+          <strong>1000文字以内で入力をしてください</strong>
         </span>
       </dd>
     </dl>
@@ -40,9 +38,9 @@ import { required, maxLength } from 'vuelidate/lib/validators'
 export default {
   name: 'KostepItem',
   props: {
-    value: { type:Object, required: true },
-    nextBtn: { type:Boolean, required: true }
+    value: { type: Object, required: true },
   },
+  // バリデーションチェック
   validations:{
     value:{
       title:{
@@ -51,7 +49,7 @@ export default {
       },
       info: {
         required,
-        maxLength: maxLength(500)
+        maxLength: maxLength(1000)
       }
     }
   },
@@ -71,20 +69,17 @@ export default {
       set(info) {
         this.updateValue({ info })
       }
-    },
+    }
+  },
+  watch:{
+    '$v.$invalid': function(newVal, oldVal) {
+      this.value.edit = newVal
+      this.updateValue(this.value.edit)
+    }
   },
   methods:{
     updateValue(diff) {
       this.$emit('input', { ...this.value, ...diff })
-    },
-    next(){
-      if(this.$v.$invalid){
-        this.$emit('next', false);
-        console.log('false')
-      }else{
-        this.$emit('next', true);
-        console.log('true')
-      }
     }
   }
 }

@@ -11,17 +11,6 @@ use STEP\Http\Requests\EditUserRequest;
 
 class UsersController extends Controller
 {
-  // マイページ（GET）
-  // =======================================
-  public function mypage() {
-    $user = Auth::user();
-    $categories = Category::all();
-    $join = Join::where('user_id', Auth::user()->id)->pluck('step_id');
-    $joinsteps = Step::find($join);
-    $registersteps = Auth::user()->steps()->get();
-    return view('users.mypage', ['user' => $user ,'categories' => $categories, 'joinsteps' => $joinsteps, 'registersteps' => $registersteps]);
-  }
-
   // ユーザー編集画面（GET）
   // =======================================
   public function edit(){

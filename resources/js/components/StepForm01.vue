@@ -32,9 +32,8 @@
                 {{ category.name }}
               </option>
             </select>
-
-            <span class="p-form__errorMsg" role="alert">
-              <strong></strong>
+            <span v-if="!$v.category_id.required" class="p-form__errorMsg" role="alert">
+              <strong>選択されていません</strong>
             </span>
           </dd>
         </dl>
@@ -71,13 +70,15 @@
               </span>
           </dd>
         </dl>
+
       </div>
 
       <div class="p-form-submit">
         <input 
           class="c-btn" 
           type="button" 
-          @click="nextStep" 
+          @click="nextStep"
+          :disabled="$v.$invalid" 
           value="Next">
       </div>
     </div>
@@ -102,6 +103,9 @@ export default {
     title: {
       required,
       maxLength: maxLength(50)
+    },
+    category_id: {
+      required
     },
     info: {
       required,

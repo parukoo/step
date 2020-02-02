@@ -10,7 +10,8 @@
           <span class="p-heading-sub">stepの流れ</span>
         </div>
         <div id="app">
-          <step-detail 
+          <step-detail
+            :title="{{$title}}" 
             :stepid="{{$stepid}}"
             :flowid="{{$flowid}}"></step-detail>
         </div>

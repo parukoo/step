@@ -16,6 +16,7 @@
             @endforeach
           </ul>
         </li>
+        <li><a href="{{ route('steps.new')}}">STEPを作る</a></li>
       </ul>
     </nav>
     <div class="p-header-btns u-display-pc">

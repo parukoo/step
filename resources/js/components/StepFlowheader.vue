@@ -17,13 +17,6 @@
               <li><span class="c-icon"><img src="img/common/ico_clock.svg" alt=""></span>目安学習期間：{{ step.time }}</li>
               <li><span class="c-icon"><img src="img/common/ico_author.svg" alt=""></span>作成者：{{ step.user.name }}</li>
             </ul>
-            <div class="u-flex-center">
-              <input 
-                class="c-btn" 
-                type="submit" 
-                @click="start" 
-                value="STEPを始める">
-            </div>
           </div>
           <div class="p-stepHeader-info-score">
             <div class="p-stepHeader-info-score-graph"></div>
@@ -40,12 +33,8 @@
   export default {
     name: 'StepFlowheader',
     props:{
-      step: { type:Object, required: true },
-      complete: { type:Number, required: true }
-    },
-    data(){
-      return{
-      }
+      step: { type: Object, required: true },
+      complete: { type: Number, required: true }
     },
     methods:{
       start(){

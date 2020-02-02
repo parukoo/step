@@ -16,9 +16,21 @@ class StepsController extends Controller
   // TOPページ
   // =======================================
   public function index() {
+    if (Auth::check()) {
+      return redirect('/all');
+    }
     $categories = Category::all();
     return view('steps.index', ['categories' => $categories]);
   }
+
+
+  // Allページ
+  // =======================================
+  public function all() {
+    $categories = Category::all();
+    return view('steps.all', ['categories' => $categories]);
+  }
+
 
   // STEP一覧ページ
   // =======================================
@@ -72,8 +84,9 @@ class StepsController extends Controller
       $join->user_id = Auth::user()->id;
       $join->save();
     }
+    $title = Step::find($stepid);
     $categories = Category::all();
-    return view('steps.detail', ['stepid' => $stepid, 'flowid' => $flowid, 'categories' => $categories]);
+    return view('steps.detail', ['stepid' => $stepid, 'flowid' => $flowid, 'title' => $title, 'categories' => $categories]);
   }
 
   // STEP編集ページ
@@ -91,48 +104,5 @@ class StepsController extends Controller
   public function new(){
     $categories = Category::all();
     return view('steps.new',  ['categories' => $categories]);
-  }
-
-  // STEP新規登録ページ（登録処理）
-  // =======================================
-  public function store(Request $request)
-  {
-    // $request->validate([
-    //   'title' => 'required|string|max:255',
-    //   'category_id' => 'required|integer|max:255',
-    //   'info' => 'required|string|max:300',
-    //   'time' => 'required|integer|max:255',
-    // ]);
-    
-    //親STEPに登録
-    $step = new Step;
-    $step->title = $request->title;
-    $step->category_id = $request->category_id;
-    $step->info = $request->info;
-    $step->user_id = Auth::user()->id;
-    $step->time = $request->time;
-    $step->save();
-
-    //STEPのidを取得
-    $last_insert_id = $step->id;
-
-    //子STEPに登録
-    $kosteps = $request->input('kosteps');
-    foreach ($kosteps as $kostep){
-      $kostepdata = new Kostep;
-      $kostepdata->title = $kostep['title'];
-      logger('title'.$kostepdata->title);
-      $kostepdata->info = $kostep['info'];
-      logger('info'.$kostepdata->info);
-      $kostepdata->step_id = $last_insert_id;
-      logger('step_id'.$kostepdata->step_id );
-      $step->completed = false;
-      logger('completed'.$step->completed);
-      $kostepdata->flow_id = $kostep['id'];
-      logger('flow_id'.$kostepdata->flow_id);
-      $kostepdata->save();
-    }
-    return response()->json($step);
-    // return redirect('/')->with('success', '投稿しました');
   }
 }
