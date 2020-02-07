@@ -12,12 +12,13 @@
   max-width: 740px;
   width: 100%;
   margin: 0 auto;
-  border-radius: 30px;
+  border-radius: 10px;
   background-color: $_color-bg;
   box-shadow: 0 3px 16px 0 rgba(0, 0, 0, 0.16);
   padding: 55px 16px;
   @include _mq-up(){
     padding: 100px 70px;
+    border-radius: 30px;
   }
   text-align: center;
   &.--register{
@@ -44,13 +45,46 @@
   &-link{
     width: 50%;
     font-size: 16px;
-    color: $_color-line;
     border-bottom: 2px solid $_color-line;
     padding-bottom: 13.5px;
-    cursor: pointer;
+    a{
+      text-decoration: none;
+      color: $_color-line;
+      cursor: pointer;
+    }
     &.is-active{
-      color: $_color-link;
       border-color: $_color-link;
+      a{
+        color: $_color-link;
+      }
+    }
+    &.--large{
+      width: 100%;
+    }
+  }
+  &-passReset{
+    font-size: 14px;
+    margin-bottom: 5px;
+    a{
+      text-decoration: none;
+    }
+  }
+  &__btn{
+    background-color: $_color-link;
+    color: #fff;
+    padding: 10px 30px;
+    display: inline-block;
+    height: 50px;
+    border-radius: 25px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+    min-width: 160px;
+    font-size: 14px;
+    transition: 0.2s;
+    &:focus{
+      outline: none;
+    }
+    &:hover{
+      box-shadow: 0 10px 10px rgba(0, 0, 0, 0.16);
     }
   }
   &-flow{
@@ -176,19 +210,13 @@
     dl{
       display: block;
       margin-bottom: 30px;
-      @include _mq-up(){
-        display: flex;
-        align-items: center;
-      }
       > dt{
         text-align: left;
         line-height: 1.67;
         font-size: 10px;
         margin-bottom: 5px;
         @include _mq-up(){
-          margin-right: 20px;
           font-size: 14px;
-          margin-bottom: 0;
         }
         span{
           background-color: $_color-link;
@@ -198,15 +226,12 @@
           padding: 3px 8px;
           margin-left: 10px;
           line-height: 1.5;
-          @include _mq-up(){
-            font-size: 14px;
-            margin-left: 20px;
-          }
         }
       }
       > dd{
         flex: 1;
-        input[type="text"]{
+        text-align: left;
+        input[type="text"],input[type="email"],input[type="password"],input[type="number"]{
           height: 53px;
           width: 100%;
           padding: 10px 20px;
@@ -224,6 +249,10 @@
               color: #fff;
             }
           }
+          &.is-error{
+            background-color: $_color-error-bg;
+            border: 1px solid $_color-error;
+          }
         }
         select{
           height: 53px;
@@ -237,10 +266,14 @@
           font-size: 16px;
           background-color: $_color-line;
           border-radius: 10px;
-          color: #fff;
+          color: $_color-text;
+          position: relative;
           @include _mq-up(){
             background-color: $_color-line;
             height: 60px;
+          }
+          option:disabled{
+            color: $_color-text;
           }
           &::placeholder {
             color: $_color-line;
@@ -283,13 +316,40 @@
         }
       }
     }
+    &.--confirm{
+      dl{
+        > dt{
+          background-color: $_color-text;
+          color: #fff;
+          padding: 2px 10px;
+          display: inline-block;
+          margin-bottom: 10px;
+        }
+      }
+    }
   }
 
+  &-input{
+    &__select{
+      position: relative;
+      &::after{
+        position: absolute;
+        content: "\f0dd";
+        font-family: "Font Awesome 5 Free";
+        color: #313131;
+        font-weight: 900;
+        font-size: 125%;
+        top: 16px;
+        margin-left: -30px;
+      }
+    }
+  }
   &-submit{
     text-align: center;
-    input[type="submit"]{
-      width: 100%;
-      height: 60px;
+    button, input[type="submit"]{
+      width: 160px;
+      height: 40px;
+      border-radius: 20px;
       background-color: $_color-link;
       display: inline-block;
       -webkit-appearance: none;
@@ -298,12 +358,46 @@
       padding: 0;
       border: none;
       outline: none;
-      font-size: 20px;
-      border-radius: 30px;
+      font-size: 16px;
       color: #fff;
+      box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
       @include _mq-up(){
         width: 208px;
       }
+      &:disabled {
+        background-color: $_color-line;
+        pointer-events: none;
+      }
+      &:hover{
+        box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.16);
+        opacity: 0.8;
+      }
     }
+    &.--stepform{
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &-add{
+    text-align: center;
+    margin-bottom: 50px;
+    button{
+      width: 120px;
+      height: 30px;
+      font-size: 12px;
+      background-color: $_color-text;
+      appearance: none;
+      border: none;
+      outline: none;
+      color: #fff;
+      cursor: pointer;
+    }
+  }
+
+  &__errorMsg{
+    color: $_color-error;
+    margin-top: 5px;
+    display: inline-block;
   }
 }

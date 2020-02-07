@@ -65,6 +65,8 @@
     }
     &__time{
       display: inline-block;
+      margin-right: 20px;
+      margin-bottom: 5px;
       span{
         margin-right: 10px;
         vertical-align: -1.5px;
@@ -72,7 +74,6 @@
     }
     &__author{
       display: inline-block;
-      margin-left: 20px;
       span{
         margin-right: 10px;
       }

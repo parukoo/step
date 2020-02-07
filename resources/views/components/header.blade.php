@@ -24,7 +24,11 @@
         @auth
           <li>
             <a href="{{ route('mypage') }}">
-              <figure class="p-avator --small"><img src="{{ asset('img/update/post/post01.jpg') }}" alt=""></figure>
+              @if (Auth::user()->photo)
+                <figure class="p-avator --small"><img src="{{ asset('storage/img/'.Auth::user()->photo) }}.jpg" alt=""></figure>
+              @else
+                <figure class="p-avator --small"><img src="{{ asset('img/update/post/post01.jpg') }}" alt=""></figure>
+              @endif
               <span class="p-avator__name">{{  Auth::user()->name }}</span>
             </a>
           </li>
@@ -46,10 +50,25 @@
         @endauth
       </ul>
     </div>
-    <div class="p-header-humberger u-display-sp">
+    <div class="p-header-humberger u-display-sp js-header-btn">
       <span></span>
       <span></span>
       <span>MENU</span>
+    </div>
+    <div class="p-header-spMenu js-header-menu">
+      <nav>
+        <ul>
+          <li><a href="{{ route('steps')}}">STEP一覧</a></li>
+          <li class="js-category-menu">カテゴリー検索
+            <ul class="p-header-category-menu">
+              @foreach($categories as $category)
+                <li><a href="/category/{{ $category->id }}">{{ $category->name }}</a></li>
+              @endforeach
+            </ul>
+          </li>
+          <li><a href="{{ route('steps.new')}}">STEPを作る</a></li>
+        </ul>
+      </nav>
     </div>
   </div>
 </header>

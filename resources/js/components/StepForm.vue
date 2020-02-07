@@ -1,10 +1,10 @@
 <template>
   <div class="p-form --register">
     <ul class="p-form-flow">
-      <li class="p-form-flow__item is-active"><a href="/"><span>STEP1</span>STEPの入力①</a></li>
-      <li class="p-form-flow__item"><a href="/"><span>STEP2</span>STEPの入力②</a></li>
-      <li class="p-form-flow__item"><a href="/"><span>STEP3</span>STEPの内容確認</a></li>
-      <li class="p-form-flow__item"><a href="/"><span>STEP4</span>STEPの入力完了</a></li>
+      <li class="p-form-flow__item" :class="bgColor(1)"><span>STEP1</span>STEPの入力①</li>
+      <li class="p-form-flow__item" :class="bgColor(2)"><span>STEP2</span>STEPの入力②</li>
+      <li class="p-form-flow__item" :class="bgColor(3)"><span>STEP3</span>STEPの内容確認</li>
+      <li class="p-form-flow__item" :class="bgColor(4)"><span>STEP4</span>STEPの入力完了</li>
     </ul>
 
     <keep-alive>
@@ -66,10 +66,18 @@ export default {
             edit: true
           }
         ]
-      }
+      },
+      isActive: 'is-active'
     }
   },
 	methods:{
+    bgColor(number){
+      if(number === this.stepNumber){
+        return this.isActive;
+      }else{
+        return !this.isActive;
+      }
+    },
     backStep(){
       this.stepNumber--;
     },			

@@ -2,32 +2,36 @@
 @section('content')
   <main>
     <div class="p-formWrapper">
-            <h1 class="p-form-title"><a href="/"><img src="img/common/sitelogo.svg" alt=""></a></h1>
-            <form action="{{ route('password.email') }}" method="post" class="p-form">
-                @if (session('status'))
-                  <span class="p-form__errorMsg" role="alert">
-                      {{ session('status') }}
-                  </span>
-                @endif
-                @csrf
-                <dl>
-                  <dt><label for="email">メールアドレス</label></dt>
-                  <dd>
-                    <input type="email" name="email" class="p-form__input @error('email') is-error @enderror" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="{{ __('Email') }}">
-                    @error('email')
-                      <span class="p-form__errorMsg" role="alert">
-                        <strong>{{ $message }}</strong>
-                      </span>
-                    @enderror
-                  </dd>
-                </dl>
-
-                <button type="submit" class="p-form-submit">
-                    {{ __('Send Password Reset Link') }}
-                </button>
-
-            </form>
-          </div>
-        </main>
-        @include('components/footer')
-      @endsection
+      <h1 class="p-form-title"><a href="/"><img src="./../../../img/common/sitelogo.svg" alt=""></a></h1>
+      <form class="p-form" action="{{ route('password.email') }}" method="post">
+        @csrf
+        <ul class="p-form-links">
+          <li class="p-form-link --large">{{ __('Reset Password') }}</li>
+        </ul>
+        @if (session('status'))
+          <span class="p-form__errorMsg" role="alert">
+              {{ session('status') }}
+          </span>
+        @endif
+        <div class="p-form-inputs">
+          <dl>
+            <dt><label for="email">メールアドレス</label></dt>
+            <dd>
+              <input class="@error('email') is-error @enderror" type="email" name="email" id="email" value="{{ old('email') }}" placeholder="メールアドレス" required>
+              @error('email')
+                <span class="p-form__errorMsg" role="alert">
+                  <strong>{{ $message }}</strong>
+                </span>
+              @enderror
+            </dd>
+          </dl>
+        </div>
+      
+        <div class="p-form-submit">
+          <button type="submit" class="c-btn p-form__btn">パスワードリセットリンク送信</button>
+        </div>
+      </form>
+    </div>
+  </main>
+  @include('components/footer')
+@endsection

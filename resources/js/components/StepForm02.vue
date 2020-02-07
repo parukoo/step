@@ -9,10 +9,13 @@
           @input="value => updateItem(value, index)"></kostep-item>
       </div>
     </div>
-    <button
-      type="button" 
-      @click="add">STEPを追加する</button>
-      
+    
+    <div class="p-form-submit">
+      <button
+        type="button" 
+        @click="add">STEPを追加する</button>
+    </div>
+
     <div class="p-form-submit">
       <button
         class="c-btn" 

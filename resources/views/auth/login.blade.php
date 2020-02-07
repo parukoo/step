@@ -35,10 +35,10 @@
         </div>
         
         @if (Route::has('password.request'))
-          <p>パスワードを忘れてしまった方は<a href="{{ route('password.request') }}">コチラ</a></p>
+          <p class="p-form-passReset">パスワードを忘れてしまった方は<a href="{{ route('password.request') }}">コチラ</a></p>
         @endif
         <div class="p-form-submit">
-          <input class="c-btn" type="submit" value="送信">
+          <button type="submit" class="c-btn p-form__btn">ログイン</button>
         </div>
       </form>
     </div>

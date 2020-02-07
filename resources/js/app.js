@@ -3,6 +3,24 @@ import "../sass/style.scss";
 import Vue from 'vue'
 import Vuelidate from 'vuelidate'
 import Paginate from 'vuejs-paginate'
+import Swiper from 'swiper'
+
+
+// headerメニュー
+// =======================================
+$('.js-header-btn').on('click', function(){
+  let $this = $(this);
+  let $body = $('body');
+	if($this.hasClass('is-active')){
+    $this.removeClass('is-active');
+    $body.removeClass('is-fixed');
+		$('.js-header-menu').removeClass('is-active');
+	}else{
+    $this.addClass('is-active');
+    $body.addClass('is-fixed');
+    $('.js-header-menu').addClass('is-active');
+	}
+});
 
 
 // 画像ライブプレビュー

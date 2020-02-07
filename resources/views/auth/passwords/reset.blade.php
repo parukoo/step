@@ -1,65 +1,51 @@
 @extends('layouts.app')
-
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+  <main>
+    <div class="p-formWrapper">
+      <h1 class="p-form-title"><a href="/"><img src="./../../../img/common/sitelogo.svg" alt=""></a></h1>
+      <form class="p-form" action="{{ route('password.update') }}" method="post">
+        @csrf
+        <input type="hidden" name="token" value="{{ $token }}">
+        <ul class="p-form-links">
+          <li class="p-form-link --large">{{ __('Reset Password') }}</li>
+        </ul>
+        <div class="p-form-inputs">
+          <dl>
+            <dt><label for="email">メールアドレス<span>必須</span></label></dt>
+            <dd>
+              <input class="@error('email') is-error @enderror" type="email" name="email" id="email" value="{{ old('email') }}" placeholder="メールアドレス" required>
+              @error('email')
+                <span class="p-form__errorMsg" role="alert">
+                  <strong>{{ $message }}</strong>
+                </span>
+              @enderror
+            </dd>
+          </dl>
+          <dl>
+            <dt><label for="password">パスワード<span>必須</span></label></dt>
+            <dd>
+              <input type="password" id="password" name="password" class="@error('password') is-error @enderror" placeholder="パスワード" required>
+              @error('password')
+                <span class="p-form__errorMsg" role="alert">
+                  <strong>{{ $message }}</strong>
+                </span>
+              @enderror
+            </dd>
+          </dl>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('password.update') }}">
-                        @csrf
-
-                        <input type="hidden" name="token" value="{{ $token }}">
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Reset Password') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+          <dl>
+            <dt><label for="password_confirmation">パスワード（再入力）<span>必須</span></label></dt>
+            <dd>
+              <input type="password" id="password_confirmation" name="password_confirmation" class="@error('password') is-error @enderror" placeholder="パスワード（再入力）" required>
+            </dd>
+          </dl>
         </div>
+
+        <div class="p-form-submit">
+          <button type="submit" class="c-btn p-form__btn">{{ __('Reset Password') }}</button>
+        </div>
+      </form>
     </div>
-</div>
+  </main>
+  @include('components/footer')
 @endsection

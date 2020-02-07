@@ -12,29 +12,32 @@
               v-model="title" 
               placeholder="STEPのタイトルを入力してください"
               @blur="$v.title.$touch()">
-              <span v-if="!$v.title.required" class="p-form__errorMsg" role="alert">
-                <strong>タイトルが入力されていません</strong>
-              </span>
-              <span v-if="!$v.title.maxLength" class="p-form__errorMsg" role="alert">
-                <strong>50文字以内で入力をしてください</strong>
-              </span>
+              <div v-if="$v.title.$error">
+                <span v-if="!$v.title.required" class="p-form__errorMsg" role="alert">
+                  <strong>タイトルが入力されていません</strong>
+                </span>
+                <span v-if="!$v.title.maxLength" class="p-form__errorMsg" role="alert">
+                  <strong>50文字以内で入力をしてください</strong>
+                </span>
+              </diV>
           </dd>
         </dl>
 
         <dl>
           <dt><label for="category-form">カテゴリー<span>必須</span></label></dt>
-          <dd>
+          <dd class="p-form-input__select">
             <select id="category-form" v-model="category_id">
-              <option 
-                v-for="category in categories"
+              <option v-for="category in categories"
                 :key="category.id" 
                 :value="category.id">
                 {{ category.name }}
               </option>
             </select>
-            <span v-if="!$v.category_id.required" class="p-form__errorMsg" role="alert">
-              <strong>選択されていません</strong>
-            </span>
+            <div v-if="$v.category_id.$error">
+              <span v-if="!$v.category_id.required" class="p-form__errorMsg" role="alert">
+                <strong>選択されていません</strong>
+              </span>
+            </diV>
           </dd>
         </dl>
 
@@ -46,12 +49,14 @@
               v-model="info" 
               cols="30" rows="10"
               @blur="$v.info.$touch()"></textarea>
-              <span v-if="!$v.info.required" class="p-form__errorMsg" role="alert">
-                <strong>紹介文が入力されていません</strong>
-              </span>
-              <span v-if="!$v.info.maxLength" class="p-form__errorMsg" role="alert">
-                <strong>500文字以内で入力をしてください</strong>
-              </span>
+              <div v-if="$v.info.$error">
+                <span v-if="!$v.info.required" class="p-form__errorMsg" role="alert">
+                  <strong>紹介文が入力されていません</strong>
+                </span>
+                <span v-if="!$v.info.maxLength" class="p-form__errorMsg" role="alert">
+                  <strong>500文字以内で入力をしてください</strong>
+                </span>
+              </diV>
           </dd>
         </dl>
 
@@ -64,28 +69,33 @@
               v-model="time" 
               type="number" 
               placeholder="選択してください"
+              min="0"
               @blur="$v.time.$touch()">時間
-              <span v-if="!$v.time.required" class="p-form__errorMsg" role="alert">
-                <strong>入力されていません</strong>
-              </span>
+              <div v-if="$v.time.$error">
+                <span v-if="!$v.time.required" class="p-form__errorMsg" role="alert">
+                  <strong>入力されていません</strong>
+                </span>
+                <span v-if="!$v.time.between" class="p-form__errorMsg" role="alert">
+                  <strong>1〜999時間以内で入力をしてください。</strong>
+                </span>
+              </diV>
           </dd>
         </dl>
       </div>
 
       <div class="p-form-submit">
-        <input 
-          class="c-btn" 
-          type="button" 
-          @click="nextStep"
-          :disabled="$v.$invalid" 
-          value="Next">
+        <button
+        class="c-btn" 
+        type="button" 
+        @click="nextStep" 
+        :disabled="$v.$invalid">Next</button>
       </div>
     </div>
   </form>
 </template>
 
 <script>
-import { required, maxLength } from 'vuelidate/lib/validators'
+import { required, maxLength, between } from 'vuelidate/lib/validators'
 
 export default {
   name: 'StepForm01',
@@ -95,7 +105,7 @@ export default {
   },
   data(){
     return{
-      stepNumber: 2
+      stepNumber: 1
     }
   },
   validations:{
@@ -111,7 +121,8 @@ export default {
       maxLength: maxLength(500)
     },
     time: {
-      required
+      required,
+      between: between(0, 999)
     }  
   },
   computed:{

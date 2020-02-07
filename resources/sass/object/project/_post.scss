@@ -53,7 +53,7 @@
   }
   &--mypage{
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     @include _mq-up(lg){
       width: calc((100% - 40px) / 3);
     }
@@ -88,6 +88,16 @@
     overflow: hidden;
     @include _mq-up(lg){
       margin-bottom: 18px;
+    }
+  }
+  &-edit{
+    display: block;
+    text-align: right;
+    &__link{
+      width: 25px;
+      height: 5px;
+      cursor: pointer;
+      margin-bottom: 10px;
     }
   }
   a{

@@ -15,18 +15,16 @@
   <meta property="og:title" content="step" />
   <meta property="og:description" content="人生のSTEPを共有できるサイトです。" />
   <meta property="og:image" content="https://filmbiyori.paruko.net/image/twitter.jpg" />
-  <link rel="shortcut icon" href="//filmbiyori.paruko.net/favicon.ico">
+  <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}">
   <link rel="apple-touch-icon-precomposed" href="/image/twitter.jpg">
   <script src="https://kit.fontawesome.com/7f19bc1ee0.js" crossorigin="anonymous"></script>
-
-  <!-- Scripts -->
-  <script src="{{ asset('js/app.js') }}" defer></script>
-
-  <!-- Fonts -->
 
   <!-- Styles -->
   <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
+  <!-- Scripts -->
+  <script src="{{ asset('js/app.js') }}" defer></script>
+  <!-- Fonts -->
 </head>
 <body>
   @yield('content')

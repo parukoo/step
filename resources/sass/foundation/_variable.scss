@@ -32,6 +32,10 @@ $_color-link: #fabe00 !default;
 $_color-link--visited: null !default;
 $_color-link--hover: lighten($_color-link, 15%) !default;
 
+//error color
+$_color-error: #f15252;
+$_color-error-bg: #ffeded;
+
 
 // -----------------------------------------------------------------
 // font-family

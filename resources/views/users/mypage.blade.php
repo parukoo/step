@@ -12,10 +12,10 @@
       
         <div class="p-profile">
           <figure class="p-profile-image">
-            <img src="{{ asset('storage/img/'.$user->photo) }}.jpg" alt="">
+            <img src="{{ asset('storage/img/'.$user->photo) }}.jpg">
           </figure>
           <div class="p-profile-txtWrapper">
-          <h3 class="p-profile-name">{{ $user->name }}<a href="/users/edit">編集</a></h3>
+          <h3 class="p-profile-name">{{ $user->name }}<a href="/users/edit"><img class="p-profile-edit" src="img/common/ico_useredit.svg"></a></h3>
             <p class="p-profile-txt">{{ $user->profile }}</p>
           </div>
         </div>
@@ -65,8 +65,8 @@
 
             <div class="p-posts--mypage js-tabPanel is-active">
               @foreach ($registersteps as $registerstep)
-              <a href="/steps/{{ $registerstep->id }}/edit">編集</a>
                 <div class="p-post--mypage">
+                  <a href="/steps/{{ $registerstep->id }}/edit" class="p-post-edit"><img src="img/common/ico_edit.svg" class="p-post-edit__link"></a>
                   <a href="/steps/{{ $registerstep->id }}">
                     <figure class="p-post-image"><img src="img/update/post/post01.jpg" alt=""></figure>
                     <h4 class="p-post-title">{{ $registerstep->title }}</h4>

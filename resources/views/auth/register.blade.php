@@ -13,7 +13,7 @@
           <dl>
             <dt><label for="name">ユーザーネーム<span>必須</span></label></dt>
             <dd>
-              <input class="@error('name') is-error @enderror" type="name" name="name" id="name" value="{{ old('name') }}" placeholder="ユーザーネーム" required>
+              <input class="@error('name') is-error @enderror" type="text" name="name" id="name" value="{{ old('name') }}" placeholder="ユーザーネーム" required>
               @error('name')
                 <span class="p-form__errorMsg" role="alert">
                   <strong>{{ $message }}</strong>
@@ -55,7 +55,7 @@
         </div>
         
         <div class="p-form-submit">
-          <input class="c-btn" type="submit" value="送信">
+          <button type="submit" class="c-btn p-form__btn">新規登録</button>
         </div>
       </form>
     </div>
