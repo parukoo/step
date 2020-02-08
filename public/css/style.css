@@ -1024,6 +1024,26 @@ pre {
   }
 }
 
+.p-form-inputs dl > dd textarea::-webkit-input-placeholder {
+  color: #fff;
+}
+
+.p-form-inputs dl > dd textarea::-moz-placeholder {
+  color: #fff;
+}
+
+.p-form-inputs dl > dd textarea:-ms-input-placeholder {
+  color: #fff;
+}
+
+.p-form-inputs dl > dd textarea::-ms-input-placeholder {
+  color: #fff;
+}
+
+.p-form-inputs dl > dd textarea::placeholder {
+  color: #fff;
+}
+
 .p-form-inputs.--register {
   padding: 0;
   text-align: left;
@@ -1063,6 +1083,51 @@ pre {
   font-size: 125%;
   top: 16px;
   margin-left: -30px;
+}
+
+.p-form-file__label {
+  padding: 3px 5px;
+  border: 1px solid #dbdbdb;
+  cursor: pointer;
+}
+
+.p-form-file__label > input[type="file"] {
+  display: none;
+}
+
+.p-form-file__label::after {
+  content: '+';
+  font-size: 1rem;
+  color: #000;
+  padding-left: 10px;
+}
+
+.p-form-file-preview {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  background-color: #dbdbdb;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 3px solid #dbdbdb;
+}
+
+.p-form-file-preview:before {
+  content: "";
+  display: block;
+  padding-top: 61.3%;
+}
+
+.p-form-file-preview img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.p-form-file__btn {
+  margin-top: 10px;
+  cursor: pointer;
 }
 
 .p-form-submit {
@@ -1211,6 +1276,12 @@ pre {
   .p-header-pcMenu > ul > li a {
     color: #000;
     text-decoration: none;
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
+  }
+
+  .p-header-pcMenu > ul > li a:hover {
+    opacity: 0.5;
   }
 }
 

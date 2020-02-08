@@ -48,6 +48,7 @@
               id="info" 
               v-model="info" 
               cols="30" rows="10"
+              placeholder="500文字以内で入力をしてください"
               @blur="$v.info.$touch()"></textarea>
               <div v-if="$v.info.$error">
                 <span v-if="!$v.info.required" class="p-form__errorMsg" role="alert">
@@ -81,6 +82,27 @@
               </diV>
           </dd>
         </dl>
+
+        <dl class="p-form-file">
+          <dt>
+            <label v-show="!uploadedImage" class="p-form-file__label">
+              アイキャッチ画像を選択
+              <input type="file" name="file" @change="onFileChange"/>
+            </label>
+          </dt>
+          <dd>
+            <div class="p-form-file-preview" v-show="uploadedImage">
+              <img
+                v-show="uploadedImage"
+                class="p-form-file-preview__file"
+                :src="uploadedImage"
+              />
+            </div>
+            <div v-show="uploadedImage" class="p-form-file__btn" @click="remove">
+              <span>削除する<i class="fas fa-times"></i></span>
+            </div>
+          </dd>
+        </dl>
       </div>
 
       <div class="p-form-submit">
@@ -101,11 +123,12 @@ export default {
   name: 'StepForm01',
   props:{
     value: { type: Object, required: true},
-    categories: { type: Array, equired: true}
+    categories: { type: Array, equired: true},
   },
   data(){
     return{
-      stepNumber: 1
+      stepNumber: 1,
+      uploadedImage: ''
     }
   },
   validations:{
@@ -160,6 +183,28 @@ export default {
     }
   },
 	methods: {
+    // 画像登録処理
+    // -----------------------------------------------
+    onFileChange(e) {
+      // 選択された File の情報を保存しておく
+      const files = e.target.files || e.dataTransfer.files;
+      this.createImage(files[0]);
+      this.$emit('updateImage', files[0]);
+    },
+    // アップロードした画像を表示
+    createImage(file) {
+      const reader = new FileReader();
+      reader.onload = e => {
+        this.uploadedImage = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    },
+    remove() {
+      this.uploadedImage = false;
+    },
+
+    // 次のSTEPボタン
+    // -----------------------------------------------
     nextStep(){
       if(this.$v.$invalid){
         console.log('バリデーションエラー');
@@ -167,6 +212,9 @@ export default {
         this.$emit('nextStep');
       }
     },
+
+    // アップデート
+    // -----------------------------------------------
     updateValue(diff) {
       this.$emit('input', { ...this.value, ...diff })
     }

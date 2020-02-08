@@ -106,8 +106,10 @@ class StepController extends Controller
 
   // STEP新規登録ページ（登録処理）
   // =======================================
-  public function new(CreateStepRequest $request)
+  // public function new(CreateStepRequest $request)
+  public function new(Request $request)
   {    
+
     //親STEPに登録
     $step = new Step;
     $step->title = $request->title;
@@ -115,6 +117,23 @@ class StepController extends Controller
     $step->info = $request->info;
     $step->user_id = Auth::user()->id;
     $step->time = $request->time;
+
+    // // アイキャッチ画像登録処理
+    // if($request->uploadedImage != null){
+    //   $photo = $request->file('uploadedImage');
+    //   $img = \Image::make($photo);
+    //   $width = 300;
+    //   $img->resize($width, null, function($constraint){
+    //     $constraint->aspectRatio();
+    //   });
+    //   $eyecatchpath = str_random(30);
+    //   $file_name = $eyecatchpath;
+    //   $save_path = storage_path('app/public/img/step/'.$file_name.'.jpg');        
+    //   $img->save($save_path);
+    //   // $img->storeAs('public/user_images', $user->id . '.jpg');
+    //   $step->photo = $file_name;
+    // }
+
     $step->save();
 
     //STEPのidを取得

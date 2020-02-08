@@ -8,12 +8,14 @@
           type="text" 
           v-model="title"
           placeholder="50文字以内で入力してください">
-        <span v-if="!$v.value.title.required" class="p-form__errorMsg" role="alert">
-          <strong>タイトルが入力されていません</strong>
-        </span>
-        <span v-if="!$v.value.title.maxLength" class="p-form__errorMsg" role="alert">
-          <strong>50文字以内で入力をしてください</strong>
-        </span>
+        <div v-if="$v.value.title.$error">
+          <span v-if="!$v.value.title.required" class="p-form__errorMsg" role="alert">
+            <strong>タイトルが入力されていません</strong>
+          </span>
+          <span v-if="!$v.value.title.maxLength" class="p-form__errorMsg" role="alert">
+            <strong>50文字以内で入力をしてください</strong>
+          </span>
+        </diV>
       </dd>
     </dl>
     <dl>
@@ -22,13 +24,16 @@
         <textarea 
           id="info" 
           v-model="info" 
-          cols="30" rows="10"></textarea>
-        <span v-if="!$v.value.info.required" class="p-form__errorMsg" role="alert">
-          <strong>紹介文が入力されていません</strong>
-        </span>
-        <span v-if="!$v.value.info.maxLength" class="p-form__errorMsg" role="alert">
-          <strong>1000文字以内で入力をしてください</strong>
-        </span>
+          cols="30" rows="10"
+          placeholder="1000文字以内で入力をしてください"></textarea>
+        <div v-if="$v.value.info.$error">
+          <span v-if="!$v.value.info.required" class="p-form__errorMsg" role="alert">
+            <strong>紹介文が入力されていません</strong>
+          </span>
+          <span v-if="!$v.value.info.maxLength" class="p-form__errorMsg" role="alert">
+            <strong>1000文字以内で入力をしてください</strong>
+          </span>
+        </diV>
       </dd>
     </dl>
   </div>

@@ -58,6 +58,7 @@ export default {
         category_id: null,
         info: null,
         time: null,
+        // uploadedImage: null,
         kosteps: [
           {
             flow_id: 1,
@@ -83,7 +84,13 @@ export default {
     },			
     nextStep(){
       this.stepNumber++;
-    }
+    },
+    // fileupload(file){
+    //   const formData = new FormData()
+    //   formData.append('file', file);
+    //   // this.form.uploadedImage = file;
+    //   console.log(formData.entries());
+    // }
 	}
 }
 </script>

@@ -10,7 +10,7 @@
       </div>
     </div>
     
-    <div class="p-form-submit">
+    <div class="p-form-add">
       <button
         type="button" 
         @click="add">STEPを追加する</button>
