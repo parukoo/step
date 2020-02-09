@@ -66,7 +66,6 @@ class StepController extends Controller
   public function edit(Request $request){
     $stepid = $request->input('stepid');
     $step = Step::where('id', $stepid)->with('kosteps')->get();
-    // $step = Auth::user()->steps()->find($stepid)->with('kosteps')->get();
     return $step;
   }
 
@@ -90,17 +89,14 @@ class StepController extends Controller
     // 詳細ページの子STEPを1つ取得
     $kostep = Kostep::where('step_id', $stepid)->where('flow_id', $flowid)->first();
 
-    // 指定の子STEPの完了有無を取得
-    $kostepid = $kostep->id;
-    $complete = Complete::where('user_id', Auth::user()->id)->where('kostep_id', $kostepid)->count();
-
     // 指定のSTEPの完了有無を全て取得
-    $completeAll = Complete::where('user_id', Auth::user()->id)->where('step_id', $stepid)->count();
+    $completes = Complete::where('user_id', Auth::user()->id)->where('step_id', $stepid)->pluck('kostep_id');
 
     // 指定STEPの情報を全て取得
-    $flowmenu = Kostep::where('step_id', $stepid)->orderBy('flow_id','asc')->get();
+    $flowmenu = Kostep::select('id', 'title', 'step_id', 'flow_id')->where('step_id', $stepid)->orderBy('flow_id','asc')->get();
+
     
-    return [$kostep, $complete, $completeAll, $flowmenu];
+    return [$kostep, $completes, $flowmenu];
   }
 
 
@@ -194,8 +190,9 @@ class StepController extends Controller
   // =======================================
   public function completed(Request $request) {
     $kostep_id = $request->id;
+    $step_id = $request->step_id;
     $complete_id = Complete::where('kostep_id', $kostep_id)->where('user_id', Auth::user()->id)->count();
-
+    
     //既に完了済みだったら
     if($complete_id > 0){
         $complete = Complete::where('kostep_id', $kostep_id)->where('user_id', Auth::user()->id)->delete();

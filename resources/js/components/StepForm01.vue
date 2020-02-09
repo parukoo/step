@@ -83,7 +83,7 @@
           </dd>
         </dl>
 
-        <dl class="p-form-file">
+        <!-- <dl class="p-form-file">
           <dt>
             <label v-show="!uploadedImage" class="p-form-file__label">
               アイキャッチ画像を選択
@@ -102,7 +102,7 @@
               <span>削除する<i class="fas fa-times"></i></span>
             </div>
           </dd>
-        </dl>
+        </dl> -->
       </div>
 
       <div class="p-form-submit">
@@ -185,23 +185,23 @@ export default {
 	methods: {
     // 画像登録処理
     // -----------------------------------------------
-    onFileChange(e) {
-      // 選択された File の情報を保存しておく
-      const files = e.target.files || e.dataTransfer.files;
-      this.createImage(files[0]);
-      this.$emit('updateImage', files[0]);
-    },
-    // アップロードした画像を表示
-    createImage(file) {
-      const reader = new FileReader();
-      reader.onload = e => {
-        this.uploadedImage = e.target.result;
-      };
-      reader.readAsDataURL(file);
-    },
-    remove() {
-      this.uploadedImage = false;
-    },
+    // onFileChange(e) {
+    //   // 選択された File の情報を保存しておく
+    //   const files = e.target.files || e.dataTransfer.files;
+    //   this.createImage(files[0]);
+    //   this.$emit('updateImage', files[0]);
+    // },
+    // // アップロードした画像を表示
+    // createImage(file) {
+    //   const reader = new FileReader();
+    //   reader.onload = e => {
+    //     this.uploadedImage = e.target.result;
+    //   };
+    //   reader.readAsDataURL(file);
+    // },
+    // remove() {
+    //   this.uploadedImage = false;
+    // },
 
     // 次のSTEPボタン
     // -----------------------------------------------

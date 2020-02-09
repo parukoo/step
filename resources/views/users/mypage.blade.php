@@ -21,54 +21,55 @@
         </div>
         <div class="p-mystep">
           <ul class="p-mystep-menu">
-            <li class="js-tabLink">学習中のSTEP</li>
-            {{-- <li class="js-tabLink">学習済みのSTEP</li> --}}
-            <li class="js-tabLink is-active">登録したSTEP</li>
+            <li class="js-tabLink is-active">学習中のSTEP</li>
+            <li class="js-tabLink">学習済みのSTEP</li>
+            <li class="js-tabLink">登録したSTEP</li>
           </ul>
 
           <div class="p-mystep-content">
-            <div class="p-posts--mypage js-tabPanel">
+
+            <div class="p-posts--mypage js-tabPanel is-active">
               @foreach ($joinsteps as $joinstep)
-                <div class="p-post--mypage">
-                  <a href="/steps/{{ $joinstep->id }}">
-                    <figure class="p-post-image"><img src="img/category/eyecatch0{{ $joinstep->id }}.jpg" alt=""></figure>
-                    <h4 class="p-post-title">{{ $joinstep->title }}</h4>
-                    <p class="p-post-txt">{{ $joinstep->info }}</p>
-                  </a>
-                </div>                  
+              <div class="p-post--mypage">
+                <a href="/steps/{{ $joinstep['step']['id'] }}">
+                  <figure class="p-post-image"><img src="img/category/eyecatch0{{ $joinstep['step']['category_id'] }}.jpg" alt=""></figure>
+                  <h4 class="p-post-title">{{ $joinstep['step']['title'] }}</h4>
+                  <p class="p-post-txt">{{ $joinstep['step']['info'] }}</p>
+                  <div class="p-post-score">
+                    <div class="p-post-score__graph">
+                      <span style="width: {{ $joinstep['complete'] }}%"></span>
+                    </div>
+                    <p class="p-post-score__text">完了率　{{ $joinstep['complete'] }}%</p>
+                  </div>
+                </a>
+              </div>   
               @endforeach
             </div>
 
-            {{-- <div class="p-posts--mypage js-tabPanel">
+            <div class="p-posts--mypage js-tabPanel">
+              @foreach ($completesteps as $completestep)
               <div class="p-post--mypage">
-                <a href="post-single.html">
-                  <figure class="p-post-image"><img src="img/update/post/post01.jpg" alt=""></figure>
-                  <h4 class="p-post-title">学習済STEP</h4>
-                  <p class="p-post-txt">学習方法の説明文が入ります。学習方法の説明文が入ります。学習方法の説明文が入ります。</p>
+                <a href="/steps/{{ $completestep['step']['id'] }}">
+                  <figure class="p-post-image"><img src="img/category/eyecatch0{{ $completestep['step']['category_id'] }}.jpg" alt=""></figure>
+                  <h4 class="p-post-title">{{ $completestep['step']['title'] }}</h4>
+                  <p class="p-post-txt">{{ $completestep['step']['info'] }}</p>
                 </a>
-              </div>
-              <div class="p-post--mypage">
-                <a href="post-single.html">
-                  <figure class="p-post-image"><img src="img/update/post/post01.jpg" alt=""></figure>
-                  <h4 class="p-post-title">学習済STEP</h4>
-                  <p class="p-post-txt">学習方法の説明文が入ります。学習方法の説明文が入ります。学習方法の説明文が入ります。</p>
-                </a>
-              </div>
-              <div class="p-post--mypage">
-                <a href="post-single.html">
-                  <figure class="p-post-image"><img src="img/update/post/post01.jpg" alt=""></figure>
-                  <h4 class="p-post-title">学習済STEP</h4>
-                  <p class="p-post-txt">学習方法の説明文が入ります。学習方法の説明文が入ります。学習方法の説明文が入ります。</p>
-                </a>
-              </div>
-            </div> --}}
+                <div class="p-post-score">
+                  <div class="p-post-score__graph">
+                    <span style="width: {{ $completestep['complete'] }}%"></span>
+                  </div>
+                  <p class="p-post-score__text">完了率　{{ $completestep['complete'] }}%</p>
+                </div>
+              </div>   
+              @endforeach
+            </div>
 
-            <div class="p-posts--mypage js-tabPanel is-active">
+            <div class="p-posts--mypage js-tabPanel">
               @foreach ($registersteps as $registerstep)
                 <div class="p-post--mypage">
                   <a href="/steps/{{ $registerstep->id }}/edit" class="p-post-edit"><img src="img/common/ico_edit.svg" class="p-post-edit__link"></a>
                   <a href="/steps/{{ $registerstep->id }}">
-                    <figure class="p-post-image"><img src="img/update/post/post01.jpg" alt=""></figure>
+                    <figure class="p-post-image"><img src="img/category/eyecatch0{{ $registerstep->category_id }}.jpg" alt=""></figure>
                     <h4 class="p-post-title">{{ $registerstep->title }}</h4>
                     <p class="p-post-txt">{{ $registerstep->info }}</p>
                   </a>

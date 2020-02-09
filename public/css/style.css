@@ -473,6 +473,11 @@ pre {
   }
 }
 
+.p-flow-list > li a.active {
+  opacity: 0.5;
+  box-shadow: none;
+}
+
 .p-flow-list > li a h4 {
   font-size: 18px;
   margin-bottom: 0.5em;
@@ -508,19 +513,19 @@ pre {
           flex: 1;
 }
 
-.p-flow-item-btn {
+.p-flow-item__btn {
   display: block;
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-color: #dbdbdb;
+  border: 2px solid #dbdbdb;
   line-height: 30px;
   text-align: center;
   cursor: pointer;
 }
 
 @media screen and (min-width: 1000px) {
-  .p-flow-item-btn {
+  .p-flow-item__btn {
     width: 55px;
     height: 55px;
     line-height: 55px;
@@ -528,14 +533,25 @@ pre {
   }
 }
 
-.p-flow-item-btn img {
-  width: 16px;
+.p-flow-item__btn.active {
+  background-color: #dbdbdb;
+}
+
+.p-flow-item__btn-icon {
+  font-size: 16px;
+  line-height: 30px;
+  color: #dbdbdb;
 }
 
 @media screen and (min-width: 1000px) {
-  .p-flow-item-btn img {
-    width: 24px;
+  .p-flow-item__btn-icon {
+    font-size: 25px;
+    line-height: 55px;
   }
+}
+
+.p-flow-item__btn-icon.active {
+  color: #fff;
 }
 
 .p-footer {
@@ -1798,6 +1814,12 @@ pre {
   }
 }
 
+.p-posts--mypage::after {
+  content: "";
+  display: block;
+  width: 30%;
+}
+
 .p-post {
   width: 100%;
   margin-bottom: 20px;
@@ -1895,6 +1917,25 @@ pre {
   transition: -webkit-transform 0.3s;
   transition: transform 0.3s;
   transition: transform 0.3s, -webkit-transform 0.3s;
+}
+
+.p-post-score__graph {
+  width: 100%;
+  height: 15px;
+  border-radius: 7.5px;
+  background-color: #dbdbdb;
+  display: block;
+  margin: 10px 0;
+  position: relative;
+}
+
+.p-post-score__graph span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 15px;
+  border-radius: 7.5px;
+  background-color: #fabe00;
 }
 
 .p-profile {
@@ -2527,21 +2568,47 @@ pre {
   }
 }
 
-.p-stepSingle-content-count {
+.p-stepSingle-content__count {
   letter-spacing: 0.05em;
 }
 
-.p-stepSingle-content-title {
+.p-stepSingle-content__title {
   font-size: 24px;
   margin-bottom: 20px;
   line-height: 1.5;
 }
 
 @media screen and (min-width: 768px) {
-  .p-stepSingle-content-title {
+  .p-stepSingle-content__title {
     font-size: 30px;
     margin-bottom: 40px;
   }
+}
+
+.p-stepSingle-content-share {
+  text-align: right;
+  margin-bottom: 30px;
+}
+
+.p-stepSingle-content-share-btn {
+  width: 100px;
+  height: 30px;
+  border-radius: 5px;
+  background-color: #1DA1F2;
+  display: inline-block;
+  line-height: 30px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 12px;
+  text-align: center;
+}
+
+.p-stepSingle-content-share-btn:hover {
+  opacity: 0.5;
+}
+
+.p-stepSingle-content-share-btn__icon {
+  font-size: 15px;
 }
 
 .p-stepSingle-content > p {

@@ -17,7 +17,7 @@
   export default {
     name: 'StepDetailmenu',
     props:{
-      flowmenu: { type:Array, required: true }
+      flowmenu: { type: Array, required: true },
     }
   }
 </script>

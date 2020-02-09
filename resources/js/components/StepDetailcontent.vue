@@ -1,8 +1,15 @@
 <template>
   <div class="p-stepSingle-content">
-    <span class="p-stepSingle-content-count">FLOW {{ kostep.flow_id }}</span>
-    <h3 class="p-stepSingle-content-title">{{ kostep.title }}</h3>
+    <span class="p-stepSingle-content__count">FLOW {{ kostep.flow_id }}</span>
+    <h3 class="p-stepSingle-content__title">{{ kostep.title }}</h3>
     <p>{{ kostep.info }}</p>
+    <div class="p-stepSingle-content-share">
+      <span 
+        class="p-stepSingle-content-share-btn"
+        @click="normalShare">ツイートする         
+        <i class="p-stepSingle-content-share-btn__icon fab fa-twitter"></i>
+      </span>
+    </div>
     <div class="p-stepSingle-btns">
       <span
         class="c-btn p-stepSingle-btn" 
@@ -17,11 +24,14 @@
     name: 'StepDetailcontent',
     props:{
       kostep: { type: Object, required: true },
-      isCompleted: { tyep: Boolean, required: true }
+      isCompleted: { type: Boolean, required: true }
     },
     methods:{
       done(){
         this.$emit('completed', this.kostep)
+      },
+      normalShare(){
+        this.$emit('normalShare', this.kostep)
       }
     }
   }

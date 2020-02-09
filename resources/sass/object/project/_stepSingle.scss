@@ -27,16 +27,38 @@
     @include _mq-up(){
       padding: 35px;
     }
-    &-count{
+    &__count{
       letter-spacing: 0.05em;
     }
-    &-title{
+    &__title{
       font-size: 24px;
       margin-bottom: 20px;
       line-height: 1.5;
       @include _mq-up(){
         font-size: 30px;
         margin-bottom: 40px;
+      }
+    }
+    &-share{
+      text-align: right;
+      margin-bottom: 30px;
+      &-btn{
+        width: 100px;
+        height: 30px;
+        border-radius: 5px;
+        background-color: #1DA1F2;
+        display: inline-block;
+        line-height: 30px;
+        cursor: pointer;
+        color: #fff;
+        font-size: 12px;
+        text-align: center;
+        &:hover{
+          opacity: 0.5;     
+        }
+        &__icon{
+          font-size: 15px;
+        }
       }
     }
     > p{

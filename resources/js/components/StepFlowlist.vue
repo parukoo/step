@@ -34,8 +34,3 @@
     }
   }
 </script>
-
-        // return this.kosteps
-
-      // // this.kosteps.forEach((kostep) =>
-      // //   { console.log(this.completes.includes(kostep.id))});

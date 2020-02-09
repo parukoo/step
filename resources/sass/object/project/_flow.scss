@@ -15,6 +15,10 @@
           width: 740px;
           padding: 30px 40px;
         }
+        &.active{
+          opacity: 0.5;
+          box-shadow: none;
+        }
         h4{
           font-size: 18px;
           margin-bottom: 0.5em;
@@ -42,12 +46,12 @@
     &-txtWrapper{
       flex: 1;
     }
-    &-btn{
+    &__btn{
       display: block;
       width: 30px;
       height: 30px;
       border-radius: 50%;
-      background-color: $_color-line;
+      border: 2px solid $_color-line;
       line-height: 30px;
       text-align: center;
       cursor: pointer;
@@ -57,12 +61,22 @@
         line-height: 55px;
         border-radius: 50%;
       }
-      img{
-        width: 16px;
+      &.active{
+        background-color: $_color-line;
+      }
+      &-icon{
+        font-size: 16px;
+        line-height: 30px;
+        color: $_color-line;
         @include _mq-up(lg){
-          width: 24px;
+          font-size: 25px;
+          line-height: 55px;
+        }
+        &.active{
+          color: #fff;
         }
       }
     }
   }
 }
+
