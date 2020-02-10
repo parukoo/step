@@ -1,31 +1,4 @@
 .p-rowpost{
-  a{
-    display: block;
-    text-decoration: none;
-    color: $_color-text;
-    padding: 0;
-    transition: all 0.3s;
-    @include _mq-up(){
-      display: flex;
-      padding: 45px 30px;
-    }
-    @include _mq-up(lg){
-      padding: 45px 60px;
-    }
-    &:hover{
-      @include _mq-up(){
-        background-color: $_color-bg;
-      }
-      .p-rowpost-image {
-        transition: border-radius 0.3s;
-        border-radius: 50px;
-        img{
-          transform: scale(1.2);
-          transition: transform 0.3s;
-        }
-      }
-    }
-  }
   &-txtWrapper{
     padding: 10px 0;
     @include _mq-up(){
@@ -35,6 +8,7 @@
   }
   &-image{
     overflow: hidden;
+    transition: border-radius 0.3s;
     @include _mq-up(){
       max-width: 310px;
     }
@@ -91,6 +65,33 @@
     margin-top: 60px;
     @include _mq-up(){
       margin-top: 0;
+    }
+  }
+  a{
+    display: block;
+    text-decoration: none;
+    color: $_color-text;
+    padding: 0;
+    transition: all 0.3s;
+    @include _mq-up(){
+      display: flex;
+      padding: 45px 30px;
+    }
+    @include _mq-up(lg){
+      padding: 45px 60px;
+    }
+    &:hover{
+      @include _mq-up(){
+        background-color: $_color-bg;
+      }
+      .p-rowpost-image {
+        transition: border-radius 0.3s;
+        border-radius: 50px;
+        img{
+          transform: scale(1.2);
+          transition: transform 0.3s;
+        }
+      }
     }
   }
 }

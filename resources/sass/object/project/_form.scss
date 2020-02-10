@@ -288,6 +288,10 @@
           &::placeholder{
             color: #fff;
           }
+          &.is-error{
+            background-color: $_color-error-bg;
+            border: 1px solid $_color-error;
+          }
         }
       }
     }
