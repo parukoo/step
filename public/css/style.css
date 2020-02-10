@@ -354,7 +354,7 @@ pre {
   height: 70px;
   padding: 11px 16px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.9);
   z-index: 2;
 }
 
@@ -377,6 +377,8 @@ pre {
     -webkit-box-flex: 1;
             flex: 1;
     padding-top: 0;
+    min-height: calc( 100vh - 90px);
+    background-color: #fff;
   }
 }
 
@@ -556,18 +558,22 @@ pre {
 
 .p-footer {
   background-color: #333;
+}
+
+.p-footer__copyright {
+  position: relative;
+  left: 0;
+  width: 100%;
   display: -webkit-box;
   display: flex;
   -webkit-box-pack: center;
           justify-content: center;
   -webkit-box-align: center;
           align-items: center;
-}
-
-.p-footer__copyright {
   font-size: 10px;
   color: #fff;
   letter-spacing: 0.1em;
+  line-height: 90px;
 }
 
 .p-formWrapper {
@@ -2686,6 +2692,8 @@ pre {
 
 .p-wrapper {
   padding: 60px 16px 80px;
+  background-color: #f6f5f1;
+  min-height: calc( 100vh - 80px);
 }
 
 @media screen and (min-width: 1000px) {
@@ -2707,6 +2715,7 @@ pre {
 
 .p-wrapper--step {
   padding: 50px 16px;
+  background-color: #f6f5f1;
 }
 
 @media screen and (min-width: 768px) {

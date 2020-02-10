@@ -1,5 +1,7 @@
 .p-wrapper{
   padding: 60px 16px 80px;
+  background-color: $_color-bg;
+  min-height: calc( 100vh - 80px);
   @include _mq-up(lg){
     padding: 80px 60px;
   }
@@ -12,6 +14,7 @@
   }
   &--step{
     padding: 50px 16px;
+    background-color: $_color-bg;
     @include _mq-up(){
       padding: 80px 30px;
     }
