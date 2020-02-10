@@ -7,7 +7,7 @@
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <title>{{ config('app.name', 'step') }} | @yield('title', 'Home')</title>
+  <title>@yield('title', 'STEP') | {{ config('app.name', 'step') }}</title>
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@step" />

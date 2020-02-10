@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'edit')
 @section('content')
 <div class="l-wrapper">
   @include('components/header')

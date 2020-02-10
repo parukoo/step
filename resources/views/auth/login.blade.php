@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'ログイン')
 @section('content')
   <main>
     <div class="p-formWrapper">
