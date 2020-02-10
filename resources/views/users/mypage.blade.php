@@ -13,7 +13,7 @@
         <div class="p-profile">
           <figure class="p-profile-image">
             @if($user->photo)
-              <img src="{{ asset('storage/img/'.$user->photo) }}.jpg">
+              <img src="{{ asset('img/update/user/'.$user->photo) }}.jpg">
             @else
               <img src="img/common/img_noimage.jpg">
             @endif

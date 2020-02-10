@@ -20,9 +20,9 @@
                   <input type="hidden" name="MAX_FILE_SIZE" value="3145728">
                   <input type="file" class="p-profileEdit-form-pic__input js-form-picFile" name="user_profile_photo" value="{{ old('user_profile_photo', $user->photo) }}.jpg" accept="image/jpeg,image/gif,image/png" />
                   @if ($user->photo)
-                    <img class="js-form-preview" src="{{ asset('storage/img/' .$user->photo) }}.jpg" alt="avatar" />
+                    <img class="js-form-preview" src="{{ asset('img/update/user/' .$user->photo) }}.jpg" alt="avatar" />
                   @else
-                    <img class="js-form-preview" src={{ asset('image/dammy.jpg') }} alt="*">
+                    <img class="js-form-preview" src={{ asset('img/common/img_noimage.jpg') }} alt="*">
                   @endif
                   <i class="fas fa-plus p-profileEdit-form-pic__icon"></i>
                 </label>
@@ -31,7 +31,7 @@
             <dl>
               <dt><label for="name">ユーザー名<span>必須</span></label></dt>
               <dd>
-                <input type="text" name="name" id="name" class="@error('name') is-error @enderror" value="{{ old('name', $user->name) }}" placeholder="50文字以内で入力してください">
+                <input type="text" name="name" id="name" class="@error('name') is-error @enderror" value="{{ old('name', $user->name) }}" placeholder="10文字以内で入力してください">
                 @error('name')
                   <span class="p-form__errorMsg" role="alert">
                     <strong>{{ $message }}</strong>

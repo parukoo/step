@@ -33,15 +33,18 @@ class UsersController extends Controller
     if($request->user_profile_photo != null){
         $photo = $request->file('user_profile_photo');
         $img = \Image::make($photo);
+
+        // 画像をリサイズ
         $width = 300;
         $img->resize($width, null, function($constraint){
           $constraint->aspectRatio();
         });
+        // ランダムな画像名を命名
         $profilepath = str_random(30);
         $file_name = $profilepath;
-        $save_path = storage_path('app/public/img/'.$file_name.'.jpg');        
+
+        $save_path = public_path('img/update/user/'.$file_name.'.jpg');   
         $img->save($save_path);
-        // $img->storeAs('public/user_images', $user->id . '.jpg');
         $user->photo = $file_name;
     }
     $user->save();
