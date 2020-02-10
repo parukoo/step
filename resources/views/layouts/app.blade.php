@@ -20,6 +20,7 @@
   <script src="https://kit.fontawesome.com/7f19bc1ee0.js" crossorigin="anonymous"></script>
 
   <!-- Styles -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.min.css">
   <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
   <!-- Scripts -->
@@ -28,5 +29,6 @@
 </head>
 <body>
   @yield('content')
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/js/swiper.min.js"></script>
 </body>
 </html>

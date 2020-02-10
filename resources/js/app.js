@@ -43,14 +43,9 @@ $fileInput.on('change', function(e){
   fileReader.readAsDataURL(file);
 });
 
-
-// フッターを最下部に固定
-// =======================================
-// var $ftr = $('.js-footer');
-// if( window.innerHeight > $ftr.offset().top + $ftr.outerHeight()){
-//   $ftr.attr({'style': 'position:fixed; top:' + (window.innerHeight - $ftr.outerHeight()) + 'px;'});
-// }
-
+var mySwiper = new Swiper ('.swiper-container', {
+  loop: true
+})
 
 $('.js-category-menu').on('click', function(){
   $('.p-header-category-menu').slideToggle();
