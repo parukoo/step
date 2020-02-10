@@ -102,8 +102,7 @@ class StepController extends Controller
 
   // STEP新規登録ページ（登録処理）
   // =======================================
-  // public function new(CreateStepRequest $request)
-  public function new(Request $request)
+  public function new(CreateStepRequest $request)
   {    
 
     //親STEPに登録

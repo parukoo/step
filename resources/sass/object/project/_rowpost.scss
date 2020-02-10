@@ -27,7 +27,7 @@
     }
   }
   &-txtWrapper{
-    padding-top: 15px;
+    padding: 10px 0;
     @include _mq-up(){
       margin-left: 24px;
       flex: 1;
@@ -81,6 +81,11 @@
   }
   &-txt{
     line-height: 1.5;
+    height: 44px;
+    overflow: hidden;
+    @include _mq-up(){
+      height: 48px;
+    }
   }
   + .p-rowpost{
     margin-top: 60px;

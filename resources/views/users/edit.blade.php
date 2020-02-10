@@ -15,16 +15,16 @@
           @csrf
           <div class="p-form-inputs --register">
             <dl>
-              <div class="p-profileEdit-form__pic-wrapper">
-                <label class="p-profileEdit-form__pic js-form-pic">
+              <div class="p-profileEdit-form-pic-wrapper">
+                <label class="p-profileEdit-form-pic js-form-pic">
                   <input type="hidden" name="MAX_FILE_SIZE" value="3145728">
-                  <input type="file" class="p-profileEdit-form__pic-input js-form-picFile" name="user_profile_photo" value="{{ old('user_profile_photo', $user->photo) }}.jpg" accept="image/jpeg,image/gif,image/png" />
+                  <input type="file" class="p-profileEdit-form-pic__input js-form-picFile" name="user_profile_photo" value="{{ old('user_profile_photo', $user->photo) }}.jpg" accept="image/jpeg,image/gif,image/png" />
                   @if ($user->photo)
                     <img class="js-form-preview" src="{{ asset('storage/img/' .$user->photo) }}.jpg" alt="avatar" />
                   @else
-                    <img class="js-form-preview" src={{ asset('image/dammy.jpg') }} alt="">
+                    <img class="js-form-preview" src={{ asset('image/dammy.jpg') }} alt="*">
                   @endif
-                  <i class="fas fa-plus profile-icon"></i>
+                  <i class="fas fa-plus p-profileEdit-form-pic__icon"></i>
                 </label>
               </div>
             </dl>

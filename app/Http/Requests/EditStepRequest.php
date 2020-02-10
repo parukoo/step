@@ -23,7 +23,7 @@ class EditStepRequest extends FormRequest
       return [
         'title' => 'required|string|max:50',
         'category_id' => 'required|integer',
-        'info' => 'required|string|max:500',
+        'info' => 'required|string|max:200',
         'time' => 'required|integer',
         'kosteps.*.title' => 'required|string|max:50',
         'kosteps.*.info' => 'required|string|max:1000',

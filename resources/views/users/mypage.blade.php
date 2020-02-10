@@ -12,7 +12,11 @@
       
         <div class="p-profile">
           <figure class="p-profile-image">
-            <img src="{{ asset('storage/img/'.$user->photo) }}.jpg">
+            @if($user->photo)
+              <img src="{{ asset('storage/img/'.$user->photo) }}.jpg">
+            @else
+              <img src="img/common/img_noimage.jpg">
+            @endif
           </figure>
           <div class="p-profile-txtWrapper">
           <h3 class="p-profile-name">{{ $user->name }}<a href="/users/edit"><img class="p-profile-edit" src="img/common/ico_useredit.svg"></a></h3>
@@ -44,6 +48,9 @@
                 </a>
               </div>   
               @endforeach
+              @if(!$joinsteps)
+                <p>学習中のSTEPはありません。</p>
+              @endif
             </div>
 
             <div class="p-posts--mypage js-tabPanel">
@@ -62,6 +69,9 @@
                 </div>
               </div>   
               @endforeach
+              @if(!$completesteps)
+                <p>学習済みのSTEPはありません。</p>
+              @endif
             </div>
 
             <div class="p-posts--mypage js-tabPanel">
@@ -75,6 +85,9 @@
                   </a>
                 </div>                  
               @endforeach
+              @if(!$registersteps)
+                <p>登録したSTEPはありません。</p>
+              @endif
             </div>
 
           </div>

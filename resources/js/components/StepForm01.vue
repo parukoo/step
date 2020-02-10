@@ -48,14 +48,14 @@
               id="info" 
               v-model="info" 
               cols="30" rows="10"
-              placeholder="500文字以内で入力をしてください"
+              placeholder="200文字以内で入力をしてください"
               @blur="$v.info.$touch()"></textarea>
               <div v-if="$v.info.$error">
                 <span v-if="!$v.info.required" class="p-form__errorMsg" role="alert">
                   <strong>紹介文が入力されていません</strong>
                 </span>
                 <span v-if="!$v.info.maxLength" class="p-form__errorMsg" role="alert">
-                  <strong>500文字以内で入力をしてください</strong>
+                  <strong>200文字以内で入力をしてください</strong>
                 </span>
               </diV>
           </dd>
@@ -141,7 +141,7 @@ export default {
     },
     info: {
       required,
-      maxLength: maxLength(500)
+      maxLength: maxLength(200)
     },
     time: {
       required,

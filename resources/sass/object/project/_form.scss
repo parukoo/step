@@ -139,12 +139,6 @@
           border-top: 32px solid $_color-line;
           border-bottom: 32px solid $_color-line;
         }
-        // @include _mq-up(){
-        //   left: -24px;
-        //   border-left: 24px solid transparent;
-        //   border-top: 30px solid $_color-line;
-        //   border-bottom: 30px solid $_color-line;
-        // }
       }
       &::after{
         position: absolute;
@@ -161,12 +155,6 @@
           border-top: 32px solid transparent;
           border-bottom: 32px solid transparent;
         }
-        // @include _mq-up(){
-        //   right: -24px;
-        //   border-left: 24px solid $_color-line;
-        //   border-top: 30px solid transparent;
-        //   border-bottom: 30px solid transparent;
-        // }
       }
       &:first-child{
         flex-grow: 1.2;

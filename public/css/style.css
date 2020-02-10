@@ -499,6 +499,7 @@ pre {
 @media screen and (min-width: 1000px) {
   .p-flow-list > li a p {
     height: 48px;
+    line-height: 1.5;
   }
 }
 
@@ -1716,6 +1717,7 @@ pre {
 .p-pagination > li a {
   text-decoration: none;
   color: #dbdbdb;
+  display: block;
 }
 
 .p-pagination > li:hover {
@@ -1741,7 +1743,7 @@ pre {
 }
 
 .p-pagination > li.disabled {
-  pointer-events: none;
+  display: none;
 }
 
 .p-postsWrapper {
@@ -2096,7 +2098,8 @@ pre {
   background-color: #f0f0f0;
 }
 
-.p-profileEdit-form__pic {
+.p-profileEdit-form-pic {
+  position: relative;
   display: block;
   background-color: #dbdbdb;
   width: 200px;
@@ -2105,7 +2108,7 @@ pre {
   overflow: hidden;
 }
 
-.p-profileEdit-form__pic-wrapper {
+.p-profileEdit-form-pic-wrapper {
   display: -webkit-box;
   display: flex;
   -webkit-box-pack: center;
@@ -2113,15 +2116,22 @@ pre {
   margin-bottom: 30px;
 }
 
-.p-profileEdit-form__pic img {
+.p-profileEdit-form-pic img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-.p-profileEdit-form__pic-input {
+.p-profileEdit-form-pic__input {
   display: none;
+}
+
+.p-profileEdit-form-pic__icon {
+  position: absolute;
+  top: calc( 50% - 16px);
+  left: calc( 50% - 14px);
+  font-size: 32px;
 }
 
 .p-profileEdit-link {
@@ -2190,7 +2200,7 @@ pre {
 }
 
 .p-rowpost-txtWrapper {
-  padding-top: 15px;
+  padding: 10px 0;
 }
 
 @media screen and (min-width: 768px) {
@@ -2266,6 +2276,14 @@ pre {
 
 .p-rowpost-txt {
   line-height: 1.5;
+  height: 44px;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 768px) {
+  .p-rowpost-txt {
+    height: 48px;
+  }
 }
 
 .p-rowpost + .p-rowpost {
@@ -2357,8 +2375,7 @@ pre {
     -webkit-box-flex: 1;
             flex: 1;
     color: #fff;
-    padding: 20px 16px;
-    padding-bottom: 100px;
+    padding: 20px 16px 100px;
   }
 }
 
@@ -2462,12 +2479,6 @@ pre {
   line-height: 1.88;
   margin-bottom: 1em;
   font-size: 16px;
-}
-
-@media screen and (min-width: 1000px) {
-  .p-stepHeader-info-txtWrapper p {
-    margin-bottom: 35px;
-  }
 }
 
 .p-stepHeader-info-txtWrapper input[type="submit"] {
