@@ -1387,6 +1387,10 @@ pre {
   .p-header-btns ul > li:first-child a {
     text-decoration: none;
     color: #000;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+            align-items: center;
   }
 }
 
@@ -2122,6 +2126,10 @@ pre {
   -webkit-box-pack: center;
           justify-content: center;
   margin-bottom: 30px;
+}
+
+.p-profileEdit-form-pic:hover {
+  cursor: pointer;
 }
 
 .p-profileEdit-form-pic img {
