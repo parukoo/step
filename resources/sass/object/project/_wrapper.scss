@@ -8,6 +8,7 @@
   &--list{
     background-color: #fff;
     padding: 30px 16px;
+    min-height: calc( 100vh - 80px);
     @include _mq-up(){
       padding: 80px 0;
     }
@@ -15,6 +16,7 @@
   &--step{
     padding: 50px 16px;
     background-color: $_color-bg;
+    min-height: calc( 100vh - 80px);
     @include _mq-up(){
       padding: 80px 30px;
     }

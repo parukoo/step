@@ -2705,6 +2705,7 @@ pre {
 .p-wrapper--list {
   background-color: #fff;
   padding: 30px 16px;
+  min-height: calc( 100vh - 80px);
 }
 
 @media screen and (min-width: 768px) {
@@ -2716,6 +2717,7 @@ pre {
 .p-wrapper--step {
   padding: 50px 16px;
   background-color: #f6f5f1;
+  min-height: calc( 100vh - 80px);
 }
 
 @media screen and (min-width: 768px) {
