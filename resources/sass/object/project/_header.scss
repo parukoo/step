@@ -120,8 +120,6 @@
       ul > li{
         margin-bottom: 15px;
         &:first-child a{
-          display: flex;
-          align-items: center;
           text-decoration: none;
           color: #000;
         }
@@ -132,11 +130,21 @@
     width: 160px;
     height: 40px;
     border-radius: 20px;
+    text-align: center;
+    line-height: 40px;
+    display: inline-block;
     &.--login{
       background-color: #fff;
       border: 1px solid $_color-line;
       a{
-        color: $_color-text;
+        color: $_color-line;
+        display: block;
+        border-radius: 20px;
+        &:hover{
+          border: 1px solid $_color-link;
+          background-color: $_color-link;
+          color: #fff;
+        }
       }
     }
     &.--signup{
@@ -144,6 +152,11 @@
       border: 1px solid $_color-link;
       a{
         color: #fff;
+        display: block;
+        border-radius: 20px;
+        &:hover{
+          opacity: 0.5;
+        }
       }
     }
     @include _mq-up(){

@@ -16,16 +16,16 @@
         @click="add">STEPを追加する</button>
     </div>
 
-    <div class="p-form-submit">
+    <div class="p-form-submit --stepform">
       <button
         class="c-btn" 
         type="button" 
-        @click="backStep">Back</button>
+        @click="backStep">戻る</button>
       <button
         class="c-btn" 
         type="button" 
         :disabled="editFlag"
-        @click="nextStep">Next</button>
+        @click="nextStep">次へ</button>
     </div>
   </form>
 </template>

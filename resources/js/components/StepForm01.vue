@@ -110,7 +110,7 @@
         class="c-btn" 
         type="button" 
         @click="nextStep" 
-        :disabled="$v.$invalid">Next</button>
+        :disabled="$v.$invalid">次へ</button>
       </div>
     </div>
   </form>

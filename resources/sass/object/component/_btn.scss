@@ -6,9 +6,10 @@
   cursor: pointer;
   border: 1px solid $_color-link;
   color: $_color-link;
-  a{
+  > a{
     text-decoration: none;
     color: $_color-link;
+    display: block;
   }
   &:hover{
     background-color: $_color-link;

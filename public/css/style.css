@@ -401,9 +401,10 @@ pre {
   color: #fabe00;
 }
 
-.c-btn a {
+.c-btn > a {
   text-decoration: none;
   color: #fabe00;
+  display: block;
 }
 
 .c-btn:hover {
@@ -711,18 +712,17 @@ pre {
 
 .p-form-flow__item {
   text-align: left;
-  padding: 10px 5px 10px 7px;
+  padding: 10px;
   background-color: #dbdbdb;
   position: relative;
-  font-size: 10px;
+  font-size: 14px;
   line-height: 1;
   margin-right: 13px;
-  height: 46px;
+  height: 60px;
 }
 
-@media screen and (min-width: 400px) {
+@media screen and (min-width: 415px) {
   .p-form-flow__item {
-    padding: 10px 13px;
     margin-right: 26px;
     font-size: 14px;
     height: 64px;
@@ -743,14 +743,14 @@ pre {
 
 .p-form-flow__item span {
   display: block;
-  font-size: 10px;
+  font-size: 12px;
   line-height: 1;
   font-weight: bold;
   margin-bottom: 3px;
   letter-spacing: 0.04em;
 }
 
-@media screen and (min-width: 400px) {
+@media screen and (min-width: 415px) {
   .p-form-flow__item span {
     font-size: 14px;
     margin-bottom: 6px;
@@ -763,11 +763,11 @@ pre {
   top: 0;
   left: -12px;
   border-left: 12px solid transparent;
-  border-top: 23px solid #dbdbdb;
-  border-bottom: 23px solid #dbdbdb;
+  border-top: 30px solid #dbdbdb;
+  border-bottom: 30px solid #dbdbdb;
 }
 
-@media screen and (min-width: 400px) {
+@media screen and (min-width: 415px) {
   .p-form-flow__item::before {
     left: -15px;
     border-left: 15px solid transparent;
@@ -783,11 +783,11 @@ pre {
   right: -12px;
   display: inline-block;
   border-left: 12px solid #dbdbdb;
-  border-top: 23px solid transparent;
-  border-bottom: 23px solid transparent;
+  border-top: 30px solid transparent;
+  border-bottom: 30px solid transparent;
 }
 
-@media screen and (min-width: 400px) {
+@media screen and (min-width: 415px) {
   .p-form-flow__item::after {
     right: -15px;
     border-left: 15px solid #dbdbdb;
@@ -824,7 +824,7 @@ pre {
   border-bottom: 30px solid #fabe00;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 415px) {
   .p-form-flow__item.is-active::before {
     border-top: 32px solid #fabe00;
     border-bottom: 32px solid #fabe00;
@@ -835,7 +835,7 @@ pre {
   border-left: 12px solid #fabe00;
 }
 
-@media screen and (min-width: 400px) {
+@media screen and (min-width: 415px) {
   .p-form-flow__item.is-active::after {
     border-left: 15px solid #fabe00;
   }
@@ -861,14 +861,8 @@ pre {
 .p-form-inputs dl > dt {
   text-align: left;
   line-height: 1.67;
-  font-size: 10px;
+  font-size: 14px;
   margin-bottom: 5px;
-}
-
-@media screen and (min-width: 768px) {
-  .p-form-inputs dl > dt {
-    font-size: 14px;
-  }
 }
 
 .p-form-inputs dl > dt span {
@@ -1158,15 +1152,11 @@ pre {
   cursor: pointer;
 }
 
-.p-form-submit {
-  text-align: center;
-}
-
 .p-form-submit button,
 .p-form-submit input[type="submit"] {
   width: 160px;
-  height: 40px;
-  border-radius: 20px;
+  height: 50px;
+  border-radius: 25px;
   background-color: #fabe00;
   display: inline-block;
   -webkit-appearance: none;
@@ -1175,7 +1165,7 @@ pre {
   padding: 0;
   border: none;
   outline: none;
-  font-size: 16px;
+  font-size: 14px;
   color: #fff;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 }
@@ -1183,7 +1173,7 @@ pre {
 @media screen and (min-width: 768px) {
   .p-form-submit button,
   .p-form-submit input[type="submit"] {
-    width: 208px;
+    width: 240px;
   }
 }
 
@@ -1395,10 +1385,6 @@ pre {
   }
 
   .p-header-btns ul > li:first-child a {
-    display: -webkit-box;
-    display: flex;
-    -webkit-box-align: center;
-            align-items: center;
     text-decoration: none;
     color: #000;
   }
@@ -1408,6 +1394,9 @@ pre {
   width: 160px;
   height: 40px;
   border-radius: 20px;
+  text-align: center;
+  line-height: 40px;
+  display: inline-block;
 }
 
 .p-header-btn.--login {
@@ -1416,7 +1405,15 @@ pre {
 }
 
 .p-header-btn.--login a {
-  color: #000;
+  color: #dbdbdb;
+  display: block;
+  border-radius: 20px;
+}
+
+.p-header-btn.--login a:hover {
+  border: 1px solid #fabe00;
+  background-color: #fabe00;
+  color: #fff;
 }
 
 .p-header-btn.--signup {
@@ -1426,6 +1423,12 @@ pre {
 
 .p-header-btn.--signup a {
   color: #fff;
+  display: block;
+  border-radius: 20px;
+}
+
+.p-header-btn.--signup a:hover {
+  opacity: 0.5;
 }
 
 .p-header-humberger {
@@ -1996,7 +1999,7 @@ pre {
 }
 
 .p-profile-name {
-  font-size: 32px;
+  font-size: 24px;
   margin-bottom: 25px;
   line-height: 1.5;
   margin-bottom: 15px;

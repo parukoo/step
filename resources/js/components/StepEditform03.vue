@@ -42,7 +42,7 @@
       <button
         class="c-btn" 
         type="button" 
-        @click="backStep">Back</button>
+        @click="backStep">戻る</button>
       <button
         class="c-btn" 
         type="button" 

@@ -92,15 +92,14 @@
     margin-bottom: 35px;
     &__item{
       text-align: left;
-      padding: 10px 5px 10px 7px;
+      padding: 10px;
       background-color: $_color-line;
       position: relative;
-      font-size: 10px;
+      font-size: 14px;
       line-height: 1;
       margin-right: 13px;
-      height: 46px;
+      height: 60px;
       @include _mq-up(sm){
-        padding: 10px 13px;
         margin-right: 26px;
         font-size: 14px;
         height: 64px;
@@ -115,7 +114,7 @@
       }
       span{
         display: block;
-        font-size: 10px;
+        font-size: 12px;
         line-height: 1;
         font-weight: bold;
         margin-bottom: 3px;
@@ -131,8 +130,8 @@
         top: 0;
         left: -12px;
         border-left: 12px solid transparent;
-        border-top: 23px solid $_color-line;
-        border-bottom: 23px solid $_color-line;
+        border-top: 30px solid $_color-line;
+        border-bottom: 30px solid $_color-line;
         @include _mq-up(sm){
           left: -15px;
           border-left: 15px solid transparent;
@@ -147,8 +146,8 @@
         right: -12px;
         display: inline-block;
         border-left: 12px solid $_color-line;
-        border-top: 23px solid transparent;
-        border-bottom: 23px solid transparent;
+        border-top: 30px solid transparent;
+        border-bottom: 30px solid transparent;
         @include _mq-up(sm){
           right: -15px;
           border-left: 15px solid $_color-line;
@@ -174,7 +173,7 @@
         &::before{
           border-top: 30px solid $_color-link;
           border-bottom: 30px solid $_color-link;
-          @include _mq-up(){
+          @include _mq-up(sm){
             border-top: 32px solid $_color-link;
             border-bottom: 32px solid $_color-link;
           }
@@ -201,11 +200,8 @@
       > dt{
         text-align: left;
         line-height: 1.67;
-        font-size: 10px;
+        font-size: 14px;
         margin-bottom: 5px;
-        @include _mq-up(){
-          font-size: 14px;
-        }
         span{
           background-color: $_color-link;
           color: #fff;
@@ -379,11 +375,10 @@
     }
   }
   &-submit{
-    text-align: center;
     button, input[type="submit"]{
       width: 160px;
-      height: 40px;
-      border-radius: 20px;
+      height: 50px;
+      border-radius: 25px;
       background-color: $_color-link;
       display: inline-block;
       -webkit-appearance: none;
@@ -392,11 +387,11 @@
       padding: 0;
       border: none;
       outline: none;
-      font-size: 16px;
+      font-size: 14px;
       color: #fff;
       box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
       @include _mq-up(){
-        width: 208px;
+        width: 240px;
       }
       &:disabled {
         background-color: $_color-line;
