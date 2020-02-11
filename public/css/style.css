@@ -1014,7 +1014,7 @@ pre {
 
 .p-form-inputs dl > dd select {
   height: 53px;
-  width: 50%;
+  width: 70%;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -1210,9 +1210,9 @@ pre {
 
 .p-form-submit button,
 .p-form-submit input[type="submit"] {
-  width: 160px;
-  height: 50px;
-  border-radius: 25px;
+  width: 140px;
+  height: 40px;
+  border-radius: 20px;
   background-color: #fabe00;
   display: inline-block;
   -webkit-appearance: none;
@@ -1230,6 +1230,8 @@ pre {
   .p-form-submit button,
   .p-form-submit input[type="submit"] {
     width: 240px;
+    height: 50px;
+    border-radius: 25px;
   }
 }
 
@@ -1540,7 +1542,7 @@ pre {
   cursor: pointer;
   border-top: 1px solid #dbdbdb;
   padding: 0 16px;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: bold;
   line-height: 2.5;
 }
@@ -1579,10 +1581,6 @@ pre {
   border-radius: 20px;
 }
 
-.p-header-spMenu__btn.--signup {
-  border-color: #ec5252;
-}
-
 .p-header-spMenu__btn.--signup a {
   background-color: #ec5252;
   color: #fff;
@@ -1593,7 +1591,7 @@ pre {
 }
 
 .p-header-spMenu__btn.--login {
-  border-color: #000;
+  border: 1px solid #000;
   background-color: #fff;
 }
 
@@ -1603,10 +1601,6 @@ pre {
   width: 160px;
   text-align: center;
   line-height: 40px;
-}
-
-.p-header-spMenu__btn.--logout {
-  border-color: #000;
 }
 
 .p-header-spMenu__btn.--logout a {
@@ -1941,8 +1935,16 @@ pre {
 }
 
 .p-posts-title {
-  font-size: 24px;
+  font-size: 20px;
   margin-bottom: 25px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #000;
+}
+
+@media screen and (min-width: 768px) {
+  .p-posts-title {
+    font-size: 24px;
+  }
 }
 
 .p-posts-btnWrapper {
@@ -2426,7 +2428,7 @@ pre {
 
 .p-rowpost-info__time span {
   margin-right: 10px;
-  vertical-align: -1.5px;
+  vertical-align: 1px;
 }
 
 .p-rowpost-info__author {
@@ -2994,6 +2996,7 @@ pre {
 
 .s-index-heading {
   margin-bottom: 40px;
+  letter-spacing: 0.04em;
 }
 
 .s-index-kv {
@@ -3003,7 +3006,7 @@ pre {
 
 @media screen and (min-width: 768px) {
   .s-index-kv {
-    padding: 70px 60px;
+    padding: 60px 60px 100px;
   }
 }
 
@@ -3143,7 +3146,7 @@ pre {
 
 @media screen and (min-width: 768px) {
   .s-index-about {
-    padding: 60px;
+    padding: 100px 60px;
   }
 }
 
@@ -3161,6 +3164,12 @@ pre {
 
 .s-index-about-text {
   margin-bottom: 30px;
+}
+
+@media screen and (min-width: 768px) {
+  .s-index-about-text {
+    margin-bottom: 50px;
+  }
 }
 
 .s-index-about-point {
@@ -3227,7 +3236,7 @@ pre {
 
 @media screen and (min-width: 768px) {
   .s-index-feature-wrapper {
-    padding: 60px;
+    padding: 100px 60px;
   }
 }
 
@@ -3236,14 +3245,14 @@ pre {
   padding-top: 20px;
   -webkit-box-ordinal-group: 2;
           order: 1;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 
 @media screen and (min-width: 768px) {
   .s-index-feature-textWrapper {
     -webkit-box-ordinal-group: unset;
             order: unset;
-    margin-bottom: 0;
+    margin-bottom: 50px;
   }
 }
 
@@ -3251,7 +3260,7 @@ pre {
   display: block;
   font-weight: bold;
   margin-bottom: 10px;
-  color: #fabe00;
+  color: #000;
 }
 
 .s-index-feature__number::before {
@@ -3259,21 +3268,36 @@ pre {
   display: inline-block;
   width: 50px;
   height: 2px;
-  background-color: #fabe00;
+  background-color: #000;
   vertical-align: 5px;
   margin-right: 10px;
 }
 
 .s-index-feature__title {
-  font-size: 28px;
-  color: #fabe00;
-  margin-bottom: 50px;
+  font-size: 20px;
+  margin-bottom: 20px;
   line-height: 1.5;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(70%, transparent), color-stop(70%, #fabe00));
+  background: linear-gradient(transparent 70%, #fabe00 70%);
+  display: inline-block;
+}
+
+@media screen and (min-width: 768px) {
+  .s-index-feature__title {
+    font-size: 28px;
+    margin-bottom: 50px;
+  }
 }
 
 .s-index-feature__text {
   font-size: 14px;
-  margin-bottom: 50px;
+}
+
+@media screen and (min-width: 768px) {
+  .s-index-feature__text {
+    font-size: 16px;
+    margin-bottom: 50px;
+  }
 }
 
 .s-index-feature figure {
@@ -3290,7 +3314,7 @@ pre {
 }
 
 .s-index-feature.s-index-feature {
-  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .s-index-ranking {
@@ -3299,7 +3323,7 @@ pre {
 
 @media screen and (min-width: 768px) {
   .s-index-ranking {
-    padding: 60px;
+    padding: 100px 60px;
   }
 }
 
@@ -3328,14 +3352,14 @@ pre {
 }
 
 .s-index-start {
-  padding: 30px;
+  padding: 60px 30px;
   text-align: center;
   background-color: #fff;
 }
 
 @media screen and (min-width: 768px) {
   .s-index-start {
-    padding: 60px;
+    padding: 100px;
   }
 }
 

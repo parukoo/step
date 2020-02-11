@@ -17,8 +17,13 @@
     flex-wrap: wrap;
   }
   &-title{
-    font-size: 24px;
+    font-size: 20px;
     margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid $_color-text;
+    @include _mq-up(){
+      font-size: 24px;
+    }
   }
   &-btnWrapper{
     margin-top: 30px;

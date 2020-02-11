@@ -66,7 +66,7 @@
           <ul class="p-header-spMenu-list">
   
             @auth
-            <li>
+            <li class="--login">
               <a href="{{ route('mypage') }}">
                 @if (Auth::user()->photo)
                   <figure class="p-avator --small"><img src="{{ asset('storage/img/'.Auth::user()->photo) }}.jpg" alt=""></figure>

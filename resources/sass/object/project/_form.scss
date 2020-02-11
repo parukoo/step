@@ -241,7 +241,7 @@
         }
         select{
           height: 53px;
-          width: 50%;
+          width: 70%;
           -webkit-appearance: none;
           -moz-appearance: none;
           appearance: none;
@@ -377,9 +377,9 @@
   }
   &-submit{
     button, input[type="submit"]{
-      width: 160px;
-      height: 50px;
-      border-radius: 25px;
+      width: 140px;
+      height: 40px;
+      border-radius: 20px;
       background-color: $_color-link;
       display: inline-block;
       -webkit-appearance: none;
@@ -393,6 +393,8 @@
       box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
       @include _mq-up(){
         width: 240px;
+        height: 50px;
+        border-radius: 25px;
       }
       &:disabled {
         background-color: $_color-line;
