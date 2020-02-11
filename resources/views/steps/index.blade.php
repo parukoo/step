@@ -2,7 +2,7 @@
 @section('content')
 <div class="l-wrapper">
   @include('components/header-index')
-  <main class="l-main">
+  <main class="l-main --index">
     
     
     <section class="s-index-kv">
@@ -53,9 +53,6 @@
           <span class="s-index-feature__number">STEP①</span>
           <h3 class="s-index-feature__title">順番に沿って学ぶことができる</h3>
           <p class="s-index-feature__text">順番に沿って学習を行うことができるので、効率的な学習を行うことができます。</p>
-          <div class="s-index-btn-wrapper --left">
-            <span class="c-btn s-index-btn"><a href="{{ route('register') }}">新規登録</a></span>
-          </div>
         </div>
         <figure>
           <img src="./img/index/img01.jpg" alt="">
@@ -69,20 +66,14 @@
           <span class="s-index-feature__number">STEP②</span>
           <h3 class="s-index-feature__title">進捗状況を確認することができる</h3>
           <p class="s-index-feature__text">マイページで随時あなたの各STEPの進捗状況を確認することができます。</p>
-          <div class="s-index-btn-wrapper --left">
-            <span class="c-btn s-index-btn"><a href="{{ route('register') }}">新規登録</a></span>
-          </div>
-          </div>
+        </div>
       </div>
       <div class="s-index-feature">
         <div class="s-index-feature-textWrapper">
           <span class="s-index-feature__number">STEP③</span>
           <h3 class="s-index-feature__title">学習方法を共有することができる</h3>
           <p class="s-index-feature__text">あなたの今までの良かったと思う学習方法や内容をSTEPに登録することができます。Twitterシェアをすることで、登録したSTEPを拡散することも可能です。</p>
-          <div class="s-index-btn-wrapper --left">
-            <span class="c-btn s-index-btn"><a href="{{ route('register') }}">新規登録</a></span>
-          </div>
-          </div>
+        </div>
         <figure>
           <img src="./img/index/img01.jpg" alt="">
         </figure>

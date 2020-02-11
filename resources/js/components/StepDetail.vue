@@ -77,19 +77,23 @@
           id: kostep.id,
           step_id: this.stepid
         }).then((response) => {
-          console.log(response);
+          
+          //（未完了にする場合）complete配列から該当のkostep_idを削除する
           if(response.data === 1){
             this.kostepId = this.completes.indexOf(kostep.id);
             this.completes.splice(this.kostepId,1);
-          }else{            
+          }else{    
+          //（完了にする場合）complete配列に該当のkostep_idを追加する  
             this.completes.push(kostep.id);   
             console.log(this.completes)  
             if(this.isCompleted){
+              //最後のflow_idかつ、全てクリアした場合、twitterシェアモーダルを表示
               if(this.kostep.flow_id === this.flowmenu.length){
                 if(this.completes.length === this.flowmenu.length ){
                   this.showModal = true
                 }
               }else{
+                //最後のflow_id以外は、次のflowに進む
                 setTimeout( () => {
                   var url = '/steps/' + this.stepid + '/' + (this.flowid + 1);
                   console.log(url);
@@ -102,21 +106,24 @@
           console.log('データの取得に失敗しました。: ' + response.data);
         });
       },
+
       // twitterシェアボタン（通常のシェア）
       normalShare(kostep){
         //シェアする画面を設定
-        var shareURL = 'https://twitter.com/intent/tweet?text=' + "STEP「" + this.title + "」：FLOW-1" + kostep.title + "%20%23STEPで学び方を共有しよう" + '&url=' + "https://code.ameneko.com/twitter-share";  
+        var shareURL = 'https://twitter.com/intent/tweet?text=' + "STEP「" + this.title + "」：FLOW-1" + kostep.title + "%20%23STEPで学び方を共有しよう" + '&url=' + "https://step.chew.jp/" + this.stepid + "/" + this.flowid;  
         //シェア用の画面へ移行
         location.href = shareURL
       },
       // twitterシェアボタン（100%完了時のみのシェア）
       twitterShare(){
         //シェアする画面を設定
-        var shareURL = 'https://twitter.com/intent/tweet?text=' + this.title + "を完了しました！" + "%20%23STEPで学び方を共有しよう" + '&url=' + "https://code.ameneko.com/twitter-share";  
+        var shareURL = 'https://twitter.com/intent/tweet?text=' + this.title + "を完了しました！" + "%20%23STEPで学び方を共有しよう" + '&url=' + "https://step.chew.jp/" + this.stepid + "/" + this.flowid;  
         //シェア用の画面へ移行
         location.href = shareURL
       }
     },
+
+    // STEPデータをAJAXで取得
     mounted() {
       axios.get('/ajax/kostepDetail', {
         params:{
@@ -124,14 +131,12 @@
           flowid: this.flowid
         }
       }).then(response => {
-        // console.log(response);
         // 表示するSTEPデータを取得
         this.kostep = response.data[0];
         // STEPの子STEPの完了数を取得
         this.completes = response.data[1];
         // サイドメニューデータを取得
         this.flowmenu = response.data[2];
-        console.log(this.completes)
       })
       .catch(error => {
           var url = '/steps/' + this.stepid;

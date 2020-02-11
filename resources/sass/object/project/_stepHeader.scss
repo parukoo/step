@@ -10,7 +10,7 @@
   position: relative;
   display: flex;
   align-items: flex-end;
-  z-index: -2;
+  z-index: 1;
   border-radius: 10px;
   background-color: #FDECB4;
   @include _mq-up(lg){
@@ -52,7 +52,7 @@
       color: #fff;
       padding: 20px 16px 100px;
     }
-    &-category{
+    &__category{
       display: inline-block;
       margin-bottom: 0.5em;
       &::before{
@@ -68,7 +68,7 @@
         }
       }
     }
-    &-name{
+    &__name{
       font-size: 24px;
       margin-bottom: 0.5em;
       line-height: 1.5;
@@ -79,7 +79,7 @@
         font-size: 36px;
       }
     }
-    &-icons{
+    &__icons{
       display: none;
       @include _mq-up(lg){
         display: block;
@@ -153,7 +153,7 @@
         padding: 30px 25px;
         border-radius: 0;
       }
-      &-graph{
+      &__graph{
         width: 100%;
         height: 20px;
         border-radius: 10px;

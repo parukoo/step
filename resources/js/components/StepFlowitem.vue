@@ -1,6 +1,5 @@
 <template>
-  <a 
-  :href="'/steps/' + kostep.step_id + '/' + kostep.flow_id" :class="{ active: kostep.isDone }">
+  <a :href="'/steps/' + kostep.step_id + '/' + kostep.flow_id" :class="{ active: kostep.isDone }">
     <div class="p-flow-item-txtWrapper">
       <h4>{{ kostep.title }}</h4>
       <p>{{ kostep.info }}</p>

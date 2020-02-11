@@ -47,6 +47,8 @@ var mySwiper = new Swiper ('.swiper-container', {
   loop: true
 })
 
+// グローバルメニュー(カテゴリーメニュー表示)
+// =======================================
 $('.js-category-menu').on('click', function(){
   $('.p-header-category-menu').slideToggle();
 });

@@ -51,6 +51,7 @@
         return Math.ceil(this.steps.length / this.parPage);
       }
     },
+    //STEPデータをAJAXで取得
     mounted() {
       axios.get('/ajax/category', {
         params:{
@@ -59,7 +60,6 @@
       })
       .then(response => {
         this.steps = response.data;
-        console.log(this.steps);
       })
       .catch(error => {
           console.log('データの取得に失敗しました。');
@@ -67,25 +67,3 @@
     }
   }
 </script>
-
-<style>
-  .pagination{
-    display: flex;
-    justify-content: center;
-  }
-  .pagination >li{
-    border-radius: 50%;
-    background-color: #333;
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
-    text-align: center;
-    cursor: pointer;
-  }
-  .pagination >li + li{
-    margin-left: 20px;
-  }
-  .pagination >li.active{
-    background-color: blue;
-  }
-</style>

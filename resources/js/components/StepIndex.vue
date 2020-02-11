@@ -18,8 +18,8 @@ export default {
       stepslist:[]
     }
   },
-  methods:{
-  },
+
+  //STEPデータをAJAXで取得
   mounted() {
     axios.get('/ajax/all')
     .then(response => {

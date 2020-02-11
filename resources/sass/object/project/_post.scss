@@ -77,17 +77,17 @@
       }
     }
   }
-  &-title{
+  &__title{
     font-size: 20px;
     margin-bottom: 10px;
   }
-  &-txt{
+  &__txt{
     line-height: 1.88;
     height: 56px;
     overflow: hidden;
     font-size: 15px;
   }
-  &-image{
+  &__image{
     transition: all 0.2s;
     margin-bottom: 15px;
     overflow: hidden;

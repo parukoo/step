@@ -60,14 +60,15 @@ export default {
     form: Object
   },
   methods:{
+    //戻る
     backStep(){
       this.$emit('backStep');
     },    
+    //AJAXでSTEPを新規登録し、次に進む
     submit(){
       console.log(this.form);
       axios.post('/ajax/stepNew', this.form)
       .then( (response) => {
-        console.log(response);
         this.$emit('nextStep');
       })
       .catch(e => {

@@ -6,14 +6,14 @@
       flex: 1;
     }
   }
-  &-image{
+  &__image{
     overflow: hidden;
     transition: border-radius 0.3s;
     @include _mq-up(){
       max-width: 310px;
     }
   }
-  &-category{
+  &__category{
     display: inline-block;
     font-size: 14px;
     margin-bottom: 14px;
@@ -23,7 +23,7 @@
     color: #fff;
     line-height: 1.43;
   }
-  &-title{
+  &__title{
     font-size: 20px;
     margin-bottom: 14px;
     @include _mq-up(lg){
@@ -53,7 +53,7 @@
       }
     }
   }
-  &-txt{
+  &__txt{
     line-height: 1.5;
     height: 44px;
     overflow: hidden;
@@ -84,7 +84,7 @@
       @include _mq-up(){
         background-color: $_color-bg;
       }
-      .p-rowpost-image {
+      .p-rowpost__image {
         transition: border-radius 0.3s;
         border-radius: 50px;
         img{

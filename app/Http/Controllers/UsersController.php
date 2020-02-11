@@ -16,7 +16,7 @@ class UsersController extends Controller
   public function edit(){
     $user = Auth::user();
     $categories = Category::all();
-    return view('users.edit', ['user' => $user,'categories' => $categories]);
+    return view('users.edit', ['user' => $user, 'categories' => $categories]);
   }
 
   // ユーザー更新画面（POST）
@@ -49,7 +49,8 @@ class UsersController extends Controller
     }
     $user->save();
 
-    // マイページへ遷移
-    return redirect('mypage');
+    // リダイレクトする(マイページへ遷移) 
+    // その時にsessionフラッシュにメッセージを入れる
+    return redirect('mypage')->with('flash_message', '登録しました');
   }
 }

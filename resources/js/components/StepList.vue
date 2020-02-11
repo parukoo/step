@@ -33,6 +33,7 @@
         currentPage: 1,
       }
     },
+    //ページネーション
     methods: {
       clickCallback: function (pageNum) {
         this.currentPage = Number(pageNum);
@@ -48,6 +49,8 @@
         return Math.ceil(this.steps.length / this.parPage);
       }
     },
+    
+    //STEPデータをAJAXで取得
     mounted() {
       axios.get('/ajax/steps')
       .then(response => {

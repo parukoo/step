@@ -8,10 +8,5 @@
 <script>
 export default {
   name: 'StepForm04',
-  // mounted(){
-  //   setTimeout(function () {
-  //     window.location.href = '/'
-  //   }, 1000)
-  // }
 }
 </script>

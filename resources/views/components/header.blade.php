@@ -22,7 +22,7 @@
     <div class="p-header-btns u-display-pc">
       <ul>
         @auth
-          <li>
+          <li class="p-header-btn__mypage">
             <a href="{{ route('mypage') }}">
               @if (Auth::user()->photo)
                 <figure class="p-avator --small"><img src="{{ asset('img/update/user/'.Auth::user()->photo) }}.jpg" alt=""></figure>
@@ -32,7 +32,7 @@
               <span class="p-avator__name">{{  Auth::user()->name }}</span>
             </a>
           </li>
-          <li class="c-btn p-header-btn --login">
+          <li class="c-btn p-header-btn --logout">
             <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">ログアウト</a>
           </li>
           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

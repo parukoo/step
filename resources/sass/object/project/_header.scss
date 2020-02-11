@@ -119,12 +119,6 @@
       bottom: 0;
       ul > li{
         margin-bottom: 15px;
-        &:first-child a{
-          text-decoration: none;
-          color: #000;
-          display: flex;
-          align-items: center;
-        }
       }
     }
   }
@@ -137,19 +131,19 @@
     display: inline-block;
     &.--login{
       background-color: #fff;
-      border: 1px solid $_color-line;
+      border: none;
       a{
-        color: $_color-line;
+        color: $_color-text;
+        border: 1px solid $_color-text;
         display: block;
         border-radius: 20px;
         &:hover{
-          border: 1px solid $_color-link;
-          background-color: $_color-link;
+          background-color: $_color-text;
           color: #fff;
         }
       }
     }
-    &.--signup{
+    &.--logout{
       background-color: $_color-link;
       border: 1px solid $_color-link;
       a{
@@ -161,7 +155,23 @@
         }
       }
     }
-    @include _mq-up(){
+    &.--signup{
+      border: 1px solid $_color-link;
+      a{
+        color: #fff;
+        display: block;
+        border-radius: 20px;
+        background-color: $_color-link;
+        &:hover{
+          opacity: 0.5;
+        }
+      }
+    }
+    &__mypage a{
+      text-decoration: none;
+      color: #000;
+      display: flex;
+      align-items: center;
     }
   }
   &-humberger{

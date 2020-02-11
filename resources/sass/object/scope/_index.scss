@@ -7,6 +7,10 @@
     background-color: $_color-link;
     a{
       color: #fff;
+      display: block;
+      width: 100%;
+      line-height: 50px;
+      text-align: center;
     }
     &:hover{
       box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.16);

@@ -60,8 +60,9 @@ class HomeController extends Controller
         }
       }
 
-
+      //登録済みのSTEP
       $registersteps = Step::where('user_id', Auth::user()->id)->get();
+
       return view('users.mypage', ['user' => $user ,'categories' => $categories, 'joinsteps' => $joinsteps, 'completesteps' => $completesteps, 'registersteps' => $registersteps]);
     }
 }

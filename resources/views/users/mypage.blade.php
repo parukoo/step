@@ -3,7 +3,13 @@
 @section('content')
 <div class="l-wrapper">
   @include('components/header')
+  <!-- フラッシュメッセージ -->
   <main class="l-main">
+  @if (session('flash_message'))
+    <div class="c-flash-message js-flash-message" role="alert">
+      {{ session('flash_message') }}
+    </div>
+  @endif
     <section class="p-wrapper">
       <div class="p-container">
         <div class="p-headingWrapper">
@@ -12,7 +18,7 @@
         </div>
       
         <div class="p-profile">
-          <figure class="p-profile-image">
+          <figure class="p-profile__image">
             @if($user->photo)
               <img src="{{ asset('img/update/user/'.$user->photo) }}.jpg">
             @else
@@ -20,8 +26,8 @@
             @endif
           </figure>
           <div class="p-profile-txtWrapper">
-          <h3 class="p-profile-name">{{ $user->name }}<a href="/users/edit"><img class="p-profile-edit" src="img/common/ico_useredit.svg"></a></h3>
-            <p class="p-profile-txt">{{ $user->profile }}</p>
+          <h3 class="p-profile__name">{{ $user->name }}<a href="/users/edit"><img class="p-profile__edit" src="img/common/ico_useredit.svg"></a></h3>
+            <p class="p-profile__txt">{{ $user->profile }}</p>
           </div>
         </div>
         <div class="p-mystep">
@@ -37,9 +43,9 @@
               @foreach ($joinsteps as $joinstep)
               <div class="p-post--mypage">
                 <a href="/steps/{{ $joinstep['step']['id'] }}">
-                  <figure class="p-post-image"><img src="img/category/eyecatch0{{ $joinstep['step']['category_id'] }}.jpg" alt=""></figure>
-                  <h4 class="p-post-title">{{ $joinstep['step']['title'] }}</h4>
-                  <p class="p-post-txt">{{ $joinstep['step']['info'] }}</p>
+                  <figure class="p-post__image"><img src="img/category/eyecatch0{{ $joinstep['step']['category_id'] }}.jpg" alt=""></figure>
+                  <h4 class="p-post__title">{{ $joinstep['step']['title'] }}</h4>
+                  <p class="p-post__txt">{{ $joinstep['step']['info'] }}</p>
                   <div class="p-post-score">
                     <div class="p-post-score__graph">
                       <span style="width: {{ $joinstep['complete'] }}%"></span>
@@ -58,9 +64,9 @@
               @foreach ($completesteps as $completestep)
               <div class="p-post--mypage">
                 <a href="/steps/{{ $completestep['step']['id'] }}">
-                  <figure class="p-post-image"><img src="img/category/eyecatch0{{ $completestep['step']['category_id'] }}.jpg" alt=""></figure>
-                  <h4 class="p-post-title">{{ $completestep['step']['title'] }}</h4>
-                  <p class="p-post-txt">{{ $completestep['step']['info'] }}</p>
+                  <figure class="p-post__image"><img src="img/category/eyecatch0{{ $completestep['step']['category_id'] }}.jpg" alt=""></figure>
+                  <h4 class="p-post__title">{{ $completestep['step']['title'] }}</h4>
+                  <p class="p-post__txt">{{ $completestep['step']['info'] }}</p>
                 </a>
                 <div class="p-post-score">
                   <div class="p-post-score__graph">
@@ -80,13 +86,13 @@
                 <div class="p-post--mypage">
                   <a href="/steps/{{ $registerstep->id }}/edit" class="p-post-edit"><img src="img/common/ico_edit.svg" class="p-post-edit__link"></a>
                   <a href="/steps/{{ $registerstep->id }}">
-                    <figure class="p-post-image"><img src="img/category/eyecatch0{{ $registerstep->category_id }}.jpg" alt=""></figure>
-                    <h4 class="p-post-title">{{ $registerstep->title }}</h4>
-                    <p class="p-post-txt">{{ $registerstep->info }}</p>
+                    <figure class="p-post__image"><img src="img/category/eyecatch0{{ $registerstep->category_id }}.jpg" alt=""></figure>
+                    <h4 class="p-post__title">{{ $registerstep->title }}</h4>
+                    <p class="p-post__txt">{{ $registerstep->info }}</p>
                   </a>
                 </div>                  
               @endforeach
-              @if(!$registersteps)
+              @if($registersteps)
                 <p>登録したSTEPはありません。</p>
               @endif
             </div>
