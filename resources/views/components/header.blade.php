@@ -10,8 +10,8 @@
       <nav class="p-header-pcMenu u-display-pc">
         <ul>
           <li><a href="{{ route('steps')}}">STEP一覧</a></li>
-          <li class="js-category-menu">カテゴリー検索
-            <ul class="p-header-category-menu">
+          <li class="js-category-menu p-header-category">カテゴリー検索<i class="p-header-category__icon fas fa-sort-down"></i>
+            <ul class="p-header-category-menu  --login">
               @foreach($categories as $category)
                 <li><a href="/category/{{ $category->id }}">{{ $category->name }}</a></li>
               @endforeach
@@ -79,7 +79,7 @@
             @endauth
   
             <li><a href="{{ route('steps')}}">STEP一覧</a></li>
-            <li class="js-category-menu">カテゴリー検索
+            <li class="js-category-menu">カテゴリー検索<i class="p-header-category__icon fas fa-sort-down"></i>
               <ul class="p-header-category-menu">
                 @foreach($categories as $category)
                   <li><a href="/category/{{ $category->id }}">{{ $category->name }}</a></li>

@@ -29,9 +29,9 @@
         p{
           overflow: hidden;
           height: 44px;
+          line-height: 1.5;
           @include _mq-up(lg){
             height: 48px;
-            line-height: 1.5;
           }
         }
         &:hover{
