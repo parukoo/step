@@ -49,7 +49,7 @@
     height: 25px;
     vertical-align: -3px;
     margin-left: 10px;
-    @include _mq-up(){
+    @include _mq-up(lg){
       vertical-align: 2px;
     }
   }

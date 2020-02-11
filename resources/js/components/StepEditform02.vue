@@ -58,13 +58,11 @@ export default {
   },
 	methods: {
     updateItem(item, index) {
-      // console.log(item)
       const newValue = [
         ...this.value.slice(0, index),
         item,
         ...this.value.slice(index + 1)
       ]
-      // console.log(newValue)
       this.$emit('input', newValue)
     },
     add(){
