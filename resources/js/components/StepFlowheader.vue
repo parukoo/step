@@ -1,6 +1,6 @@
 <template>
   <div class="p-stepHeader-wrapper">
-    <div class="p-stepHeader">
+    <div class="p-stepHeader" :style="{ backgroundImage: 'url(' + image_src + ')' }">
       <div class="p-stepHeader-container">
         <div class="p-stepHeader-title">
           <span class="p-stepHeader-title__category">{{ step.category.name }}</span>
@@ -33,6 +33,11 @@
 <script>
   export default {
     name: 'StepFlowheader',
+    data(){
+      return{
+        image_src: this.step.category_id
+      }
+    },
     props:{
       step: { type: Object, required: true },
       complete: { type: Number, required: true }

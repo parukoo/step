@@ -16,6 +16,9 @@
     justify-content: space-between;
     flex-wrap: wrap;
   }
+  &.--index{
+    margin-bottom: -50px;
+  }
   &-title{
     font-size: 20px;
     margin-bottom: 25px;
@@ -71,6 +74,9 @@
   margin-bottom: 20px;
   @include _mq-up(lg){
     width: calc((100% - 40px) / 3);
+  }
+  &.--index{
+    margin-bottom: 50px;
   }
   &--mypage{
     width: 100%;

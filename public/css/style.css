@@ -1934,6 +1934,10 @@ pre {
   }
 }
 
+.p-posts.--index {
+  margin-bottom: -50px;
+}
+
 .p-posts-title {
   font-size: 20px;
   margin-bottom: 25px;
@@ -2017,6 +2021,10 @@ pre {
   .p-post {
     width: calc((100% - 40px) / 3);
   }
+}
+
+.p-post.--index {
+  margin-bottom: 50px;
 }
 
 .p-post--mypage {

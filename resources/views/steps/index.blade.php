@@ -84,9 +84,9 @@
       <div class="s-index-ranking-heading-wrapper">
         <h2 class="p-heading s-index-heading"><span>人</span>気のSTEP</h2>
       </div>        
-      <ul class="p-posts">
+      <ul class="p-posts --index">
         @foreach ($steps as $step)
-        <li class="p-post">
+        <li class="p-post --index">
           <a href="steps/{{ $step->id }}">
             <div class="p-post__imageWrapper">
               <span class="p-post__image-label">{{ $step->category->name }}</span>
