@@ -1359,13 +1359,14 @@ pre {
   margin: 10px 0px;
 }
 
-.p-header-category-menu > li:hover {
-  opacity: 0.5;
+.p-header-category-menu > li > a {
+  line-height: 35px;
+  display: inline-block;
+  padding-left: 1rem;
 }
 
-.p-header-category-menu > li::before {
-  content: '・';
-  display: inline-block;
+.p-header-category-menu > li:hover {
+  opacity: 0.5;
 }
 
 .p-header-category-menu.--login > li {
@@ -1581,6 +1582,7 @@ pre {
 
 .p-header-spMenu-list > li.--login:first-child {
   line-height: 4;
+  padding: 16px;
 }
 
 .p-header-spMenu-list > li.--login:first-child a {
@@ -3355,7 +3357,7 @@ pre {
 }
 
 .s-index-feature.s-index-feature {
-  margin-bottom: 50px;
+  margin-top: 50px;
 }
 
 .s-index-ranking {

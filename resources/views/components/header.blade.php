@@ -13,7 +13,7 @@
           <li class="js-category-menu p-header-category">カテゴリー検索<i class="p-header-category__icon fas fa-sort-down"></i>
             <ul class="p-header-category-menu  --login">
               @foreach($categories as $category)
-                <li><a href="/category/{{ $category->id }}">{{ $category->name }}</a></li>
+                <li><a href="/category/{{ $category->id }}">・{{ $category->name }}</a></li>
               @endforeach
             </ul>
           </li>
@@ -69,7 +69,7 @@
             <li class="--login">
               <a href="{{ route('mypage') }}">
                 @if (Auth::user()->photo)
-                  <figure class="p-avator --small"><img src="{{ asset('storage/img/'.Auth::user()->photo) }}.jpg" alt=""></figure>
+                  <figure class="p-avator --small"><img src="{{ asset('img/update/user/'.Auth::user()->photo) }}.jpg" alt=""></figure>
                 @else
                   <figure class="p-avator --small"><img src="{{ asset('img/common/img_noimage.jpg') }}" alt="*"></figure>
                 @endif
@@ -82,7 +82,7 @@
             <li class="js-category-menu">カテゴリー検索<i class="p-header-category__icon fas fa-sort-down"></i>
               <ul class="p-header-category-menu">
                 @foreach($categories as $category)
-                  <li><a href="/category/{{ $category->id }}">{{ $category->name }}</a></li>
+                  <li><a href="/category/{{ $category->id }}">・{{ $category->name }}</a></li>
                 @endforeach
               </ul>
             </li>
