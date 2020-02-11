@@ -217,6 +217,13 @@
           color: $_color-text;
           text-decoration: none;
         }
+        &:first-child{
+          line-height: 4;
+          a{
+            display: flex;
+            align-items: center;
+          }
+        }
         &:last-child{
           border-bottom: 1px solid $_color-line;
         }

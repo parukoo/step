@@ -3,7 +3,7 @@
 @section('content')
   <main>
     <div class="p-formWrapper">
-      <h1 class="p-form-title"><a href="/"><img src="img/common/sitelogo.svg" alt=""></a></h1>
+      <h1 class="p-form-title"><a href="/"><img src="img/common/ico_sitelogo.svg" alt=""></a></h1>
       <form class="p-form" action="{{ route('register') }}" method="post">
         @csrf
         <ul class="p-form-links">

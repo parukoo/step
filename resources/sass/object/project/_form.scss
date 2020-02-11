@@ -92,7 +92,7 @@
     margin-bottom: 35px;
     &__item{
       text-align: left;
-      padding: 10px;
+      padding: 10px 5px;
       background-color: $_color-line;
       position: relative;
       font-size: 14px;
@@ -102,6 +102,7 @@
       @include _mq-up(sm){
         margin-right: 26px;
         font-size: 14px;
+        padding: 10px;
         height: 64px;
         margin-right: 17px;
       }
@@ -325,7 +326,7 @@
       &::after{
         position: absolute;
         content: "\f0dd";
-        font-family: "Font Awesome 5 Free";
+        font-family: "Font Awesome 5 Pro";
         color: #313131;
         font-weight: 900;
         font-size: 125%;

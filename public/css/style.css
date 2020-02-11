@@ -352,7 +352,7 @@ pre {
   position: fixed;
   width: 100%;
   height: 70px;
-  padding: 11px 16px;
+  padding: 16px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
   background-color: rgba(255, 255, 255, 0.9);
   z-index: 2;
@@ -481,8 +481,15 @@ pre {
 }
 
 .p-avator.--small {
-  width: 40px;
-  height: 40px;
+  width: 80px;
+  height: 80px;
+}
+
+@media screen and (min-width: 768px) {
+  .p-avator.--small {
+    width: 40px;
+    height: 40px;
+  }
 }
 
 .p-avator img {
@@ -766,7 +773,7 @@ pre {
 
 .p-form-flow__item {
   text-align: left;
-  padding: 10px;
+  padding: 10px 5px;
   background-color: #dbdbdb;
   position: relative;
   font-size: 14px;
@@ -779,6 +786,7 @@ pre {
   .p-form-flow__item {
     margin-right: 26px;
     font-size: 14px;
+    padding: 10px;
     height: 64px;
     margin-right: 17px;
   }
@@ -1153,7 +1161,7 @@ pre {
 .p-form-input__select::after {
   position: absolute;
   content: "\f0dd";
-  font-family: "Font Awesome 5 Free";
+  font-family: "Font Awesome 5 Pro";
   color: #313131;
   font-weight: 900;
   font-size: 125%;
@@ -1544,6 +1552,17 @@ pre {
   text-decoration: none;
 }
 
+.p-header-spMenu-list > li:first-child {
+  line-height: 4;
+}
+
+.p-header-spMenu-list > li:first-child a {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
 .p-header-spMenu-list > li:last-child {
   border-bottom: 1px solid #dbdbdb;
 }
@@ -1820,11 +1839,13 @@ pre {
   height: 58px;
   background-color: #f6f5f1;
   cursor: pointer;
+  font-size: 14px;
 }
 
 @media screen and (min-width: 768px) {
   .p-mystep-menu > li {
     height: 150px;
+    font-size: 16px;
   }
 }
 
@@ -1940,6 +1961,20 @@ pre {
   width: 218px;
   height: 51px;
   border-radius: 25px;
+  border: 1px solid #fabe00;
+}
+
+.p-posts-btn a {
+  display: block;
+  border-radius: 20px;
+}
+
+.p-posts-btn:hover {
+  background-color: #fabe00;
+}
+
+.p-posts-btn:hover a {
+  color: #fff;
 }
 
 .p-posts-btn-wrapper {
@@ -2174,8 +2209,14 @@ pre {
 .p-profile__edit {
   width: 25px;
   height: 25px;
-  vertical-align: 2px;
+  vertical-align: -3px;
   margin-left: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .p-profile__edit {
+    vertical-align: 2px;
+  }
 }
 
 .p-profileEdit-header {

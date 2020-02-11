@@ -28,6 +28,17 @@
     width: 218px;
     height: 51px;
     border-radius: 25px;
+    border: 1px solid $_color-link;
+    a{
+      display: block;
+      border-radius: 20px;
+    }
+    &:hover{
+      background-color: $_color-link;
+      a{
+        color: #fff;
+      }
+    }
     &-wrapper{
       display: flex;
       justify-content: center;

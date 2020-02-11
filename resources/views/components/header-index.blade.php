@@ -2,7 +2,7 @@
   <div class="p-header">
     <div class="p-header-titleWrapper">
       <a href="/">
-        <h1 class="p-header-title"><img src="{{ asset('img/common/sitelogo.svg') }}" alt=""></h1>
+        <h1 class="p-header-title"><img src="{{ asset('img/common/ico_sitelogo.svg') }}" alt=""></h1>
         <span class="p-header-subtitle">あなたの人生を共有しよう</span>
       </a>
     </div>
@@ -54,7 +54,7 @@
     </div>
     <div class="p-header-spMenu js-header-menu">
       <p class="p-header-spMenu__logo">
-        <a href="/"><img src="{{ asset('img/common/sitelogo.svg') }}" alt="STEP"></a>
+        <a href="/"><img src="{{ asset('img/common/ico_sitelogo.svg') }}" alt="STEP"></a>
       </p>
       <nav>
         <ul class="p-header-spMenu-list js-index-menu">
