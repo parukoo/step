@@ -43,9 +43,25 @@ $fileInput.on('change', function(e){
   fileReader.readAsDataURL(file);
 });
 
-var mySwiper = new Swiper ('.swiper-container', {
-  loop: true
-})
+// SP時TOPメニュー(ページ内リンク)
+// =======================================
+$('.js-index-menu a[href]').on('click', function(event) {
+  $('.js-header-menu').removeClass('is-active');
+  $('.js-header-btn').removeClass('is-active');
+  // 移動先を50px上にずらす
+  var adjust = 50;
+  // スクロールの速度
+  var speed = 400; // ミリ秒
+  // アンカーの値取得
+  var href= $(this).attr("href");
+  // 移動先を取得
+  var target = $(href == "#" || href == "" ? 'html' : href);
+  // 移動先を調整
+  var position = target.offset().top - adjust;
+  // スムーススクロール
+  $('body,html').animate({scrollTop:position}, speed, 'swing');
+  return false;
+});
 
 // グローバルメニュー(カテゴリーメニュー表示)
 // =======================================

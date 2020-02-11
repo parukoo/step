@@ -73,9 +73,17 @@ class StepController extends Controller
   // =======================================
   public function flow(Request $request){
     $stepid = $request->input('stepid');
+
+    // STEPと子STEPデータを取得
     $step = Step::where('id', $stepid)->with('user')->with('category')->first();
     $kosteps = Kostep::where('step_id', $stepid)->get();
-    $completes = Complete::where('user_id', Auth::user()->id)->where('step_id', $stepid)->pluck('kostep_id');
+
+    // ログイン済みのユーザーは完了率を取得
+    if (Auth::check()) {
+      $completes = Complete::where('user_id', Auth::user()->id)->where('step_id', $stepid)->pluck('kostep_id');
+    }else{
+      $completes = '';
+    }
     return [$step, $kosteps, $completes];
   }
 

@@ -50,6 +50,7 @@
           stepid: this.stepid,
         }
       }).then(response => {
+        console.log(response);
         //STEP詳細データを取得
         this.step = response.data[0];
         console.log(this.step);
@@ -61,7 +62,7 @@
         console.log(response);
       })
       .catch(error => {
-          console.log('データの取得に失敗しました。');
+        console.log('データの取得に失敗しました。');
       });
     }
   }

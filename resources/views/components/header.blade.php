@@ -6,6 +6,7 @@
         <span class="p-header-subtitle">あなたの人生を共有しよう</span>
       </a>
     </div>
+    {{-- pc menu --}}
     <nav class="p-header-pcMenu u-display-pc">
       <ul>
         <li><a href="{{ route('steps')}}">STEP一覧</a></li>
@@ -50,14 +51,19 @@
         @endauth
       </ul>
     </div>
+
+    {{-- sp menu --}}
     <div class="p-header-humberger u-display-sp js-header-btn">
       <span></span>
       <span></span>
       <span>MENU</span>
     </div>
     <div class="p-header-spMenu js-header-menu">
+      <p class="p-header-spMenu__logo">
+        <a href="/"><img src="{{ asset('img/common/sitelogo.svg') }}" alt="STEP"></a>
+      </p>
       <nav>
-        <ul>
+        <ul class="p-header-spMenu-list">
           <li><a href="{{ route('steps')}}">STEP一覧</a></li>
           <li class="js-category-menu">カテゴリー検索
             <ul class="p-header-category-menu">
@@ -69,6 +75,35 @@
           <li><a href="{{ route('steps.new')}}">STEPを作る</a></li>
         </ul>
       </nav>
+      <ul class="p-header-spMenu__btns">
+        @auth
+          <li class="p-header-spMenu__mypage">
+            <a href="{{ route('mypage') }}">
+              @if (Auth::user()->photo)
+                <figure class="p-avator --small"><img src="{{ asset('storage/img/'.Auth::user()->photo) }}.jpg" alt=""></figure>
+              @else
+                <figure class="p-avator --small"><img src="{{ asset('img/common/img_noimage.jpg') }}" alt="*"></figure>
+              @endif
+              <span class="p-avator__name">{{  Auth::user()->name }}</span>
+            </a>
+          </li>
+          <li class="c-btn p-header-spMenu__btn --logout">
+            <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">ログアウト</a>
+          </li>
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+          {{ csrf_field() }}
+          </form>
+        @endauth
+
+        @guest
+          <li class="c-btn p-header-spMenu__btn --login">
+            <a href="{{ route('login') }}">ログイン</a>
+          </li>
+          <li class="c-btn p-header-spMenu__btn --signup">
+            <a href="{{ route('register') }}">新規登録</a>
+          </li>
+        @endauth
+      </ul>
     </div>
   </div>
 </header>

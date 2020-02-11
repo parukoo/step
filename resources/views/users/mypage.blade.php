@@ -43,7 +43,10 @@
               @foreach ($joinsteps as $joinstep)
               <div class="p-post--mypage">
                 <a href="/steps/{{ $joinstep['step']['id'] }}">
-                  <figure class="p-post__image"><img src="img/category/eyecatch0{{ $joinstep['step']['category_id'] }}.jpg" alt=""></figure>
+                  <div class="p-post__imageWrapper">
+                    <span class="p-post__image-label">{{ $joinstep['step']['title'] }}</span>
+                    <figure class="p-post__image"><img src="img/category/eyecatch0{{ $joinstep['step']['category_id'] }}.jpg" alt=""></figure>
+                  </div>
                   <h4 class="p-post__title">{{ $joinstep['step']['title'] }}</h4>
                   <p class="p-post__txt">{{ $joinstep['step']['info'] }}</p>
                   <div class="p-post-score">
@@ -64,16 +67,19 @@
               @foreach ($completesteps as $completestep)
               <div class="p-post--mypage">
                 <a href="/steps/{{ $completestep['step']['id'] }}">
-                  <figure class="p-post__image"><img src="img/category/eyecatch0{{ $completestep['step']['category_id'] }}.jpg" alt=""></figure>
+                  <div class="p-post__imageWrapper">
+                    <span class="p-post__image-label">{{ $completestep['step']['title'] }}</span>
+                    <figure class="p-post__image"><img src="img/category/eyecatch0{{ $completestep['step']['category_id'] }}.jpg" alt=""></figure>
+                  </div>
                   <h4 class="p-post__title">{{ $completestep['step']['title'] }}</h4>
                   <p class="p-post__txt">{{ $completestep['step']['info'] }}</p>
-                </a>
-                <div class="p-post-score">
-                  <div class="p-post-score__graph">
-                    <span style="width: {{ $completestep['complete'] }}%"></span>
+                  <div class="p-post-score">
+                    <div class="p-post-score__graph">
+                      <span style="width: {{ $completestep['complete'] }}%"></span>
+                    </div>
+                    <p class="p-post-score__text">完了率　{{ $completestep['complete'] }}%</p>
                   </div>
-                  <p class="p-post-score__text">完了率　{{ $completestep['complete'] }}%</p>
-                </div>
+                </a>
               </div>   
               @endforeach
               @if(!$completesteps)
@@ -86,7 +92,10 @@
                 <div class="p-post--mypage">
                   <a href="/steps/{{ $registerstep->id }}/edit" class="p-post-edit"><img src="img/common/ico_edit.svg" class="p-post-edit__link"></a>
                   <a href="/steps/{{ $registerstep->id }}">
-                    <figure class="p-post__image"><img src="img/category/eyecatch0{{ $registerstep->category_id }}.jpg" alt=""></figure>
+                    <div class="p-post__imageWrapper">
+                      <span class="p-post__image-label">{{ $registerstep->category_id }}</span>
+                      <figure class="p-post__image"><img src="img/category/eyecatch0{{ $registerstep->category_id }}.jpg" alt=""></figure>
+                    </div>
                     <h4 class="p-post__title">{{ $registerstep->title }}</h4>
                     <p class="p-post__txt">{{ $registerstep->info }}</p>
                   </a>

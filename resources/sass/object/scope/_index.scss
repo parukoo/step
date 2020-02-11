@@ -49,22 +49,12 @@
       width: 160px;
       height: 40px;
       border-radius: 20px;
-      border: 1px solid $_color-text;
       text-align: center;
       line-height: 40px;
       display: inline-block;
       text-decoration: none;
       &.--login{
-        background-color: $_color-text;
-        a{
-          color: #fff;
-        }
-        &:hover{
-          opacity: 0.8;
-        }
-      }
-      &.--signup{
-        margin-left: 30px;
+        border: 1px solid $_color-text;
         a{
           color: $_color-text;
         }
@@ -73,6 +63,18 @@
           a{
             color: #fff;
           }
+        }
+      }
+      &.--signup{
+        margin-left: 30px;
+        border-color: $_color-signup;
+        a{
+          color: #fff;
+          background-color: $_color-signup;
+          border-radius: 20px;
+        }
+        &:hover{
+          opacity: 0.5;
         }
       }
     }
@@ -237,20 +239,23 @@
   // ranking
   // ======================================
   &-ranking{
-    padding: 60px 0;
-    &-heading{
-      &-wrapper{
-        padding: 0 30px;
-        @include _mq-up(){
-          padding: 0 60px;
-        }
-      }
+    padding: 60px 30px;
+    @include _mq-up(){
+      padding: 60px;
     }
     &-panels{
       display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
     }
     &-panel{
-      width: 400px;
+      width: 100%;
+      @include _mq-up(sm){
+        width: calc((100% - 20px) / 2);
+      }
+      @include _mq-up(lg){
+        width: calc((100% - 40px) / 3);
+      }
     }
   }
 

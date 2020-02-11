@@ -19,8 +19,9 @@ class StepsController extends Controller
     if (Auth::check()) {
       return redirect('/all');
     }
+    $steps = Step::take(6)->with('category')->get();
     $categories = Category::all();
-    return view('steps.index', ['categories' => $categories]);
+    return view('steps.index', ['steps' => $steps, 'categories' => $categories]);
   }
 
 
@@ -35,8 +36,6 @@ class StepsController extends Controller
   // STEP一覧ページ
   // =======================================
   public function arichive() {
-    // $steps = Step::with('user')->with('category')->orderBy(Step::CREATED_AT, 'desc')->get();
-    // return view('steps.archive', ['steps' => $steps]);
     $categories = Category::all();
     return view('steps.archive', ['categories' => $categories]);
   }
@@ -45,8 +44,6 @@ class StepsController extends Controller
   // STEP一覧ページ（カテゴリー別）
   // =======================================
   public function category($category_id) {
-    // $steps = Step::where('category_id', $category_id)->with('user')->with('category')->orderBy(Step::CREATED_AT, 'desc')->get();
-    // return view('steps.archive', ['steps' => $steps]);
     $categories = Category::all();
     return view('steps.category', ['categoryid' => $category_id, 'categories' => $categories]);
   }

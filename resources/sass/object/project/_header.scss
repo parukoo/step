@@ -34,75 +34,16 @@
   &-subtitle{
     font-size: 13px;
   }
-  &-pcMenu{
-    @include _mq-up(){
-      > ul > li{
-        display: inline-block;
-        color: $_color-text;
-        font-size: 18px;
-        font-weight: $_font-weight-bold;
-        text-decoration: none;
-        margin-bottom: 30px;
-        cursor: pointer;
-        a{
-          color: $_color-text;
-          text-decoration: none;
-          transition: 0.2s;
-          &:hover{
-            opacity: 0.5;
-          }
-        }
-      }
-    }
-  }
-  &-spMenu{
-    visibility: hidden;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(#fff, 0.9);
-    padding: 60px;
-    transition: 0.2s;
-    @include _mq-up(){
-      display: none;
-    }
-    &.--index{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    &.is-active{
-      visibility: visible;
-    }
-    ul{
-      > li{
-        color: $_color-text;
-        text-decoration: none;
-        font-size: 26px;
-        font-weight: bold;
-        cursor: pointer;
-        a{
-          color: $_color-text;
-          text-decoration: none;
-          font-size: 26px;
-          font-weight: bold;
-        }
-        + li{
-          margin-top: 50px;
-        }
-      }
-    }
-  }
+
   &-category{
     &-menu{
       display: none;
-      padding: 20px 0;
+      padding-bottom: 20px;
       > li{
-        padding-bottom: 10px;
         font-size: 14px;
         cursor: pointer;
+        background-color: #fff;
+        margin: 10px 0px;
         a:hover{
           color: $_color-link;
         }
@@ -144,24 +85,22 @@
       }
     }
     &.--logout{
-      background-color: $_color-link;
-      border: 1px solid $_color-link;
+      background-color: $_color-text;
       a{
         color: #fff;
         display: block;
         border-radius: 20px;
-        &:hover{
-          opacity: 0.5;
-        }
+      }
+      &:hover{
+        opacity: 0.5;
       }
     }
     &.--signup{
-      border: 1px solid $_color-link;
       a{
         color: #fff;
         display: block;
         border-radius: 20px;
-        background-color: $_color-link;
+        background-color: $_color-signup;
         &:hover{
           opacity: 0.5;
         }
@@ -208,6 +147,130 @@
         font-size: 12px;
         position: absolute;
         bottom: 0;
+      }
+    }
+  }
+
+  // pc-menu
+  // =======================================
+  &-pcMenu{
+    @include _mq-up(){
+      > ul > li{
+        display: inline-block;
+        color: $_color-text;
+        font-size: 18px;
+        font-weight: $_font-weight-bold;
+        text-decoration: none;
+        margin-bottom: 30px;
+        cursor: pointer;
+        a{
+          color: $_color-text;
+          text-decoration: none;
+          transition: 0.2s;
+          &:hover{
+            opacity: 0.5;
+          }
+        }
+      }
+    }
+  }
+
+
+  // sp-menu
+  // =======================================
+  &-spMenu{
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: scroll;
+    height: 100vh;
+    background-color: rgba($_color-bg, 0.95);
+    padding: 15vh 0;
+    transition: 0.2s;
+    @include _mq-up(){
+      display: none;
+    }
+    &.is-active{
+      visibility: visible;
+    }
+    &__logo{
+      text-align: center;
+      margin-bottom: 50px;
+      a{
+        display: inline-block;
+        width: 200px;
+      }
+    }
+    &-list{
+      margin-bottom: 50px;
+      padding: 0 16px;
+      > li{
+        cursor: pointer;
+        border-top: 1px solid $_color-line;
+        padding: 0 16px;
+        font-size: 22px;
+        font-weight: bold;
+          line-height: 2.5;
+        a{
+          color: $_color-text;
+          text-decoration: none;
+        }
+        &:last-child{
+          border-bottom: 1px solid $_color-line;
+        }
+      }
+    }
+    &__btns{
+      display: flex;
+      justify-content: space-between;
+      padding: 0 16px;
+    }
+    &__btn{
+      width: 160px;
+      height: 40px;
+      border-radius: 20px;
+      &.--signup{
+        border-color: $_color-signup;
+        a{
+          background-color: $_color-signup;
+          color: #fff;
+          border-radius: 20px;
+          width: 160px;
+          text-align: center;
+          line-height: 40px;
+        }
+      }
+      &.--login{
+        border-color: $_color-text;
+        background-color: #fff;
+        a{
+          color: $_color-text;
+          border-radius: 20px;
+          width: 160px;
+          text-align: center;
+          line-height: 40px;
+        }
+      }
+      &.--logout{
+        border-color: $_color-text;
+        a{
+          background-color: $_color-text;
+          color: #fff;
+          border-radius: 20px;
+          width: 160px;
+          text-align: center;
+          line-height: 40px;
+        }
+      }
+    }
+    &__mypage{
+      a{
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: $_color-text;
       }
     }
   }

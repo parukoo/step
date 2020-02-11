@@ -84,53 +84,20 @@
       <div class="s-index-ranking-heading-wrapper">
         <h2 class="p-heading s-index-heading"><span>人</span>気のSTEP</h2>
       </div>        
-
-      <div class="swiper-container">
-        <ul class="s-index-ranking-panels　swiper-wrapper">
-          <li class="s-index-ranking-panel swiper-slide">
-            <figure><img src="./img/index/img01.jpg" alt=""></figure>
-            <div class="s-index-ranking-panel-textWrapper">
-              <h3 class="s-index-ranking-panel__title">タイトル</h3>
-              <p class="s-index-ranking-panel__text">テキストテキストテキストテキストテキストテキスト</p>
+      <ul class="p-posts">
+        @foreach ($steps as $step)
+        <li class="p-post">
+          <a href="steps/{{ $step->id }}">
+            <div class="p-post__imageWrapper">
+              <span class="p-post__image-label">{{ $step->category->name }}</span>
+              <figure class="p-post__image"><img src="img/category/eyecatch0{{ $step->category_id }}.jpg" alt=""></figure>
             </div>
-          </li>
-          <li class="s-index-ranking-panel swiper-slide">
-            <figure><img src="./img/index/img01.jpg" alt=""></figure>
-            <div class="s-index-ranking-panel-textWrapper">
-              <h3 class="s-index-ranking-panel__title">タイトル</h3>
-              <p class="s-index-ranking-panel__text">テキストテキストテキストテキストテキストテキスト</p>
-            </div>
-          </li>
-          <li class="s-index-ranking-panel swiper-slide">
-            <figure><img src="./img/index/img01.jpg" alt=""></figure>
-            <div class="s-index-ranking-panel-textWrapper">
-              <h3 class="s-index-ranking-panel__title">タイトル</h3>
-              <p class="s-index-ranking-panel__text">テキストテキストテキストテキストテキストテキスト</p>
-            </div>
-          </li>
-          <li class="s-index-ranking-panel swiper-slide">
-            <figure><img src="./img/index/img01.jpg" alt=""></figure>
-            <div class="s-index-ranking-panel-textWrapper">
-              <h3 class="s-index-ranking-panel__title">タイトル</h3>
-              <p class="s-index-ranking-panel__text">テキストテキストテキストテキストテキストテキスト</p>
-            </div>
-          </li>
-          <li class="s-index-ranking-panel swiper-slide">
-            <figure><img src="./img/index/img01.jpg" alt=""></figure>
-            <div class="s-index-ranking-panel-textWrapper">
-              <h3 class="s-index-ranking-panel__title">タイトル</h3>
-              <p class="s-index-ranking-panel__text">テキストテキストテキストテキストテキストテキスト</p>
-            </div>
-          </li>
-          <li class="s-index-ranking-panel swiper-slide">
-            <figure><img src="./img/index/img01.jpg" alt=""></figure>
-            <div class="s-index-ranking-panel-textWrapper">
-              <h3 class="s-index-ranking-panel__title">タイトル</h3>
-              <p class="s-index-ranking-panel__text">テキストテキストテキストテキストテキストテキスト</p>
-            </div>
-          </li>
-        </ul>
-      </div>
+            <h3 class="p-post__title">{{ $step->title }}</h3>
+            <p class="p-post__txt">{{ $step->info }}</p>
+          </a>
+        </li>
+        @endforeach
+      </ul>
 
     </section>
 

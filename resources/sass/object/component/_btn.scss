@@ -4,18 +4,8 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  border: 1px solid $_color-link;
-  color: $_color-link;
   > a{
     text-decoration: none;
-    color: $_color-link;
     display: block;
-  }
-  &:hover{
-    background-color: $_color-link;
-    color: #fff;
-    a{
-      color: #fff;
-    }
   }
 }
