@@ -58,7 +58,6 @@ export default {
         category_id: null,
         info: null,
         time: null,
-        // uploadedImage: null,
         kosteps: [
           {
             flow_id: 1,
@@ -72,6 +71,7 @@ export default {
     }
   },
 	methods:{
+    // マルチフォームのメニュースタイル（現在地をアクティブにする）
     bgColor(number){
       if(number === this.stepNumber){
         return this.isActive;
@@ -79,18 +79,14 @@ export default {
         return !this.isActive;
       }
     },
+    //前に戻る
     backStep(){
       this.stepNumber--;
     },			
+    //次に進む
     nextStep(){
       this.stepNumber++;
-    },
-    // fileupload(file){
-    //   const formData = new FormData()
-    //   formData.append('file', file);
-    //   // this.form.uploadedImage = file;
-    //   console.log(formData.entries());
-    // }
+    }
 	}
 }
 </script>

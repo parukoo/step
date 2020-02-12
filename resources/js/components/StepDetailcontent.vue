@@ -27,9 +27,11 @@
       isCompleted: { type: Boolean, required: true }
     },
     methods:{
+      // STEP完了
       done(){
         this.$emit('completed', this.kostep)
       },
+      // twitterシェア
       normalShare(){
         this.$emit('normalShare', this.kostep)
       }

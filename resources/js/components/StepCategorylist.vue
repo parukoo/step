@@ -36,11 +36,13 @@
         currentPage: 1,
       }
     },
+    // ページネーション
     methods: {
       clickCallback: function (pageNum) {
         this.currentPage = Number(pageNum);
       }
     },
+    // ページネーション
     computed: {
       getSteps: function() {
         let current = this.currentPage * this.parPage;

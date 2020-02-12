@@ -17,12 +17,12 @@
       <div class="s-index-kv-inner">
         <div class="s-index-kv-titleWrapper">
           <h1 class="s-index-kv-title">あなたの人生を<br>STEPを共有しよう</h1>
-          <p class="s-index-kv-text">あなたの今までの学習方法を、みんなに共有しましょう。<br>みんながやってきた学習方法に、あなたも挑戦してみましょう。</p>
+          <p class="s-index-kv-text">あなたが「良かった」と思う学習方法を、みんなに共有しましょう。<br>みんなが「良かった」と思う学習方法に、あなたも挑戦してみましょう。</p>
           <div class="s-index-btn-wrapper --left">
             <span class="c-btn s-index-btn"><a href="{{ route('register') }}">新規登録</a></span>
           </div>
         </div>
-        <p class="s-index-kv-img"><img src="./img/index/ico_kv.png" alt=""></p>
+        <p class="s-index-kv-img"><img src="./img/index/ico_kv.jpg" alt=""></p>
       </div>
     </section>
 
@@ -33,11 +33,11 @@
       <div class="s-index-about-points">
         <div class="s-index-about-point">
           <h3 class="s-index-about-point__title">良かった学び方を<br class="u-display-sp">共有できる</h3>
-          <figure><img src="./img/index/ico_about01.png" alt=""></figure>
+          <figure><img src="./img/index/ico_about01.jpg" alt=""></figure>
         </div>
         <div class="s-index-about-point">
           <h3 class="s-index-about-point__title">良かった学び方に<br class="u-display-sp">挑戦できる</h3>
-          <figure><img src="./img/index/ico_about02.png" alt=""></figure>
+          <figure><img src="./img/index/ico_about02.jpg" alt=""></figure>
         </div>
       </div>
       <div class="s-index-btn-wrapper">

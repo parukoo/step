@@ -12,7 +12,7 @@
         </dl>
 
         <dl>
-          <dt>STEPの紹介文</dt>
+          <dt>STEPの内容</dt>
           <dd>{{ form.info }}</dd>
         </dl>
 
@@ -24,15 +24,11 @@
         <div v-for="kostep in form.kosteps"
           :key="kostep.id">
           <dl>
-            <dt>子STEP</dt>
-            <dd>{{ kostep.flow_id }}</dd>
-          </dl>
-          <dl>
-            <dt>タイトル</dt>
+            <dt>STEPのFLOW{{ kostep.flow_id }}のタイトル</dt>
             <dd>{{ kostep.title }}</dd>
           </dl>
           <dl>
-            <dt>説明</dt>
+            <dt>内容</dt>
             <dd>{{ kostep.info }}</dd>
           </dl>
         </div>

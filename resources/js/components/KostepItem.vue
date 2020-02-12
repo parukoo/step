@@ -1,7 +1,7 @@
 <template>
   <div>
     <dl>
-      <dt><label for="title">{{ value.flow_id }}:子STEPのタイトル<span>必須</span></label></dt>
+      <dt><label for="title">学習FLOW（{{ value.flow_id }}）：タイトル<span>必須</span></label></dt>
       <dd>
         <input 
           id="title" 
@@ -19,7 +19,7 @@
       </dd>
     </dl>
     <dl>
-      <dt><label for="info">STEPの紹介文<span>必須</span></label></dt>
+      <dt><label for="info">学習FLOW（{{ value.flow_id }}）：内容<span>必須</span></label></dt>
       <dd>
         <textarea 
           id="info" 
@@ -28,7 +28,7 @@
           placeholder="1000文字以内で入力をしてください"></textarea>
         <div v-if="$v.value.info.$error">
           <span v-if="!$v.value.info.required" class="p-form__errorMsg" role="alert">
-            <strong>紹介文が入力されていません</strong>
+            <strong>学習内容が入力されていません</strong>
           </span>
           <span v-if="!$v.value.info.maxLength" class="p-form__errorMsg" role="alert">
             <strong>1000文字以内で入力をしてください</strong>
@@ -76,6 +76,7 @@ export default {
       }
     }
   },
+  // 入力を監視し、親コンポーネントへアップデート
   watch:{
     '$v.$invalid': function(newVal, oldVal) {
       this.value.edit = newVal

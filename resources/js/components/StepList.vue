@@ -39,6 +39,7 @@
         this.currentPage = Number(pageNum);
       }
     },
+    //ページネーション
     computed: {
       getSteps: function() {
         let current = this.currentPage * this.parPage;
@@ -55,7 +56,6 @@
       axios.get('/ajax/steps')
       .then(response => {
         this.steps = response.data;
-        console.log(this.steps);
       })
       .catch(error => {
           console.log('データの取得に失敗しました。');

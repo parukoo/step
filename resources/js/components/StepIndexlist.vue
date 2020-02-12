@@ -24,9 +24,7 @@ export default {
     return{
       url: '/category/' + this.steps[0].category_id
     }
-  },
-	methods:{
-	}
+  }
 }
 </script>
 

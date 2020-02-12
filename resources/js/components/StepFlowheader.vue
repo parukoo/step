@@ -36,12 +36,6 @@
     props:{
       step: { type: Object, required: true },
       complete: { type: Number, required: true }
-    },
-    methods:{
-      start(){
-        var url = '/steps/' + this.step.id + '/' + 1;
-        window.location.href = url;
-      }
     }
   }
 </script>
