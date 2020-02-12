@@ -17,7 +17,7 @@
       <div class="s-index-kv-inner">
         <div class="s-index-kv-titleWrapper">
           <h1 class="s-index-kv-title">あなたの人生を<br>STEPを共有しよう</h1>
-          <p class="s-index-kv-text">あなたの今までの学習方法を、共有しましょう。<br>あの人がやってきた学習方法に、挑戦してみましょう。</p>
+          <p class="s-index-kv-text">あなたの今までの学習方法を、みんなに共有しましょう。<br>みんながやってきた学習方法に、あなたも挑戦してみましょう。</p>
           <div class="s-index-btn-wrapper --left">
             <span class="c-btn s-index-btn"><a href="{{ route('register') }}">新規登録</a></span>
           </div>
@@ -32,11 +32,11 @@
       STEPでは、人それぞれの「この順番でこういったものを学んでいったのが良かった」という「STEP」を投稿し、他の人はそれを見ながら、その「STEP」を元に学習を進めていくことができます。</p>
       <div class="s-index-about-points">
         <div class="s-index-about-point">
-          <h3 class="s-index-about-point__title">良かった学び方を共有できる</h3>
+          <h3 class="s-index-about-point__title">良かった学び方を<br class="u-display-sp">共有できる</h3>
           <figure><img src="./img/index/ico_about01.png" alt=""></figure>
         </div>
         <div class="s-index-about-point">
-          <h3 class="s-index-about-point__title">良かった学び方に挑戦できる</h3>
+          <h3 class="s-index-about-point__title">良かった学び方に<br class="u-display-sp">挑戦できる</h3>
           <figure><img src="./img/index/ico_about02.png" alt=""></figure>
         </div>
       </div>

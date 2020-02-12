@@ -186,6 +186,12 @@
       flex-direction: unset;
       justify-content: space-between;
     }
+    &:first-child{
+      margin-top: 20px;
+      @include _mq-up(){
+        margin-top: 50px;
+      }
+    }
     &-wrapper{
       padding: 60px 30px;
       background-color: #fff;
