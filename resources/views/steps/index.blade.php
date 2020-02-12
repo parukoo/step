@@ -16,7 +16,7 @@
       </ul>
       <div class="s-index-kv-inner">
         <div class="s-index-kv-titleWrapper">
-          <h1 class="s-index-kv-title">あなたの人生を<br>STEPを共有しよう</h1>
+          <h1 class="s-index-kv-title">あなたの人生のSTEPを<br>共有しよう</h1>
           <p class="s-index-kv-text">あなたの今までの学習方法を、共有しましょう。<br>あの人がやってきた学習方法に、挑戦してみましょう。</p>
           <div class="s-index-btn-wrapper --left">
             <span class="c-btn s-index-btn"><a href="{{ route('register') }}">新規登録</a></span>
