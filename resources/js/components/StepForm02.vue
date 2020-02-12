@@ -45,6 +45,7 @@ export default {
       editFlag: true
     }
   },
+  //タイトルと内容両方とも入力済みか判断
   watch:{
     value: {
       deep: true,
@@ -58,6 +59,7 @@ export default {
     }
   },
 	methods: {
+    //入力値をアップデート
     updateItem(item, index) {
       const newValue = [
         ...this.value.slice(0, index),
@@ -66,6 +68,7 @@ export default {
       ]
       this.$emit('input', newValue)
     },
+    //子STEPを追加する
     add(){
       this.value.push({
         flow_id: this.value.length + 1,
@@ -75,9 +78,11 @@ export default {
       })
       this.nextBtn = false
     },
+    //前に戻る
     backStep(){
       this.$emit('backStep');
     },    
+    //次に進む
     nextStep(){
       this.$emit('nextStep');
     }

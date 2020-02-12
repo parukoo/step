@@ -72,6 +72,7 @@ export default {
     }
   },
 	methods:{
+    // マルチフォームのメニュースタイル（現在地をアクティブにする）
     bgColor(number){
       if(number === this.stepNumber){
         return this.isActive;
@@ -79,26 +80,27 @@ export default {
         return !this.isActive;
       }
     },
+    //前に戻る
     backStep(){
       this.stepNumber--;
-    },			
+    },		
+    //次に進む	
     nextStep(){
       this.stepNumber++;
     }
   },
+  //STEPデータをAJAXで取得
   mounted(){
     axios.get('/ajax/stepEditflow', {
       params:{
         stepid: this.stepid,
       }
     }).then(response => {
-      console.log(response);
       this.form = response.data[0];
       this.form.kosteps = response.data[0].kosteps;
       for(let i = 0; i < this.form.kosteps.length; i++) {
         this.$set(this.form.kosteps[i], "edit", false);
       }  
-      console.log(this.form);
     })
     .catch(error => {
         console.log('データの取得に失敗しました。');

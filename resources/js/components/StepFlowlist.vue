@@ -21,6 +21,7 @@
       }
     },
     computed:{
+      // 完了済みのstep_idには、isDoneをtrueに、未完了はfalseにする
       filterkosteps(){
         this.kosteps.forEach((kostep, i) => {
           if(this.completes.includes(kostep.id)){

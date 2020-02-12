@@ -19,7 +19,7 @@
       <div class="p-modal-container fn_jidoukansModal-container">
       <span class="js-close-modal p-modal-nextLink"><a href="/all">STEP一覧へ戻る <i class="fas fa-arrow-right"></i></a></span>
         <h2 class="p-modal-title">CONGRATULATIONS</h2>
-        <img class="p-modal-bgRight" src="/img/common/ico_twitter-bg01.png">
+        <img class="p-modal-bgRight" src="/img/common/ico_twitter-bg02.png">
         <img class="p-modal-bgLeft" src="/img/common/ico_twitter-bg01.png">
         <p class="p-modal-text">おめでとうございます！<br>{{ title.title }}が完了しました！</p>
         <div class="p-modal-share">
@@ -85,7 +85,6 @@
           }else{    
           //（完了にする場合）complete配列に該当のkostep_idを追加する  
             this.completes.push(kostep.id);   
-            console.log(this.completes)  
             if(this.isCompleted){
               //最後のflow_idかつ、全てクリアした場合、twitterシェアモーダルを表示
               if(this.kostep.flow_id === this.flowmenu.length){
@@ -96,7 +95,6 @@
                 //最後のflow_id以外は、次のflowに進む
                 setTimeout( () => {
                   var url = '/steps/' + this.stepid + '/' + (this.flowid + 1);
-                  console.log(url);
                   window.location.href = url;
                 }, 1000)
               }

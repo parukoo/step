@@ -16,6 +16,11 @@
     justify-content: space-between;
     flex-wrap: wrap;
   }
+  &::after{
+    content:"";
+    display: block;
+    width:30%;
+  }
   &.--index{
     margin-bottom: -50px;
   }

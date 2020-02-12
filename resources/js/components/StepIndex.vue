@@ -23,7 +23,6 @@ export default {
   mounted() {
     axios.get('/ajax/all')
     .then(response => {
-      console.log(response.data);
       this.stepslist = response.data;
     })
     .catch(error => {

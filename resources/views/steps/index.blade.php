@@ -22,7 +22,7 @@
             <span class="c-btn s-index-btn"><a href="{{ route('register') }}">新規登録</a></span>
           </div>
         </div>
-        <p class="s-index-kv-img"><img src="./img/index/ico_kv.png" alt=""></p>
+        <p class="s-index-kv-img"><img src="./img/index/ico_kv.jpg" alt=""></p>
       </div>
     </section>
 
@@ -33,11 +33,11 @@
       <div class="s-index-about-points">
         <div class="s-index-about-point">
           <h3 class="s-index-about-point__title">良かった学び方を共有できる</h3>
-          <figure><img src="./img/index/ico_about01.png" alt=""></figure>
+          <figure><img src="./img/index/ico_about01.jpg" alt=""></figure>
         </div>
         <div class="s-index-about-point">
           <h3 class="s-index-about-point__title">良かった学び方に挑戦できる</h3>
-          <figure><img src="./img/index/ico_about02.png" alt=""></figure>
+          <figure><img src="./img/index/ico_about02.jpg" alt=""></figure>
         </div>
       </div>
       <div class="s-index-btn-wrapper">

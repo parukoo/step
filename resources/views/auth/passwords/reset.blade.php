@@ -22,7 +22,7 @@
             </dd>
           </dl>
           <dl>
-            <dt><label for="password">パスワード<span>必須</span></label></dt>
+            <dt><label for="password">新しいパスワード<span>必須</span></label></dt>
             <dd>
               <input type="password" id="password" name="password" class="@error('password') is-error @enderror" placeholder="パスワード" required>
               @error('password')
@@ -34,7 +34,7 @@
           </dl>
 
           <dl>
-            <dt><label for="password_confirmation">パスワード（再入力）<span>必須</span></label></dt>
+            <dt><label for="password_confirmation">新しいパスワード（再入力）<span>必須</span></label></dt>
             <dd>
               <input type="password" id="password_confirmation" name="password_confirmation" class="@error('password') is-error @enderror" placeholder="パスワード（再入力）" required>
             </dd>

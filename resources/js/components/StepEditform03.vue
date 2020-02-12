@@ -12,7 +12,7 @@
         </dl>
 
         <dl>
-          <dt>STEPの紹介文</dt>
+          <dt>STEPの内容</dt>
           <dd>{{ form.info }}</dd>
         </dl>
 
@@ -24,15 +24,11 @@
         <div v-for="kostep in form.kosteps"
           :key="kostep.id">
           <dl>
-            <dt>子STEP</dt>
-            <dd>{{ kostep.flow_id }}</dd>
-          </dl>
-          <dl>
-            <dt>タイトル</dt>
+            <dt>STEPのFLOW{{ kostep.flow_id }}のタイトル</dt>
             <dd>{{ kostep.title }}</dd>
           </dl>
           <dl>
-            <dt>説明</dt>
+            <dt>内容</dt>
             <dd>{{ kostep.info }}</dd>
           </dl>
         </div>
@@ -60,14 +56,14 @@ export default {
     form: Object
   },
   methods:{
+    // 前に戻る
     backStep(){
       this.$emit('backStep');
     },    
+    // 編集データをAJAXでPOST送信
     submit(){
-      console.log(this.form);
       axios.post('/ajax/stepUpdate', this.form)
       .then( (response) => {
-        console.log(response);
       })
       .catch((error) => {
         console.log(error);
