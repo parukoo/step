@@ -55,12 +55,12 @@
           <p class="s-index-feature__text">順番に沿って学習を行うことができるので、効率的な学習を行うことができます。</p>
         </div>
         <figure>
-          <img src="./img/index/img_feature01.jpg" alt="">
+          <img src="./img/index/img_feature01.png" alt="">
         </figure>
       </div>
       <div class="s-index-feature">
         <figure>
-          <img src="./img/index/img_feature02.jpg" alt="">
+          <img src="./img/index/img_feature02.png" alt="">
         </figure>
         <div class="s-index-feature-textWrapper">
           <span class="s-index-feature__number">STEP②</span>
@@ -75,7 +75,7 @@
           <p class="s-index-feature__text">あなたの今までの良かったと思う学習方法や内容をSTEPに登録することができます。Twitterシェアをすることで、登録したSTEPを拡散することも可能です。</p>
         </div>
         <figure>
-          <img src="./img/index/img_feature03.jpg" alt="">
+          <img src="./img/index/img_feature03.png" alt="">
         </figure>
       </div>
     </section>
