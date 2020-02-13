@@ -43,6 +43,7 @@
 		"webpack-cli": "^3.3.10"
 	},
 	"dependencies": {
+		"swiper": "^5.3.1",
 		"vuejs-paginate": "^2.1.0",
 		"vuelidate": "^0.7.5"
 	}
