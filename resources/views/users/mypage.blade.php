@@ -44,7 +44,7 @@
               <div class="p-post--mypage">
                 <a href="/steps/{{ $joinstep['step']['id'] }}">
                   <div class="p-post__imageWrapper">
-                    <span class="p-post__image-label">{{ $joinstep['step']['title'] }}</span>
+                    <span class="p-post__image-label">{{ $joinstep['step']['category']['name']  }}</span>
                     <figure class="p-post__image"><img src="img/category/eyecatch0{{ $joinstep['step']['category_id'] }}.jpg" alt=""></figure>
                   </div>
                   <h4 class="p-post__title">{{ $joinstep['step']['title'] }}</h4>
@@ -68,7 +68,7 @@
               <div class="p-post--mypage">
                 <a href="/steps/{{ $completestep['step']['id'] }}">
                   <div class="p-post__imageWrapper">
-                    <span class="p-post__image-label">{{ $completestep['step']['title'] }}</span>
+                    <span class="p-post__image-label">{{ $completestep['step']['category']['name'] }}</span>
                     <figure class="p-post__image"><img src="img/category/eyecatch0{{ $completestep['step']['category_id'] }}.jpg" alt=""></figure>
                   </div>
                   <h4 class="p-post__title">{{ $completestep['step']['title'] }}</h4>
@@ -93,13 +93,13 @@
                   <a href="/steps/{{ $registerstep->id }}/edit" class="p-post-edit"><img src="img/common/ico_edit.svg" class="p-post-edit__link"></a>
                   <a href="/steps/{{ $registerstep->id }}">
                     <div class="p-post__imageWrapper">
-                      <span class="p-post__image-label">{{ $registerstep->category_id }}</span>
+                      <span class="p-post__image-label">{{ $registerstep->category->name }}</span>
                       <figure class="p-post__image"><img src="img/category/eyecatch0{{ $registerstep->category_id }}.jpg" alt=""></figure>
                     </div>
                     <h4 class="p-post__title">{{ $registerstep->title }}</h4>
                     <p class="p-post__txt">{{ $registerstep->info }}</p>
                   </a>
-                </div>                  
+                </div>            
               @endforeach
               @if($registersteps)
                 <p>登録したSTEPはありません。</p>

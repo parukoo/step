@@ -76,6 +76,7 @@ class StepsController extends Controller
   // =======================================
   public function detail($stepid, $flowid) {
     $kostep = Kostep::where('step_id', $stepid)->where('flow_id', $flowid)->count();
+    //urlに存在しないkostep_idを入れられた場合404ページに遷移させる
     if($kostep === 0) {
       abort(404);
     }
@@ -97,6 +98,7 @@ class StepsController extends Controller
   // =======================================
   public function edit($stepid){
     $step = Step::find($stepid);
+    //自分が作成したstepのみ編集できる様にする
     $this->authorize('edit', $step);
     $categories = Category::all();
     return view('steps.edit',  ['stepid' => $stepid, 'categories' => $categories]);

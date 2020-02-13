@@ -2923,6 +2923,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -3105,7 +3106,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     categories: {
       type: Array,
-      equired: true
+      required: true
     }
   },
   data: function data() {
@@ -3368,7 +3369,14 @@ var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'StepForm03',
   props: {
-    form: Object
+    form: {
+      type: Object,
+      equired: true
+    },
+    categories: {
+      type: Array,
+      required: true
+    }
   },
   methods: {
     //戻る
@@ -24583,21 +24591,23 @@ var render = function() {
         _c("dl", [
           _c("dt", [_vm._v("達成目安時間")]),
           _vm._v(" "),
-          _c("dd", [_vm._v(_vm._s(_vm.form.time))])
+          _c("dd", [_vm._v(_vm._s(_vm.form.time) + "時間")])
         ]),
         _vm._v(" "),
         _vm._l(_vm.form.kosteps, function(kostep) {
           return _c("div", { key: kostep.id }, [
             _c("dl", [
               _c("dt", [
-                _vm._v("STEPのFLOW" + _vm._s(kostep.flow_id) + "のタイトル")
+                _vm._v("STEPのFLOW(" + _vm._s(kostep.flow_id) + ")のタイトル")
               ]),
               _vm._v(" "),
               _c("dd", [_vm._v(_vm._s(kostep.title))])
             ]),
             _vm._v(" "),
             _c("dl", [
-              _c("dt", [_vm._v("内容")]),
+              _c("dt", [
+                _vm._v("STEPのFLOW(" + _vm._s(kostep.flow_id) + ")の内容")
+              ]),
               _vm._v(" "),
               _c("dd", [_vm._v(_vm._s(kostep.info))])
             ])
@@ -24978,7 +24988,7 @@ var render = function() {
           _vm._v(" "),
           _vm.stepNumber === 3
             ? _c("step-form03", {
-                attrs: { form: _vm.form },
+                attrs: { form: _vm.form, categories: _vm.categories },
                 on: { backStep: _vm.backStep, nextStep: _vm.nextStep }
               })
             : _vm._e(),
@@ -25455,21 +25465,23 @@ var render = function() {
         _c("dl", [
           _c("dt", [_vm._v("達成目安時間")]),
           _vm._v(" "),
-          _c("dd", [_vm._v(_vm._s(_vm.form.time))])
+          _c("dd", [_vm._v(_vm._s(_vm.form.time) + "時間")])
         ]),
         _vm._v(" "),
         _vm._l(_vm.form.kosteps, function(kostep) {
           return _c("div", { key: kostep.id }, [
             _c("dl", [
               _c("dt", [
-                _vm._v("STEPのFLOW" + _vm._s(kostep.flow_id) + "のタイトル")
+                _vm._v("STEPのFLOW(" + _vm._s(kostep.flow_id) + ")のタイトル")
               ]),
               _vm._v(" "),
               _c("dd", [_vm._v(_vm._s(kostep.title))])
             ]),
             _vm._v(" "),
             _c("dl", [
-              _c("dt", [_vm._v("内容")]),
+              _c("dt", [
+                _vm._v("STEPのFLOW(" + _vm._s(kostep.flow_id) + ")の内容")
+              ]),
               _vm._v(" "),
               _c("dd", [_vm._v(_vm._s(kostep.info))])
             ])

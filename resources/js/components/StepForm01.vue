@@ -102,7 +102,7 @@ export default {
   name: 'StepForm01',
   props:{
     value: { type: Object, required: true},
-    categories: { type: Array, equired: true},
+    categories: { type: Array, required: true},
   },
   data(){
     return{

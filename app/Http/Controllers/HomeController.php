@@ -28,6 +28,9 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+  
+    // Myページ
+    // =======================================
     public function index()
     {
       $user = Auth::user();
@@ -39,9 +42,9 @@ class HomeController extends Controller
       $joinsteps = [];
       //完了済みのSTEP
       $completesteps = [];
-
+    
       foreach ($joinsid as $key => $joinstepid){
-        $step = Step::find($joinstepid);
+        $step = Step::where('id', $joinstepid)->with('category')->first();
         $kostepcount = Kostep::where('step_id', $joinstepid)->count();
         $finishcount = Complete::where('user_id', Auth::user()->id)->where('step_id', $joinstepid)->count();
         if($finishcount === 0){
@@ -61,7 +64,7 @@ class HomeController extends Controller
       }
 
       //登録済みのSTEP
-      $registersteps = Step::where('user_id', Auth::user()->id)->get();
+      $registersteps = Step::where('user_id', Auth::user()->id)->with('category')->get();
 
       return view('users.mypage', ['user' => $user ,'categories' => $categories, 'joinsteps' => $joinsteps, 'completesteps' => $completesteps, 'registersteps' => $registersteps]);
     }

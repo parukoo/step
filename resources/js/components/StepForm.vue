@@ -23,6 +23,7 @@
 
       <step-form03
         :form ="form"
+        :categories="categories"
         @backStep="backStep" 
         @nextStep="nextStep" 
         v-if="stepNumber === 3"></step-form03>

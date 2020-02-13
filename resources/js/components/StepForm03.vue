@@ -18,17 +18,17 @@
 
         <dl>
           <dt>達成目安時間</dt>
-          <dd>{{ form.time }}</dd>
+          <dd>{{ form.time }}時間</dd>
         </dl>
 
         <div v-for="kostep in form.kosteps"
           :key="kostep.id">
           <dl>
-            <dt>STEPのFLOW{{ kostep.flow_id }}のタイトル</dt>
+            <dt>STEPのFLOW({{ kostep.flow_id }})のタイトル</dt>
             <dd>{{ kostep.title }}</dd>
           </dl>
           <dl>
-            <dt>内容</dt>
+            <dt>STEPのFLOW({{ kostep.flow_id }})の内容</dt>
             <dd>{{ kostep.info }}</dd>
           </dl>
         </div>
@@ -53,7 +53,8 @@ const axios = require('axios');
 export default {
   name: 'StepForm03',
   props:{
-    form: Object
+    form: { type: Object, equired: true},
+    categories: { type: Array, required: true},
   },
   methods:{
     //戻る
