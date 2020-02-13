@@ -14,9 +14,9 @@
   <meta property="og:url" content="{{ config('app.url') }}" />
   <meta property="og:title" content="step" />
   <meta property="og:description" content="人生のSTEPを共有できるサイトです。" />
-  <meta property="og:image" content="https://filmbiyori.paruko.net/image/twitter.jpg" />
+  <meta property="og:image" content="https://step.chew.jp//img/twitter.jpg" />
   <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}">
-  <link rel="apple-touch-icon-precomposed" href="/image/twitter.jpg">
+  <link rel="apple-touch-icon-precomposed" href="/img/twitter.jpg">
   <script src="https://kit.fontawesome.com/7f19bc1ee0.js" crossorigin="anonymous"></script>
 
   <!-- Styles -->
