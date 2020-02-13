@@ -16,7 +16,7 @@
       </ul>
       <div class="s-index-kv-inner">
         <div class="s-index-kv-titleWrapper">
-          <h1 class="s-index-kv-title">あなたの人生を<br>STEPを共有しよう</h1>
+          <h1 class="s-index-kv-title">あなたの人生の<br>STEPを共有しよう</h1>
           <p class="s-index-kv-text">あなたが「良かった」と思う学習方法を、みんなに共有しましょう。<br>みんなが「良かった」と思う学習方法に、あなたも挑戦してみましょう。</p>
           <div class="s-index-btn-wrapper --left">
             <span class="c-btn s-index-btn"><a href="{{ route('register') }}">新規登録</a></span>
@@ -72,7 +72,7 @@
         <div class="s-index-feature-textWrapper">
           <span class="s-index-feature__number">STEP③</span>
           <h3 class="s-index-feature__title">学習方法を共有することができる</h3>
-          <p class="s-index-feature__text">あなたの今までの良かったと思う学習方法や内容をSTEPに登録することができます。Twitterシェアをすることで、登録したSTEPを拡散することも可能です。</p>
+          <p class="s-index-feature__text">あなたの今までの良かったと思う学習方法や内容をSTEPに登録することができます。また、Twitterシェアをすることで、登録したSTEPを拡散することも可能です。</p>
         </div>
         <figure>
           <img src="./img/index/img_feature03.png" alt="">

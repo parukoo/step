@@ -3,7 +3,7 @@
       <div class="p-header-titleWrapper">
         <a href="/">
           <h1 class="p-header-title"><img src="{{ asset('img/common/ico_sitelogo.svg') }}" alt=""></h1>
-          <span class="p-header-subtitle">あなたの人生を共有しよう</span>
+          <span class="p-header-subtitle">あなたの人生のSTEPを共有しよう</span>
         </a>
       </div>
       {{-- pc menu --}}
