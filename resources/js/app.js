@@ -3,7 +3,6 @@ import "../sass/style.scss";
 import Vue from 'vue'
 import Vuelidate from 'vuelidate'
 import Paginate from 'vuejs-paginate'
-import Swiper from 'swiper'
 
 
 // headerメニュー
@@ -25,7 +24,6 @@ $('.js-header-btn').on('click', function(){
 
 // 画像ライブプレビュー
 // =======================================
-var $dropArea = $('.js-form-pic');
 var $fileInput = $('.js-form-picFile');
 
 $fileInput.on('change', function(e){

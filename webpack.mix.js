@@ -1,4 +1,4 @@
-const mix = require('laravel-mix');
+let mix = require('laravel-mix');
 require('laravel-mix-polyfill');
 /*
  |--------------------------------------------------------------------------
@@ -23,7 +23,7 @@ mix.webpackConfig({
 })
 .js('resources/js/app.js', 'public/js')
 .sass('resources/sass/style.scss', 'public/css')
-.sourceMaps()
+// .sourceMaps()
 .polyfill({
   enabled: true,
   useBuiltIns: "usage",
