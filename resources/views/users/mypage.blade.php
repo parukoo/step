@@ -101,7 +101,7 @@
                   </a>
                 </div>            
               @endforeach
-              @if(!$registersteps)
+              @if (!isset( $registersteps[0] ))
                 <p>登録したSTEPはありません。</p>
               @endif
             </div>

@@ -28,7 +28,7 @@
                 @if (Auth::user()->photo)
                   <figure class="p-avator --small"><img src="{{ asset('img/update/user/'.Auth::user()->photo) }}.jpg" alt=""></figure>
                 @else
-                  <figure class="p-avator --small"><img src="img/common/img_noimage.jpg" alt="*"></figure>
+                  <figure class="p-avator --small"><img src="{{ asset('img/common/img_noimage.jpg') }}" alt="*"></figure>
                 @endif
                 <span class="p-avator__name">{{  Auth::user()->name }}</span>
               </a>
