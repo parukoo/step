@@ -54,8 +54,8 @@
         margin: 10px 0px;
         > a{
           line-height: 35px;
-          display: inline-block;
-          padding-left: 1rem;
+          display: block;
+          padding: 10px;
         }
         &:hover{
           opacity: 0.5;

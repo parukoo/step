@@ -21,7 +21,7 @@
         <h2 class="p-modal-title">CONGRATULATIONS</h2>
         <img class="p-modal-bgRight" src="/img/common/ico_twitter-bg02.png">
         <img class="p-modal-bgLeft" src="/img/common/ico_twitter-bg01.png">
-        <p class="p-modal-text">おめでとうございます！<br>{{ title.title }}が完了しました！</p>
+        <p class="p-modal-text">おめでとうございます！<br>{{ title }}が完了しました！</p>
         <div class="p-modal-share">
           <p class="p-modal-share-text">twitterでシェアする</p>
           <div 
