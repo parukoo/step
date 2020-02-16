@@ -1,7 +1,8 @@
 import $ from "jquery";
 import "../sass/style.scss";
 import Vue from 'vue'
-import "@babel/polyfill";
+import "@babel/polyfill"
+import 'es6-promise/auto'
 import Vuelidate from 'vuelidate'
 import Paginate from 'vuejs-paginate'
 
