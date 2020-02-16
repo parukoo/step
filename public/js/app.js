@@ -3676,9 +3676,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      step: {
-        category_id: ''
-      },
       url: '/category/' + this.steps[0].category_id
     };
   }
@@ -21429,9 +21426,11 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "p-postsWrapper" }, [
-    _c("h3", { staticClass: "p-posts-title" }, [
-      _vm._v("「" + _vm._s(_vm.steps[0].category.name) + "」の人気STEP")
-    ]),
+    _vm.steps[0]
+      ? _c("h3", { staticClass: "p-posts-title" }, [
+          _vm._v("「" + _vm._s(_vm.steps[0].category.name) + "」の人気STEP")
+        ])
+      : _vm._e(),
     _vm._v(" "),
     _c(
       "div",
@@ -21444,9 +21443,11 @@ var render = function() {
     _vm._v(" "),
     _c("p", { staticClass: "p-posts-btnWrapper" }, [
       _c("span", { staticClass: "c-btn p-posts-btn" }, [
-        _c("a", { attrs: { href: _vm.url } }, [
-          _vm._v(_vm._s(_vm.steps[0].category.name) + "一覧")
-        ])
+        _vm.steps[0]
+          ? _c("a", { attrs: { href: _vm.url } }, [
+              _vm._v(_vm._s(_vm.steps[0].category.name) + "一覧")
+            ])
+          : _vm._e()
       ])
     ])
   ])
