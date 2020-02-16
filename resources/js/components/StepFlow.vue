@@ -27,7 +27,7 @@
       stepid: { type: Number, required: true },
       complete: { type: Number, required: true }
     },
-    data(){
+    data: function () {
       return{
         step: {
           id: null,
@@ -45,7 +45,7 @@
       }
     },
     //STEPデータをAJAXで取得
-    mounted() {
+    mounted: function() {
       axios.get('/ajax/stepFlow', {
         params:{
           stepid: this.stepid,

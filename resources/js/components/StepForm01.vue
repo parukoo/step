@@ -104,7 +104,7 @@ export default {
     value: { type: Object, required: true},
     categories: { type: Array, required: true},
   },
-  data(){
+  data: function () {
     return{
       stepNumber: 1,
       uploadedImage: ''
@@ -131,41 +131,41 @@ export default {
   // 入力値をバインディングする
   computed:{
     title: {
-      get() {
+      get: function() {
         return this.value.title
       },
-      set(title) {
+      set: function(title) {
         this.updateValue({ title })
       }
     },
     category_id: {
-      get() {
+      get: function() {
         return this.value.category_id
       },
-      set(category_id) {
+      set: function(category_id) {
         this.updateValue({ category_id })
       }
     },
     info: {
-      get() {
+      get: function() {
         return this.value.info
       },
-      set(info) {
+      set: function(info) {
         this.updateValue({ info })
       }
     },
     time: {
-      get() {
+      get: function() {
         return this.value.time
       },
-      set(time) {
+      set: function(time) {
         this.updateValue({ time })
       }
     }
   },
 	methods: {
     // 次のSTEPボタン
-    nextStep(){
+    nextStep: function(){
       if(this.$v.$invalid){
         console.log('バリデーションエラー');
       }else{
@@ -174,7 +174,7 @@ export default {
     },
 
     // アップデート
-    updateValue(diff) {
+    updateValue: function(diff) {
       this.$emit('input', { ...this.value, ...diff })
     }
 	}

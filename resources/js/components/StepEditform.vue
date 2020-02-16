@@ -51,7 +51,7 @@ export default {
     stepid: { type: Number, required: true },
     categories: { type: Array, required: true }
   },
-  data(){
+  data: function () {
     return{
       stepNumber: 1,
       form: {
@@ -73,7 +73,7 @@ export default {
   },
 	methods:{
     // マルチフォームのメニュースタイル（現在地をアクティブにする）
-    bgColor(number){
+    bgColor: function(number){
       if(number === this.stepNumber){
         return this.isActive;
       }else{
@@ -81,16 +81,16 @@ export default {
       }
     },
     //前に戻る
-    backStep(){
+    backStep: function(){
       this.stepNumber--;
     },		
     //次に進む	
-    nextStep(){
+    nextStep: function(){
       this.stepNumber++;
     }
   },
   //STEPデータをAJAXで取得
-  mounted(){
+  mounted: function(){
     axios.get('/ajax/stepEditflow', {
       params:{
         stepid: this.stepid,

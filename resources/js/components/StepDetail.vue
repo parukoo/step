@@ -44,7 +44,7 @@
       stepid: { type: Number, required: true },
       flowid: { type: Number, required: true }
     },
-    data(){
+    data: function () {
       return{
         title: this.step.title,
         kostep:{},
@@ -72,7 +72,7 @@
 
     methods:{
       //子STEPの完了ボタン発火
-      done(kostep){
+      done: function(kostep){
         axios.post('/ajax/completed',{
           id: kostep.id,
           step_id: this.stepid
@@ -106,14 +106,14 @@
       },
 
       // twitterシェアボタン（通常のシェア）
-      normalShare(kostep){
+      normalShare: function(kostep){
         //シェアする画面を設定
         var shareURL = 'https://twitter.com/intent/tweet?text=' + "STEP「" + this.title + "」：FLOW-1" + kostep.title + "%20%23STEPで学び方を共有しよう" + '&url=' + "https://step.chew.jp/steps/" + this.stepid;  
         //シェア用の画面へ移行
         location.href = shareURL
       },
       // twitterシェアボタン（100%完了時のみのシェア）
-      twitterShare(){
+      twitterShare: function(){
         //シェアする画面を設定
         var shareURL = 'https://twitter.com/intent/tweet?text=' + this.title + "を完了しました！" + "%20%23STEPで学び方を共有しよう" + '&url=' + "https://step.chew.jp/steps/" + this.stepid;  
         //シェア用の画面へ移行

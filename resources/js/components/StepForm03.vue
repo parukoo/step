@@ -58,11 +58,11 @@ export default {
   },
   methods:{
     //戻る
-    backStep(){
+    backStep: function(){
       this.$emit('backStep');
     },    
     //AJAXでSTEPを新規登録し、次に進む
-    submit(){
+    submit: function(){
       console.log(this.form);
       axios.post('/ajax/stepNew', this.form)
       .then( (response) => {

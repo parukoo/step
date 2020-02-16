@@ -57,11 +57,11 @@ export default {
   },
   methods:{
     // 前に戻る
-    backStep(){
+    backStep: function(){
       this.$emit('backStep');
     },    
     // 編集データをAJAXでPOST送信
-    submit(){
+    submit: function(){
       axios.post('/ajax/stepUpdate', this.form)
       .then( (response) => {
       })

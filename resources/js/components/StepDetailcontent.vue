@@ -28,11 +28,11 @@
     },
     methods:{
       // STEP完了
-      done(){
+      done: function(){
         this.$emit('completed', this.kostep)
       },
       // twitterシェア
-      normalShare(){
+      normalShare: function(){
         this.$emit('normalShare', this.kostep)
       }
     }

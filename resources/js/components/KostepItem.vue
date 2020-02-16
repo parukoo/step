@@ -60,18 +60,18 @@ export default {
   },
   computed:{
     title: {
-      get() {
+      get: function() {
         return this.value.title
       },
-      set(title) {
+      set: function(title) {
         this.updateValue({ title })
       }
     },
     info: {
-      get() {
+      get: function() {
         return this.value.info
       },
-      set(info) {
+      set: function(info) {
         this.updateValue({ info })
       }
     }
@@ -84,7 +84,7 @@ export default {
     }
   },
   methods:{
-    updateValue(diff) {
+    updateValue: function(diff) {
       this.$emit('input', { ...this.value, ...diff })
     }
   }

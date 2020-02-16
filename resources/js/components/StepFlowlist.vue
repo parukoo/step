@@ -15,14 +15,14 @@
       kosteps: { type: Array, required: true },
       completes: { type: Array, required: true }
     },
-    data(){
+    data: function () {
       return{
         kostep:{}
       }
     },
     computed:{
       // 完了済みのstep_idには、isDoneをtrueに、未完了はfalseにする
-      filterkosteps(){
+      filterkosteps: function(){
         this.kosteps.forEach((kostep, i) => {
           if(this.completes.includes(kostep.id)){
             this.$set(this.kosteps[i], "isDone", true);

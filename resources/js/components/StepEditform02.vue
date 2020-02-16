@@ -39,7 +39,7 @@ export default {
   props:{
     value: { type: Array, required: true }
   },
-  data(){
+  data: function () {
     return{
       editFlag: false
     }
@@ -48,7 +48,7 @@ export default {
   watch:{
     value: {
       deep: true,
-      handler(newVal, oldVal) {
+      handler: function(newVal, oldVal) {
         if(newVal.every(item => item.edit === false)){
           this.editFlag = false
         }else{
@@ -59,7 +59,7 @@ export default {
   },
 	methods: {
     //入力値をアップデート
-    updateItem(item, index) {
+    updateItem: function(item, index) {
       const newValue = [
         ...this.value.slice(0, index),
         item,
@@ -68,7 +68,7 @@ export default {
       this.$emit('input', newValue)
     },
     //子STEPを追加する
-    add(){
+    add: function(){
       this.value.push({
         flow_id: this.value.length + 1,
         title: null,
@@ -78,11 +78,11 @@ export default {
       this.nextBtn = false
     },
     //前に戻る
-    backStep(){
+    backStep: function(){
       this.$emit('backStep');
     },    
     //次に進む
-    nextStep(){
+    nextStep: function(){
       this.$emit('nextStep');
     }
 	}

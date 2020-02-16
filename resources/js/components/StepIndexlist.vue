@@ -20,7 +20,7 @@ export default {
   props:{
     steps:{ type:Array, required: true }
   },
-  data(){
+  data: function () {
     return{
       url: '/category/' + this.steps[0].category_id
     }
