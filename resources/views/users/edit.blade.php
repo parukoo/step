@@ -10,11 +10,11 @@
           <h2 class="p-flow__title p-heading"><span>P</span>trofile Edit</h2>
           <span class="p-heading-sub--register">プロフィール編集画面</span>
         </div>
-        <form class="p-form --register" action="/users/update" method="post" accept-charset="UTF-8" enctype="multipart/form-data">
+        <form class="p-form as_register" action="/users/update" method="post" accept-charset="UTF-8" enctype="multipart/form-data">
           <input name="utf8" type="hidden" value="✓" />
           <input type="hidden" name="id" value="{{ $user->id }}" />
           @csrf
-          <div class="p-form-inputs --register">
+          <div class="p-form-inputs as_register">
             <dl>
               <div class="p-profileEdit-form-pic-wrapper">
                 <label class="p-profileEdit-form-pic js-form-pic">

@@ -645,7 +645,7 @@ pre {
   background-color: #fff;
 }
 
-.p-formWrapper.--register {
+.p-formWrapper.as_register {
   background-color: #f6f5f1;
 }
 
@@ -673,7 +673,7 @@ pre {
   }
 }
 
-.p-form.--register {
+.p-form.as_register {
   background-color: #fff;
 }
 
@@ -731,7 +731,7 @@ pre {
   color: #fabe00;
 }
 
-.p-form-link.--large {
+.p-form-link.as_large {
   width: 100%;
 }
 
@@ -1129,25 +1129,25 @@ pre {
   border: 1px solid #f15252;
 }
 
-.p-form-inputs.--register {
+.p-form-inputs.as_register {
   padding: 0;
   text-align: left;
 }
 
-.p-form-inputs.--register dl {
+.p-form-inputs.as_register dl {
   display: block;
 }
 
-.p-form-inputs.--register dl > dt {
+.p-form-inputs.as_register dl > dt {
   margin-bottom: 5px;
 }
 
-.p-form-inputs.--register dl > dd .p-form-input__time {
+.p-form-inputs.as_register dl > dd .p-form-input__time {
   width: 30%;
   margin-right: 10px;
 }
 
-.p-form-inputs.--confirm dl > dt {
+.p-form-inputs.as_confirm dl > dt {
   background-color: #000;
   color: #fff;
   padding: 2px 10px;
@@ -1254,7 +1254,7 @@ pre {
   opacity: 0.8;
 }
 
-.p-form-submit.--stepform {
+.p-form-submit.as_stepform {
   display: -webkit-box;
   display: flex;
   -webkit-box-pack: justify;
@@ -1376,7 +1376,7 @@ pre {
   opacity: 0.5;
 }
 
-.p-header-category-menu.--login > li {
+.p-header-category-menu.as_login > li {
   background-color: #f6f5f1;
   padding: 10px;
 }
@@ -1401,45 +1401,45 @@ pre {
   display: inline-block;
 }
 
-.p-header-btn.--login {
+.p-header-btn.as_login {
   background-color: #fff;
   border: none;
 }
 
-.p-header-btn.--login a {
+.p-header-btn.as_login a {
   color: #000;
   border: 1px solid #000;
   display: block;
   border-radius: 20px;
 }
 
-.p-header-btn.--login a:hover {
+.p-header-btn.as_login a:hover {
   background-color: #000;
   color: #fff;
 }
 
-.p-header-btn.--logout {
+.p-header-btn.as_logout {
   background-color: #000;
 }
 
-.p-header-btn.--logout a {
+.p-header-btn.as_logout a {
   color: #fff;
   display: block;
   border-radius: 20px;
 }
 
-.p-header-btn.--logout:hover {
+.p-header-btn.as_logout:hover {
   opacity: 0.5;
 }
 
-.p-header-btn.--signup a {
+.p-header-btn.as_signup a {
   color: #fff;
   display: block;
   border-radius: 20px;
   background-color: #ec5252;
 }
 
-.p-header-btn.--signup a:hover {
+.p-header-btn.as_signup a:hover {
   opacity: 0.5;
 }
 
@@ -1587,12 +1587,12 @@ pre {
   text-decoration: none;
 }
 
-.p-header-spMenu-list > li.--login:first-child {
+.p-header-spMenu-list > li.as_login:first-child {
   line-height: 4;
   padding: 16px;
 }
 
-.p-header-spMenu-list > li.--login:first-child a {
+.p-header-spMenu-list > li.as_login:first-child a {
   display: -webkit-box;
   display: flex;
   -webkit-box-align: center;
@@ -1617,7 +1617,7 @@ pre {
   border-radius: 20px;
 }
 
-.p-header-spMenu__btn.--signup a {
+.p-header-spMenu__btn.as_signup a {
   background-color: #ec5252;
   color: #fff;
   border-radius: 20px;
@@ -1626,12 +1626,12 @@ pre {
   line-height: 40px;
 }
 
-.p-header-spMenu__btn.--login {
+.p-header-spMenu__btn.as_login {
   border: 1px solid #000;
   background-color: #fff;
 }
 
-.p-header-spMenu__btn.--login a {
+.p-header-spMenu__btn.as_login a {
   color: #000;
   border-radius: 20px;
   width: 160px;
@@ -1639,7 +1639,7 @@ pre {
   line-height: 40px;
 }
 
-.p-header-spMenu__btn.--logout a {
+.p-header-spMenu__btn.as_logout a {
   background-color: #000;
   color: #fff;
   border-radius: 20px;
@@ -1686,13 +1686,13 @@ pre {
 }
 
 @media screen and (min-width: 768px) {
-  .p-headingWrapper.--list {
+  .p-headingWrapper.as_list {
     padding-left: 30px;
   }
 }
 
 @media screen and (min-width: 1000px) {
-  .p-headingWrapper.--list {
+  .p-headingWrapper.as_list {
     padding-left: 60px;
   }
 }
@@ -1976,7 +1976,7 @@ pre {
   width: 30%;
 }
 
-.p-posts.--index {
+.p-posts.as_index {
   margin-bottom: -50px;
 }
 
@@ -2065,7 +2065,7 @@ pre {
   }
 }
 
-.p-post.--index {
+.p-post.as_index {
   margin-bottom: 50px;
 }
 
@@ -3143,9 +3143,9 @@ pre {
 
 @media screen and (min-width: 1000px) {
   .s-index-kv-inner {
-    -webkit-box-orient: unset;
-    -webkit-box-direction: unset;
-            flex-direction: unset;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+            flex-direction: row;
     margin-top: 0;
     -webkit-box-pack: justify;
             justify-content: space-between;
@@ -3190,6 +3190,8 @@ pre {
   -webkit-box-ordinal-group: 2;
           order: 1;
   max-width: 420px;
+  margin: 0 auto;
+  min-height: 0%;
 }
 
 @media screen and (min-width: 1000px) {
@@ -3284,9 +3286,9 @@ pre {
 
 @media screen and (min-width: 768px) {
   .s-index-feature {
-    -webkit-box-orient: unset;
-    -webkit-box-direction: unset;
-            flex-direction: unset;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+            flex-direction: row;
     -webkit-box-pack: justify;
             justify-content: space-between;
   }

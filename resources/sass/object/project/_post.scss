@@ -21,7 +21,7 @@
     display: block;
     width:30%;
   }
-  &.--index{
+  &.as_index{
     margin-bottom: -50px;
   }
   &-title{
@@ -80,7 +80,7 @@
   @include _mq-up(lg){
     width: calc((100% - 40px) / 3);
   }
-  &.--index{
+  &.as_index{
     margin-bottom: 50px;
   }
   &--mypage{

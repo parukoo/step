@@ -17,10 +17,10 @@
       <div class="p-header-btns u-display-pc">
         <ul>
           @guest
-            <li class="c-btn p-header-btn --login">
+            <li class="c-btn p-header-btn as_login">
               <a href="{{ route('login') }}">ログイン</a>
             </li>
-            <li class="c-btn p-header-btn --signup">
+            <li class="c-btn p-header-btn as_signup">
               <a href="{{ route('register') }}">新規登録</a>
             </li>
           @endauth
@@ -46,10 +46,10 @@
         </nav>
   
         <ul class="p-header-spMenu__btns">
-          <li class="c-btn p-header-spMenu__btn --login">
+          <li class="c-btn p-header-spMenu__btn as_login">
             <a href="{{ route('login') }}">ログイン</a>
           </li>
-          <li class="c-btn p-header-spMenu__btn --signup">
+          <li class="c-btn p-header-spMenu__btn as_signup">
             <a href="{{ route('register') }}">新規登録</a>
           </li>
         </ul>

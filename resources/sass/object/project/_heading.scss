@@ -13,7 +13,7 @@
     flex-direction: column;
     margin-bottom: 30px;
   }
-  &.--list{
+  &.as_list{
     @include _mq-up(){
       padding-left: 30px;
     }

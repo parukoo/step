@@ -6,7 +6,7 @@
       <form class="p-form" action="{{ route('password.email') }}" method="post">
         @csrf
         <ul class="p-form-links">
-          <li class="p-form-link --large">{{ __('Reset Password') }}</li>
+          <li class="p-form-link as_large">{{ __('Reset Password') }}</li>
         </ul>
         @if (session('status'))
           <span class="p-form__errorMsg" role="alert">

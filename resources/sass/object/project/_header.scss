@@ -61,7 +61,7 @@
           opacity: 0.5;
         }
       }
-      &.--login{
+      &.as_login{
         > li{
           background-color: $_color-bg;
           padding: 10px;
@@ -85,7 +85,7 @@
     text-align: center;
     line-height: 40px;
     display: inline-block;
-    &.--login{
+    &.as_login{
       background-color: #fff;
       border: none;
       a{
@@ -99,7 +99,7 @@
         }
       }
     }
-    &.--logout{
+    &.as_logout{
       background-color: $_color-text;
       a{
         color: #fff;
@@ -110,7 +110,7 @@
         opacity: 0.5;
       }
     }
-    &.--signup{
+    &.as_signup{
       a{
         color: #fff;
         display: block;
@@ -248,7 +248,7 @@
           color: $_color-text;
           text-decoration: none;
         }
-        &.--login{
+        &.as_login{
           &:first-child{
             line-height: 4;
             padding: 16px;
@@ -272,7 +272,7 @@
       width: 160px;
       height: 40px;
       border-radius: 20px;
-      &.--signup{
+      &.as_signup{
         a{
           background-color: $_color-signup;
           color: #fff;
@@ -282,7 +282,7 @@
           line-height: 40px;
         }
       }
-      &.--login{
+      &.as_login{
         border: 1px solid $_color-text;
         background-color: #fff;
         a{
@@ -293,7 +293,7 @@
           line-height: 40px;
         }
       }
-      &.--logout{
+      &.as_logout{
         a{
           background-color: $_color-text;
           color: #fff;
