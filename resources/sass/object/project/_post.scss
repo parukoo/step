@@ -3,7 +3,7 @@
   margin: 0 auto;
   max-width: 600px;
   @include _mq-up(){
-    max-width: unset;
+    max-width: none;
   }
   + .p-postsWrapper{
     margin-top: 50px;

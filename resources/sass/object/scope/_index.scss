@@ -207,7 +207,7 @@
       order: 1;
       margin-bottom: 30px;
       @include _mq-up(){
-        order: unset;
+        order: none;
         margin-bottom: 50px;
       }
     }
@@ -248,7 +248,7 @@
       flex-basis: 50%;
       order: 2;
       @include _mq-up(){
-        order: unset;
+        order: 1;
       }
     }
     &.s-index-feature{

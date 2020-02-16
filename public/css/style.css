@@ -480,13 +480,13 @@ pre {
   overflow: hidden;
 }
 
-.p-avator.--small {
+.p-avator.as_small {
   width: 80px;
   height: 80px;
 }
 
 @media screen and (min-width: 768px) {
-  .p-avator.--small {
+  .p-avator.as_small {
     width: 40px;
     height: 40px;
   }
@@ -512,7 +512,7 @@ pre {
 
 @media screen and (min-width: 768px) {
   .p-container {
-    max-width: unset;
+    max-width: none;
   }
 }
 
@@ -1948,7 +1948,7 @@ pre {
 
 @media screen and (min-width: 768px) {
   .p-postsWrapper {
-    max-width: unset;
+    max-width: none;
   }
 }
 
@@ -3325,8 +3325,8 @@ pre {
 
 @media screen and (min-width: 768px) {
   .s-index-feature-textWrapper {
-    -webkit-box-ordinal-group: unset;
-            order: unset;
+    -webkit-box-ordinal-group: none;
+            order: none;
     margin-bottom: 50px;
   }
 }
@@ -3383,8 +3383,8 @@ pre {
 
 @media screen and (min-width: 768px) {
   .s-index-feature figure {
-    -webkit-box-ordinal-group: unset;
-            order: unset;
+    -webkit-box-ordinal-group: 2;
+            order: 1;
   }
 }
 
