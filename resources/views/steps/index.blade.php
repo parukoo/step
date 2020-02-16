@@ -2,15 +2,15 @@
 @section('content')
 <div class="l-wrapper">
   @include('components/header-index')
-  <main class="l-main --index">
+  <main class="l-main as_index">
     
     
     <section class="s-index-kv">
       <ul class="s-index-kv-btns">
-        <li class="c-btn s-index-kv__btn --login">
+        <li class="c-btn s-index-kv__btn as_login">
           <a href="{{ route('login') }}">ログイン</a>
         </li>
-        <li class="c-btn s-index-kv__btn --signup">
+        <li class="c-btn s-index-kv__btn as_signup">
           <a href="{{ route('register') }}">新規登録</a>
         </li>
       </ul>
@@ -18,7 +18,7 @@
         <div class="s-index-kv-titleWrapper">
           <h1 class="s-index-kv-title">あなたの人生の<br>STEPを共有しよう</h1>
           <p class="s-index-kv-text">あなたが「良かった」と思う学習方法を、みんなに共有しましょう。<br>みんなが「良かった」と思う学習方法に、あなたも挑戦してみましょう。</p>
-          <div class="s-index-btn-wrapper --left">
+          <div class="s-index-btn-wrapper as_left">
             <span class="c-btn s-index-btn"><a href="{{ route('register') }}">新規登録</a></span>
           </div>
         </div>
@@ -84,9 +84,9 @@
       <div class="s-index-ranking-heading-wrapper">
         <h2 class="p-heading s-index-heading"><span>人</span>気のSTEP</h2>
       </div>        
-      <ul class="p-posts --index">
+      <ul class="p-posts as_index">
         @foreach ($steps as $step)
-        <li class="p-post --index">
+        <li class="p-post as_index">
           <a href="steps/{{ $step->id }}">
             <div class="p-post__imageWrapper">
               <span class="p-post__image-label">{{ $step->category->name }}</span>

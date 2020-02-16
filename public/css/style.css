@@ -3051,7 +3051,7 @@ pre {
 }
 
 @media screen and (min-width: 1000px) {
-  .s-index-btn-wrapper.--left {
+  .s-index-btn-wrapper.as_left {
     -webkit-box-pack: start;
             justify-content: flex-start;
   }
@@ -3097,34 +3097,34 @@ pre {
   text-decoration: none;
 }
 
-.s-index-kv__btn.--login {
+.s-index-kv__btn.as_login {
   border: 1px solid #000;
 }
 
-.s-index-kv__btn.--login a {
+.s-index-kv__btn.as_login a {
   color: #000;
 }
 
-.s-index-kv__btn.--login:hover {
+.s-index-kv__btn.as_login:hover {
   background-color: #000;
 }
 
-.s-index-kv__btn.--login:hover a {
+.s-index-kv__btn.as_login:hover a {
   color: #fff;
 }
 
-.s-index-kv__btn.--signup {
+.s-index-kv__btn.as_signup {
   margin-left: 30px;
   border-color: #ec5252;
 }
 
-.s-index-kv__btn.--signup a {
+.s-index-kv__btn.as_signup a {
   color: #fff;
   background-color: #ec5252;
   border-radius: 20px;
 }
 
-.s-index-kv__btn.--signup:hover {
+.s-index-kv__btn.as_signup:hover {
   opacity: 0.5;
 }
 
