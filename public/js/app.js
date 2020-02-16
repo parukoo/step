@@ -21390,7 +21390,7 @@ var render = function() {
       _c("figure", { staticClass: "p-post__image" }, [
         _c("img", {
           attrs: {
-            src: "img/category/eyecatch0" + _vm.step.category.id + ".jpg"
+            src: "img/category/eyecatch0" + _vm.step.category_id + ".jpg"
           }
         })
       ]),

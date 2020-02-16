@@ -1,7 +1,7 @@
 <template>
   <div class="p-post">
     <a :href="'steps/' + step.id">
-      <figure class="p-post__image"><img :src="'img/category/eyecatch0' + step.category.id + '.jpg'"/></figure>
+      <figure class="p-post__image"><img :src="'img/category/eyecatch0' + step.category_id + '.jpg'"/></figure>
       <h4 class="p-post__title">{{ step.title }}</h4>
       <p class="p-post__txt">{{ step.info }}</p>
     </a>
