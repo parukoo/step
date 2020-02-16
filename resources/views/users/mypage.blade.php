@@ -14,7 +14,7 @@
       <div class="p-container">
         <div class="p-headingWrapper">
           <h2 class="p-flow__title p-heading"><span>M</span>y Page</h2>
-          <span class="p-heading-sub">テストマイページ</span>
+          <span class="p-heading-sub">マイページ</span>
         </div>
       
         <div class="p-profile">
