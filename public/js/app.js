@@ -18986,7 +18986,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "p-form --register" },
+    { staticClass: "p-form as_register" },
     [
       _c("ul", { staticClass: "p-form-flow" }, [
         _c("li", { staticClass: "p-form-flow__item", class: _vm.bgColor(1) }, [
@@ -19081,7 +19081,7 @@ var render = function() {
     _c("div", { staticClass: "p-form-inputs-wrapper" }, [
       _c(
         "div",
-        { staticClass: "p-form-inputs --register" },
+        { staticClass: "p-form-inputs as_register" },
         _vm._l(_vm.value, function(item, index) {
           return _c("kostep-item", {
             key: index,
@@ -19103,7 +19103,7 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "p-form-submit --stepform" }, [
+    _c("div", { staticClass: "p-form-submit as_stepform" }, [
       _c(
         "button",
         {
@@ -19151,7 +19151,7 @@ var render = function() {
   return _c("div", { staticClass: "p-form-inputs-wrapper" }, [
     _c(
       "div",
-      { staticClass: "p-form-inputs --register --confirm" },
+      { staticClass: "p-form-inputs as_register as_confirm" },
       [
         _c("dl", [
           _c("dt", [_vm._v("STEPのタイトル")]),
@@ -19200,7 +19200,7 @@ var render = function() {
       2
     ),
     _vm._v(" "),
-    _c("div", { staticClass: "p-form-submit --stepform" }, [
+    _c("div", { staticClass: "p-form-submit as_stepform" }, [
       _c(
         "button",
         {
@@ -19515,7 +19515,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "p-form --register" },
+    { staticClass: "p-form as_register" },
     [
       _c("ul", { staticClass: "p-form-flow" }, [
         _c("li", { staticClass: "p-form-flow__item", class: _vm.bgColor(1) }, [
@@ -19608,7 +19608,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("form", [
     _c("div", { staticClass: "p-form-inputs-wrapper" }, [
-      _c("div", { staticClass: "p-form-inputs --register" }, [
+      _c("div", { staticClass: "p-form-inputs as_register" }, [
         _c("dl", [
           _vm._m(0),
           _vm._v(" "),
@@ -19955,7 +19955,7 @@ var render = function() {
     _c("div", { staticClass: "p-form-inputs-wrapper" }, [
       _c(
         "div",
-        { staticClass: "p-form-inputs --register" },
+        { staticClass: "p-form-inputs as_register" },
         _vm._l(_vm.value, function(item, index) {
           return _c("kostep-item", {
             key: index,
@@ -19977,7 +19977,7 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "p-form-submit --stepform" }, [
+    _c("div", { staticClass: "p-form-submit as_stepform" }, [
       _c(
         "button",
         {
@@ -20025,7 +20025,7 @@ var render = function() {
   return _c("div", { staticClass: "p-form-inputs-wrapper" }, [
     _c(
       "div",
-      { staticClass: "p-form-inputs --register --confirm" },
+      { staticClass: "p-form-inputs as_register as_confirm" },
       [
         _c("dl", [
           _c("dt", [_vm._v("STEPのタイトル")]),
@@ -20074,7 +20074,7 @@ var render = function() {
       2
     ),
     _vm._v(" "),
-    _c("div", { staticClass: "p-form-submit --stepform" }, [
+    _c("div", { staticClass: "p-form-submit as_stepform" }, [
       _c(
         "button",
         {

@@ -1,7 +1,7 @@
 <template>
   <form>
     <div class="p-form-inputs-wrapper">
-      <div class="p-form-inputs --register">
+      <div class="p-form-inputs as_register">
 
         <dl>
           <dt><label for="title">STEPのタイトル<span>必須</span></label></dt>

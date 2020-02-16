@@ -1,5 +1,5 @@
 <template>
-  <div class="p-form --register">
+  <div class="p-form as_register">
     <ul class="p-form-flow">
       <li class="p-form-flow__item" :class="bgColor(1)"><span>STEP1</span>STEPの入力①</li>
       <li class="p-form-flow__item" :class="bgColor(2)"><span>STEP2</span>STEPの入力②</li>

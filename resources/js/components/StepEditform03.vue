@@ -1,6 +1,6 @@
 <template>
   <div class="p-form-inputs-wrapper">
-    <div class="p-form-inputs --register --confirm">
+    <div class="p-form-inputs as_register as_confirm">
         <dl>
           <dt>STEPのタイトル</dt>
           <dd>{{ form.title }}</dd>
@@ -34,7 +34,7 @@
         </div>
     </div>
 
-    <div class="p-form-submit --stepform">
+    <div class="p-form-submit as_stepform">
       <button
         class="c-btn" 
         type="button" 

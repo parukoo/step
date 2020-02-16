@@ -1,7 +1,7 @@
 <template>
   <form>
     <div class="p-form-inputs-wrapper">
-      <div class="p-form-inputs --register">
+      <div class="p-form-inputs as_register">
         <kostep-item
           v-for="(item, index) in value"
           :key="index"
@@ -16,7 +16,7 @@
         @click="add">STEPを追加する</button>
     </div>
 
-    <div class="p-form-submit --stepform">
+    <div class="p-form-submit as_stepform">
       <button
         class="c-btn" 
         type="button" 
