@@ -3673,11 +3673,6 @@ __webpack_require__.r(__webpack_exports__);
       type: Array,
       required: true
     }
-  },
-  data: function data() {
-    return {
-      url: '/category/' + this.steps[0].category_id
-    };
   }
 });
 
@@ -21444,9 +21439,11 @@ var render = function() {
     _c("p", { staticClass: "p-posts-btnWrapper" }, [
       _c("span", { staticClass: "c-btn p-posts-btn" }, [
         _vm.steps[0]
-          ? _c("a", { attrs: { href: _vm.url } }, [
-              _vm._v(_vm._s(_vm.steps[0].category.name) + "一覧")
-            ])
+          ? _c(
+              "a",
+              { attrs: { href: "/category/" + this.steps[0].category_id } },
+              [_vm._v(_vm._s(_vm.steps[0].category.name) + "一覧")]
+            )
           : _vm._e()
       ])
     ])

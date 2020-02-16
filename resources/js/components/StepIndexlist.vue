@@ -8,7 +8,7 @@
         :key="step.index"></step-indexitem>
     </div>
     <p class="p-posts-btnWrapper">
-      <span class="c-btn p-posts-btn"><a :href="url" v-if="steps[0]">{{ steps[0].category.name }}一覧</a></span>
+      <span class="c-btn p-posts-btn"><a :href="'/category/' + this.steps[0].category_id" v-if="steps[0]">{{ steps[0].category.name }}一覧</a></span>
     </p>
   </div>
 </template>
@@ -19,11 +19,6 @@ export default {
   name: 'StepIndexlist',
   props:{
     steps:{ type: Array, required: true },
-  },
-  data: function () {
-    return{
-      url: '/category/' + this.steps[0].category_id
-    }
   }
 }
 </script>
