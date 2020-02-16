@@ -3676,6 +3676,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      step: {
+        category: ''
+      },
       url: '/category/' + this.steps[0].category_id
     };
   }

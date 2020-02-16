@@ -18,10 +18,13 @@ import StepIndexitem from './StepIndexitem.vue';
 export default {
   name: 'StepIndexlist',
   props:{
-    steps:{ type:Array, required: true }
+    steps:{ type:Array, required: true },
   },
   data: function () {
     return{
+      step:{
+        category: ''
+      },
       url: '/category/' + this.steps[0].category_id
     }
   }
