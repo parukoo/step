@@ -23,7 +23,7 @@ export default {
   data: function () {
     return{
       step:{
-        category: ''
+        category_id: ''
       },
       url: '/category/' + this.steps[0].category_id
     }
