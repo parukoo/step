@@ -8,7 +8,7 @@
 
         <dl>
           <dt>カテゴリー</dt>
-          <dd>{{ form.category_id }}</dd>
+          <dd>{{ category[0].name }}</dd>
         </dl>
 
         <dl>
@@ -19,6 +19,12 @@
         <dl>
           <dt>達成目安時間</dt>
           <dd>{{ form.time }}時間</dd>
+        </dl>
+
+        <dl>
+          <dt>アイキャッチ画像</dt>
+          <dd><img :src="url"
+              /></dd>
         </dl>
 
         <div v-for="kostep in form.kosteps"
@@ -53,7 +59,18 @@ const axios = require('axios');
 export default {
   name: 'StepEditform03',
   props:{
-    form: Object
+    form: { type: Object, equired: true},
+    categories: { type: Array, required: true},
+  },
+  data: function(){
+    return{
+      url: this.form.uploadedImage[0].name
+    }
+  },
+  computed: {
+    category: function(){
+      return this.categories.filter( x => x.id === this.form.category_id);
+    }
   },
   methods:{
     // 前に戻る

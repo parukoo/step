@@ -8,7 +8,7 @@
 
         <dl>
           <dt>カテゴリー</dt>
-          <dd>{{ form.category_id }}</dd>
+          <dd>{{ category[0].name }}</dd>
         </dl>
 
         <dl>
@@ -19,6 +19,11 @@
         <dl>
           <dt>達成目安時間</dt>
           <dd>{{ form.time }}時間</dd>
+        </dl>
+
+        <dl>
+          <dt>アイキャッチ画像</dt>
+          <dd><img :src="url"/></dd>
         </dl>
 
         <div v-for="kostep in form.kosteps"
@@ -55,6 +60,17 @@ export default {
   props:{
     form: { type: Object, equired: true},
     categories: { type: Array, required: true},
+    previeFile: { type: String, required: true},
+  },
+  data: function(){
+    return{
+      url: this.previeFile
+    }
+  },
+  computed: {
+    category: function(){
+      return this.categories.filter( x => x.id === this.form.category_id);
+    }
   },
   methods:{
     //戻る
@@ -64,7 +80,20 @@ export default {
     //AJAXでSTEPを新規登録し、次に進む
     submit: function(){
       console.log(this.form);
-      axios.post('/ajax/stepNew', this.form)
+      //送信データはFormDataを使うよ！
+      let data = new FormData;
+      data.append('title', this.form.title);
+      data.append('category_id', this.form.category_id);
+      data.append('info', this.form.info);
+      data.append('time', this.form.time);
+      data.append('uploadedImage', this.form.uploadedImage[0]);
+      data.append('kosteps', this.form.kosteps);
+      let config = {
+        headers: {
+          'content-type': 'multipart/form-data'
+        }
+      };
+      axios.post('/ajax/stepNew', data, config)
       .then( (response) => {
         this.$emit('nextStep');
       })

@@ -30,8 +30,8 @@ var $fileInput = $('.js-form-picFile');
 
 $fileInput.on('change', function(e){
   var file = this.files[0],            // 2. files配列にファイルが入っている
-      $img = $(this).siblings('.js-form-preview'), // 3. jQueryのsiblingsメソッドで兄弟のimgを取得
-      fileReader = new FileReader();   // 4. ファイルを読み込むFileReaderオブジェクト
+  $img = $(this).siblings('.js-form-preview'), // 3. jQueryのsiblingsメソッドで兄弟のimgを取得
+  fileReader = new FileReader();   // 4. ファイルを読み込むFileReaderオブジェクト
 
   // 5. 読み込みが完了した際のイベントハンドラ。imgのsrcにデータをセット
   fileReader.onload = function(event) {

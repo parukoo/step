@@ -2406,6 +2406,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -2643,6 +2644,19 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var core_js_modules_es_array_filter__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.filter */ "./node_modules/core-js/modules/es.array.filter.js");
+/* harmony import */ var core_js_modules_es_array_filter__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_filter__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var core_js_modules_es_function_name__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.function.name */ "./node_modules/core-js/modules/es.function.name.js");
+/* harmony import */ var core_js_modules_es_function_name__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_function_name__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2698,7 +2712,28 @@ var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'StepEditform03',
   props: {
-    form: Object
+    form: {
+      type: Object,
+      equired: true
+    },
+    categories: {
+      type: Array,
+      required: true
+    }
+  },
+  data: function data() {
+    return {
+      url: this.form.uploadedImage[0].name
+    };
+  },
+  computed: {
+    category: function category() {
+      var _this = this;
+
+      return this.categories.filter(function (x) {
+        return x.id === _this.form.category_id;
+      });
+    }
   },
   methods: {
     // 前に戻る
@@ -3013,6 +3048,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 
@@ -3039,6 +3077,7 @@ __webpack_require__.r(__webpack_exports__);
         category_id: null,
         info: null,
         time: null,
+        uploadedImage: [],
         kosteps: [{
           flow_id: 1,
           title: null,
@@ -3046,10 +3085,17 @@ __webpack_require__.r(__webpack_exports__);
           edit: true
         }]
       },
+      previeFile: null,
       isActive: 'is-active'
     };
   },
   methods: {
+    updatedFile: function updatedFile(files) {
+      this.form.uploadedImage = files;
+    },
+    updatedImage: function updatedImage(image) {
+      this.previeFile = image;
+    },
     // マルチフォームのメニュースタイル（現在地をアクティブにする）
     bgColor: function bgColor(number) {
       if (number === this.stepNumber) {
@@ -3107,6 +3153,27 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3285,6 +3352,37 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   },
   methods: {
+    // 画像登録処理
+    // -----------------------------------------------
+    onFileChange: function onFileChange(e) {
+      // 選択された File の情報を保存しておく
+      var fileList = e.target.files || e.dataTransfer.files;
+      var files = [];
+
+      for (var i = 0; i < fileList.length; i++) {
+        files.push(fileList[i]);
+      }
+
+      this.createImage(fileList[0]);
+      this.$emit('updateFile', files);
+    },
+    // アップロードした画像を表示
+    createImage: function createImage(file) {
+      var _this = this;
+
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        _this.uploadedImage = e.target.result;
+
+        _this.$emit('updateImage', _this.uploadedImage);
+      };
+
+      reader.readAsDataURL(file);
+    },
+    remove: function remove() {
+      this.updateImage = false;
+    },
     // 次のSTEPボタン
     nextStep: function nextStep() {
       if (this.$v.$invalid) {
@@ -3456,6 +3554,15 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var core_js_modules_es_array_filter__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.filter */ "./node_modules/core-js/modules/es.array.filter.js");
+/* harmony import */ var core_js_modules_es_array_filter__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_filter__WEBPACK_IMPORTED_MODULE_0__);
+
+
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3518,6 +3625,24 @@ var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
     categories: {
       type: Array,
       required: true
+    },
+    previeFile: {
+      type: String,
+      required: true
+    }
+  },
+  data: function data() {
+    return {
+      url: this.previeFile
+    };
+  },
+  computed: {
+    category: function category() {
+      var _this = this;
+
+      return this.categories.filter(function (x) {
+        return x.id === _this.form.category_id;
+      });
     }
   },
   methods: {
@@ -3527,11 +3652,24 @@ var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
     },
     //AJAXでSTEPを新規登録し、次に進む
     submit: function submit() {
-      var _this = this;
+      var _this2 = this;
 
-      console.log(this.form);
-      axios.post('/ajax/stepNew', this.form).then(function (response) {
-        _this.$emit('nextStep');
+      console.log(this.form); //送信データはFormDataを使うよ！
+
+      var data = new FormData();
+      data.append('title', this.form.title);
+      data.append('category_id', this.form.category_id);
+      data.append('info', this.form.info);
+      data.append('time', this.form.time);
+      data.append('uploadedImage', this.form.uploadedImage[0]);
+      data.append('kosteps', this.form.kosteps);
+      var config = {
+        headers: {
+          'content-type': 'multipart/form-data'
+        }
+      };
+      axios.post('/ajax/stepNew', data, config).then(function (response) {
+        _this2.$emit('nextStep');
       }).catch(function (e) {
         console.log(e.response.data.errors);
       });
@@ -6681,6 +6819,39 @@ $({ target: 'Array', proto: true, forced: !HAS_SPECIES_SUPPORT || !USES_TO_LENGT
     return A;
   }
 });
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/modules/es.function.name.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/core-js/modules/es.function.name.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var DESCRIPTORS = __webpack_require__(/*! ../internals/descriptors */ "./node_modules/core-js/internals/descriptors.js");
+var defineProperty = __webpack_require__(/*! ../internals/object-define-property */ "./node_modules/core-js/internals/object-define-property.js").f;
+
+var FunctionPrototype = Function.prototype;
+var FunctionPrototypeToString = FunctionPrototype.toString;
+var nameRE = /^\s*function ([^ (]*)/;
+var NAME = 'name';
+
+// Function instances `.name` property
+// https://tc39.github.io/ecma262/#sec-function-instances-name
+if (DESCRIPTORS && !(NAME in FunctionPrototype)) {
+  defineProperty(FunctionPrototype, NAME, {
+    configurable: true,
+    get: function () {
+      try {
+        return FunctionPrototypeToString.call(this).match(nameRE)[1];
+      } catch (error) {
+        return '';
+      }
+    }
+  });
+}
 
 
 /***/ }),
@@ -20238,7 +20409,7 @@ var render = function() {
           _vm._v(" "),
           _vm.stepNumber === 3
             ? _c("step-editform03", {
-                attrs: { form: _vm.form },
+                attrs: { form: _vm.form, categories: _vm.categories },
                 on: { backStep: _vm.backStep, nextStep: _vm.nextStep }
               })
             : _vm._e(),
@@ -20358,7 +20529,7 @@ var render = function() {
         _c("dl", [
           _c("dt", [_vm._v("カテゴリー")]),
           _vm._v(" "),
-          _c("dd", [_vm._v(_vm._s(_vm.form.category_id))])
+          _c("dd", [_vm._v(_vm._s(_vm.category[0].name))])
         ]),
         _vm._v(" "),
         _c("dl", [
@@ -20371,6 +20542,12 @@ var render = function() {
           _c("dt", [_vm._v("達成目安時間")]),
           _vm._v(" "),
           _c("dd", [_vm._v(_vm._s(_vm.form.time) + "時間")])
+        ]),
+        _vm._v(" "),
+        _c("dl", [
+          _c("dt", [_vm._v("アイキャッチ画像")]),
+          _vm._v(" "),
+          _c("dd", [_c("img", { attrs: { src: _vm.url } })])
         ]),
         _vm._v(" "),
         _vm._l(_vm.form.kosteps, function(kostep) {
@@ -20741,7 +20918,11 @@ var render = function() {
           _vm.stepNumber === 1
             ? _c("step-form01", {
                 attrs: { categories: _vm.categories },
-                on: { nextStep: _vm.nextStep },
+                on: {
+                  updateFile: _vm.updatedFile,
+                  updateImage: _vm.updatedImage,
+                  nextStep: _vm.nextStep
+                },
                 model: {
                   value: _vm.form,
                   callback: function($$v) {
@@ -20767,7 +20948,11 @@ var render = function() {
           _vm._v(" "),
           _vm.stepNumber === 3
             ? _c("step-form03", {
-                attrs: { form: _vm.form, categories: _vm.categories },
+                attrs: {
+                  form: _vm.form,
+                  previeFile: _vm.previeFile,
+                  categories: _vm.categories
+                },
                 on: { backStep: _vm.backStep, nextStep: _vm.nextStep }
               })
             : _vm._e(),
@@ -21063,6 +21248,80 @@ var render = function() {
                 ])
               : _vm._e()
           ])
+        ]),
+        _vm._v(" "),
+        _c("dl", { staticClass: "p-form-file" }, [
+          _c("dt", [
+            _c(
+              "label",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: !_vm.uploadedImage,
+                    expression: "!uploadedImage"
+                  }
+                ],
+                staticClass: "p-form-file__label"
+              },
+              [
+                _vm._v("\n            アイキャッチ画像を選択\n            "),
+                _c("input", {
+                  attrs: { type: "file", name: "file" },
+                  on: { change: _vm.onFileChange }
+                })
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("dd", [
+            _c(
+              "div",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.uploadedImage,
+                    expression: "uploadedImage"
+                  }
+                ],
+                staticClass: "p-form-file-preview"
+              },
+              [
+                _c("img", {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.uploadedImage,
+                      expression: "uploadedImage"
+                    }
+                  ],
+                  staticClass: "p-form-file-preview__file",
+                  attrs: { src: _vm.uploadedImage }
+                })
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.uploadedImage,
+                    expression: "uploadedImage"
+                  }
+                ],
+                staticClass: "p-form-file__btn",
+                on: { click: _vm.remove }
+              },
+              [_vm._m(4)]
+            )
+          ])
         ])
       ]),
       _vm._v(" "),
@@ -21123,6 +21382,15 @@ var staticRenderFns = [
         _vm._v("達成目安時間"),
         _c("span", [_vm._v("必須")])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", [
+      _vm._v("削除する"),
+      _c("i", { staticClass: "fas fa-times" })
     ])
   }
 ]
@@ -21232,7 +21500,7 @@ var render = function() {
         _c("dl", [
           _c("dt", [_vm._v("カテゴリー")]),
           _vm._v(" "),
-          _c("dd", [_vm._v(_vm._s(_vm.form.category_id))])
+          _c("dd", [_vm._v(_vm._s(_vm.category[0].name))])
         ]),
         _vm._v(" "),
         _c("dl", [
@@ -21245,6 +21513,12 @@ var render = function() {
           _c("dt", [_vm._v("達成目安時間")]),
           _vm._v(" "),
           _c("dd", [_vm._v(_vm._s(_vm.form.time) + "時間")])
+        ]),
+        _vm._v(" "),
+        _c("dl", [
+          _c("dt", [_vm._v("アイキャッチ画像")]),
+          _vm._v(" "),
+          _c("dd", [_c("img", { attrs: { src: _vm.url } })])
         ]),
         _vm._v(" "),
         _vm._l(_vm.form.kosteps, function(kostep) {

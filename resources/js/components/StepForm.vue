@@ -9,6 +9,8 @@
 
     <keep-alive>
       <step-form01 
+        @updateFile="updatedFile"
+        @updateImage="updatedImage"
         v-if="stepNumber === 1" 
         v-model="form"
         :categories="categories"
@@ -23,6 +25,7 @@
 
       <step-form03
         :form ="form"
+        :previeFile="previeFile"
         :categories="categories"
         @backStep="backStep" 
         @nextStep="nextStep" 
@@ -59,6 +62,7 @@ export default {
         category_id: null,
         info: null,
         time: null,
+        uploadedImage: [],
         kosteps: [
           {
             flow_id: 1,
@@ -68,10 +72,17 @@ export default {
           }
         ]
       },
+      previeFile: null,
       isActive: 'is-active'
     }
   },
 	methods:{
+    updatedFile: function(files){
+      this.form.uploadedImage = files;
+    },
+    updatedImage: function(image){
+      this.previeFile = image;
+    },
     // マルチフォームのメニュースタイル（現在地をアクティブにする）
     bgColor: function(number){
       if(number === this.stepNumber){
