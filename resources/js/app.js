@@ -89,6 +89,7 @@ Vue.component('step-categorylist', require('./components/StepCategorylist.vue').
 Vue.component('step-item', require('./components/StepItem.vue').default);
 Vue.component('step-flow', require('./components/StepFlow.vue').default);
 Vue.component('step-flowheader', require('./components/StepFlowheader.vue').default);
+Vue.component('step-author', require('./components/StepAuthor.vue').default);
 Vue.component('step-flowlist', require('./components/StepFlowlist.vue').default);
 Vue.component('step-flowitem', require('./components/StepFlowitem.vue').default);
 Vue.component('step-detail', require('./components/StepDetail.vue').default);

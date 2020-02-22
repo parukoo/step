@@ -9,6 +9,8 @@
 
   <title>@yield('title', 'STEP') | {{ config('app.name', 'step') }}</title>
 
+  <meta name="description" content="STEPは、「良かった」と思う学習方法を共有できるサイトです。" />
+  <meta name="keywords" content="学習方法, 勉強方法, 効果的, 効率, toeic">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@step" />
   <meta property="og:url" content="{{ config('app.url') }}" />

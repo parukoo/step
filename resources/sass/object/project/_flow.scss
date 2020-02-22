@@ -1,5 +1,10 @@
 .p-flow{
+  display: block;
+  @include _mq-up(xl){
+    display: flex;
+  }
   &-list{
+    flex: 1;
     > li {
       a{
         width: 100%;
@@ -12,7 +17,6 @@
         color: $_color-text;
         transition: 0.3s;
         @include _mq-up(lg){
-          width: 740px;
           padding: 30px 40px;
         }
         &.active{
@@ -41,6 +45,14 @@
       + li{
         margin-top: 20px;
       }
+    }
+  }
+  &-sidebar{
+    width: 100%;
+    margin: 100px auto 0;
+    @include _mq-up(xl){
+      width: 350px;
+      margin: 0 0 0 50px;
     }
   }
   &-item{

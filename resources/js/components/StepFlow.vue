@@ -9,9 +9,14 @@
           <h3 class="p-flow__title p-heading"><span>S</span>tep Flow</h3>
           <span class="p-heading-sub">stepの流れ</span>
         </div>
-        <step-flowlist
-          :kosteps="kosteps"
-          :completes="completes"></step-flowlist>
+        <div class="p-flow">
+          <step-flowlist
+            :kosteps="kosteps"
+            :completes="completes"></step-flowlist>
+          <aside class="p-flow-sidebar">
+            <step-author :user="step.user"></step-author>
+          </aside>
+        </div>
       </div>
     </div>
   </div>
@@ -21,6 +26,7 @@
   import axios from 'axios';
   import StepFlowheader from './StepFlowheader.vue';
   import StepFlowlist from './StepFlowlist.vue';
+  import StepAuthor from './StepAuthor.vue';
   export default {
     name: 'StepFlow',
     props:{
@@ -36,7 +42,9 @@
             name: null
           },
           user:{
-            name: null
+            name: null,
+            profile: null,
+            photo: null
           },
           time: null
         },

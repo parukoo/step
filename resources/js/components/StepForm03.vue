@@ -87,7 +87,8 @@ export default {
       data.append('info', this.form.info);
       data.append('time', this.form.time);
       data.append('uploadedImage', this.form.uploadedImage[0]);
-      data.append('kosteps', this.form.kosteps);
+      // data['kosteps'] = JSON.stringify(this.form.kosteps);
+      console.log(data);
       let config = {
         headers: {
           'content-type': 'multipart/form-data'
