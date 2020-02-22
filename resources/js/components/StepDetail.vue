@@ -11,6 +11,7 @@
       @completed="done"></step-detailcontent>
     
     <step-detailmenu
+      :completes="completes"
       :flowmenu="flowmenu"></step-detailmenu>
   </div>
 

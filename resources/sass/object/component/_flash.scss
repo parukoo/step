@@ -4,11 +4,12 @@
   background-color: rgba(#d4edda, 0.8);
   @include _flex-center();
   animation-name: flash;
-  animation-delay: 1s;
+  animation-delay: 0.5s;
   animation-duration: 3s;
   animation-fill-mode: both;
   color: #155724;
   border: 1px solid #c3e6cb;
+  z-index: 2;
   @include _mq-up(){
     width: calc(100% - 218px);
   }

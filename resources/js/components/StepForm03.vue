@@ -87,7 +87,7 @@ export default {
       data.append('info', this.form.info);
       data.append('time', this.form.time);
       data.append('uploadedImage', this.form.uploadedImage[0]);
-      // data['kosteps'] = JSON.stringify(this.form.kosteps);
+      data.append('kosteps', this.form.kosteps);
       console.log(data);
       let config = {
         headers: {

@@ -78,7 +78,7 @@ class StepController extends Controller
     $step = Step::where('id', $stepid)->with('user')->with('category')->first();
     $kosteps = Kostep::where('step_id', $stepid)->get();
 
-    // ログイン済みのユーザーは完了率を取得
+    // ログイン済みのユーザーは完了IDを取得
     if (Auth::check()) {
       $completes = Complete::where('user_id', Auth::user()->id)->where('step_id', $stepid)->pluck('kostep_id');
     }else{

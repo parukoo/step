@@ -53,6 +53,7 @@ class StepsController extends Controller
   // =======================================
   public function flow($stepid) {
     $categories = Category::all();
+    // ログインユーザーの該当STEPの達成率を計算
     $kostepcount = Kostep::where('step_id', $stepid)->count();
     if (Auth::check()) {
       $finishcount = Complete::where('user_id', Auth::user()->id)->where('step_id', $stepid)->count();
@@ -75,6 +76,14 @@ class StepsController extends Controller
   // STEP詳細ページ
   // =======================================
   public function detail($stepid, $flowid) {
+    if($flowid > 1){
+      $prevflowid = $flowid - 1;
+      $prevkostepid = Kostep::where('step_id', $stepid)->where('flow_id', $prevflowid)->value('id');
+      $doneflag = Complete::where('user_id', Auth::user()->id)->where('step_id', $stepid)->where('kostep_id', $prevkostepid)->count();
+      if($doneflag === 0){
+        return redirect()->back()->with('flash_message', '順番沿ってSTEPを進めましょう');
+      }
+    }
     $kostep = Kostep::where('step_id', $stepid)->where('flow_id', $flowid)->count();
     //urlに存在しないkostep_idを入れられた場合404ページに遷移させる
     if($kostep === 0) {

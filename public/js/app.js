@@ -2170,6 +2170,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -2339,7 +2340,9 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     // STEP完了
     done: function done() {
-      this.$emit('completed', this.kostep);
+      if (!this.isCompleted) {
+        this.$emit('completed', this.kostep);
+      }
     },
     // twitterシェア
     normalShare: function normalShare() {
@@ -2359,6 +2362,16 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var core_js_modules_es_array_includes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.includes */ "./node_modules/core-js/modules/es.array.includes.js");
+/* harmony import */ var core_js_modules_es_array_includes__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_includes__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var core_js_modules_es_string_includes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.string.includes */ "./node_modules/core-js/modules/es.string.includes.js");
+/* harmony import */ var core_js_modules_es_string_includes__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_includes__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+
 //
 //
 //
@@ -2381,6 +2394,25 @@ var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
     flowmenu: {
       type: Array,
       required: true
+    },
+    completes: {
+      type: Array,
+      required: true
+    }
+  },
+  computed: {
+    // 完了済みのflowitemには、isDoneをtrueに、未完了はfalseにする
+    filterflowmenu: function filterflowmenu() {
+      var _this = this;
+
+      this.flowmenu.forEach(function (flowitem, i) {
+        if (_this.completes.includes(flowitem.id)) {
+          _this.$set(_this.flowmenu[i], "isDone", true);
+        } else {
+          _this.$set(_this.flowmenu[i], "isDone", false);
+        }
+      });
+      return this.flowmenu;
     }
   }
 });
@@ -3701,8 +3733,8 @@ var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
       data.append('category_id', this.form.category_id);
       data.append('info', this.form.info);
       data.append('time', this.form.time);
-      data.append('uploadedImage', this.form.uploadedImage[0]); // data['kosteps'] = JSON.stringify(this.form.kosteps);
-
+      data.append('uploadedImage', this.form.uploadedImage[0]);
+      data.append('kosteps', this.form.kosteps);
       console.log(data);
       var config = {
         headers: {
@@ -20618,7 +20650,9 @@ var render = function() {
             on: { normalShare: _vm.normalShare, completed: _vm.done }
           }),
           _vm._v(" "),
-          _c("step-detailmenu", { attrs: { flowmenu: _vm.flowmenu } })
+          _c("step-detailmenu", {
+            attrs: { completes: _vm.completes, flowmenu: _vm.flowmenu }
+          })
         ],
         1
       ),
@@ -20748,8 +20782,8 @@ var render = function() {
           on: { click: _vm.done }
         },
         [
-          !_vm.isCompleted ? _c("span", [_vm._v("未")]) : _vm._e(),
           _vm._v("完了"),
+          !_vm.isCompleted ? _c("span", [_vm._v("する")]) : _vm._e(),
           _vm.isCompleted ? _c("span", [_vm._v("済")]) : _vm._e()
         ]
       )
@@ -20785,10 +20819,10 @@ var render = function() {
     _vm._v(" "),
     _c(
       "ul",
-      _vm._l(_vm.flowmenu, function(flowitem) {
+      _vm._l(_vm.filterflowmenu, function(flowitem) {
         return _c(
           "li",
-          { key: flowitem.flow_id, class: { done: flowitem.user } },
+          { key: flowitem.flow_id, class: { active: flowitem.isDone } },
           [
             _c(
               "a",

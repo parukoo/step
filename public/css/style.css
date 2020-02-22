@@ -411,14 +411,15 @@ pre {
           align-items: center;
   -webkit-animation-name: flash;
           animation-name: flash;
-  -webkit-animation-delay: 1s;
-          animation-delay: 1s;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
   -webkit-animation-duration: 3s;
           animation-duration: 3s;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
   color: #155724;
   border: 1px solid #c3e6cb;
+  z-index: 2;
 }
 
 @media screen and (min-width: 768px) {
@@ -3001,6 +3002,10 @@ pre {
   background-color: #fff;
   color: #000;
   text-decoration: none;
+}
+
+.p-stepSingle-menu > ul li.active {
+  opacity: 0.5;
 }
 
 .p-stepSingle-menu > ul li + li {

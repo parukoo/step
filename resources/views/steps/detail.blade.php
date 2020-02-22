@@ -3,6 +3,12 @@
 <div class="l-wrapper">
   @include('components/header')
   <main class="l-main">
+    <!-- フラッシュメッセージ -->
+    @if (session('flash_message'))
+      <div class="c-flash-message js-flash-message" role="alert">
+        {{ session('flash_message') }}
+      </div>
+    @endif
     <div class="p-wrapper">
       <div class="p-container">
         <div class="p-headingWrapper">

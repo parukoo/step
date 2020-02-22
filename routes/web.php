@@ -44,7 +44,7 @@ Route::group(['middleware' => 'auth'], function() {
   Route::post('/ajax/stepUpdate', 'Ajax\StepController@update');
 
   //STEP詳細ページ
-  Route::get('/steps/{step_id}/{flow_id}', 'StepsController@detail')->name('steps.detail');
+  Route::get('/steps/{step_id}/{flow_id}', 'StepsController@detail');
   //STEP詳細ページ（Ajax　データ取得）
   Route::get('/ajax/kostepDetail', 'Ajax\StepController@detail');
 
