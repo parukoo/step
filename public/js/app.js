@@ -22280,7 +22280,7 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("h4", { staticClass: "p-rowpost__title" }, [
-        _vm._v(_vm._s(_vm.step.title) + "時間")
+        _vm._v(_vm._s(_vm.step.title))
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "p-rowpost-info" }, [
