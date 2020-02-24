@@ -56,7 +56,7 @@
 <script>
 const axios = require('axios'); 
 export default {
-  name: 'StepForm03',
+  name: 'FormComfirm',
   props:{
     form: { type: Object, equired: true},
     categories: { type: Array, required: true},

@@ -120,7 +120,7 @@
 import { required, maxLength, between } from 'vuelidate/lib/validators'
 
 export default {
-  name: 'StepForm01',
+  name: 'FormStep',
   props:{
     value: { type: Object, required: true},
     categories: { type: Array, required: true},

@@ -8,26 +8,26 @@
     </ul>
 
     <keep-alive>
-      <step-form01 
+      <form-step 
         v-if="stepNumber === 1"
         v-model="form"
         :categories="categories"
-        @nextStep="nextStep"></step-form01>
+        @nextStep="nextStep"></form-step>
 
-      <step-editform02 
+      <formedit-kosteplist 
         v-if="stepNumber === 2"
         v-model="form.kosteps"
         @backStep="backStep" 
         @nextStep="nextStep" 
-        ></step-editform02>
+        ></formedit-kosteplist>
 
-      <step-editform03
+      <formedit-comfirm
         :form ="form"
         :categories="categories"
         @backStep="backStep" 
         @nextStep="nextStep" 
-        v-if="stepNumber === 3"></step-editform03>
-      <step-form04 v-if="stepNumber === 4"></step-form04>
+        v-if="stepNumber === 3"></formedit-comfirm>
+      <form-done v-if="stepNumber === 4"></form-done>
     </keep-alive>
 
   </div>
@@ -35,18 +35,18 @@
 
 <script>
 
-import StepForm01 from './StepForm01.vue'
-import StepEditform02 from './StepEditform02.vue'
-import StepEditform03 from './StepEditform03.vue'
-import StepForm04 from './StepForm04.vue'
+import FormStep from './FormStep.vue'
+import FormeditKosteplist from './FormeditKosteplist.vue'
+import FormeditComfirm from './FormeditComfirm.vue'
+import FormDone from './FormDone.vue'
 const axios = require('axios'); 
 export default {
-  name: 'StepEditform',
+  name: 'FormEdit',
   components:{
-    'step-form01' : StepForm01,
-    'step-editform02' : StepEditform02,
-    'step-editform03' : StepEditform03,
-    'step-form04' : StepForm04,
+    'form-step' : FormStep,
+    'formedit-kosteplist' : FormeditKosteplist,
+    'formedit-comfirm' : FormeditComfirm,
+    'form-done' : FormDone,
   },
   props:{
     stepid: { type: Number, required: true },

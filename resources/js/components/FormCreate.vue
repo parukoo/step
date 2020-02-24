@@ -8,29 +8,29 @@
     </ul>
 
     <keep-alive>
-      <step-form01 
+      <form-step 
         @updateFile="updatedFile"
         @updateImage="updatedImage"
         v-if="stepNumber === 1" 
         v-model="form"
         :categories="categories"
-        @nextStep="nextStep"></step-form01>
+        @nextStep="nextStep"></form-step>
 
-      <step-form02 
+      <form-kosteplist 
         v-if="stepNumber === 2"
         v-model="form.kosteps"
         @backStep="backStep" 
         @nextStep="nextStep" 
-        ></step-form02>
+        ></form-kosteplist>
 
-      <step-form03
+      <form-comfirm
         :form ="form"
         :previeFile="previeFile"
         :categories="categories"
         @backStep="backStep" 
         @nextStep="nextStep" 
-        v-if="stepNumber === 3"></step-form03>
-      <step-form04 v-if="stepNumber === 4"></step-form04>
+        v-if="stepNumber === 3"></form-comfirm>
+      <form-done v-if="stepNumber === 4"></form-done>
     </keep-alive>
 
   </div>
@@ -38,18 +38,18 @@
 
 <script>
 
-import StepForm01 from './StepForm01.vue'
-import StepForm02 from './StepForm02.vue'
-import StepForm03 from './StepForm03.vue'
-import StepForm04 from './StepForm04.vue'
+import FormStep from './FormStep.vue'
+import FormKosteplist from './FormKosteplist.vue'
+import FormComfirm from './FormComfirm.vue'
+import FormDone from './FormDone.vue'
 
 export default {
-  name: 'StepForm',
+  name: 'FormCreate',
   components:{
-    'step-form01' : StepForm01,
-    'step-form02' : StepForm02,
-    'step-form03' : StepForm03,
-    'step-form04' : StepForm04,
+    'form-step' : FormStep,
+    'form-kosteplist' : FormKosteplist,
+    'form-comfirm' : FormComfirm,
+    'form-done' : FormDone,
   },
   props:{
     categories: { type:Array, required: true }

@@ -41,7 +41,7 @@
 <script>
 import { required, maxLength } from 'vuelidate/lib/validators'
 export default {
-  name: 'KostepItem',
+  name: 'FormKostepitem',
   props: {
     value: { type: Object, required: true },
   },

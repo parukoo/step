@@ -7,6 +7,6 @@
 
 <script>
 export default {
-  name: 'StepForm04',
+  name: 'FormDone',
 }
 </script>

@@ -2,19 +2,20 @@
   <form>
     <div class="p-form-inputs-wrapper">
       <div class="p-form-inputs as_register">
-        <kostep-item
+        <form-kostepitem
           v-for="(item, index) in value"
           :key="index"
           :value="value[index]"
-          @input="value => updateItem(value, index)"></kostep-item>
+          @input="value => updateItem(value, index)"></form-kostepitem>
       </div>
     </div>
+    
     <div class="p-form-add">
-    <button
-      type="button" 
-      @click="add">STEPを追加する</button>
+      <button
+        type="button" 
+        @click="add">STEPを追加する</button>
     </div>
-      
+
     <div class="p-form-submit as_stepform">
       <button
         class="c-btn" 
@@ -30,31 +31,31 @@
 </template>
 
 <script>
-import KostepItem from './KostepItem.vue'
+import FormKostepitem from './FormKostepitem.vue'
 export default {
   components:{
-    'kostep-item' : KostepItem
+    'form-kostepitem' : FormKostepitem
   },
-  name: 'StepEditform02',
+  name: 'FormKosteplist',
   props:{
     value: { type: Array, required: true }
   },
   data: function () {
     return{
-      editFlag: false
+      editFlag: true
     }
   },
   //タイトルと内容両方とも入力済みか判断
   watch:{
     value: {
       deep: true,
-      handler: function(newVal, oldVal) {
+      handler(newVal, oldVal) {
         if(newVal.every(item => item.edit === false)){
           this.editFlag = false
         }else{
           this.editFlag = true
         }
-      }
+      },
     }
   },
 	methods: {
