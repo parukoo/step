@@ -54,7 +54,6 @@
             </dd>
           </dl>
         </div>
-        
         <div class="p-form-submit">
           <button type="submit" class="c-btn p-form__btn">新規登録</button>
         </div>

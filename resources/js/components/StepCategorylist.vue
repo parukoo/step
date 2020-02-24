@@ -29,7 +29,7 @@
     props:{
       categoryid:{ type: Number, required: true }
     },
-    data(){
+    data: function () {
       return{
         steps: [],
         parPage: 5,

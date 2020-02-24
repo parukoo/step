@@ -94,6 +94,9 @@
         color: $_color-text;
         text-decoration: none;
       }
+      &.active{
+        opacity: 0.5;
+      }
       + li{
         border-top: 1px solid $_color-line;
       }

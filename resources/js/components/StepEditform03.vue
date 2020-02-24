@@ -1,6 +1,6 @@
 <template>
   <div class="p-form-inputs-wrapper">
-    <div class="p-form-inputs --register --confirm">
+    <div class="p-form-inputs as_register as_confirm">
         <dl>
           <dt>STEPのタイトル</dt>
           <dd>{{ form.title }}</dd>
@@ -8,7 +8,7 @@
 
         <dl>
           <dt>カテゴリー</dt>
-          <dd>{{ form.category_id }}</dd>
+          <dd>{{ category[0].name }}</dd>
         </dl>
 
         <dl>
@@ -19,6 +19,12 @@
         <dl>
           <dt>達成目安時間</dt>
           <dd>{{ form.time }}時間</dd>
+        </dl>
+
+        <dl>
+          <dt>アイキャッチ画像</dt>
+          <dd><img :src="url"
+              /></dd>
         </dl>
 
         <div v-for="kostep in form.kosteps"
@@ -34,7 +40,7 @@
         </div>
     </div>
 
-    <div class="p-form-submit --stepform">
+    <div class="p-form-submit as_stepform">
       <button
         class="c-btn" 
         type="button" 
@@ -53,15 +59,26 @@ const axios = require('axios');
 export default {
   name: 'StepEditform03',
   props:{
-    form: Object
+    form: { type: Object, equired: true},
+    categories: { type: Array, required: true},
+  },
+  data: function(){
+    return{
+      url: this.form.uploadedImage[0].name
+    }
+  },
+  computed: {
+    category: function(){
+      return this.categories.filter( x => x.id === this.form.category_id);
+    }
   },
   methods:{
     // 前に戻る
-    backStep(){
+    backStep: function(){
       this.$emit('backStep');
     },    
     // 編集データをAJAXでPOST送信
-    submit(){
+    submit: function(){
       axios.post('/ajax/stepUpdate', this.form)
       .then( (response) => {
       })

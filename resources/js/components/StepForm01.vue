@@ -1,7 +1,7 @@
 <template>
   <form>
     <div class="p-form-inputs-wrapper">
-      <div class="p-form-inputs --register">
+      <div class="p-form-inputs as_register">
 
         <dl>
           <dt><label for="title">STEPのタイトル<span>必須</span></label></dt>
@@ -82,6 +82,27 @@
               </diV>
           </dd>
         </dl>
+        <dl class="p-form-file">
+          <dt>
+            <label v-show="!uploadedImage" class="p-form-file__label">
+              アイキャッチ画像を選択
+              <input type="file" name="file" @change="onFileChange"/>
+            </label>
+          </dt>
+          <dd>
+            <div class="p-form-file-preview" v-show="uploadedImage">
+              <img
+                v-show="uploadedImage"
+                class="p-form-file-preview__file"
+                :src="uploadedImage"
+              />
+            </div>
+            <div v-show="uploadedImage" class="p-form-file__btn" @click="remove">
+              <span>削除する<i class="fas fa-times"></i></span>
+            </div>
+          </dd>
+        </dl>
+
       </div>
 
       <div class="p-form-submit">
@@ -104,7 +125,7 @@ export default {
     value: { type: Object, required: true},
     categories: { type: Array, required: true},
   },
-  data(){
+  data: function () {
     return{
       stepNumber: 1,
       uploadedImage: ''
@@ -131,41 +152,66 @@ export default {
   // 入力値をバインディングする
   computed:{
     title: {
-      get() {
+      get: function() {
         return this.value.title
       },
-      set(title) {
+      set: function(title) {
         this.updateValue({ title })
       }
     },
     category_id: {
-      get() {
+      get: function() {
         return this.value.category_id
       },
-      set(category_id) {
+      set: function(category_id) {
         this.updateValue({ category_id })
       }
     },
     info: {
-      get() {
+      get: function() {
         return this.value.info
       },
-      set(info) {
+      set: function(info) {
         this.updateValue({ info })
       }
     },
     time: {
-      get() {
+      get: function() {
         return this.value.time
       },
-      set(time) {
+      set: function(time) {
         this.updateValue({ time })
       }
     }
   },
 	methods: {
+    // 画像登録処理
+    // -----------------------------------------------
+    onFileChange(e) {
+      // 選択された File の情報を保存しておく
+      const fileList = e.target.files || e.dataTransfer.files;
+      const files = [];
+      for(let i = 0; i < fileList.length; i++){
+        files.push(fileList[i]);
+      }
+      this.createImage(fileList[0]);
+      this.$emit('updateFile', files);
+    },
+    // アップロードした画像を表示
+    createImage(file) {
+      const reader = new FileReader();
+      reader.onload = e => {
+        this.uploadedImage = e.target.result;
+        this.$emit('updateImage', this.uploadedImage);
+      };
+      reader.readAsDataURL(file);
+    },
+    remove() {
+      this.updateImage = false;
+    },
+
     // 次のSTEPボタン
-    nextStep(){
+    nextStep: function(){
       if(this.$v.$invalid){
         console.log('バリデーションエラー');
       }else{
@@ -174,7 +220,7 @@ export default {
     },
 
     // アップデート
-    updateValue(diff) {
+    updateValue: function(diff) {
       this.$emit('input', { ...this.value, ...diff })
     }
 	}

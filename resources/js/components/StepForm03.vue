@@ -1,6 +1,6 @@
 <template>
   <div class="p-form-inputs-wrapper">
-    <div class="p-form-inputs --register --confirm">
+    <div class="p-form-inputs as_register as_confirm">
         <dl>
           <dt>STEPのタイトル</dt>
           <dd>{{ form.title }}</dd>
@@ -8,7 +8,7 @@
 
         <dl>
           <dt>カテゴリー</dt>
-          <dd>{{ form.category_id }}</dd>
+          <dd>{{ category[0].name }}</dd>
         </dl>
 
         <dl>
@@ -19,6 +19,11 @@
         <dl>
           <dt>達成目安時間</dt>
           <dd>{{ form.time }}時間</dd>
+        </dl>
+
+        <dl>
+          <dt>アイキャッチ画像</dt>
+          <dd><img :src="url"/></dd>
         </dl>
 
         <div v-for="kostep in form.kosteps"
@@ -34,7 +39,7 @@
         </div>
     </div>
 
-    <div class="p-form-submit --stepform">
+    <div class="p-form-submit as_stepform">
       <button
         class="c-btn" 
         type="button" 
@@ -55,16 +60,41 @@ export default {
   props:{
     form: { type: Object, equired: true},
     categories: { type: Array, required: true},
+    previeFile: { type: String, required: true},
+  },
+  data: function(){
+    return{
+      url: this.previeFile
+    }
+  },
+  computed: {
+    category: function(){
+      return this.categories.filter( x => x.id === this.form.category_id);
+    }
   },
   methods:{
     //戻る
-    backStep(){
+    backStep: function(){
       this.$emit('backStep');
     },    
     //AJAXでSTEPを新規登録し、次に進む
-    submit(){
+    submit: function(){
       console.log(this.form);
-      axios.post('/ajax/stepNew', this.form)
+      //送信データはFormDataを使うよ！
+      let data = new FormData;
+      data.append('title', this.form.title);
+      data.append('category_id', this.form.category_id);
+      data.append('info', this.form.info);
+      data.append('time', this.form.time);
+      data.append('uploadedImage', this.form.uploadedImage[0]);
+      data.append('kosteps', this.form.kosteps);
+      console.log(data);
+      let config = {
+        headers: {
+          'content-type': 'multipart/form-data'
+        }
+      };
+      axios.post('/ajax/stepNew', data, config)
       .then( (response) => {
         this.$emit('nextStep');
       })

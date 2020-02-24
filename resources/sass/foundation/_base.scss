@@ -26,6 +26,7 @@ body {
   /* メトリクスカーニングを指定する */
   font-kerning: normal;
   background-color: $_color-bg;
+  word-wrap: break-word;
 }
 
 ul, ol {

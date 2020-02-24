@@ -7,7 +7,7 @@
         @csrf
         <input type="hidden" name="token" value="{{ $token }}">
         <ul class="p-form-links">
-          <li class="p-form-link --large">{{ __('Reset Password') }}</li>
+          <li class="p-form-link as_large">{{ __('Reset Password') }}</li>
         </ul>
         <div class="p-form-inputs">
           <dl>

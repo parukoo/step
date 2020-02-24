@@ -1,5 +1,5 @@
 <template>
-  <div class="p-form --register">
+  <div class="p-form as_register">
     <ul class="p-form-flow">
       <li class="p-form-flow__item" :class="bgColor(1)"><span>STEP1</span>STEPの入力①</li>
       <li class="p-form-flow__item" :class="bgColor(2)"><span>STEP2</span>STEPの入力②</li>
@@ -23,6 +23,7 @@
 
       <step-editform03
         :form ="form"
+        :categories="categories"
         @backStep="backStep" 
         @nextStep="nextStep" 
         v-if="stepNumber === 3"></step-editform03>
@@ -51,7 +52,7 @@ export default {
     stepid: { type: Number, required: true },
     categories: { type: Array, required: true }
   },
-  data(){
+  data: function () {
     return{
       stepNumber: 1,
       form: {
@@ -73,7 +74,7 @@ export default {
   },
 	methods:{
     // マルチフォームのメニュースタイル（現在地をアクティブにする）
-    bgColor(number){
+    bgColor: function(number){
       if(number === this.stepNumber){
         return this.isActive;
       }else{
@@ -81,16 +82,16 @@ export default {
       }
     },
     //前に戻る
-    backStep(){
+    backStep: function(){
       this.stepNumber--;
     },		
     //次に進む	
-    nextStep(){
+    nextStep: function(){
       this.stepNumber++;
     }
   },
   //STEPデータをAJAXで取得
-  mounted(){
+  mounted: function(){
     axios.get('/ajax/stepEditflow', {
       params:{
         stepid: this.stepid,

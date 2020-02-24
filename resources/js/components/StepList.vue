@@ -26,7 +26,7 @@
   import paginate from './paginate.vue';
   export default {
     name: 'StepList',
-    data(){
+    data: function () {
       return{
         steps: [],
         parPage: 5,
@@ -52,7 +52,7 @@
     },
     
     //STEPデータをAJAXで取得
-    mounted() {
+    mounted: function() {
       axios.get('/ajax/steps')
       .then(response => {
         this.steps = response.data;

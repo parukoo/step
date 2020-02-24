@@ -10,11 +10,11 @@
           <h2 class="p-flow__title p-heading"><span>P</span>trofile Edit</h2>
           <span class="p-heading-sub--register">プロフィール編集画面</span>
         </div>
-        <form class="p-form --register" action="/users/update" method="post" accept-charset="UTF-8" enctype="multipart/form-data">
+        <form class="p-form as_register" action="/users/update" method="post" accept-charset="UTF-8" enctype="multipart/form-data">
           <input name="utf8" type="hidden" value="✓" />
           <input type="hidden" name="id" value="{{ $user->id }}" />
           @csrf
-          <div class="p-form-inputs --register">
+          <div class="p-form-inputs as_register">
             <dl>
               <div class="p-profileEdit-form-pic-wrapper">
                 <label class="p-profileEdit-form-pic js-form-pic">
@@ -41,16 +41,33 @@
               </dd>
             </dl>
             <dl>
-                <dt><label for="email">E-mail<span>必須</span></label></dt>
-                <dd>
-                  <input type="text" name="email" id="email" class="@error('email') is-error @enderror" value="{{ old('email', $user->email) }}" placeholder="50文字以内で入力してください">
-                  @error('email')
-                    <span class="p-form__errorMsg" role="alert">
-                      <strong>{{ $message }}</strong>
-                    </span>
-                  @enderror
-                </dd>
-              </dl>
+              <dt><label for="email">E-mail<span>必須</span></label></dt>
+              <dd>
+                <input type="text" name="email" id="email" class="@error('email') is-error @enderror" value="{{ old('email', $user->email) }}" placeholder="50文字以内で入力してください">
+                @error('email')
+                  <span class="p-form__errorMsg" role="alert">
+                    <strong>{{ $message }}</strong>
+                  </span>
+                @enderror
+              </dd>
+            </dl>
+            <dl>
+              <dt><label for="password">パスワード<span>必須</span></label></dt>
+              <dd>
+                <input type="password" name="password" id="password" class="@error('password') is-error @enderror" value="{{ old('password', $user->password) }}" placeholder="8文字以上で入力してください">
+                @error('password')
+                  <span class="p-form__errorMsg" role="alert">
+                    <strong>{{ $message }}</strong>
+                  </span>
+                @enderror
+              </dd>
+            </dl>
+            <dl>
+              <dt><label for="password_confirmation">パスワード（再入力）<span>必須</span></label></dt>
+              <dd>
+                <input type="password" name="password_confirmation" id="password_confirmation" class="@error('password') is-error @enderror" value="{{ old('password', $user->password) }}" placeholder="8文字以上で入力してください">
+              </dd>
+            </dl>
             <dl>
               <dt><label for="profile">自己紹介</label></dt>
               <dd>

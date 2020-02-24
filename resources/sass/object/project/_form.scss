@@ -1,7 +1,7 @@
 .p-formWrapper{
   padding: 80px 16px 100px;
   background-color: #fff;
-  &.--register{
+  &.as_register{
     background-color: $_color-bg;
   }
   @include _mq-up(){
@@ -21,7 +21,7 @@
     border-radius: 30px;
   }
   text-align: center;
-  &.--register{
+  &.as_register{
     background-color: #fff;
   }
   &-title{
@@ -58,7 +58,7 @@
         color: $_color-link;
       }
     }
-    &.--large{
+    &.as_large{
       width: 100%;
     }
   }
@@ -292,7 +292,7 @@
         }
       }
     }
-    &.--register{
+    &.as_register{
       padding: 0;
       text-align: left;
       dl{
@@ -308,7 +308,7 @@
         }
       }
     }
-    &.--confirm{
+    &.as_confirm{
       dl{
         > dt{
           background-color: $_color-text;
@@ -405,7 +405,7 @@
         opacity: 0.8;
       }
     }
-    &.--stepform{
+    &.as_stepform{
       display: flex;
       justify-content: space-between;
     }

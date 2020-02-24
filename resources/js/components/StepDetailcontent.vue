@@ -15,7 +15,7 @@
         class="c-btn p-stepSingle-btn" 
         :class="{ done : isCompleted }"
         @click="done"
-        ><span v-if="!isCompleted">未</span>完了<span v-if="isCompleted">済</span></span>
+        >完了<span v-if="!isCompleted">する</span><span v-if="isCompleted">済</span></span>
     </div>
   </div>
 </template>
@@ -28,11 +28,13 @@
     },
     methods:{
       // STEP完了
-      done(){
-        this.$emit('completed', this.kostep)
+      done: function(){
+        if (!this.isCompleted) {
+          this.$emit('completed', this.kostep)
+        }
       },
       // twitterシェア
-      normalShare(){
+      normalShare: function(){
         this.$emit('normalShare', this.kostep)
       }
     }

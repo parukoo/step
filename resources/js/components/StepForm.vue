@@ -1,5 +1,5 @@
 <template>
-  <div class="p-form --register">
+  <div class="p-form as_register">
     <ul class="p-form-flow">
       <li class="p-form-flow__item" :class="bgColor(1)"><span>STEP1</span>STEPの入力①</li>
       <li class="p-form-flow__item" :class="bgColor(2)"><span>STEP2</span>STEPの入力②</li>
@@ -9,6 +9,8 @@
 
     <keep-alive>
       <step-form01 
+        @updateFile="updatedFile"
+        @updateImage="updatedImage"
         v-if="stepNumber === 1" 
         v-model="form"
         :categories="categories"
@@ -23,6 +25,7 @@
 
       <step-form03
         :form ="form"
+        :previeFile="previeFile"
         :categories="categories"
         @backStep="backStep" 
         @nextStep="nextStep" 
@@ -51,7 +54,7 @@ export default {
   props:{
     categories: { type:Array, required: true }
   },
-  data(){
+  data: function () {
     return{
       stepNumber: 1,
       form: {
@@ -59,6 +62,7 @@ export default {
         category_id: null,
         info: null,
         time: null,
+        uploadedImage: [],
         kosteps: [
           {
             flow_id: 1,
@@ -68,12 +72,19 @@ export default {
           }
         ]
       },
+      previeFile: null,
       isActive: 'is-active'
     }
   },
 	methods:{
+    updatedFile: function(files){
+      this.form.uploadedImage = files;
+    },
+    updatedImage: function(image){
+      this.previeFile = image;
+    },
     // マルチフォームのメニュースタイル（現在地をアクティブにする）
-    bgColor(number){
+    bgColor: function(number){
       if(number === this.stepNumber){
         return this.isActive;
       }else{
@@ -81,11 +92,11 @@ export default {
       }
     },
     //前に戻る
-    backStep(){
+    backStep: function(){
       this.stepNumber--;
     },			
     //次に進む
-    nextStep(){
+    nextStep: function(){
       this.stepNumber++;
     }
 	}

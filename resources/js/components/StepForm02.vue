@@ -1,7 +1,7 @@
 <template>
   <form>
     <div class="p-form-inputs-wrapper">
-      <div class="p-form-inputs --register">
+      <div class="p-form-inputs as_register">
         <kostep-item
           v-for="(item, index) in value"
           :key="index"
@@ -16,7 +16,7 @@
         @click="add">STEPを追加する</button>
     </div>
 
-    <div class="p-form-submit --stepform">
+    <div class="p-form-submit as_stepform">
       <button
         class="c-btn" 
         type="button" 
@@ -40,7 +40,7 @@ export default {
   props:{
     value: { type: Array, required: true }
   },
-  data(){
+  data: function () {
     return{
       editFlag: true
     }
@@ -60,7 +60,7 @@ export default {
   },
 	methods: {
     //入力値をアップデート
-    updateItem(item, index) {
+    updateItem: function(item, index) {
       const newValue = [
         ...this.value.slice(0, index),
         item,
@@ -69,7 +69,7 @@ export default {
       this.$emit('input', newValue)
     },
     //子STEPを追加する
-    add(){
+    add: function(){
       this.value.push({
         flow_id: this.value.length + 1,
         title: null,
@@ -79,11 +79,11 @@ export default {
       this.nextBtn = false
     },
     //前に戻る
-    backStep(){
+    backStep: function(){
       this.$emit('backStep');
     },    
     //次に進む
-    nextStep(){
+    nextStep: function(){
       this.$emit('nextStep');
     }
 	}

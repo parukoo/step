@@ -13,20 +13,20 @@ export default {
   name: 'StepIndex',
   props: {
   },
-  data(){
+  data: function () {
     return{
       stepslist:[]
     }
   },
 
   //STEPデータをAJAXで取得
-  mounted() {
+  mounted: function() {
     axios.get('/ajax/all')
     .then(response => {
       this.stepslist = response.data;
     })
     .catch(error => {
-        console.log('データの取得に失敗しました。');
+      console.log('データの取得に失敗しました。');
     });
   }
 }

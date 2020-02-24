@@ -28,6 +28,8 @@ class UsersController extends Controller
     $user = User::find($request->id);
     $user->name = $request->name;
     $user->profile = $request->profile;
+    $user->email = $request->email;
+    $user->password = bcrypt($request->password);
 
     // プロフィール画像登録処理
     if($request->user_profile_photo != null){

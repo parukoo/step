@@ -1,6 +1,8 @@
 import $ from "jquery";
 import "../sass/style.scss";
 import Vue from 'vue'
+import "@babel/polyfill"
+import 'es6-promise/auto'
 import Vuelidate from 'vuelidate'
 import Paginate from 'vuejs-paginate'
 
@@ -28,8 +30,8 @@ var $fileInput = $('.js-form-picFile');
 
 $fileInput.on('change', function(e){
   var file = this.files[0],            // 2. files配列にファイルが入っている
-      $img = $(this).siblings('.js-form-preview'), // 3. jQueryのsiblingsメソッドで兄弟のimgを取得
-      fileReader = new FileReader();   // 4. ファイルを読み込むFileReaderオブジェクト
+  $img = $(this).siblings('.js-form-preview'), // 3. jQueryのsiblingsメソッドで兄弟のimgを取得
+  fileReader = new FileReader();   // 4. ファイルを読み込むFileReaderオブジェクト
 
   // 5. 読み込みが完了した際のイベントハンドラ。imgのsrcにデータをセット
   fileReader.onload = function(event) {
@@ -87,6 +89,7 @@ Vue.component('step-categorylist', require('./components/StepCategorylist.vue').
 Vue.component('step-item', require('./components/StepItem.vue').default);
 Vue.component('step-flow', require('./components/StepFlow.vue').default);
 Vue.component('step-flowheader', require('./components/StepFlowheader.vue').default);
+Vue.component('step-author', require('./components/StepAuthor.vue').default);
 Vue.component('step-flowlist', require('./components/StepFlowlist.vue').default);
 Vue.component('step-flowitem', require('./components/StepFlowitem.vue').default);
 Vue.component('step-detail', require('./components/StepDetail.vue').default);
