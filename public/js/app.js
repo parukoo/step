@@ -3848,6 +3848,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'StepIndexlist',
@@ -22192,11 +22195,11 @@ var render = function() {
   return _c("div", { staticClass: "p-post" }, [
     _c("a", { attrs: { href: "steps/" + _vm.step.id } }, [
       _c("figure", { staticClass: "p-post__image" }, [
-        _c("img", {
-          attrs: {
-            src: "img/category/eyecatch0" + _vm.step.category_id + ".jpg"
-          }
-        })
+        _vm.step.photo
+          ? _c("img", {
+              attrs: { src: "../../img/update/step/" + _vm.step.photo + ".jpg" }
+            })
+          : _c("img", { attrs: { src: "../../img/common/img_noimage.jpg" } })
       ]),
       _vm._v(" "),
       _c("h4", { staticClass: "p-post__title" }, [
