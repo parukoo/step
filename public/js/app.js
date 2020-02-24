@@ -1980,7 +1980,6 @@ var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
           data.append('kosteps' + '[' + i + ']' + '[' + key + ']', kostep[key]);
         });
       });
-      console.log(data);
       var config = {
         headers: {
           'content-type': 'multipart/form-data'
@@ -3909,6 +3908,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -22277,12 +22281,14 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("a", { attrs: { href: "/steps/" + _vm.step.id } }, [
-    _c("figure", { staticClass: "p-rowpost__image" }, [
-      _c("img", {
-        attrs: {
-          src: "../../img/category/eyecatch0" + _vm.step.category.id + ".jpg"
-        }
-      })
+    _c("div", { staticClass: "p-rowpost__imageWrapper" }, [
+      _c("figure", { staticClass: "p-rowpost__image" }, [
+        _vm.step.photo
+          ? _c("img", {
+              attrs: { src: "../../img/update/step/" + _vm.user.photo + ".jpg" }
+            })
+          : _c("img", { attrs: { src: "../../img/common/img_noimage.jpg" } })
+      ])
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "p-rowpost-txtWrapper" }, [

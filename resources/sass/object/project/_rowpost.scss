@@ -6,11 +6,24 @@
       flex: 1;
     }
   }
+  &__imageWrapper{
+    width: 100%;
+    @include _mq-up(){
+      max-width: 310px;
+    }
+  }
   &__image{
     overflow: hidden;
     transition: border-radius 0.3s;
-    @include _mq-up(){
-      max-width: 310px;
+    position: relative;
+    padding-top: 61.290323%;
+    > img{
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      object-fit: cover;
     }
   }
   &__category{

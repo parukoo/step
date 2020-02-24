@@ -45,7 +45,13 @@
                 <a href="/steps/{{ $joinstep['step']['id'] }}">
                   <div class="p-post__imageWrapper">
                     <span class="p-post__image-label">{{ $joinstep['step']['category']['name']  }}</span>
-                    <figure class="p-post__image"><img src="img/category/eyecatch0{{ $joinstep['step']['category_id'] }}.jpg" alt=""></figure>
+                    <figure class="p-post__image">
+											@if($joinstep['step']['photo'])
+												<img src="img/update/step/{{ $joinstep['step']['photo'] }}.jpg" alt="*">
+											@else
+												<img src="img/common/img_noimage.jpg">
+											@endif
+										</figure>
                   </div>
                   <h4 class="p-post__title">{{ $joinstep['step']['title'] }}</h4>
                   <p class="p-post__txt">{{ $joinstep['step']['info'] }}</p>
@@ -69,7 +75,13 @@
                 <a href="/steps/{{ $completestep['step']['id'] }}">
                   <div class="p-post__imageWrapper">
                     <span class="p-post__image-label">{{ $completestep['step']['category']['name'] }}</span>
-                    <figure class="p-post__image"><img src="img/category/eyecatch0{{ $completestep['step']['category_id'] }}.jpg" alt=""></figure>
+                    <figure class="p-post__image">
+											@if($completestep['step']['photo'])
+                      <img src="img/update/step/{{ $completestep['step']['photo'] }}.jpg" alt="*">
+											@else
+												<img src="img/common/img_noimage.jpg">
+											@endif
+                    </figure>
                   </div>
                   <h4 class="p-post__title">{{ $completestep['step']['title'] }}</h4>
                   <p class="p-post__txt">{{ $completestep['step']['info'] }}</p>
@@ -94,7 +106,13 @@
                   <a href="/steps/{{ $registerstep->id }}">
                     <div class="p-post__imageWrapper">
                       <span class="p-post__image-label">{{ $registerstep->category->name }}</span>
-                      <figure class="p-post__image"><img src="img/category/eyecatch0{{ $registerstep->category_id }}.jpg" alt=""></figure>
+                      <figure class="p-post__image">
+												@if($registerstep->photo)
+													<img src="img/update/step/{{ $registerstep->photo }}.jpg" alt="*">
+												@else
+													<img src="img/common/img_noimage.jpg">
+												@endif
+											</figure>
                     </div>
                     <h4 class="p-post__title">{{ $registerstep->title }}</h4>
                     <p class="p-post__txt">{{ $registerstep->info }}</p>
