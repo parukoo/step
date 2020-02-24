@@ -22285,7 +22285,7 @@ var render = function() {
       _c("figure", { staticClass: "p-rowpost__image" }, [
         _vm.step.photo
           ? _c("img", {
-              attrs: { src: "../../img/update/step/" + _vm.user.photo + ".jpg" }
+              attrs: { src: "../../img/update/step/" + _vm.step.photo + ".jpg" }
             })
           : _c("img", { attrs: { src: "../../img/common/img_noimage.jpg" } })
       ])

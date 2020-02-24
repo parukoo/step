@@ -2,7 +2,7 @@
   <a :href="`/steps/${step.id}`">
     <div class="p-rowpost__imageWrapper">
       <figure class="p-rowpost__image">
-        <img v-if="step.photo" :src="'../../img/update/step/' + user.photo + '.jpg'">
+        <img v-if="step.photo" :src="'../../img/update/step/' + step.photo + '.jpg'">
         <img v-else :src="'../../img/common/img_noimage.jpg'">
       </figure>
     </div>
