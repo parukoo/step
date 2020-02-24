@@ -10,7 +10,7 @@
           <span class="p-heading-sub--register">stepの新規登録</span>
         </div>
         <div id="app">
-          <create-form :categories="{{ $categories }}"></create-form>
+          <form-create :categories="{{ $categories }}"></form-create>
         </div>
       </div>
     </div>
