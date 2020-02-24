@@ -59,6 +59,7 @@
     overflow: hidden;
     @include _mq-up(){
       height: 48px;
+      word-break:break-all;
     }
   }
   + .p-rowpost{
