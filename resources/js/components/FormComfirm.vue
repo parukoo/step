@@ -94,7 +94,6 @@ export default {
           data.append('kosteps'+ '[' + i + ']' + '[' + key +']', kostep[key]);
         });
       });
-      console.log(data);
       let config = {
         headers: {
           'content-type': 'multipart/form-data'

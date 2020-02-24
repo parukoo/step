@@ -1,6 +1,11 @@
 <template>
   <a :href="`/steps/${step.id}`">
-    <figure class="p-rowpost__image"><img :src="'../../img/category/eyecatch0' + step.category.id + '.jpg'"></figure>
+    <div class="p-rowpost__imageWrapper">
+      <figure class="p-rowpost__image">
+        <img v-if="step.photo" :src="'../../img/update/step/' + user.photo + '.jpg'">
+        <img v-else :src="'../../img/common/img_noimage.jpg'">
+      </figure>
+    </div>
     <div class="p-rowpost-txtWrapper">
       <span class="p-rowpost__category">{{ step.category.name }}</span>
       <h4 class="p-rowpost__title">{{ step.title }}</h4>
