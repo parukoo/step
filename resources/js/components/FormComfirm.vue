@@ -82,12 +82,18 @@ export default {
       console.log(this.form);
       //送信データはFormDataを使うよ！
       let data = new FormData;
+      let kosteps = this.form.kosteps;
       data.append('title', this.form.title);
       data.append('category_id', this.form.category_id);
       data.append('info', this.form.info);
       data.append('time', this.form.time);
       data.append('uploadedImage', this.form.uploadedImage[0]);
-      data.append('kosteps', this.form.kosteps);
+
+      kosteps.forEach((kostep, i) => {
+        Object.keys(kostep).forEach(function (key) {
+          data.append('kosteps'+ '[' + i + ']' + '[' + key +']', kostep[key]);
+        });
+      });
       console.log(data);
       let config = {
         headers: {

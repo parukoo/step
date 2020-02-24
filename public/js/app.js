@@ -1862,6 +1862,12 @@ module.exports = function isBuffer (obj) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_es_array_filter__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.filter */ "./node_modules/core-js/modules/es.array.filter.js");
 /* harmony import */ var core_js_modules_es_array_filter__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_filter__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var core_js_modules_es_object_keys__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.object.keys */ "./node_modules/core-js/modules/es.object.keys.js");
+/* harmony import */ var core_js_modules_es_object_keys__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_keys__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_2__);
+
+
 
 
 //
@@ -1963,12 +1969,17 @@ var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
       console.log(this.form); //送信データはFormDataを使うよ！
 
       var data = new FormData();
+      var kosteps = this.form.kosteps;
       data.append('title', this.form.title);
       data.append('category_id', this.form.category_id);
       data.append('info', this.form.info);
       data.append('time', this.form.time);
       data.append('uploadedImage', this.form.uploadedImage[0]);
-      data.append('kosteps', this.form.kosteps);
+      kosteps.forEach(function (kostep, i) {
+        Object.keys(kostep).forEach(function (key) {
+          data.append('kosteps' + '[' + i + ']' + '[' + key + ']', kostep[key]);
+        });
+      });
       console.log(data);
       var config = {
         headers: {

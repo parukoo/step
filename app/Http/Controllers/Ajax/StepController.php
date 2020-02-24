@@ -113,34 +113,37 @@ class StepController extends Controller
   public function new(Request $request)
   {    
 
-    // //親STEPに登録
-    // $step = new Step;
-    // $step->title = $request->title;
-    // $step->category_id = $request->category_id;
-    // $step->info = $request->info;
-    // $step->user_id = Auth::user()->id;
-    // $step->time = $request->time;
+    //親STEPに登録
+    $step = new Step;
+    $step->title = $request->title;
+    $step->category_id = $request->category_id;
+    $step->info = $request->info;
+    $step->user_id = Auth::user()->id;
+    $step->time = $request->time;
 
-    // // アイキャッチ画像登録処理
-    // if($request->uploadedImage != null){
-    //   $photo = $request->file('uploadedImage');
-    //   $img = \Image::make($photo);
-    //   $width = 300;
-    //   $img->resize($width, null, function($constraint){
-    //     $constraint->aspectRatio();
-    //   });
-    //   $eyecatchpath = str_random(30);
-    //   $file_name = $eyecatchpath;
-    //   $save_path = public_path('img/update/step/'.$file_name.'.jpg');  
-    //   $img->save($save_path);
-    //   // $img->storeAs('public/user_images', $user->id . '.jpg');
-    //   $step->photo = $file_name;
-    // }
+    // アイキャッチ画像登録処理
+    if($request->uploadedImage != null){
+      $photo = $request->file('uploadedImage');
+      $img = \Image::make($photo);
 
-    // $step->save();
+      // 画像をリサイズ
+      $width = 300;
+      $img->resize($width, null, function($constraint){
+        $constraint->aspectRatio();
+      });
+      // ランダムな画像名を命名
+      $eyecatchpath = str_random(30);
+      $file_name = $eyecatchpath;
+
+      $save_path = public_path('img/update/step/'.$file_name.'.jpg');  
+      $img->save($save_path);
+      $step->photo = $file_name;
+    }
+
+    $step->save();
 
     //STEPのidを取得
-    // $last_insert_id = $step->id;
+    $last_insert_id = $step->id;
 
     
     //子STEPに登録
@@ -149,12 +152,12 @@ class StepController extends Controller
       $kostepdata = new Kostep;
       $kostepdata->title = $kostep['title'];
       $kostepdata->info = $kostep['info'];
-      // $kostepdata->step_id = $last_insert_id;
+      $kostepdata->step_id = $last_insert_id;
       $kostepdata->flow_id = $kostep['flow_id'];
       $kostepdata->save();
     }
     return response()->json($kostepdata);
-    // return redirect('/')->with('success', '投稿しました');
+    return redirect('/')->with('success', '投稿しました');
   }
 
 
