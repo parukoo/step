@@ -1381,10 +1381,11 @@ pre {
 .p-header {
   display: -webkit-box;
   display: flex;
-  -webkit-box-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   -webkit-box-align: center;
           align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   height: 70px;
   padding: 16px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
