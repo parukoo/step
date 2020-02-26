@@ -21486,30 +21486,24 @@ var render = function() {
         _vm._v(" "),
         _c("dl", { staticClass: "p-form-file" }, [
           _c("dt", [
-            _c(
-              "figure",
-              {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: !_vm.uploadedImage,
-                    expression: "!uploadedImage"
-                  }
-                ],
-                staticClass: "p-form-file__photo"
-              },
-              [
-                _vm.value.photo
-                  ? _c("img", {
-                      staticClass: "js-objectfit",
-                      attrs: {
-                        src: "../../img/update/step/" + _vm.value.photo + ".jpg"
+            _vm.value.photo
+              ? _c("figure", { staticClass: "p-form-file__photo" }, [
+                  _c("img", {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: !_vm.uploadedImage,
+                        expression: "!uploadedImage"
                       }
-                    })
-                  : _vm._e()
-              ]
-            ),
+                    ],
+                    staticClass: "js-objectfit",
+                    attrs: {
+                      src: "../../img/update/step/" + _vm.value.photo + ".jpg"
+                    }
+                  })
+                ])
+              : _vm._e(),
             _vm._v(" "),
             _c(
               "label",
