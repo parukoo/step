@@ -3728,7 +3728,7 @@ __webpack_require__.r(__webpack_exports__);
   computed: {
     url: function url() {
       if (this.step.photo != null) {
-        return '../../img/update/step/' + step.photo + '.jpg';
+        return '../../img/update/step/' + this.step.photo + '.jpg';
       } else {
         return '../../img/common/img_noimage.jpg';
       }
