@@ -47,9 +47,9 @@
                     <span class="p-post__image-label">{{ $joinstep['step']['category']['name']  }}</span>
                     <figure class="p-post__image">
 											@if($joinstep['step']['photo'])
-												<img src="img/update/step/{{ $joinstep['step']['photo'] }}.jpg" alt="*">
+												<img class="js-objectfit" src="img/update/step/{{ $joinstep['step']['photo'] }}.jpg" alt="*">
 											@else
-												<img src="img/common/img_noimage.jpg">
+												<img class="js-objectfit" src="img/common/img_noimage.jpg">
 											@endif
 										</figure>
                   </div>
@@ -77,9 +77,9 @@
                     <span class="p-post__image-label">{{ $completestep['step']['category']['name'] }}</span>
                     <figure class="p-post__image">
 											@if($completestep['step']['photo'])
-                      <img src="img/update/step/{{ $completestep['step']['photo'] }}.jpg" alt="*">
+                      <img class="js-objectfit" src="img/update/step/{{ $completestep['step']['photo'] }}.jpg" alt="*">
 											@else
-												<img src="img/common/img_noimage.jpg">
+												<img class="js-objectfit" src="img/common/img_noimage.jpg">
 											@endif
                     </figure>
                   </div>
@@ -108,9 +108,9 @@
                       <span class="p-post__image-label">{{ $registerstep->category->name }}</span>
                       <figure class="p-post__image">
 												@if($registerstep->photo)
-													<img src="img/update/step/{{ $registerstep->photo }}.jpg" alt="*">
+													<img class="js-objectfit" src="img/update/step/{{ $registerstep->photo }}.jpg" alt="*">
 												@else
-													<img src="img/common/img_noimage.jpg">
+													<img class="js-objectfit" src="img/common/img_noimage.jpg">
 												@endif
 											</figure>
                     </div>

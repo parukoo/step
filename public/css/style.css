@@ -344,6 +344,12 @@ pre {
   margin-bottom: 0;
 }
 
+.js-objectfit {
+  -o-object-fit: contain;
+     object-fit: contain;
+  font-family: 'object-fit: contain;';
+}
+
 .l-footer {
   height: 90px;
   width: 100%;
@@ -1255,6 +1261,7 @@ pre {
   max-width: 400px;
   border-radius: 10px;
   border: 3px solid #dbdbdb;
+  background-color: #dbdbdb;
   overflow: hidden;
   margin-bottom: 10px;
 }
@@ -2236,6 +2243,7 @@ pre {
   color: #000;
   font-size: 12px;
   border-radius: 10px;
+  z-index: 1;
 }
 
 .p-post-edit {

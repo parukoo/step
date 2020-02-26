@@ -5,7 +5,7 @@ import "@babel/polyfill"
 import 'es6-promise/auto'
 import Vuelidate from 'vuelidate'
 import Paginate from 'vuejs-paginate'
-
+import objectFitImages from 'object-fit-images';
 
 // headerメニュー
 // =======================================
@@ -78,6 +78,11 @@ $('.js-tabLink').on('click', function () {
   $(this).addClass('is-active');
   $('.js-tabPanel').eq($th).addClass('is-active');
 });
+
+// IEとEDGE　objectfit
+// =======================================
+var someImages = document.querySelectorAll('.js-objectfit');
+objectFitImages(someImages);
 
 Vue.use(Vuelidate);
 Vue.component('paginate', Paginate)
