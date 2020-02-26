@@ -20681,7 +20681,9 @@ var render = function() {
         _c("dl", [
           _c("dt", [_vm._v("アイキャッチ画像")]),
           _vm._v(" "),
-          _c("dd", [_c("img", { attrs: { src: _vm.url } })])
+          _c("dd", [
+            _c("img", { staticClass: "js-objectfit", attrs: { src: _vm.url } })
+          ])
         ]),
         _vm._v(" "),
         _vm._l(_vm.form.kosteps, function(kostep) {
@@ -21489,6 +21491,7 @@ var render = function() {
               [
                 _vm.value.photo
                   ? _c("img", {
+                      staticClass: "js-objectfit",
                       attrs: {
                         src: "../../img/update/step/" + _vm.value.photo + ".jpg"
                       }
@@ -21544,7 +21547,7 @@ var render = function() {
                       expression: "uploadedImage"
                     }
                   ],
-                  staticClass: "p-form-file-preview__file",
+                  staticClass: "p-form-file-preview__file js-objectfit",
                   attrs: { src: _vm.uploadedImage }
                 })
               ]
@@ -21692,7 +21695,9 @@ var render = function() {
         _c("dl", [
           _c("dt", [_vm._v("アイキャッチ画像")]),
           _vm._v(" "),
-          _c("dd", [_c("img", { attrs: { src: _vm.url } })])
+          _c("dd", [
+            _c("img", { staticClass: "js-objectfit", attrs: { src: _vm.url } })
+          ])
         ]),
         _vm._v(" "),
         _vm._l(_vm.form.kosteps, function(kostep) {
@@ -21842,6 +21847,7 @@ var render = function() {
     _vm.user.photo
       ? _c("figure", [
           _c("img", {
+            staticClass: "js-objectfit",
             attrs: {
               src: "../../img/update/user/" + _vm.user.photo + ".jpg",
               alt: ""
@@ -21850,6 +21856,7 @@ var render = function() {
         ])
       : _c("figure", [
           _c("img", {
+            staticClass: "js-objectfit",
             attrs: { src: "../../img/common/img_noimage.jpg", alt: "" }
           })
         ]),
@@ -22480,9 +22487,13 @@ var render = function() {
       _c("figure", { staticClass: "p-post__image" }, [
         _vm.step.photo
           ? _c("img", {
+              staticClass: "js-objectfit",
               attrs: { src: "../../img/update/step/" + _vm.step.photo + ".jpg" }
             })
-          : _c("img", { attrs: { src: "../../img/common/img_noimage.jpg" } })
+          : _c("img", {
+              staticClass: "js-objectfit",
+              attrs: { src: "../../img/common/img_noimage.jpg" }
+            })
       ]),
       _vm._v(" "),
       _c("h4", { staticClass: "p-post__title" }, [
@@ -22571,9 +22582,13 @@ var render = function() {
       _c("figure", { staticClass: "p-rowpost__image" }, [
         _vm.step.photo
           ? _c("img", {
+              staticClass: "js-objectfit",
               attrs: { src: "../../img/update/step/" + _vm.step.photo + ".jpg" }
             })
-          : _c("img", { attrs: { src: "../../img/common/img_noimage.jpg" } })
+          : _c("img", {
+              staticClass: "js-objectfit",
+              attrs: { src: "../../img/common/img_noimage.jpg" }
+            })
       ])
     ]),
     _vm._v(" "),

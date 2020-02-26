@@ -2,8 +2,8 @@
   <a :href="`/steps/${step.id}`">
     <div class="p-rowpost__imageWrapper">
       <figure class="p-rowpost__image">
-        <img v-if="step.photo" :src="'../../img/update/step/' + step.photo + '.jpg'">
-        <img v-else :src="'../../img/common/img_noimage.jpg'">
+        <img class="js-objectfit" v-if="step.photo" :src="'../../img/update/step/' + step.photo + '.jpg'">
+        <img class="js-objectfit" v-else :src="'../../img/common/img_noimage.jpg'">
       </figure>
     </div>
     <div class="p-rowpost-txtWrapper">

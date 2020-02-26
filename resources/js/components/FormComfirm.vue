@@ -23,7 +23,7 @@
 
         <dl>
           <dt>アイキャッチ画像</dt>
-          <dd><img :src="url"/></dd>
+          <dd><img class="js-objectfit" :src="url"/></dd>
         </dl>
 
         <div v-for="kostep in form.kosteps"
