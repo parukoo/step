@@ -1087,6 +1087,10 @@ pre {
   border: 1px solid #f15252;
 }
 
+.p-form-inputs dl > dd select::-ms-expand {
+  display: none;
+}
+
 .p-form-inputs dl > dd select {
   height: 53px;
   width: 70%;
