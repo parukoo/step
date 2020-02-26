@@ -1379,8 +1379,9 @@ pre {
 }
 
 .p-header {
-  display: -webkit-box;
   display: flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
   justify-content: space-between;
   -webkit-box-align: center;
           align-items: center;

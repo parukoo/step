@@ -1,5 +1,7 @@
 .p-header{
   display: flex;
+  display:-webkit-box;
+  display:-ms-flexbox;
   justify-content: space-between;
   align-items: center;
   -webkit-box-pack: justify;
