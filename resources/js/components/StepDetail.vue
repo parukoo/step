@@ -110,7 +110,7 @@
       normalShare: function(kostep){
         //シェアする画面を設定
         var twitternormaltxt = "STEP「" + this.title + "」：FLOW-1" + kostep.title + "%20%23STEPで学び方を共有しよう";
-        var shareURL = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent('twitternormaltxt') + '&url=' + "https://step.chew.jp/steps/" + this.stepid;  
+        var shareURL = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(twitternormaltxt) + '&url=' + "https://step.chew.jp/steps/" + this.stepid;  
         //シェア用の画面へ移行
         location.href = shareURL
       },
@@ -118,7 +118,7 @@
       twitterShare: function(){
         //シェアする画面を設定
         var twittertxt = this.title + "を完了しました！" + "%20%23STEPで学び方を共有しよう";
-        var shareURL = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent('twittertxt') + '&url=' + "https://step.chew.jp/steps/" + this.stepid;  
+        var shareURL = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(twittertxt) + '&url=' + "https://step.chew.jp/steps/" + this.stepid;  
         //シェア用の画面へ移行
         location.href = shareURL
       }
