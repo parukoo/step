@@ -137,6 +137,13 @@
     z-index: 2;
     height: 30px;
     width: 35px;
+
+    //IE対応
+    @media all and (-ms-high-contrast: none){
+      position: absolute;
+      top: 16px;
+      right: 16px;
+    }
     span{
       display: block;
       cursor: pointer;
