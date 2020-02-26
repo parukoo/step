@@ -82,6 +82,7 @@ export default {
       //送信データはFormDataを使うよ！
       let data = new FormData;
       let kosteps = this.form.kosteps;
+      data.append('id', this.form.id);
       data.append('title', this.form.title);
       data.append('category_id', this.form.category_id);
       data.append('info', this.form.info);
