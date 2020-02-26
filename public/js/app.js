@@ -2186,6 +2186,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 
@@ -2226,10 +2229,17 @@ var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
           edit: false
         }]
       },
+      previeFile: null,
       isActive: 'is-active'
     };
   },
   methods: {
+    updatedFile: function updatedFile(files) {
+      this.form.uploadedImage = files;
+    },
+    updatedImage: function updatedImage(image) {
+      this.previeFile = image;
+    },
     // マルチフォームのメニュースタイル（現在地をアクティブにする）
     bgColor: function bgColor(number) {
       if (number === this.stepNumber) {
@@ -2705,6 +2715,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'FormStep',
@@ -2815,7 +2828,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       reader.readAsDataURL(file);
     },
     remove: function remove() {
-      this.updateImage = false;
+      this.uploadedImage = false;
     },
     // 次のSTEPボタン
     nextStep: function nextStep() {
@@ -2845,12 +2858,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_es_array_filter__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.filter */ "./node_modules/core-js/modules/es.array.filter.js");
 /* harmony import */ var core_js_modules_es_array_filter__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_filter__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var core_js_modules_es_function_name__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.function.name */ "./node_modules/core-js/modules/es.function.name.js");
-/* harmony import */ var core_js_modules_es_function_name__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_function_name__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var core_js_modules_es_object_keys__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.object.keys */ "./node_modules/core-js/modules/es.object.keys.js");
+/* harmony import */ var core_js_modules_es_object_keys__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_keys__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_2__);
 
 
 
-//
+
 //
 //
 //
@@ -2918,11 +2933,15 @@ var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
     categories: {
       type: Array,
       required: true
+    },
+    previeFile: {
+      type: String,
+      required: true
     }
   },
   data: function data() {
     return {
-      url: this.form.uploadedImage[0].name
+      url: this.previeFile
     };
   },
   computed: {
@@ -2941,10 +2960,31 @@ var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
     },
     // 編集データをAJAXでPOST送信
     submit: function submit() {
-      axios.post('/ajax/stepUpdate', this.form).then(function (response) {}).catch(function (error) {
-        console.log(error);
+      var _this2 = this;
+
+      //送信データはFormDataを使うよ！
+      var data = new FormData();
+      var kosteps = this.form.kosteps;
+      data.append('title', this.form.title);
+      data.append('category_id', this.form.category_id);
+      data.append('info', this.form.info);
+      data.append('time', this.form.time);
+      data.append('uploadedImage', this.form.uploadedImage[0]);
+      kosteps.forEach(function (kostep, i) {
+        Object.keys(kostep).forEach(function (key) {
+          data.append('kosteps' + '[' + i + ']' + '[' + key + ']', kostep[key]);
+        });
       });
-      this.$emit('nextStep');
+      var config = {
+        headers: {
+          'content-type': 'multipart/form-data'
+        }
+      };
+      axios.post('/ajax/stepUpdate', data, config).then(function (response) {
+        _this2.$emit('nextStep');
+      }).catch(function (error) {
+        console.log(e.response.data.errors);
+      });
     }
   }
 });
@@ -6910,39 +6950,6 @@ $({ target: 'Array', proto: true, forced: !HAS_SPECIES_SUPPORT || !USES_TO_LENGT
     return A;
   }
 });
-
-
-/***/ }),
-
-/***/ "./node_modules/core-js/modules/es.function.name.js":
-/*!**********************************************************!*\
-  !*** ./node_modules/core-js/modules/es.function.name.js ***!
-  \**********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var DESCRIPTORS = __webpack_require__(/*! ../internals/descriptors */ "./node_modules/core-js/internals/descriptors.js");
-var defineProperty = __webpack_require__(/*! ../internals/object-define-property */ "./node_modules/core-js/internals/object-define-property.js").f;
-
-var FunctionPrototype = Function.prototype;
-var FunctionPrototypeToString = FunctionPrototype.toString;
-var nameRE = /^\s*function ([^ (]*)/;
-var NAME = 'name';
-
-// Function instances `.name` property
-// https://tc39.github.io/ecma262/#sec-function-instances-name
-if (DESCRIPTORS && !(NAME in FunctionPrototype)) {
-  defineProperty(FunctionPrototype, NAME, {
-    configurable: true,
-    get: function () {
-      try {
-        return FunctionPrototypeToString.call(this).match(nameRE)[1];
-      } catch (error) {
-        return '';
-      }
-    }
-  });
-}
 
 
 /***/ }),
@@ -20668,7 +20675,11 @@ var render = function() {
           _vm.stepNumber === 1
             ? _c("form-step", {
                 attrs: { categories: _vm.categories },
-                on: { nextStep: _vm.nextStep },
+                on: {
+                  updateFile: _vm.updatedFile,
+                  updateImage: _vm.updatedImage,
+                  nextStep: _vm.nextStep
+                },
                 model: {
                   value: _vm.form,
                   callback: function($$v) {
@@ -20694,7 +20705,11 @@ var render = function() {
           _vm._v(" "),
           _vm.stepNumber === 3
             ? _c("formedit-comfirm", {
-                attrs: { form: _vm.form, categories: _vm.categories },
+                attrs: {
+                  form: _vm.form,
+                  previeFile: _vm.previeFile,
+                  categories: _vm.categories
+                },
                 on: { backStep: _vm.backStep, nextStep: _vm.nextStep }
               })
             : _vm._e(),
@@ -21214,6 +21229,30 @@ var render = function() {
         _vm._v(" "),
         _c("dl", { staticClass: "p-form-file" }, [
           _c("dt", [
+            _c(
+              "figure",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: !_vm.uploadedImage,
+                    expression: "!uploadedImage"
+                  }
+                ],
+                staticClass: "p-form-file__photo"
+              },
+              [
+                _vm.value.photo
+                  ? _c("img", {
+                      attrs: {
+                        src: "../../img/update/step/" + _vm.value.photo + ".jpg"
+                      }
+                    })
+                  : _vm._e()
+              ]
+            ),
+            _vm._v(" "),
             _c(
               "label",
               {

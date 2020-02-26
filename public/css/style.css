@@ -1249,6 +1249,29 @@ pre {
   padding-left: 10px;
 }
 
+.p-form-file__photo {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+  border: 3px solid #dbdbdb;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.p-form-file__photo:before {
+  content: "";
+  display: block;
+  padding-top: 61.3%;
+}
+
+.p-form-file__photo img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
 .p-form-file-preview {
   position: relative;
   width: 100%;

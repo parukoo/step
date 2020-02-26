@@ -84,11 +84,15 @@
         </dl>
         <dl class="p-form-file">
           <dt>
+            <figure class="p-form-file__photo" v-show="!uploadedImage">
+              <img v-if="value.photo" :src="'../../img/update/step/' + value.photo + '.jpg'">
+            </figure>
             <label v-show="!uploadedImage" class="p-form-file__label">
               アイキャッチ画像を選択
               <input type="file" name="file" @change="onFileChange"/>
             </label>
           </dt>
+
           <dd>
             <div class="p-form-file-preview" v-show="uploadedImage">
               <img
@@ -102,7 +106,6 @@
             </div>
           </dd>
         </dl>
-
       </div>
 
       <div class="p-form-submit">
@@ -187,7 +190,7 @@ export default {
 	methods: {
     // 画像登録処理
     // -----------------------------------------------
-    onFileChange(e) {
+    onFileChange: function(e) {
       // 選択された File の情報を保存しておく
       const fileList = e.target.files || e.dataTransfer.files;
       const files = [];
@@ -198,7 +201,7 @@ export default {
       this.$emit('updateFile', files);
     },
     // アップロードした画像を表示
-    createImage(file) {
+    createImage: function(file) {
       const reader = new FileReader();
       reader.onload = e => {
         this.uploadedImage = e.target.result;
@@ -206,10 +209,9 @@ export default {
       };
       reader.readAsDataURL(file);
     },
-    remove() {
-      this.updateImage = false;
+    remove: function(){
+      this.uploadedImage = false;
     },
-
     // 次のSTEPボタン
     nextStep: function(){
       if(this.$v.$invalid){

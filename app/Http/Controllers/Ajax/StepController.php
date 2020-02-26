@@ -112,7 +112,6 @@ class StepController extends Controller
   // =======================================
   public function new(Request $request)
   {    
-
     //親STEPに登録
     $step = new Step;
     $step->title = $request->title;
@@ -144,7 +143,6 @@ class StepController extends Controller
 
     //STEPのidを取得
     $last_insert_id = $step->id;
-
     
     //子STEPに登録
     $kosteps = $request->kosteps;    
@@ -171,6 +169,26 @@ class StepController extends Controller
     $step->category_id = $request->category_id;
     $step->info = $request->info;
     $step->time = $request->time;
+
+    // アイキャッチ画像登録処理
+    if($request->uploadedImage != null){
+      $photo = $request->file('uploadedImage');
+      $img = \Image::make($photo);
+
+      // 画像をリサイズ
+      $width = 300;
+      $img->resize($width, null, function($constraint){
+        $constraint->aspectRatio();
+      });
+      // ランダムな画像名を命名
+      $eyecatchpath = str_random(30);
+      $file_name = $eyecatchpath;
+
+      $save_path = public_path('img/update/step/'.$file_name.'.jpg');  
+      $img->save($save_path);
+      $step->photo = $file_name;
+    }
+
     $step->save();
 
     //子STEPを更新

@@ -9,6 +9,8 @@
 
     <keep-alive>
       <form-step 
+        @updateFile="updatedFile"
+        @updateImage="updatedImage"
         v-if="stepNumber === 1"
         v-model="form"
         :categories="categories"
@@ -23,6 +25,7 @@
 
       <formedit-comfirm
         :form ="form"
+        :previeFile="previeFile"
         :categories="categories"
         @backStep="backStep" 
         @nextStep="nextStep" 
@@ -69,10 +72,17 @@ export default {
           }
         ]
       },
+      previeFile: null,
       isActive: 'is-active'
     }
   },
 	methods:{
+    updatedFile: function(files){
+      this.form.uploadedImage = files;
+    },
+    updatedImage: function(image){
+      this.previeFile = image;
+    },
     // マルチフォームのメニュースタイル（現在地をアクティブにする）
     bgColor: function(number){
       if(number === this.stepNumber){

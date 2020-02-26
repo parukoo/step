@@ -23,8 +23,7 @@
 
         <dl>
           <dt>アイキャッチ画像</dt>
-          <dd><img :src="url"
-              /></dd>
+          <dd><img :src="url"/></dd>
         </dl>
 
         <div v-for="kostep in form.kosteps"
@@ -61,10 +60,11 @@ export default {
   props:{
     form: { type: Object, equired: true},
     categories: { type: Array, required: true},
+    previeFile: { type: String, required: true},
   },
   data: function(){
     return{
-      url: this.form.uploadedImage[0].name
+      url: this.previeFile
     }
   },
   computed: {
@@ -79,13 +79,32 @@ export default {
     },    
     // 編集データをAJAXでPOST送信
     submit: function(){
-      axios.post('/ajax/stepUpdate', this.form)
+      //送信データはFormDataを使うよ！
+      let data = new FormData;
+      let kosteps = this.form.kosteps;
+      data.append('title', this.form.title);
+      data.append('category_id', this.form.category_id);
+      data.append('info', this.form.info);
+      data.append('time', this.form.time);
+      data.append('uploadedImage', this.form.uploadedImage[0]);
+
+      kosteps.forEach((kostep, i) => {
+        Object.keys(kostep).forEach(function (key) {
+          data.append('kosteps'+ '[' + i + ']' + '[' + key +']', kostep[key]);
+        });
+      });
+      let config = {
+        headers: {
+          'content-type': 'multipart/form-data'
+        }
+      };
+      axios.post('/ajax/stepUpdate', data, config)
       .then( (response) => {
+        this.$emit('nextStep')
       })
       .catch((error) => {
-        console.log(error);
+        console.log(e.response.data.errors)
       });
-      this.$emit('nextStep')
     }
   }
 }
