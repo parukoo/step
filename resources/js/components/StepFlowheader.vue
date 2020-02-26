@@ -39,7 +39,7 @@
     },
     computed:{
       url: function(){
-        if(!this.step.photo){
+        if(this.step.photo !== null){
           return '../../img/update/step/' + this.step.photo + '.jpg';
         }else{
           return '../../img/common/img_noimage.jpg';
