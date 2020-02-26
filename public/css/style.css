@@ -516,6 +516,10 @@ pre {
   font-weight: bold;
 }
 
+.p-author__info {
+  text-align: center;
+}
+
 .p-avator {
   border-radius: 50%;
   overflow: hidden;

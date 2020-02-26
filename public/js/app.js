@@ -3407,14 +3407,14 @@ var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
     // twitterシェアボタン（通常のシェア）
     normalShare: function normalShare(kostep) {
       //シェアする画面を設定
-      var shareURL = 'https://twitter.com/intent/tweet?text=' + "STEP「" + this.title + "」：FLOW-1" + kostep.title + "%20%23STEPで学び方を共有しよう" + '&url=' + "https://step.chew.jp/steps/" + this.stepid; //シェア用の画面へ移行
+      var shareURL = 'https://twitter.com/intent/tweet?text=encodeURIComponent(' + "STEP「" + this.title + "」：FLOW-1" + kostep.title + "%20%23STEPで学び方を共有しよう" + ')&url=' + "https://step.chew.jp/steps/" + this.stepid; //シェア用の画面へ移行
 
       location.href = shareURL;
     },
     // twitterシェアボタン（100%完了時のみのシェア）
     twitterShare: function twitterShare() {
       //シェアする画面を設定
-      var shareURL = 'https://twitter.com/intent/tweet?text=' + this.title + "を完了しました！" + "%20%23STEPで学び方を共有しよう" + '&url=' + "https://step.chew.jp/steps/" + this.stepid; //シェア用の画面へ移行
+      var shareURL = 'https://twitter.com/intent/tweet?text=encodeURIComponent(' + this.title + "を完了しました！" + "%20%23STEPで学び方を共有しよう" + ')&url=' + "https://step.chew.jp/steps/" + this.stepid; //シェア用の画面へ移行
 
       location.href = shareURL;
     }
