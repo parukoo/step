@@ -1,6 +1,6 @@
 <template>
   <div class="p-stepHeader-wrapper">
-    <div class="p-stepHeader" :style="{ backgroundImage: 'url(/img/category/eyecatch0' + step.category_id + '.jpg)' }">
+    <div class="p-stepHeader" :style="{ backgroundImage: 'url(' + url + ')' }">
       <div class="p-stepHeader-container">
         <div class="p-stepHeader-title">
           <span class="p-stepHeader-title__category">{{ step.category.name }}</span>
@@ -36,6 +36,15 @@
     props:{
       step: { type: Object, required: true },
       complete: { type: Number, required: true }
+    },
+    computed:{
+      url: function(){
+        if(this.step.photo === null){
+          return '../../img/update/step/' + step.photo + '.jpg';
+        }else{
+          return '../../img/common/img_noimage.jpg';
+        }
+      }
     }
   }
 </script>

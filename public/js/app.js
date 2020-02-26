@@ -3724,6 +3724,15 @@ __webpack_require__.r(__webpack_exports__);
       type: Number,
       required: true
     }
+  },
+  computed: {
+    url: function url() {
+      if (this.step.photo === null) {
+        return '../../img/update/step/' + step.photo + '.jpg';
+      } else {
+        return '../../img/common/img_noimage.jpg';
+      }
+    }
   }
 });
 
@@ -22252,10 +22261,7 @@ var render = function() {
       "div",
       {
         staticClass: "p-stepHeader",
-        style: {
-          backgroundImage:
-            "url(/img/category/eyecatch0" + _vm.step.category_id + ".jpg)"
-        }
+        style: { backgroundImage: "url(" + _vm.url + ")" }
       },
       [
         _c("div", { staticClass: "p-stepHeader-container" }, [
