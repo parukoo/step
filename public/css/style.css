@@ -3278,7 +3278,6 @@ pre {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
           flex-direction: column;
-  max-width: 1200px;
   margin-top: 50px;
   -webkit-box-pack: center;
           justify-content: center;

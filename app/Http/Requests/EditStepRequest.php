@@ -27,7 +27,8 @@ class EditStepRequest extends FormRequest
         'time' => 'required|integer',
         'kosteps.*.title' => 'required|string|max:50',
         'kosteps.*.info' => 'required|string|max:1000',
-        'kosteps.*.flow_id' => 'required|integer'   
+        'kosteps.*.flow_id' => 'required|integer',
+        'photo' => 'nullable|file|image'   
       ];
     }
 }

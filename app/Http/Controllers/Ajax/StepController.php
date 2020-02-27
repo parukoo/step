@@ -121,7 +121,7 @@ class StepController extends Controller
     $step->time = $request->time;
 
     // アイキャッチ画像登録処理
-    if($request->uploadedImage != null){
+    if($request->uploadedImage != null || $request->uploadedImage !== undefined){
       $photo = $request->file('uploadedImage');
       $img = \Image::make($photo);
 

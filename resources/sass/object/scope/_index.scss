@@ -83,7 +83,6 @@
       display: flex;
       position: relative;   
       flex-direction: column;
-      max-width: 1200px;
       margin-top: 50px;
       justify-content: center;
       @include _mq-up(lg){
