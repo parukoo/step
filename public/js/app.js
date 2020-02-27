@@ -1925,6 +1925,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -1939,16 +1942,17 @@ var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
       required: true
     },
     previeFile: {
-      type: String,
-      required: true
+      type: String
     }
   },
-  data: function data() {
-    return {
-      url: this.previeFile
-    };
-  },
   computed: {
+    url: function url() {
+      if (this.previeFile) {
+        return this.previeFile;
+      } else {
+        return null;
+      }
+    },
     category: function category() {
       var _this = this;
 
@@ -1974,7 +1978,11 @@ var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
       data.append('category_id', this.form.category_id);
       data.append('info', this.form.info);
       data.append('time', this.form.time);
-      data.append('uploadedImage', this.form.uploadedImage[0]);
+
+      if (this.url) {
+        data.append('uploadedImage', this.form.uploadedImage[0]);
+      }
+
       kosteps.forEach(function (kostep, i) {
         Object.keys(kostep).forEach(function (key) {
           data.append('kosteps' + '[' + i + ']' + '[' + key + ']', kostep[key]);
@@ -2921,6 +2929,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2939,12 +2950,14 @@ var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
       required: true
     }
   },
-  data: function data() {
-    return {
-      url: this.previeFile
-    };
-  },
   computed: {
+    url: function url() {
+      if (this.previeFile) {
+        return this.previeFile;
+      } else {
+        return null;
+      }
+    },
     category: function category() {
       var _this = this;
 
@@ -2970,7 +2983,11 @@ var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
       data.append('category_id', this.form.category_id);
       data.append('info', this.form.info);
       data.append('time', this.form.time);
-      data.append('uploadedImage', this.form.uploadedImage[0]);
+
+      if (this.url) {
+        data.append('uploadedImage', this.form.uploadedImage[0]);
+      }
+
       kosteps.forEach(function (kostep, i) {
         Object.keys(kostep).forEach(function (key) {
           data.append('kosteps' + '[' + i + ']' + '[' + key + ']', kostep[key]);
@@ -20693,7 +20710,15 @@ var render = function() {
           _c("dt", [_vm._v("アイキャッチ画像")]),
           _vm._v(" "),
           _c("dd", [
-            _c("img", { staticClass: "js-objectfit", attrs: { src: _vm.url } })
+            !_vm.url
+              ? _c("img", {
+                  staticClass: "js-objectfit",
+                  attrs: { src: "../../img/common/img_noimage.jpg" }
+                })
+              : _c("img", {
+                  staticClass: "js-objectfit",
+                  attrs: { src: _vm.url }
+                })
           ])
         ]),
         _vm._v(" "),
@@ -21701,7 +21726,15 @@ var render = function() {
           _c("dt", [_vm._v("アイキャッチ画像")]),
           _vm._v(" "),
           _c("dd", [
-            _c("img", { staticClass: "js-objectfit", attrs: { src: _vm.url } })
+            !_vm.url
+              ? _c("img", {
+                  staticClass: "js-objectfit",
+                  attrs: { src: "../../img/common/img_noimage.jpg" }
+                })
+              : _c("img", {
+                  staticClass: "js-objectfit",
+                  attrs: { src: _vm.url }
+                })
           ])
         ]),
         _vm._v(" "),

@@ -52,7 +52,7 @@ export default {
     'form-done' : FormDone,
   },
   props:{
-    categories: { type:Array, required: true }
+    categories: { type: Array, required: true }
   },
   data: function () {
     return{

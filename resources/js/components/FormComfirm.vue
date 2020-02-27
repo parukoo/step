@@ -24,8 +24,8 @@
         <dl>
           <dt>アイキャッチ画像</dt>
           <dd>
-            <img v-if="url" class="js-objectfit" :src="url"/>
-            <img v-else class="js-objectfit" :src="'../../img/common/img_noimage.jpg'"/>
+            <img v-if="!url" class="js-objectfit" :src="'../../img/common/img_noimage.jpg'"/>
+            <img v-else class="js-objectfit" :src="url"/>
           </dd>
         </dl>
 
@@ -63,14 +63,16 @@ export default {
   props:{
     form: { type: Object, equired: true},
     categories: { type: Array, required: true},
-    previeFile: { type: String, required: true},
-  },
-  data: function(){
-    return{
-      url: this.previeFile
-    }
+    previeFile: { type: String },
   },
   computed: {
+    url: function(){
+      if(this.previeFile){
+        return this.previeFile;
+      }else{
+        return null;
+      }
+    },
     category: function(){
       return this.categories.filter( x => x.id === this.form.category_id);
     }
@@ -90,8 +92,9 @@ export default {
       data.append('category_id', this.form.category_id);
       data.append('info', this.form.info);
       data.append('time', this.form.time);
-      data.append('uploadedImage', this.form.uploadedImage[0]);
-
+      if(this.url){
+        data.append('uploadedImage', this.form.uploadedImage[0]);
+      }
       kosteps.forEach((kostep, i) => {
         Object.keys(kostep).forEach(function (key) {
           data.append('kosteps'+ '[' + i + ']' + '[' + key +']', kostep[key]);
