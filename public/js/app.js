@@ -2956,6 +2956,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -21770,15 +21771,22 @@ var render = function() {
         _c("dl", [
           _c("dt", [_vm._v("アイキャッチ画像")]),
           _vm._v(" "),
-          _c("dd", { staticClass: "p-form-file-preview" }, [
-            !_vm.url
+          _c("dd", [
+            _vm.url
               ? _c("img", {
                   staticClass: "js-objectfit",
-                  attrs: { src: "../../img/common/img_noimage.jpg" }
+                  attrs: { src: _vm.url }
+                })
+              : _vm.form.photo
+              ? _c("img", {
+                  staticClass: "js-objectfit",
+                  attrs: {
+                    src: "../../img/update/step/" + _vm.form.photo + ".jpg"
+                  }
                 })
               : _c("img", {
                   staticClass: "js-objectfit",
-                  attrs: { src: _vm.url }
+                  attrs: { src: "../../img/common/img_noimage.jpg" }
                 })
           ])
         ]),
