@@ -81,7 +81,9 @@ $('.js-tabLink').on('click', function () {
 
 // IEとEDGE　objectfit
 // =======================================
-objectFitImages('img.js-objectfit');
+$(function () {
+  objectFitImages('img.js-objectfit');
+});
 
 Vue.use(Vuelidate);
 Vue.component('paginate', Paginate)

@@ -36974,7 +36974,9 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-tabLink').on('click', functio
 }); // IEとEDGE　objectfit
 // =======================================
 
-object_fit_images__WEBPACK_IMPORTED_MODULE_6___default()('img.js-objectfit');
+jquery__WEBPACK_IMPORTED_MODULE_0___default()(function () {
+  object_fit_images__WEBPACK_IMPORTED_MODULE_6___default()('img.js-objectfit');
+});
 vue__WEBPACK_IMPORTED_MODULE_2___default.a.use(vuelidate__WEBPACK_IMPORTED_MODULE_4___default.a);
 vue__WEBPACK_IMPORTED_MODULE_2___default.a.component('paginate', vuejs_paginate__WEBPACK_IMPORTED_MODULE_5___default.a);
 vue__WEBPACK_IMPORTED_MODULE_2___default.a.component('step-index', __webpack_require__(/*! ./components/StepIndex.vue */ "./resources/js/components/StepIndex.vue").default);
