@@ -90,7 +90,7 @@
           <a href="steps/{{ $step->id }}">
             <div class="p-post__imageWrapper">
               <span class="p-post__image-label">{{ $step->category->name }}</span>
-              <figure class="p-post__image"><img src="img/category/eyecatch0{{ $step->category_id }}.jpg" alt=""></figure>
+              <figure class="p-post__image"><img src="img/update/step/{{ $step->category_id }}.jpg" alt=""></figure>
             </div>
             <h3 class="p-post__title">{{ $step->title }}</h3>
             <p class="p-post__txt">{{ $step->info }}</p>
