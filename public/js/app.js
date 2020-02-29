@@ -2726,6 +2726,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'FormStep',
@@ -21511,24 +21512,28 @@ var render = function() {
         _vm._v(" "),
         _c("dl", { staticClass: "p-form-file" }, [
           _c("dt", [
-            _vm.value.photo
-              ? _c("figure", { staticClass: "p-form-file__photo" }, [
-                  _c("img", {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: !_vm.uploadedImage,
-                        expression: "!uploadedImage"
-                      }
-                    ],
-                    staticClass: "js-objectfit",
-                    attrs: {
-                      src: "../../img/update/step/" + _vm.value.photo + ".jpg"
-                    }
-                  })
-                ])
-              : _vm._e(),
+            _c(
+              "figure",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: !_vm.uploadedImage,
+                    expression: "!uploadedImage"
+                  }
+                ],
+                staticClass: "p-form-file__photo"
+              },
+              [
+                _c("img", {
+                  staticClass: "js-objectfit",
+                  attrs: {
+                    src: "../../img/update/step/" + _vm.value.photo + ".jpg"
+                  }
+                })
+              ]
+            ),
             _vm._v(" "),
             _c(
               "label",
