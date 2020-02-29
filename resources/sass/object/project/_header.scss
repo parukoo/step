@@ -16,6 +16,9 @@
     height: 100vh;
     padding: 30px 25px;
   }
+  &-top{
+    flex: 1;
+  }
   &-titleWrapper{
     margin-bottom: 0;
     @include _mq-up(){

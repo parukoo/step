@@ -1413,6 +1413,11 @@ pre {
   }
 }
 
+.p-header-top {
+  -webkit-box-flex: 1;
+          flex: 1;
+}
+
 .p-header-titleWrapper {
   margin-bottom: 0;
 }
