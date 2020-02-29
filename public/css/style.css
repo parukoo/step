@@ -1738,6 +1738,8 @@ pre {
   -webkit-box-pack: justify;
           justify-content: space-between;
   padding: 0 16px;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 .p-header-spMenu__btn {

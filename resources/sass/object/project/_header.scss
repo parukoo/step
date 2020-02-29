@@ -286,6 +286,8 @@
       display: flex;
       justify-content: space-between;
       padding: 0 16px;
+      max-width: 400px;
+      margin: 0 auto;
     }
     &__btn{
       width: 160px;
