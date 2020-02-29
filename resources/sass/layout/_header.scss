@@ -4,5 +4,6 @@
   z-index: 2;
   @include _mq-up(){
     width: 218px;
+    height: 100vh;
   }
 }

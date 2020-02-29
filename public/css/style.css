@@ -364,6 +364,7 @@ pre {
 @media screen and (min-width: 768px) {
   .l-header {
     width: 218px;
+    height: 100vh;
   }
 }
 
@@ -1408,7 +1409,8 @@ pre {
     -webkit-box-direction: normal;
             flex-direction: column;
     overflow-y: scroll;
-    height: 100vh;
+    height: auto;
+    min-height: 100%;
     padding: 30px 25px;
   }
 }
