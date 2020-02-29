@@ -22383,7 +22383,7 @@ var render = function() {
               _c("ul", [
                 _c("li", [
                   _vm._m(2),
-                  _vm._v("目安学習期間：" + _vm._s(_vm.step.time))
+                  _vm._v("目安学習期間：" + _vm._s(_vm.step.time) + "時間")
                 ]),
                 _vm._v(" "),
                 _c("li", [

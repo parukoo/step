@@ -14,7 +14,7 @@
           <div class="p-stepHeader-info-txtWrapper">
             <p>{{ step.info }}</p>
             <ul>
-              <li><span class="c-icon"><img src="/img/common/ico_clock.svg" alt=""></span>目安学習期間：{{ step.time }}</li>
+              <li><span class="c-icon"><img src="/img/common/ico_clock.svg" alt=""></span>目安学習期間：{{ step.time }}時間</li>
               <li><span class="c-icon"><img src="/img/common/ico_author.svg" alt=""></span>作成者：{{ step.user.name }}</li>
             </ul>
 
