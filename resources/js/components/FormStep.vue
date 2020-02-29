@@ -83,12 +83,12 @@
           </dd>
         </dl>
         <dl class="p-form-file">
-          <dt>
-            <figure class="p-form-file__photo" v-show="uploadedImage !== ''">
+          <dt v-show="!uploadedImage">
+            <figure class="p-form-file__photo">
               <img class="js-objectfit" :src="'../../img/update/step/' + value.photo + '.jpg'">
             </figure>
 
-            <label v-show="!uploadedImage" class="p-form-file__label">
+            <label class="p-form-file__label">
               アイキャッチ画像を選択
               <input type="file" name="file" @change="onFileChange"/>
             </label>
