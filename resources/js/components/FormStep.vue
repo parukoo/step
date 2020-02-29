@@ -84,7 +84,7 @@
         </dl>
         <dl class="p-form-file">
           <dt>
-            <figure class="p-form-file__photo" v-if="value.photo">
+            <figure class="p-form-file__photo" v-show="!uploadedImage">
               <img class="js-objectfit" :src="'../../img/update/step/' + value.photo + '.jpg'">
             </figure>
 
