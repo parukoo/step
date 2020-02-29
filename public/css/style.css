@@ -1409,7 +1409,6 @@ pre {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
             flex-direction: column;
-    overflow-y: scroll;
     height: auto;
     min-height: 100vh;
     padding: 30px 25px;
@@ -1501,6 +1500,7 @@ pre {
   }
 
   .p-header-btns ul > li {
+    display: block;
     margin-bottom: 15px;
   }
 }
