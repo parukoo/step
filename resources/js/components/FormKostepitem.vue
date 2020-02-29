@@ -7,7 +7,8 @@
           id="title" 
           type="text" 
           v-model="title"
-          placeholder="50文字以内で入力してください">
+          placeholder="50文字以内で入力してください"
+          @blur="$v.value.title.$touch()">
         <div v-if="$v.value.title.$error">
           <span v-if="!$v.value.title.required" class="p-form__errorMsg" role="alert">
             <strong>タイトルが入力されていません</strong>
@@ -25,7 +26,8 @@
           id="info" 
           v-model="info" 
           cols="30" rows="10"
-          placeholder="1000文字以内で入力をしてください"></textarea>
+          placeholder="1000文字以内で入力をしてください"
+          @blur="$v.value.info.$touch()"></textarea>
         <div v-if="$v.value.info.$error">
           <span v-if="!$v.value.info.required" class="p-form__errorMsg" role="alert">
             <strong>学習内容が入力されていません</strong>

@@ -2364,6 +2364,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'FormKostepitem',
@@ -21077,6 +21079,9 @@ var render = function() {
           },
           domProps: { value: _vm.title },
           on: {
+            blur: function($event) {
+              return _vm.$v.value.title.$touch()
+            },
             input: function($event) {
               if ($event.target.composing) {
                 return
@@ -21140,6 +21145,9 @@ var render = function() {
           },
           domProps: { value: _vm.info },
           on: {
+            blur: function($event) {
+              return _vm.$v.value.info.$touch()
+            },
             input: function($event) {
               if ($event.target.composing) {
                 return
