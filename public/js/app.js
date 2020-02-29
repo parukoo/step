@@ -21771,7 +21771,7 @@ var render = function() {
         _c("dl", [
           _c("dt", [_vm._v("アイキャッチ画像")]),
           _vm._v(" "),
-          _c("dd", [
+          _c("dd", { staticClass: "p-form-file-preview" }, [
             _vm.url
               ? _c("img", {
                   staticClass: "js-objectfit",

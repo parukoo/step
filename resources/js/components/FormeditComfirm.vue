@@ -23,7 +23,7 @@
 
         <dl>
           <dt>アイキャッチ画像</dt>
-          <dd>
+          <dd class="p-form-file-preview">
             <img v-if="url" class="js-objectfit" :src="url"/>
             <img v-else-if="form.photo" class="js-objectfit" :src="'../../img/update/step/' + form.photo + '.jpg'"/>
             <img v-else class="js-objectfit" :src="'../../img/common/img_noimage.jpg'"/>
