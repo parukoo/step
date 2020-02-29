@@ -10,17 +10,17 @@
   padding: 16px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16);
   background-color: rgba(#fff, 0.9);
-  @include _mq-up(){
-    flex-direction: column;
-    height: auto;
-    min-height: 100vh;
-    padding: 30px 25px;
-  }
   //IE対応
   @media all and (-ms-high-contrast: none){
     @include _mq-up(){
       height: 100vh;
     }
+  }
+  @include _mq-up(){
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+    padding: 30px 25px;
   }
   &-top{
     flex: 1;

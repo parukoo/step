@@ -1403,7 +1403,13 @@ pre {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
   background-color: rgba(255, 255, 255, 0.9);
 }
-
+@media all and (-ms-high-contrast: none){
+  @media screen and (min-width: 768px) {
+    .p-header {
+      height: 100vh;
+    }
+  }
+}
 @media screen and (min-width: 768px) {
   .p-header {
     -webkit-box-orient: vertical;
@@ -1414,11 +1420,7 @@ pre {
     padding: 30px 25px;
   }
 }
-@media all and (-ms-high-contrast: none){
-  .p-header {
-    height: 100vh;
-  }
-}
+
 .p-header-top {
   -webkit-box-flex: 1;
           flex: 1;
