@@ -14,7 +14,7 @@
     flex-direction: column;
     overflow-y: scroll;
     height: 100vh;
-    padding: 45px 25px;
+    padding: 30px 25px;
   }
   &-titleWrapper{
     margin-bottom: 0;
@@ -76,6 +76,7 @@
   }
   &-btns{
     @include _mq-up(){
+      margin-bottom: -15px;
       ul > li{
         margin-bottom: 15px;
       }
