@@ -81,7 +81,7 @@ class StepsController extends Controller
       $prevkostepid = Kostep::where('step_id', $stepid)->where('flow_id', $prevflowid)->value('id');
       $doneflag = Complete::where('user_id', Auth::user()->id)->where('step_id', $stepid)->where('kostep_id', $prevkostepid)->count();
       if($doneflag === 0){
-        return redirect()->back()->with('flash_message', '順番沿ってSTEPを進めましょう');
+        return redirect()->back()->with('flash_message', '順番に沿ってSTEPを進めましょう');
       }
     }
     $kostep = Kostep::where('step_id', $stepid)->where('flow_id', $flowid)->count();
