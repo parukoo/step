@@ -17,7 +17,7 @@
     padding: 30px 25px;
   }
   //IE対応
-  @media all and (-ms-high-contrast: none) and (mix-width: 768px){
+  @media all and (-ms-high-contrast: none) and (min-width: 768px){
     height: 100vh!important;
   }
   &-top{
