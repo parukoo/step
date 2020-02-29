@@ -15,7 +15,9 @@
     height: auto;
     min-height: 100vh;
     padding: 30px 25px;
-    @media all and (-ms-high-contrast: none){
+  }
+  @media all and (-ms-high-contrast: none){
+    @include _mq-up(){
       height: 100vh;
     }
   }
