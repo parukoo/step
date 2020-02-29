@@ -1414,7 +1414,11 @@ pre {
     padding: 30px 25px;
   }
 }
-
+@media all and (-ms-high-contrast: none){
+  .p-header {
+    height: 100vh;
+  }
+}
 .p-header-top {
   -webkit-box-flex: 1;
           flex: 1;
