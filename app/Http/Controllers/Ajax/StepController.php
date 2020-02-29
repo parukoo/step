@@ -126,7 +126,7 @@ class StepController extends Controller
       $img = \Image::make($photo);
 
       // 画像をリサイズ
-      $width = 300;
+      $width = 600;
       $img->resize($width, null, function($constraint){
         $constraint->aspectRatio();
       });
@@ -176,7 +176,7 @@ class StepController extends Controller
       $img = \Image::make($photo);
 
       // 画像をリサイズ
-      $width = 300;
+      $width = 600;
       $img->resize($width, null, function($constraint){
         $constraint->aspectRatio();
       });

@@ -21549,17 +21549,17 @@ var render = function() {
                 staticClass: "p-form-file__photo"
               },
               [
-                _c("img", {
-                  staticClass: "js-objectfit",
-                  attrs: {
-                    src: "../../img/update/step/" + _vm.value.photo + ".jpg"
-                  }
-                }),
-                _vm._v(" "),
-                _c("img", {
-                  staticClass: "js-objectfit",
-                  attrs: { src: "../../img/common/img_noimage.jpg" }
-                })
+                _vm.value.photo
+                  ? _c("img", {
+                      staticClass: "js-objectfit",
+                      attrs: {
+                        src: "../../img/update/step/" + _vm.value.photo + ".jpg"
+                      }
+                    })
+                  : _c("img", {
+                      staticClass: "js-objectfit",
+                      attrs: { src: "../../img/common/img_noimage.jpg" }
+                    })
               ]
             ),
             _vm._v(" "),
