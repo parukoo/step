@@ -1970,7 +1970,7 @@ var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
     submit: function submit() {
       var _this2 = this;
 
-      console.log(this.form); //送信データはFormDataを使うよ！
+      console.log(this.form); //送信データはFormDataを使う！
 
       var data = new FormData();
       var kosteps = this.form.kosteps;
@@ -2860,6 +2860,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       reader.readAsDataURL(file);
     },
+    // アップロードした画像を削除
     remove: function remove() {
       this.uploadedImage = '';
       this.$emit('updateImage', this.uploadedImage);
@@ -3002,7 +3003,7 @@ var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
     submit: function submit() {
       var _this2 = this;
 
-      //送信データはFormDataを使うよ！
+      //送信データはFormDataを使う！
       var data = new FormData();
       var kosteps = this.form.kosteps;
       data.append('id', this.form.id);

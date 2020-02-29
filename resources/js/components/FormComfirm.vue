@@ -85,7 +85,7 @@ export default {
     //AJAXでSTEPを新規登録し、次に進む
     submit: function(){
       console.log(this.form);
-      //送信データはFormDataを使うよ！
+      //送信データはFormDataを使う！
       let data = new FormData;
       let kosteps = this.form.kosteps;
       data.append('title', this.form.title);

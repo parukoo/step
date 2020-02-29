@@ -227,6 +227,7 @@ export default {
       };
       reader.readAsDataURL(file);
     },
+    // アップロードした画像を削除
     remove: function(){
       this.uploadedImage = '';
       this.$emit('updateImage', this.uploadedImage);

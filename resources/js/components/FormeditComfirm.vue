@@ -85,7 +85,7 @@ export default {
     },    
     // 編集データをAJAXでPOST送信
     submit: function(){
-      //送信データはFormDataを使うよ！
+      //送信データはFormDataを使う！
       let data = new FormData;
       let kosteps = this.form.kosteps;
       data.append('id', this.form.id);
