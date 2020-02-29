@@ -364,6 +364,8 @@ pre {
 @media screen and (min-width: 768px) {
   .l-header {
     width: 218px;
+    overflow: scroll;
+    height: 100vh;
   }
 }
 
