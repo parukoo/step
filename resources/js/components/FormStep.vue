@@ -106,6 +106,9 @@
             <div v-show="uploadedImage" class="p-form-file__btn" @click="remove">
               <span>削除する<i class="fas fa-times"></i></span>
             </div>
+            <span v-for="error in errors" class="p-form__errorMsg" role="alert">
+              <strong>{{ error }}</strong>
+            </span>
           </dd>
         </dl>
       </div>
@@ -133,7 +136,8 @@ export default {
   data: function () {
     return{
       stepNumber: 1,
-      uploadedImage: ''
+      uploadedImage: '',
+      errors:[]
     }
   },
   // バリデーション
@@ -199,6 +203,18 @@ export default {
       for(let i = 0; i < fileList.length; i++){
         files.push(fileList[i]);
       }
+      // バリデーション
+      this.errors = [];
+      // 形式チェック
+      if (!['image/jpeg', 'image/png', 'image/gif'].includes(fileList[0].type)) {
+        this.errors.push('JPEG、PNG、GIF以外は利用できません')
+        return false;
+      }
+      // ファイルの大きさチェック
+      if (fileList[0].size > 1024 * 1024) {
+        this.errors.push(`ファイルサイズが大きすぎます（${Math.round(fileList[0].size / 1024 )}KB）`)
+        return false;
+      }
       this.createImage(fileList[0]);
       this.$emit('updateFile', files);
     },
@@ -212,7 +228,8 @@ export default {
       reader.readAsDataURL(file);
     },
     remove: function(){
-      this.uploadedImage = false;
+      this.uploadedImage = '';
+      this.$emit('updateImage', this.uploadedImage);
     },
     // 次のSTEPボタン
     nextStep: function(){

@@ -28,7 +28,7 @@ class CreateStepRequest extends FormRequest
         'kosteps.*.title' => 'required|string|max:50',
         'kosteps.*.info' => 'required|string|max:1000',
         'kosteps.*.flow_id' => 'required|integer',
-        'photo' => 'nullable|file|image' 
+        'photo' => 'nullable|file|image|mimes:jpeg,png,jpg,gif|max:1024' 
       ];
     }
 }

@@ -2582,16 +2582,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_es_symbol__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_symbol__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var core_js_modules_es_array_filter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.array.filter */ "./node_modules/core-js/modules/es.array.filter.js");
 /* harmony import */ var core_js_modules_es_array_filter__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_filter__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var core_js_modules_es_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/es.object.get-own-property-descriptor */ "./node_modules/core-js/modules/es.object.get-own-property-descriptor.js");
-/* harmony import */ var core_js_modules_es_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var core_js_modules_es_object_get_own_property_descriptors__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! core-js/modules/es.object.get-own-property-descriptors */ "./node_modules/core-js/modules/es.object.get-own-property-descriptors.js");
-/* harmony import */ var core_js_modules_es_object_get_own_property_descriptors__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_get_own_property_descriptors__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var core_js_modules_es_object_keys__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! core-js/modules/es.object.keys */ "./node_modules/core-js/modules/es.object.keys.js");
-/* harmony import */ var core_js_modules_es_object_keys__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_keys__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
-/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
-/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var core_js_modules_es_array_includes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/es.array.includes */ "./node_modules/core-js/modules/es.array.includes.js");
+/* harmony import */ var core_js_modules_es_array_includes__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_includes__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var core_js_modules_es_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! core-js/modules/es.object.get-own-property-descriptor */ "./node_modules/core-js/modules/es.object.get-own-property-descriptor.js");
+/* harmony import */ var core_js_modules_es_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var core_js_modules_es_object_get_own_property_descriptors__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! core-js/modules/es.object.get-own-property-descriptors */ "./node_modules/core-js/modules/es.object.get-own-property-descriptors.js");
+/* harmony import */ var core_js_modules_es_object_get_own_property_descriptors__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_get_own_property_descriptors__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var core_js_modules_es_object_keys__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! core-js/modules/es.object.keys */ "./node_modules/core-js/modules/es.object.keys.js");
+/* harmony import */ var core_js_modules_es_object_keys__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_keys__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_7__);
+
 
 
 
@@ -2605,6 +2608,9 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
 //
 //
 //
@@ -2744,25 +2750,26 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   data: function data() {
     return {
       stepNumber: 1,
-      uploadedImage: ''
+      uploadedImage: '',
+      errors: []
     };
   },
   // バリデーション
   validations: {
     title: {
-      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_6__["required"],
-      maxLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_6__["maxLength"])(50)
+      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_7__["required"],
+      maxLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_7__["maxLength"])(50)
     },
     category_id: {
-      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_6__["required"]
+      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_7__["required"]
     },
     info: {
-      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_6__["required"],
-      maxLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_6__["maxLength"])(200)
+      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_7__["required"],
+      maxLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_7__["maxLength"])(200)
     },
     time: {
-      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_6__["required"],
-      between: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_6__["between"])(0, 999)
+      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_7__["required"],
+      between: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_7__["between"])(0, 999)
     }
   },
   // 入力値をバインディングする
@@ -2818,6 +2825,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       for (var i = 0; i < fileList.length; i++) {
         files.push(fileList[i]);
+      } // バリデーション
+
+
+      this.errors = []; // 形式チェック
+
+      if (!['image/jpeg', 'image/png', 'image/gif'].includes(fileList[0].type)) {
+        this.errors.push('JPEG、PNG、GIF以外は利用できません');
+        return false;
+      } // ファイルの大きさチェック
+
+
+      if (fileList[0].size > 1024 * 1024) {
+        this.errors.push("\u30D5\u30A1\u30A4\u30EB\u30B5\u30A4\u30BA\u304C\u5927\u304D\u3059\u304E\u307E\u3059\uFF08".concat(Math.round(fileList[0].size / 1024), "KB\uFF09"));
+        return false;
       }
 
       this.createImage(fileList[0]);
@@ -2838,7 +2859,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       reader.readAsDataURL(file);
     },
     remove: function remove() {
-      this.uploadedImage = false;
+      this.uploadedImage = '';
+      this.$emit('updateImage', this.uploadedImage);
     },
     // 次のSTEPボタン
     nextStep: function nextStep() {
@@ -20711,7 +20733,7 @@ var render = function() {
         _c("dl", [
           _c("dt", [_vm._v("アイキャッチ画像")]),
           _vm._v(" "),
-          _c("dd", [
+          _c("dd", { staticClass: "p-form-file-preview" }, [
             !_vm.url
               ? _c("img", {
                   staticClass: "js-objectfit",
@@ -21564,22 +21586,12 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
-          _c("dd", [
-            _c(
-              "div",
-              {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.uploadedImage,
-                    expression: "uploadedImage"
-                  }
-                ],
-                staticClass: "p-form-file-preview"
-              },
-              [
-                _c("img", {
+          _c(
+            "dd",
+            [
+              _c(
+                "div",
+                {
                   directives: [
                     {
                       name: "show",
@@ -21588,29 +21600,51 @@ var render = function() {
                       expression: "uploadedImage"
                     }
                   ],
-                  staticClass: "p-form-file-preview__file js-objectfit",
-                  attrs: { src: _vm.uploadedImage }
-                })
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.uploadedImage,
-                    expression: "uploadedImage"
-                  }
-                ],
-                staticClass: "p-form-file__btn",
-                on: { click: _vm.remove }
-              },
-              [_vm._m(4)]
-            )
-          ])
+                  staticClass: "p-form-file-preview"
+                },
+                [
+                  _c("img", {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.uploadedImage,
+                        expression: "uploadedImage"
+                      }
+                    ],
+                    staticClass: "p-form-file-preview__file js-objectfit",
+                    attrs: { src: _vm.uploadedImage }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.uploadedImage,
+                      expression: "uploadedImage"
+                    }
+                  ],
+                  staticClass: "p-form-file__btn",
+                  on: { click: _vm.remove }
+                },
+                [_vm._m(4)]
+              ),
+              _vm._v(" "),
+              _vm._l(_vm.errors, function(error) {
+                return _c(
+                  "span",
+                  { staticClass: "p-form__errorMsg", attrs: { role: "alert" } },
+                  [_c("strong", [_vm._v(_vm._s(error))])]
+                )
+              })
+            ],
+            2
+          )
         ])
       ]),
       _vm._v(" "),
@@ -21736,7 +21770,7 @@ var render = function() {
         _c("dl", [
           _c("dt", [_vm._v("アイキャッチ画像")]),
           _vm._v(" "),
-          _c("dd", [
+          _c("dd", { staticClass: "p-form-file-preview" }, [
             !_vm.url
               ? _c("img", {
                   staticClass: "js-objectfit",
