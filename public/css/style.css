@@ -1319,7 +1319,7 @@ pre {
 
 .p-form-submit button,
 .p-form-submit input[type="submit"] {
-  width: 140px;
+  width: 240px;
   height: 40px;
   border-radius: 20px;
   background-color: #fabe00;
@@ -1338,7 +1338,6 @@ pre {
 @media screen and (min-width: 768px) {
   .p-form-submit button,
   .p-form-submit input[type="submit"] {
-    width: 240px;
     height: 50px;
     border-radius: 25px;
   }
