@@ -21519,8 +21519,8 @@ var render = function() {
                   {
                     name: "show",
                     rawName: "v-show",
-                    value: !_vm.uploadedImage,
-                    expression: "!uploadedImage"
+                    value: !_vm.uploadedImage || !_vm.value.photo,
+                    expression: "!uploadedImage || !value.photo"
                   }
                 ],
                 staticClass: "p-form-file__photo"
