@@ -15,10 +15,10 @@
     height: auto;
     min-height: 100vh;
     padding: 30px 25px;
-    //IE対応
-    @media all and (-ms-high-contrast: none){
-      height: 100vh;
-    }
+  }
+  //IE対応
+  @media all and (-ms-high-contrast: none) and (mix-width: 768px){
+    height: 100vh!important;
   }
   &-top{
     flex: 1;

@@ -1413,10 +1413,11 @@ pre {
     min-height: 100vh;
     padding: 30px 25px;
   }
-  @media all and (-ms-high-contrast: none){
-    .p-header {
-      height: 100vh;
-    }
+}
+
+@media all and (-ms-high-contrast: none) and (mix-width: 768px) {
+  .p-header {
+    height: 100vh !important;
   }
 }
 
